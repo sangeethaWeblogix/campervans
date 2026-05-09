@@ -338,8 +338,8 @@ input[type="checkbox"]:checked ~ .menuIconToggle > .dia.p-2 {
     margin-top: 4px;
 }
 .navbar.style-4.header-white .navbar-nav .nav-item.login .nav-link:hover {
-  background: #f58333;
-  color: #000000;
+  background: #3f3e82;
+  color: #ffffff;
 }
 .overlay {
   position: fixed;

@@ -113,12 +113,12 @@
     const [activeIndex, setActiveIndex] = useState(0);
 
     const stateMeta = {
-      victoria: { code: "VIC", image: "/images/vic_map.svg?=1" },
-      "new-south-wales": { code: "NSW", image: "/images/nsw_map.svg?=1" },
-      queensland: { code: "QLD", image: "/images/qld_map.svg?=1" },
-      "south-australia": { code: "SA", image: "/images/sa_map.svg?=1" },
-      "western-australia": { code: "WA", image: "/images/wa_map.svg?=1" },
-      tasmania: { code: "TAS", image: "/images/tas_map.svg?=1" },
+      victoria: { code: "VIC", image: "/images/vic_map.svg?=2" },
+      "new-south-wales": { code: "NSW", image: "/images/nsw_map.svg?=2" },
+      queensland: { code: "QLD", image: "/images/qld_map.svg?=3" },
+      "south-australia": { code: "SA", image: "/images/sa_map.svg?=4" },
+      "western-australia": { code: "WA", image: "/images/wa_map.svg?=5" },
+      tasmania: { code: "TAS", image: "/images/tas_map.svg?=6" },
     };
 
     const [usedCategoryList, setUsedCategoryList] = useState<TabsItem[]>([]);
@@ -136,7 +136,7 @@
           key: "Region",
           label: "Location",
           cards: regionBands.map((item) => ({
-            title: "Caravans for Sale in " + item.region,
+            title: "Campervans for Sale in " + item.region,
             sub: `${item.caravan_count ?? 0}`,
             url: `/listings/${item.permalink}`,
           })),
@@ -145,7 +145,7 @@
           key: "price",
           label: "Price",
           cards: priceBands.map((item) => ({
-            title: "Caravans for Sale " + item.short_label,
+            title: "Campervans for Sale " + item.short_label,
             sub: `${item.caravan_count ?? 0}`,
             url: `/listings/${item.permalink}`,
           })),
@@ -154,7 +154,7 @@
           key: "Weight",
           label: "Weight",
           cards: atmBands.map((item) => ({
-            title: "Caravans for Sale " + item.short_label,
+            title: "Campervans for Sale " + item.short_label,
             sub: `${item.caravan_count ?? 0}`,
             url: `/listings/${item.permalink}`,
           })),
@@ -163,7 +163,7 @@
           key: "Sleep",
           label: "Sleep",
           cards: sleepBands.map((item) => ({
-            title: "Caravans for Sale " + item.short_label,
+            title: "Campervans for Sale " + item.short_label,
             sub: `${item.caravan_count ?? 0}`,
             url: `/listings/${item.permalink}`,
           })),
@@ -172,7 +172,7 @@
           key: "Length",
           label: "Length",
           cards: lengthBands.map((item) => ({
-            title: "Caravans for Sale " + item.short_label,
+            title: "Campervans for Sale " + item.short_label,
             sub: `${item.caravan_count ?? 0}`,
             url: `/listings/${item.permalink}`,
           })),
@@ -190,7 +190,7 @@
           key: "Manufacturer",
           label: "Manufacturer",
           cards: manufactureBands.map((item) => ({
-            title: item.short_label + " Caravans for Sale",
+            title: item.short_label + " Campervans for Sale",
             sub: `${item.caravan_count ?? 0}`,
             url: `/listings/${item.permalink}`,
           })),
@@ -525,7 +525,7 @@ const BANNER_ENABLED = false;
     <a href="https://www.caravansforsale.com.au/listings/">
       <div className="item-image">
         <Image
-          src="/images/banner_top_dk.jpg?=1"
+          src="/images/banner_top_dk.jpg?=2"
           className="hidden-xs"
           alt="off-road"
           width={2000}
@@ -534,7 +534,7 @@ const BANNER_ENABLED = false;
           unoptimized
         />
         <Image
-          src="/images/banner_top_mb.jpg?=1"
+          src="/images/banner_top_mb.jpg?=2"
           className="hidden-lg hidden-md hidden-sm"
           alt="off-road"
           width={2000}
@@ -552,10 +552,10 @@ const BANNER_ENABLED = false;
               <div className="col-lg-12">
                 <div className="section-head search_home">
                   <h1 className="divide-orange">
-                    Browse New &amp; Used Caravans For Sale
+                    Browse New &amp; Used Campervans For Sale
                   </h1>
                   <p>
-                    Find your ideal caravan from thousands of new and used listings
+                    Find your ideal campervan from thousands of new and used listings
                     across Australia’s top brands, dealers, and private sellers.
 
                   </p>
@@ -573,7 +573,7 @@ const BANNER_ENABLED = false;
                         aria-controls="pills-find"
                         aria-selected="true"
                       >
-                        <span>Caravan Listings by Type</span>
+                        <span>Campervan Listings by Type</span>
                       </button>
                     </li>
                     <li className="nav-item" role="presentation">
@@ -721,7 +721,7 @@ const BANNER_ENABLED = false;
                               ref={searchInputRef}
                               type="text"
                               className="search-box"
-                              placeholder="Try 'caravans with bunks'"
+                              placeholder="Try 'Campervans with bunks'"
                               id="searchInput"
                               autoComplete="off"
                               value={query}
@@ -811,9 +811,9 @@ const BANNER_ENABLED = false;
             <div className="explore-boxes">
               {/* Box 1 */}
               <div className="explore-box active">
-                <h3>See New Caravan Listings</h3>
+                <h3>See New Campervan Listings</h3>
                 <p>
-                  Browse the latest new caravans from top dealerships in Australia.
+                  Browse the latest new campervans from top dealerships in Australia.
                 </p>
                 <a href="/listings/new-condition/" className="btn btn-primary">
                   Browse New Listings <i className="bi bi-chevron-right"></i>
@@ -823,9 +823,9 @@ const BANNER_ENABLED = false;
 
               {/* Box 2 */}
               <div className="explore-box">
-                <h3>Used Caravans For Sale</h3>
+                <h3>Used Campervans For Sale</h3>
                 <p>
-                  Find great deals on quality used caravans for sale by dealers and
+                  Find great deals on quality used campervans for sale by dealers and
                   private sellers.
                 </p>
                 <a href="/listings/used-condition/" className="btn btn-primary">
@@ -836,9 +836,9 @@ const BANNER_ENABLED = false;
 
               {/* Box 3 */}
               <div className="explore-box">
-                <h3>See All Caravans</h3>
+                <h3>See All Campervans</h3>
                 <p>
-                  Explore the full range of new and used caravans across Australia.
+                  Explore the full range of new and used campervans across Australia.
                 </p>
                 <a href="/listings/" className="btn btn-primary">
                   Start Searching <i className="bi bi-chevron-right"></i>
@@ -857,18 +857,18 @@ const BANNER_ENABLED = false;
 
                   {/* LEFT CONTENT */}
                   <div className="sell-content">
-                    <h3>List Your Caravan For Sale Today</h3>
+                    <h3>List Your Campervan For Sale Today</h3>
 
-                    <p className="subtitle">Reach thousands of caravan buyers daily.</p>
+                    <p className="subtitle">Reach thousands of campervan buyers daily.</p>
 
-                    <p className="desc">List your caravan on CaravansForSale.com.au — Australia’s trusted marketplace to buy and sell caravans.</p>
+                    <p className="desc">List your campervan on CampervansForSale.com.au — Australia’s trusted marketplace to buy and sell campervans.</p>
 
                     <div className="btns_two">
                       <a href="/dealer-advertising/" className="btn primary-btn">
                         Dealer Sign Up
                       </a>
 
-                      <a href="/sell-my-caravan/" className="btn secondary-btn">
+                      <a href="/sell-my-campervan/" className="btn secondary-btn">
                         Private Seller - Click Here
                       </a>
                     </div>
@@ -878,7 +878,7 @@ const BANNER_ENABLED = false;
                   {/* <div className="sell-image">
                     <Image
                       src="/images/selling_banner.jpg?=1"
-                      alt="Sell Caravan"
+                      alt="Sell Campervan"
                       fill
                       className="image"
                       priority
@@ -899,7 +899,7 @@ const BANNER_ENABLED = false;
             <div className="row">
               <div className="col">
                 <div className="section-head mb-2 py-2">
-                  <h2>Browse Caravans for sale in Australia by State</h2>
+                  <h2>Browse Campervans for sale in Australia by State</h2>
                 </div>
               </div>
             </div>
@@ -954,7 +954,7 @@ const BANNER_ENABLED = false;
                                     className="view_all"
                                     href={`/listings${item.permalink}`}
                                   >
-                                    View All Caravans for Sale in {stateCode}{" "}
+                                    View All Campervans for Sale in {stateCode}{" "}
                                     <i className="bi bi-chevron-right"></i>
                                   </a>
                                 </div>
@@ -978,7 +978,7 @@ const BANNER_ENABLED = false;
         <div className="quick_links_tabs pb-5">
           <div className="container">
             <div className="section-head mb-2 py-2">
-              <h2>Popular Caravan Searches Across Australia</h2>
+              <h2>Popular Campervan Searches Across Australia</h2>
             </div>
             <div className="custom-tabs-wrap">
               {/* Tabs */}

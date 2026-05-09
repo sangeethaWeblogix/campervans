@@ -3,7 +3,7 @@
   
   import "bootstrap/dist/css/bootstrap.min.css";
   import "bootstrap-icons/font/bootstrap-icons.css";
-  import "./globals.css?=32";
+  import "./globals.css?=37";
   import "@fortawesome/fontawesome-free/css/all.min.css";
   import Navbar from "./navbar/Navbar";
   import Footer from "./footer/Footer";
@@ -19,12 +19,12 @@ import { BannerProvider } from "@/components/BannerHandler";
   
   export const metadata: Metadata = {
     title: {
-      default: "Caravans For Sale – Australia’s Marketplace for New & Used Caravans",
+      default: "Campervans For Sale – Australia’s Marketplace for New & Used Campervans",
       template: "%s ",
     },
     description:
-      "Browse new & used caravans for sale across Australia. Compare prices on off-road, hybrid, pop top, touring, luxury models with size, weight & sleeping capacity",
-    icons: { icon: "/favicon.ico" },
+      "Browse new & used campervans for sale across Australia. Compare prices on luxury, touring, 4x4, off-grid & family campervans with features, layouts & sleeping capacity.",
+    icons: { icon: "/favicon.ico?=1" },
     // robots: "index, follow",
     verification: {
       google: "6tT6MT6AJgGromLaqvdnyyDQouJXq0VHS-7HC194xEo", // ✅ this auto generates <meta name="google-site-verification" />
@@ -59,24 +59,7 @@ const gtmServer = "https://gtm.caravansforsale.com.au";
             rel="stylesheet"
           />
   
-          {/* ✅ Google Tag Manager (Head) */}
-           <script
-  dangerouslySetInnerHTML={{
-    __html: `
-      (function(w,d,s,l,i){
-        w[l]=w[l]||[];
-        w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
-        var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),
-            dl=l!='dataLayer'?'&l='+l:'';
-        j.async=true;
-        j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-        f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-N3362FGQ');
-    `,
-  }}
-/>
-
+          
         
           
         </head>
@@ -87,15 +70,7 @@ const gtmServer = "https://gtm.caravansforsale.com.au";
               "Montserrat, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, 'Apple Color Emoji', 'Segoe UI Emoji'",
           }}
         >
-          {/* ✅ Google Tag Manager (noscript) - right after body */}
-         <noscript>
-  <iframe
-    src="https://www.googletagmanager.com/ns.html?id=GTM-N3362FGQ"
-    height="0"
-    width="0"
-    style={{ display: "none", visibility: "hidden" }}
-  />
-</noscript>
+          
 
   
          <Suspense fallback={null}>

@@ -1,7 +1,7 @@
 
 "use client";
 
-import "./navbar.css";
+import "./navbar.css?=1";
 import { useEffect, useState, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -90,8 +90,8 @@ export default function Navbar() {
           <div className="logo_left">
             <a className="navbar-brand" href="/">
               <Image
-                src="/images/cfs-logo-black.svg?=1"
-                alt="Caravans For Sale"
+                src="/images/camper_logo.svg?=1"
+                alt="Campervans For Sale"
                 width={150}
                 height={50}
               />
@@ -118,8 +118,8 @@ export default function Navbar() {
             >
               <ul className="navbar-nav mb-2 mb-lg-0">
                 <li className="nav-item">
-                  <a className="nav-link" href="/sell-my-caravan/">
-                    Sell My Caravan
+                  <a className="nav-link" href="/sell-my-campervan/">
+                    Sell My Campervan
                   </a>
                 </li>
                 <li className="nav-item">
@@ -179,13 +179,13 @@ export default function Navbar() {
           <div className="sidebar-navigation">
             <ul>
               <li>
-                <a href="/sell-my-caravan/"
+                <a href="/sell-my-campervan/"
                   onClick={() => {
                     setNavigating(true); // start loader immediately
                     closeNav();
                   }}
                 >
-                  Sell My Caravan
+                  Sell My Campervan
                 </a>
               </li>
 
