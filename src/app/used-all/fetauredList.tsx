@@ -19,7 +19,7 @@ type Product = {
 export default function ProductCard({ campervan }: { campervan: Product }) {
   const href = `/product/${campervan.slug}`;
 
-  const base = `https://caravansforsale.imagestack.net/400x300/${caravan.sku}/${caravan.slug}`;
+  const base = `https://caravansforsale.imagestack.net/400x300/${campervan.sku}/${campervan.slug}`;
   const image = `${base}main1.avif`;
 
   const price = campervan.sale_price || campervan.regular_price;

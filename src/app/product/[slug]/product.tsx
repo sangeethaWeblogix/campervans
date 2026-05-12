@@ -8,7 +8,7 @@ import "swiper/css/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import CampervanDetailModal from "./CaravanDetailModal";
-import "./product.css?=226";
+import "./product.css?=227";
  
 import DOMPurify from "dompurify";
 import { type HomeBlogPost } from "@/api/home/api";

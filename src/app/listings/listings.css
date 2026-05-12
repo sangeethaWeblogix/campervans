@@ -453,13 +453,13 @@ h1.page-title {
 }
 
 .pagination-icons button {
-  color: #f58333;
+  color: #3f3e82;
   font-weight: 500;
 }
 
 .pagination-icons button:hover {
-  background: #fff9f4;
-  color: #f58333;
+  background: #e9e9ff;
+  color: #3f3e82;
 }
 
 .filter .filter-card {

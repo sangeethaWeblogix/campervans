@@ -1,6 +1,6 @@
 ﻿import React, { ReactNode } from "react";
 import "../components/ListContent/newList.css";
-import "./listings.css";
+import "./listings.css?=4";
 import "../components/ListContent/newList.css";
 import { Metadata } from "next";
 
