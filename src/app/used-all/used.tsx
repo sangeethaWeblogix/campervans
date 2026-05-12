@@ -20,6 +20,7 @@ import { fetchUsedCampervansList } from "@/api/homeApi/usedCaravanList/api";
 import { fetchFeaturedUsedCampervans } from "@/api/featuredCaravanList/api";
 import FetauredLsit from './fetauredList'
 import LatestList from "./usedCaravanList";
+import { fetchLatestUsedCampervans } from "@/api/usedCaravanList/api";
 import { fetchCampervanList } from "@/api/caravanlist/api";
 
 type BlogItem = {
