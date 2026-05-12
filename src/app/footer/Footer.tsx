@@ -1,4 +1,4 @@
-import "./footer.css?=16";
+﻿import "./footer.css?=16";
 import Link from "next/link";
 // import {
 //   FaFacebookF,
@@ -111,32 +111,32 @@ Marketplace Network makes no representations or warranties regarding the accurac
                 <h6 className="foot-title foot_xs">Popular Pages</h6>
                 <ul className="menu footer_xs">
                   <li>
-                    <Link href="/best-caravans-full-off-road-capabilities-australia/">
-                      Best Off Road Caravans
+                    <Link href="/best-campervans-full-off-road-capabilities-australia/">
+                      Best Off Road Campervans
                     </Link>
                   </li>
                   <li>
-                    <Link href="/best-semi-off-road-caravans-australia-guide/">
-                      Best Semi Off Road Caravans
+                    <Link href="/best-semi-off-road-campervans-australia-guide/">
+                      Best Semi Off Road Campervans
                     </Link>
                   </li>
                   <li>
-                    <Link href="/best-caravans-for-extreme-off-road-travel/">
-                      Best Extreme Off Road Caravans
+                    <Link href="/best-campervans-for-extreme-off-road-travel/">
+                      Best Extreme Off Road Campervans
                     </Link>
                   </li>
                   <li>
-                    <Link href="/best-luxury-caravans-australia-highlights-features-reviews/">
-                      Best Luxury Caravans
+                    <Link href="/best-luxury-campervans-australia-highlights-features-reviews/">
+                      Best Luxury Campervans
                     </Link>
                   </li>
                   <li>
-                    <Link href="/top-family-off-road-caravans-australia/">
-                      Best Family Caravans
+                    <Link href="/top-family-off-road-campervans-australia/">
+                      Best Family Campervans
                     </Link>
                   </li>
                   <li>
-                    <Link href="/touring-caravans/">Best Touring Caravans</Link>
+                    <Link href="/touring-campervans/">Best Touring Campervans</Link>
                   </li>
                 </ul>
               </div> */}

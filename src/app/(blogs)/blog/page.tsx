@@ -1,12 +1,12 @@
-import Blogs from "./page/[page]/BlogListClient";
-import "./blog.css?=1";
+﻿import Blogs from "./page/[page]/BlogListClient";
+import "./blog.css?=2";
 import { Metadata } from "next";
 import { fetchBlogs } from "@/api/blog/api";
 
 export const metadata: Metadata = {
   title: { default: "Latest News, Reviews & Advice", template: "%s " },
   description:
-    "Latest news, in-depth reviews, and expert advice on the latest in the caravan market. Stay informed and make smarter decisions.",
+    "Latest news, in-depth reviews, and expert advice on the latest in the campervan market. Stay informed and make smarter decisions.",
   icons: { icon: "/favicon.ico" },
   robots: "index, follow",
   alternates: {

@@ -1,15 +1,15 @@
- import { Metadata } from "next";
+﻿ import { Metadata } from "next";
 import { ReactNode } from "react";
 
 
 
  export const metadata: Metadata = {
    title: {
-     default: "Terms of Use – CaravansForSale.com.au | Marketplace Network",
+     default: "Terms of Use – CampervansForSale.com.au | Marketplace Network",
      template: "%s ",
    },
    description:
-     "Read the Terms of Use for CaravansForSale.com.au, a marketplace platform operated by Marketplace Network Pty Ltd (ABN 70 694 987 052). Learn about listings, user responsibilities, and platform policies.",
+     "Read the Terms of Use for CampervansForSale.com.au, a marketplace platform operated by Marketplace Network Pty Ltd (ABN 70 694 987 052). Learn about listings, user responsibilities, and platform policies.",
    icons: { icon: "/favicon.ico" },
    robots: "index, follow",
    verification: {
@@ -22,9 +22,9 @@ import { ReactNode } from "react";
    
    openGraph: {
       url: "https://www.caravansforsale.com.au/terms-conditions/",
-     title: "Terms of Use – CaravansForSale.com.au | Marketplace Network",
+     title: "Terms of Use – CampervansForSale.com.au | Marketplace Network",
        description:
-     "Read the Terms of Use for CaravansForSale.com.au, a marketplace platform operated by Marketplace Network Pty Ltd (ABN 70 694 987 052). Learn about listings, user responsibilities, and platform policies.",
+     "Read the Terms of Use for CampervansForSale.com.au, a marketplace platform operated by Marketplace Network Pty Ltd (ABN 70 694 987 052). Learn about listings, user responsibilities, and platform policies.",
      
    },
  };

@@ -1,5 +1,5 @@
 import Dealer from "./dealer";
-import "./dealer.css";
+import "./dealer.css?=4";
 
 
 

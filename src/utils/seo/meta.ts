@@ -1,4 +1,4 @@
- import { fetchListings } from "@/api/listings/api";
+import { fetchListings } from "@/api/listings/api";
 import { parseSlugToFilters } from "@/app/components/urlBuilder";
 import type { Metadata } from "next";
 
@@ -283,7 +283,7 @@ export async function metaFromSlug(
     console.error("❌ fetchListings error in metaFromSlug:", e);
     // API fail ஆனாலும் robots tag கண்டிப்பா return ஆகும்
     return {
-      title: { absolute: "Caravans for Sale in Australia - Find Exclusive Deals" },
+      title: { absolute: "Campervans for Sale in Australia - Find Exclusive Deals" },
       robots: { index: robotsResult.index },
       verification: { google: "6tT6MT6AJgGromLaqvdnyyDQouJXq0VHS-7HC194xEo" },
       alternates: { canonical, languages: {}, media: {} },
@@ -341,7 +341,7 @@ export async function metaFromSlug(
 
   const rawTitle =
     res?.seo_v2?.meta_title?.trim() ||
-    "Caravans for Sale in Australia - Find Exclusive Deals";
+    "Campervans for Sale in Australia - Find Exclusive Deals";
   const title = rawTitle.trim();
   const description = res?.seo_v2?.meta_description?.trim();
 

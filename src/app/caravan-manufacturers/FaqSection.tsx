@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import Link from "next/link";
@@ -11,13 +11,13 @@ type FaqItem = {
 
 const faqData: FaqItem[] = [
   {
-    heading: "1. Everest Caravans",
+    heading: "1. Everest Campervans",
     content: (
       <>
-        <h4>What types of caravans does Everest Caravans specialize in?</h4>
+        <h4>What types of campervans does Everest Campervans specialize in?</h4>
         <p>
-          Everest Caravans specializes in custom-built extreme off-road
-          caravans, including models like{" "}
+          Everest Campervans specializes in custom-built extreme off-road
+          campervans, including models like{" "}
           <Link
             href="https://www.everestcaravans.com.au/range/falcon/"
             target="_blank"
@@ -54,12 +54,12 @@ const faqData: FaqItem[] = [
           </Link>
           .
         </p>
-        <h4>Can I customize my caravan with Everest Caravans?</h4>
+        <h4>Can I customize my campervan with Everest Campervans?</h4>
         <p>
-          Yes, Everest Caravans offers custom-built options to tailor the
-          caravan to your specific needs.
+          Yes, Everest Campervans offers custom-built options to tailor the
+          campervan to your specific needs.
         </p>
-        <h4>Are their caravans family-friendly?</h4>
+        <h4>Are their campervans family-friendly?</h4>
         <p>
           Yes, the Calibra and Summit models are particularly designed to
           accommodate families.
@@ -68,12 +68,12 @@ const faqData: FaqItem[] = [
     ),
   },
   {
-    heading: "2. Orbit Caravans",
+    heading: "2. Orbit Campervans",
     content: (
       <>
-        <h4>What range of caravans does Orbit Caravans offer?</h4>
+        <h4>What range of campervans does Orbit Campervans offer?</h4>
         <p>
-          Orbit Caravans offers luxury off-road caravans like{" "}
+          Orbit Campervans offers luxury off-road campervans like{" "}
           <Link
             href="https://orbitcaravans.com.au/range/discovery-x/"
             target="_blank"
@@ -96,7 +96,7 @@ const faqData: FaqItem[] = [
           </Link>
           .
         </p>
-        <h4>Are Orbit Caravans suitable for couples?</h4>
+        <h4>Are Orbit Campervans suitable for couples?</h4>
         <p>
           Yes, Eclipse X and Space V are perfect for couples seeking a luxurious
           off-road experience.
@@ -107,14 +107,14 @@ const faqData: FaqItem[] = [
     ),
   },
   {
-    heading: "3. Grand City Caravans",
+    heading: "3. Grand City Campervans",
     content: (
       <>
-        <h4>What technology is used in Grand City Caravans?</h4>
+        <h4>What technology is used in Grand City Campervans?</h4>
         <p>
           They use state-of-the-art 3D modeling software for precise builds.
         </p>
-        <h4>Are Grand City Caravans customizable?</h4>
+        <h4>Are Grand City Campervans customizable?</h4>
         <p>
           Yes, models like{" "}
           <Link
@@ -132,7 +132,7 @@ const faqData: FaqItem[] = [
           </Link>{" "}
           offer options.
         </p>
-        <h4>What types of caravans do they offer?</h4>
+        <h4>What types of campervans do they offer?</h4>
         <p>
           Full off-road (Nomad, Explorer), semi off-road{" "}
           <Link
@@ -154,26 +154,26 @@ const faqData: FaqItem[] = [
     ),
   },
   {
-    heading: "4. High Country Caravans",
+    heading: "4. High Country Campervans",
     content: (
       <>
-        <h4>What makes High Country Caravans stand out?</h4>
+        <h4>What makes High Country Campervans stand out?</h4>
         <p>
           They are designed to tackle the harshest Australian off-road
           conditions.
         </p>
         <h4>What models are available?</h4>
         <p>Alpine, Explore, Extreme, and Summit.</p>
-        <h4>Are their caravans family-friendly?</h4>
+        <h4>Are their campervans family-friendly?</h4>
         <p>Yes, with ample space and modern amenities.</p>
       </>
     ),
   },
   {
-    heading: "5. Silver Valley Caravans",
+    heading: "5. Silver Valley Campervans",
     content: (
       <>
-        <h4>What types of caravans does Silver Valley offer?</h4>
+        <h4>What types of campervans does Silver Valley offer?</h4>
         <p>
           Touring models like{" "}
           <Link
@@ -220,10 +220,10 @@ const faqData: FaqItem[] = [
     ),
   },
   {
-    heading: "6. Red Centre Caravans",
+    heading: "6. Red Centre Campervans",
     content: (
       <>
-        <h4>What distinguishes Red Centre Caravans?</h4>
+        <h4>What distinguishes Red Centre Campervans?</h4>
         <p>Sturdy aluminium frame construction.</p>
         <h4>What types do they offer?</h4>
         <p>
@@ -257,7 +257,7 @@ const faqData: FaqItem[] = [
     ),
   },
   {
-    heading: "7. Masterpiece Caravans",
+    heading: "7. Masterpiece Campervans",
     content: (
       <>
         <h4>What range do they provide?</h4>
@@ -270,11 +270,11 @@ const faqData: FaqItem[] = [
     ),
   },
   {
-    heading: "8. Villa Caravans",
+    heading: "8. Villa Campervans",
     content: (
       <>
         <h4>What do they specialize in?</h4>
-        <p>Semi off-road caravans like Escape SE and Escape.</p>
+        <p>Semi off-road campervans like Escape SE and Escape.</p>
         <h4>Are they suitable for rough terrains?</h4>
         <p>Yes, durable for dirt roads and remote travel.</p>
         <h4>Do they offer family-friendly options?</h4>
@@ -286,7 +286,7 @@ const faqData: FaqItem[] = [
     heading: "9. Willow RV",
     content: (
       <>
-        <h4>What types of caravans do they offer?</h4>
+        <h4>What types of campervans do they offer?</h4>
         <p>
           Models include{" "}
           <Link
@@ -326,7 +326,7 @@ const faqData: FaqItem[] = [
     ),
   },
   {
-    heading: "10. Apache Caravans",
+    heading: "10. Apache Campervans",
     content: (
       <>
         <h4>What makes Apache stand out?</h4>

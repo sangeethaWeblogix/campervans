@@ -379,12 +379,12 @@ input[type="checkbox"]:checked ~ .menuIconToggle > .dia.p-2 {
 }
 
 .dropdown-menu .dropdown-item:hover {
-  color: #f58333;
+  color: #4a4a99;
 }
 
 .navbar.style-4 .navbar-nav .nav-item:hover .nav-link,
 .navbar.style-4 .navbar-nav .nav-item .nav-link.active {
-  color: #f58333;
+  color: #4a4a99;
 }
 
 /* Additional styles for the sidebar dropdowns */
@@ -419,8 +419,8 @@ input[type="checkbox"]:checked ~ .menuIconToggle > .dia.p-2 {
 }
 
 .mobile_cta a.btn {
-  background-color: #ec7200;
-  border-color: #ec7200;
+  background-color: #3f3e82;
+  border-color: #3f3e82;
   display: inline-block;
   padding: 10px 10px;
   color: #fff;

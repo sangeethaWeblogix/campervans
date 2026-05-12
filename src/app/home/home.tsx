@@ -1,9 +1,9 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useState, useRef } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 //  import "bootstrap/dist/js/bootstrap.bundle.min.js";
-import "./main.css?=18";
+import "./main.css?=20";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
@@ -21,7 +21,7 @@ interface Item {
   capacity: number;
   slug: string;
   permalink: string;
-  caravan_count: string;
+  campervan_count: string;
   starting_price: number;
   display_text: string;
   state: string;
@@ -159,8 +159,8 @@ export default function HomePage({
           <PostRequirement />
         </section> */}
 
-      {/* Caravans by Manufacturer Section */}
-      <section className="caravans_by_manufacturer related-products section-padding">
+      {/* Campervans by Manufacturer Section */}
+      <section className="campervans_by_manufacturer related-products section-padding">
         <Manufactures />
       </section>
 

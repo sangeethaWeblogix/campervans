@@ -1,4 +1,4 @@
-  "use client";
+﻿  "use client";
 
   import {
     Suspense,
@@ -1679,7 +1679,7 @@ useEffect(() => {
             focusSection={modalFocusSection}
           />
 
-          //  <CaravanFilter
+          //  <CampervanFilter
           //                         categories={categories}
           //                         makes={makes}
           //                         models={models}
@@ -1806,7 +1806,7 @@ useEffect(() => {
                   setIsMainLoading={setIsMainLoading}
                 />
 
-                //  <CaravanFilter
+                //  <CampervanFilter
                 //                         categories={categories}
                 //                         makes={makes}
                 //                         models={models}

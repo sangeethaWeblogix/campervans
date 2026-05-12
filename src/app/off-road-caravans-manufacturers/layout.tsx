@@ -1,15 +1,15 @@
- import { Metadata } from "next";
+﻿ import { Metadata } from "next";
 import { ReactNode } from "react";
 
 
 
  export const metadata: Metadata = {
    title: {
-     default: "Off-Road Caravan Manufacturers in Australia: Top Brands &amp; Models",
+     default: "Off-Road Campervan Manufacturers in Australia: Top Brands &amp; Models",
      template: "%s ",
    },
    description:
-     "Find the best off-road caravan manufacturers in Australia. Off road caravans built with the highest quality standards and offer serious value for money.",
+     "Find the best off-road campervan manufacturers in Australia. Off road campervans built with the highest quality standards and offer serious value for money.",
    icons: { icon: "/favicon.ico" },
    robots: "index, follow",
    verification: {
@@ -22,9 +22,9 @@ import { ReactNode } from "react";
    
    openGraph: {
       url: "https://admin.caravansforsale.com.au/off-road-caravan-manufacturers/",
-     title: "Off-Road Caravan Manufacturers in Australia: Top Brands & Models",
+     title: "Off-Road Campervan Manufacturers in Australia: Top Brands & Models",
      description:
-       "Find the best off-road caravan manufacturers in Australia. Off road caravans built with the highest quality standards and offer serious value for money.",
+       "Find the best off-road campervan manufacturers in Australia. Off road campervans built with the highest quality standards and offer serious value for money.",
      
    },
  };

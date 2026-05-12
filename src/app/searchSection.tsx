@@ -1,4 +1,4 @@
-
+﻿
   // src/app/components/SearchSection.tsx
   "use client";
   import "bootstrap/dist/css/bootstrap.min.css";
@@ -21,13 +21,13 @@
   import { fetchSleepBands } from "@/api/homeApi/sleep/api";
   import { fetchRegion } from "@/api/homeApi/region/api";
   import { fetchManufactures } from "@/api/homeApi/manufacture/api";
-  import { fetchPriceBasedCaravans } from "@/api/homeApi/price/api";
-  import { fetchAtmBasedCaravans } from "@/api/homeApi/weight/api";
-  import { fetchLengthBasedCaravans } from "@/api/homeApi/length/api";
-  import { fetchUsedCaravansList } from "@/api/homeApi/usedCaravanList/api";
-  import { fetchStateBasedCaravans } from "@/api/homeApi/state/api";
+  import { fetchPriceBasedCampervans } from "@/api/homeApi/price/api";
+  import { fetchAtmBasedCampervans } from "@/api/homeApi/weight/api";
+  import { fetchLengthBasedCampervans } from "@/api/homeApi/length/api";
+  import { fetchUsedCampervansList } from "@/api/homeApi/usedCaravanList/api";
+  import { fetchStateBasedCampervans } from "@/api/homeApi/state/api";
   import TabCardSkeleton from "./components/TabCardSkeleton";
-  import CaravansByStateSkeleton from "./components/Caravansbystateskeleton";
+  import CampervansByStateSkeleton from "./components/Caravansbystateskeleton";
   import SearchSuggestionSkeleton from "./components/Searchsuggestionskeleton ";
   import { useBanners } from "@/components/BannerHandler";
   import { useBannerTracking } from "@/hooks/useBannerTracking";
@@ -39,7 +39,7 @@
     capacity: number;
     slug: string;
     permalink: string;
-    caravan_count: string;
+    campervan_count: string;
     starting_price: number;
     display_text: string;
     state: string;
@@ -137,7 +137,7 @@
           label: "Location",
           cards: regionBands.map((item) => ({
             title: "Campervans for Sale in " + item.region,
-            sub: `${item.caravan_count ?? 0}`,
+            sub: `${item.campervan_count ?? 0}`,
             url: `/listings/${item.permalink}`,
           })),
         },
@@ -146,7 +146,7 @@
           label: "Price",
           cards: priceBands.map((item) => ({
             title: "Campervans for Sale " + item.short_label,
-            sub: `${item.caravan_count ?? 0}`,
+            sub: `${item.campervan_count ?? 0}`,
             url: `/listings/${item.permalink}`,
           })),
         },
@@ -155,7 +155,7 @@
           label: "Weight",
           cards: atmBands.map((item) => ({
             title: "Campervans for Sale " + item.short_label,
-            sub: `${item.caravan_count ?? 0}`,
+            sub: `${item.campervan_count ?? 0}`,
             url: `/listings/${item.permalink}`,
           })),
         },
@@ -164,7 +164,7 @@
           label: "Sleep",
           cards: sleepBands.map((item) => ({
             title: "Campervans for Sale " + item.short_label,
-            sub: `${item.caravan_count ?? 0}`,
+            sub: `${item.campervan_count ?? 0}`,
             url: `/listings/${item.permalink}`,
           })),
         },
@@ -173,7 +173,7 @@
           label: "Length",
           cards: lengthBands.map((item) => ({
             title: "Campervans for Sale " + item.short_label,
-            sub: `${item.caravan_count ?? 0}`,
+            sub: `${item.campervan_count ?? 0}`,
             url: `/listings/${item.permalink}`,
           })),
         },
@@ -191,7 +191,7 @@
           label: "Manufacturer",
           cards: manufactureBands.map((item) => ({
             title: item.short_label + " Campervans for Sale",
-            sub: `${item.caravan_count ?? 0}`,
+            sub: `${item.campervan_count ?? 0}`,
             url: `/listings/${item.permalink}`,
           })),
         },
@@ -849,7 +849,7 @@ const BANNER_ENABLED = false;
       
           </div>
         </div>
-        <section className="caravans_by_state related-products services section-padding pt-2 style-1">
+        <section className="campervans_by_state related-products services section-padding pt-2 style-1">
           <div className="container">
             <div className="row">
               <div className="col-lg-12">
@@ -893,8 +893,8 @@ const BANNER_ENABLED = false;
           </div>
         </section>
 
-        {/* Caravans by State Section */}
-        <div className="caravans_by_state related-products services section-padding style-1 pt-0">
+        {/* Campervans by State Section */}
+        <div className="campervans_by_state related-products services section-padding style-1 pt-0">
           <div className="container">
             <div className="row">
               <div className="col">
@@ -904,7 +904,7 @@ const BANNER_ENABLED = false;
               </div>
             </div>
             {stateBandsLoading ? (
-              <CaravansByStateSkeleton count={4} />
+              <CampervansByStateSkeleton count={4} />
             ) : (
               <div className="content">
                 <div className="explore-state position-relative">

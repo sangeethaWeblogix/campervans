@@ -1,4 +1,4 @@
-export const filterOptions = {
+﻿export const filterOptions = {
   categories: [
     { name: "Off Road", slug: "/off-road-category/" },
     { name: "Family", slug: "/family-category/" },
@@ -9,15 +9,15 @@ export const filterOptions = {
   ],
    
    price: [
-    { name: "Caravans Under $20,000 in Australia", slug: "/under-20000/" },
-    { name: "Caravans between $20,000 to $30,000 in Australia", slug: "/between-20000-30000/" },
-    { name: "Caravans between $30,000 to $40,000 in Australia", slug: "/between-30000-40000/" },
-    { name: "Caravans between $40,000 to $50,000 in Australia", slug: "/between-40000-50000/" },
-    { name: "Caravans between $50,000 to $70,000 in Australia", slug: "/between-50000-70000/" },
-    { name: "Caravans between $70,000 to $100,000 in Australia", slug: "/between-70000-100000/" },
-    { name: "Caravans between $100,000 to $150,000 in Australia", slug: "/between-100000-150000/" },
-    { name: "Caravans between $150,000 to $200,000 in Australia", slug: "/between-150000-200000/" },
-    { name: "Caravans Over $200,000 in Australia", slug: "/over-200000/" },
+    { name: "Campervans Under $20,000 in Australia", slug: "/under-20000/" },
+    { name: "Campervans between $20,000 to $30,000 in Australia", slug: "/between-20000-30000/" },
+    { name: "Campervans between $30,000 to $40,000 in Australia", slug: "/between-30000-40000/" },
+    { name: "Campervans between $40,000 to $50,000 in Australia", slug: "/between-40000-50000/" },
+    { name: "Campervans between $50,000 to $70,000 in Australia", slug: "/between-50000-70000/" },
+    { name: "Campervans between $70,000 to $100,000 in Australia", slug: "/between-70000-100000/" },
+    { name: "Campervans between $100,000 to $150,000 in Australia", slug: "/between-100000-150000/" },
+    { name: "Campervans between $150,000 to $200,000 in Australia", slug: "/between-150000-200000/" },
+    { name: "Campervans Over $200,000 in Australia", slug: "/over-200000/" },
   ],
   atm: [
     { name: "Under 1500kg", slug: "/under-1500-kg-atm/", value: "1500" },

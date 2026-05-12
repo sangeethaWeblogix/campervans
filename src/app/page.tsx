@@ -1,14 +1,14 @@
- import Home from "./home/home";
+﻿ import Home from "./home/home";
 import "./globals.css";
 import { Metadata } from "next";
 import { fetchSleepBands } from "@/api/homeApi/sleep/api";
 import { fetchRegion } from "@/api/homeApi/region/api";
 import { fetchManufactures } from "@/api/homeApi/manufacture/api";
-import { fetchPriceBasedCaravans } from "@/api/homeApi/price/api";
-import { fetchAtmBasedCaravans } from "@/api/homeApi/weight/api";
-import { fetchLengthBasedCaravans } from "@/api/homeApi/length/api";
-import { fetchUsedCaravansList } from "@/api/homeApi/usedCaravanList/api";
-import { fetchStateBasedCaravans } from "@/api/homeApi/state/api";
+import { fetchPriceBasedCampervans } from "@/api/homeApi/price/api";
+import { fetchAtmBasedCampervans } from "@/api/homeApi/weight/api";
+import { fetchLengthBasedCampervans } from "@/api/homeApi/length/api";
+import { fetchUsedCampervansList } from "@/api/homeApi/usedCaravanList/api";
+import { fetchStateBasedCampervans } from "@/api/homeApi/state/api";
 import { fetchRequirements } from "@/api/postRquirements/api";
 
  import { fetchHomePage, type HomeBlogPost } from "@/api/home/api";
@@ -49,11 +49,11 @@ import { fetchRequirements } from "@/api/postRquirements/api";
      fetchSleepBands(),
      fetchRegion(),
      fetchManufactures(),
-     fetchAtmBasedCaravans(),
-     fetchLengthBasedCaravans(),
-     fetchPriceBasedCaravans(),
-     fetchUsedCaravansList(),
-     fetchStateBasedCaravans(),
+     fetchAtmBasedCampervans(),
+     fetchLengthBasedCampervans(),
+     fetchPriceBasedCampervans(),
+     fetchUsedCampervansList(),
+     fetchStateBasedCampervans(),
          fetchRequirements(), // ← add
          fetchHomePage(),
 

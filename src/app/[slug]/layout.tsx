@@ -1,4 +1,4 @@
- // export const dynamic = "force-dynamic"
+﻿ // export const dynamic = "force-dynamic"
 ;
 
 import { Metadata } from "next";
@@ -38,11 +38,11 @@ export async function generateMetadata({
   const seo = data?.seo ?? {};
   const post = data?.data?.blog_detail || {};
 
-  const title = seo.metatitle || post.title || "Caravans for Sale Blog";
+  const title = seo.metatitle || post.title || "Campervans for Sale Blog";
   const description =
     seo.metadescription ||
     post.short_description ||
-    "Read more on Caravans for Sale.";
+    "Read more on Campervans for Sale.";
   const canonical = `https://www.caravansforsale.com.au/${slug}/`;
 
   return {
@@ -93,11 +93,11 @@ export default async function Layout({
   const seo = data?.seo ?? {};
 
   const canonical = `https://www.caravansforsale.com.au/${slug}/`;
-  const title = seo.metatitle || post.title || "Caravans for Sale Blog";
+  const title = seo.metatitle || post.title || "Campervans for Sale Blog";
   const description =
     seo.metadescription ||
     post.short_description ||
-    "Read more on Caravans for Sale.";
+    "Read more on Campervans for Sale.";
 
   const bannerImage =
     post.banner_image ||
@@ -120,7 +120,7 @@ export default async function Layout({
     },
     publisher: {
       "@type": "Organization",
-      name: "Caravans for Sale",
+      name: "Campervans for Sale",
     },
    datePublished: post.date
       ? new Date(post.date).toISOString()

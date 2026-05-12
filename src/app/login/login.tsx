@@ -1,4 +1,4 @@
-
+﻿
 
 
 export default function LoginPage() {
@@ -28,7 +28,7 @@ export default function LoginPage() {
               <div className="login-body">
                 <div className="login-title">Private Seller Login</div>
                 <div className="login-sub">
-                  Manage or list your caravan for sale
+                  Manage or list your campervan for sale
                 </div>
               </div>
             </a>
@@ -46,7 +46,7 @@ export default function LoginPage() {
               <div className="login-body">
                 <div className="login-title">Dealer Login</div>
                 <div className="login-sub">
-                  Access dealer tools and manage caravan listings
+                  Access dealer tools and manage campervan listings
                 </div>
               </div>
             </a>
@@ -54,8 +54,8 @@ export default function LoginPage() {
 
           {/*<div className="social">
             <span className="text">
-              Grow your caravan dealership with unlimited listings and
-              high-intent buyer leads. Reach serious caravan shoppers across
+              Grow your campervan dealership with unlimited listings and
+              high-intent buyer leads. Reach serious campervan shoppers across
               Australia with CFS.
             </span>
           </div> */}

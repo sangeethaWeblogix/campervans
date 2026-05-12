@@ -1,7 +1,7 @@
-"use client";
+﻿"use client";
 import { useState } from "react";
 
-const SellYourCaravan = () => {
+const SellYourCampervan = () => {
 
   const [activeFaq, setActiveFaq] = useState(null);
 
@@ -18,10 +18,10 @@ const SellYourCaravan = () => {
             <div className="col-lg-12 col-md-12">
               <div className="banner_text text-center">
                 <h1 className="mb-2">
-                  Sell Your Caravan
+                  Sell Your Campervan
                   <article>
                     <span> $35 </span>
-                    <span style={{ color: "#f58333", fontSize: "20px" }}>
+                    <span style={{ color: "#3f3e82", fontSize: "20px" }}>
                       (inc. GST)
                     </span>
                     <span style={{ fontSize: "33px", color: "black" }}>
@@ -35,7 +35,7 @@ const SellYourCaravan = () => {
                 </p>
 
                 <a href="https://seller.caravansforsale.com.au/seller-signup/" className="btn white_btn">
-                  List Your Caravan
+                  List Your Campervan
                 </a>
               </div>
             </div>
@@ -51,22 +51,22 @@ const SellYourCaravan = () => {
 
               {[
                 {
-                  img: "/images/chat2.png",
+                  img: "/images/chat2.png?=1",
                   title: "Direct Buyer Contact",
                   desc: "Connect directly with interested buyers."
                 },
                 {
-                  img: "/images/calendar.png",
+                  img: "/images/calendar.png?=2",
                   title: "Live Until Sold",
-                  desc: "Your listing stays online until your caravan is sold."
+                  desc: "Your listing stays online until your campervan is sold."
                 },
                 {
-                  img: "/images/caravan.png",
-                  title: "Caravan-Only Marketplace",
-                  desc: "Reach a targeted audience of caravan buyers."
+                  img: "/images/campervan.png?=3",
+                  title: "Campervan-Only Marketplace",
+                  desc: "Reach a targeted audience of campervan buyers."
                 },
                 {
-                  img: "/images/dollar.png",
+                  img: "/images/dollar.png?=4",
                   title: "Keep 100% of Your Sale",
                   desc: "Pay only $35 Inc GST per listing. No commissions or hidden costs."
                 }
@@ -95,18 +95,18 @@ const SellYourCaravan = () => {
           <div className="row">
             <div className="col-md-12 col-lg-12">
               <div className="comparison">
-                <h2>Reach caravan buyers across Australia</h2>
+                <h2>Reach campervan buyers across Australia</h2>
 
                 <img
-                  src="/images/your-caravan-desktop-seller.jpg"
+                  src="/images/your-campervan-desktop-seller.jpg"
                   className="img-fluid d-none d-lg-block"
-                  alt="Caravan For Sale Desktop"
+                  alt="Campervan For Sale Desktop"
                 />
 
                 <img
-                  src="/images/your-caravan-mobile.png"
-                  className="img-fluid d-block d-lg-none caravan-mobile-img"
-                  alt="Caravan For Sale Mobile"
+                  src="/images/your-campervan-mobile.png"
+                  className="img-fluid d-block d-lg-none campervan-mobile-img"
+                  alt="Campervan For Sale Mobile"
                 />
               </div>
             </div>
@@ -122,12 +122,12 @@ const SellYourCaravan = () => {
                 </div>
                 <span className="special_tag">One-Time Listing Fee</span>
                 <ul>
-                  <li>1 caravan listed until sold</li>
+                  <li>1 campervan listed until sold</li>
                   <li>Edit your listing anytime</li>
                   <li>No expiration or monthly fees</li>
                 </ul>
                 <a href="https://seller.caravansforsale.com.au/seller-signup/" className="btn white_btn">
-                  List My Caravan Now
+                  List My Campervan Now
                 </a>
               </div>
 
@@ -163,7 +163,7 @@ const SellYourCaravan = () => {
                     className="btn btn-link btn-block text-left py-2"
                     onClick={() => toggleFaq(1)}
                   >
-                    How do I list my caravan for sale on CaravansForSale?
+                    How do I list my campervan for sale on CampervansForSale?
                     <span className="accordion-icon">
                       <i className={`fa-solid fa-angle-down ${activeFaq === 1 ? "d-none" : ""}`}></i>
                       <i className={`fa-solid fa-angle-up ${activeFaq === 1 ? "" : "d-none"}`}></i>
@@ -174,25 +174,25 @@ const SellYourCaravan = () => {
 
               <div className={`collapse ${activeFaq === 1 ? "show" : ""}`}>
                 <div className="card-body">
-                  <p>Listing your caravan is easy and only takes a few minutes:</p>
+                  <p>Listing your campervan is easy and only takes a few minutes:</p>
 
                   <ul>
-                    <li><b>1. Sign Up/Login:</b> Create a free account on CaravansForSale (or log in to
+                    <li><b>1. Sign Up/Login:</b> Create a free account on CampervansForSale (or log in to
                       your existing
                       account).</li>
-                    <li><b>2. Create Your Listing:</b> Click the "Sell My Caravan" (or similar) button
+                    <li><b>2. Create Your Listing:</b> Click the "Sell My Campervan" (or similar) button
                       and
                       enter your
-                      caravan’s details. You’ll add a description, price, location, and any key
+                      campervan’s details. You’ll add a description, price, location, and any key
                       features.</li>
-                    <li><b>3. Upload Photos: </b>Add clear photos of your caravan (interior and
+                    <li><b>3. Upload Photos: </b>Add clear photos of your campervan (interior and
                       exterior)
                       to attract
                       buyers.</li>
                     <li><b>4. Pay & Publish:</b> Pay the one-time $35 listing fee and publish your ad.
                       Once
                       submitted,
-                      your listing goes live on our site and is visible to thousands of caravan buyers
+                      your listing goes live on our site and is visible to thousands of campervan buyers
                       Australia-wide!</li>
                   </ul>
                 </div>
@@ -207,7 +207,7 @@ const SellYourCaravan = () => {
                     className="btn btn-link btn-block text-left py-2"
                     onClick={() => toggleFaq(2)}
                   >
-                    How much does it cost to list my caravan, and are there any other fees?
+                    How much does it cost to list my campervan, and are there any other fees?
                     <span className="accordion-icon">
                       <i className={`fa-solid fa-angle-down ${activeFaq === 2 ? "d-none" : ""}`}></i>
                       <i className={`fa-solid fa-angle-up ${activeFaq === 2 ? "" : "d-none"}`}></i>
@@ -218,10 +218,10 @@ const SellYourCaravan = () => {
 
               <div className={`collapse ${activeFaq === 2 ? "show" : ""}`}>
                 <div className="card-body">
-                  <p> It costs just $35 to list your caravan on CaravansForSale as a private seller. This
+                  <p> It costs just $35 to list your campervan on CampervansForSale as a private seller. This
                     is a one-time listing fee – no subscriptions and no ongoing monthly charges. We do
                     not take any commission on your sale, so you keep 100% of the sale price. There are
-                    no hidden fees or success fees; one flat $35 and your ad stays up until your caravan
+                    no hidden fees or success fees; one flat $35 and your ad stays up until your campervan
                     is sold.</p>
                 </div>
               </div>
@@ -246,9 +246,9 @@ const SellYourCaravan = () => {
 
               <div className={`collapse ${activeFaq === 3 ? "show" : ""}`}>
                 <div className="card-body">
-                  <p>Your ad stays live until your caravan is sold – there are no expiry dates to worry
+                  <p>Your ad stays live until your campervan is sold – there are no expiry dates to worry
                     about. Unlike some sites that might limit your listing to 30 or 60 days,
-                    CaravansForSale keeps your listing up for as long as it takes to find the right
+                    CampervansForSale keeps your listing up for as long as it takes to find the right
                     buyer. You won’t need to renew or pay again to keep it online.</p>
                 </div>
               </div>
@@ -262,7 +262,7 @@ const SellYourCaravan = () => {
                     className="btn btn-link btn-block text-left py-2"
                     onClick={() => toggleFaq(4)}
                   >
-                    How do interested buyers contact me about my caravan?
+                    How do interested buyers contact me about my campervan?
                     <span className="accordion-icon">
                       <i className={`fa-solid fa-angle-down ${activeFaq === 4 ? "d-none" : ""}`}></i>
                       <i className={`fa-solid fa-angle-up ${activeFaq === 4 ? "" : "d-none"}`}></i>
@@ -319,7 +319,7 @@ const SellYourCaravan = () => {
                     className="btn btn-link btn-block text-left py-2"
                     onClick={() => toggleFaq(6)}
                   >
-                    What if I sell my caravan or change my mind about selling?
+                    What if I sell my campervan or change my mind about selling?
                     <span className="accordion-icon">
                       <i className={`fa-solid fa-angle-down ${activeFaq === 6 ? "d-none" : ""}`}></i>
                       <i className={`fa-solid fa-angle-up ${activeFaq === 6 ? "" : "d-none"}`}></i>
@@ -330,7 +330,7 @@ const SellYourCaravan = () => {
 
               <div className={`collapse ${activeFaq === 6 ? "show" : ""}`}>
                 <div className="card-body">
-                  <p>No problem at all – you’re in control. If your caravan is sold or you decide not to
+                  <p>No problem at all – you’re in control. If your campervan is sold or you decide not to
                     sell anymore, you can simply mark your listing as “Sold” or remove it from the site
                     at any time. There are no penalties or extra fees for ending your listing early. We
                     want you to have the flexibility to manage your ad as you see fit.</p>
@@ -357,16 +357,16 @@ const SellYourCaravan = () => {
 
               <div className={`collapse ${activeFaq === 7 ? "show" : ""}`}>
                 <div className="card-body">
-                  <p>We allow you to add multiple photos (plenty, in fact) to showcase your caravan.
+                  <p>We allow you to add multiple photos (plenty, in fact) to showcase your campervan.
                     There’s a generous photo limit, so feel free to upload lots of clear pictures from
                     all angles – exterior, interior, layout, special features, etc. High-quality photos
                     help attract more buyers, so the more the merrier!</p>
-                  <p>In your listing description, be sure to include important details about your caravan:
+                  <p>In your listing description, be sure to include important details about your campervan:
                     the make and model, year of manufacture, overall condition, any upgrades or
                     accessories, and the registration or roadworthy status. Mentioning highlights (like
                     a new awning or recently serviced brakes) and being honest about any minor issues
                     will build trust with buyers. The more information you provide, the easier it is for
-                    buyers to get excited about your caravan.</p>
+                    buyers to get excited about your campervan.</p>
                 </div>
               </div>
             </div>
@@ -393,7 +393,7 @@ const SellYourCaravan = () => {
                   <p>Yes. Once you’ve connected with an interested buyer, all the sale details are handled
                     between you and the buyer. This means you will arrange things like inspections, test
                     towing (if applicable), payment, and transfer of ownership directly with the buyer.
-                    CaravansForSale does not process payments or get involved in the transaction – we
+                    CampervansForSale does not process payments or get involved in the transaction – we
                     simply provide the marketplace to connect you both. We recommend using secure
                     payment methods and completing any necessary paperwork (e.g. transfer of
                     registration) to finalize the sale. </p>
@@ -409,4 +409,4 @@ const SellYourCaravan = () => {
   );
 }
 
-export default SellYourCaravan;
+export default SellYourCampervan;

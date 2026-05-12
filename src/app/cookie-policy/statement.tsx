@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 export default function CookiePolicy() {
   return (
@@ -24,7 +24,7 @@ export default function CookiePolicy() {
               </p>
 
               <ul>
-                <li>caravansforsale.com.au</li>
+                <li>campervansforsale.com.au</li>
                 
               </ul>
 

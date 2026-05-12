@@ -1,7 +1,7 @@
-"use client";
+﻿"use client";
 
 // ─────────────────────────────────────────────────────────────
-// CaravansByStateSkeleton.tsx
+// CampervansByStateSkeleton.tsx
 // Skeleton that exactly mirrors the real card UI:
 //   • Map image  → top-center
 //   • State name → bold centered heading
@@ -137,16 +137,16 @@ const SkCard: React.FC<{ delay?: number }> = ({ delay = 0 }) => (
   </div>
 );
 
-const CaravansByStateSkeleton: React.FC<{ count?: number }> = ({
+const CampervansByStateSkeleton: React.FC<{ count?: number }> = ({
   count = 4,
 }) => (
   <>
     <style>{STYLES}</style>
 
     <div
-      className="caravans_by_state related-products services section-padding style-1 pt-0"
+      className="campervans_by_state related-products services section-padding style-1 pt-0"
       aria-busy="true"
-      aria-label="Loading caravans by state…"
+      aria-label="Loading campervans by state…"
     >
       <div className="container">
         {/* Section heading */}
@@ -177,4 +177,4 @@ const CaravansByStateSkeleton: React.FC<{ count?: number }> = ({
   </>
 );
 
-export default CaravansByStateSkeleton;
+export default CampervansByStateSkeleton;

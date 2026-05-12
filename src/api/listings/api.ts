@@ -1,4 +1,4 @@
-const API_BASE = process.env.NEXT_PUBLIC_CFS_API_BASE;
+﻿const API_BASE = process.env.NEXT_PUBLIC_CFS_API_BASE;
 
 interface Filters {
   page?: number;
@@ -189,6 +189,18 @@ export const fetchListings = async (
   } catch {
     console.error("Invalid JSON response:", raw);
     throw new Error("Invalid API response");
+  }
+
+  // Normalise API "Caravan/Caravans" → "Campervan/Campervans" in SEO fields
+  const replaceCampervan = (s?: string) =>
+    s?.replace(/\bCaravans\b/g, "Campervans").replace(/\bCaravan\b/g, "Campervan");
+
+  if (json.seo_v2) {
+    json.seo_v2.h1             = replaceCampervan(json.seo_v2.h1);
+    json.seo_v2.meta_title     = replaceCampervan(json.seo_v2.meta_title);
+    json.seo_v2.meta_description = replaceCampervan(json.seo_v2.meta_description);
+    json.seo_v2.metatitle      = replaceCampervan(json.seo_v2.metatitle);
+    json.seo_v2.metadescription = replaceCampervan(json.seo_v2.metadescription);
   }
 
   // Return all useful sections from API

@@ -1,4 +1,4 @@
-import { fetchLocations } from "@/api/location/api";
+﻿import { fetchLocations } from "@/api/location/api";
 import React, {
   useState,
   Dispatch,
@@ -80,7 +80,7 @@ export interface Filters {
   keyword?: string; // <- for keyword search
 }
 
-interface CaravanFilterProps {
+interface CampervanFilterProps {
   categories: Category[];
   makes: Make[];
   models: Model[];
@@ -114,7 +114,7 @@ type HomeSearchItem = {
 };
 
 type KeywordItem = { label: string; url?: string };
-const CaravanFilter: React.FC<CaravanFilterProps> = ({
+const CampervanFilter: React.FC<CampervanFilterProps> = ({
   onFilterChange,
   currentFilters,
 }) => {
@@ -214,7 +214,7 @@ const CaravanFilter: React.FC<CaravanFilterProps> = ({
 
   const years = [
     2025, 2024, 2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014,
-    2013, 2012, 2011, 2010, 2009, 2008, 2007, 2006, 2005, 2004,
+    2013, 2012, 2011, 2010, 2009, 2008, 2007, 2006, 2005, 2004,2003, 2002, 2001, 2000,
   ];
 
   const length = [
@@ -3275,4 +3275,4 @@ const CaravanFilter: React.FC<CaravanFilterProps> = ({
   );
 };
 
-export default CaravanFilter;
+export default CampervanFilter;

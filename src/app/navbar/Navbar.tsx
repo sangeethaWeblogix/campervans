@@ -1,7 +1,7 @@
-
+﻿
 "use client";
 
-import "./navbar.css?=1";
+import "./navbar.css?=12";
 import { useEffect, useState, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -540,7 +540,7 @@ export default function Navbar() {
                     closeNav();
                   }}
                 >
-                  Used Caravans
+                  Used Campervans
                 </a>
               </li>  */}
               <li>
@@ -578,8 +578,8 @@ export default function Navbar() {
               </li>
             </ul>
             {/* <div className="mobile_cta hidden-lg hidden-md">
-              <span>Find Your Ideal Caravan</span>
-              <a className="btn btn-primary" href="/caravan-enquiry-form/" onClick={() => {
+              <span>Find Your Ideal Campervan</span>
+              <a className="btn btn-primary" href="/campervan-enquiry-form/" onClick={() => {
                 setNavigating(true); // start loader immediately
                 closeNav();
               }}>

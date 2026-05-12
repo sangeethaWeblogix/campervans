@@ -220,15 +220,15 @@ h1.page-title {
 }
 
 .product-page .other_items .product-card .btn.btn-primary {
-  background-color: #ec7200;
-  border-color: #ec7200;
+  background-color: #3f3e82;
+  border-color: #3f3e82;
   color: #ffffff;
 }
 
 .product-page .other_items .product-card .btn:hover,
 .product-page .other_items .product-card .btn.btn-primary:hover {
-  background-color: #000000;
-  border-color: #000000;
+  background-color: #4a4a99;
+  border-color: #4a4a99;
   color: #ffffff;
 }
 
@@ -431,7 +431,7 @@ h1.page-title {
 }
 
 .close-popup:hover {
-  color: #f58333;
+  color: #3f3e82;
 }
 
 .popup-content {
@@ -545,13 +545,13 @@ h1.page-title {
   letter-spacing: -0.2px;
 }
 .terms_text a {
-  color: #f58333;
+  color: #3f3e82;
 }
 .submit-btn button {
   display: inline-block;
   margin-top: 0;
-  background: #f58333;
-  border: 1px solid #f58333;
+  background: #3f3e82;
+  border: 1px solid #3f3e82;
   color: #fff;
   padding: 15px 20px;
   text-transform: uppercase;
@@ -560,8 +560,8 @@ h1.page-title {
   width: 100%;
 }
 .submit-btn button:hover {
-  background: #000000;
-  border: 1px solid #000000;
+  background: #4a4a99;
+  border: 1px solid #4a4a99;
 }
 
 .product-page .new_listing .related-products .swiper-button-prev,
@@ -688,7 +688,7 @@ h1.page-title {
 }
 
 .filter_sticky .clear_btn {
-  color: #ec7200;
+  color: #3f3e82;
   cursor: pointer;
   font-size: 13px;
   font-weight: 500;

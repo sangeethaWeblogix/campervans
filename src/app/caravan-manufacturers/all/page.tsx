@@ -1,17 +1,17 @@
-// export const dynamic = "force-dynamic"
+﻿// export const dynamic = "force-dynamic"
 ;
 
 
 import Header from "./Header";
-import CaravanList from "./CaravanList";
+import CampervanList from "./CaravanList";
 import "./comman.css";
 import { Metadata } from "next";
 
 export async function generateMetadata(): Promise<Metadata> {
   const metaTitle =
-    "Full List of Top Quality Caravan Manufacturers in Australia";
+    "Full List of Top Quality Campervan Manufacturers in Australia";
   const metaDescription =
-    "Discover a diverse range of top-tier caravan manufacturers specializing in off-road, compact poptops, touring models, luxury editions &amp; innovative hybrids.";
+    "Discover a diverse range of top-tier campervan manufacturers specializing in off-road, compact poptops, touring models, luxury editions &amp; innovative hybrids.";
 
   const robots = "index, follow";
 
@@ -35,7 +35,7 @@ export default function Home() {
   return (
     <div>
       <Header />
-      <CaravanList />
+      <CampervanList />
     </div>
   );
 }

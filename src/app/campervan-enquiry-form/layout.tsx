@@ -1,15 +1,15 @@
- import { Metadata } from "next";
+﻿ import { Metadata } from "next";
 import { ReactNode } from "react";
 
 
 
  export const metadata: Metadata = {
    title: {
-     default: "Caravan Enquiry Form | Exclusive Caravan Deals & Offers",
+     default: "Campervan Enquiry Form | Exclusive Campervan Deals & Offers",
      template: "%s ",
    },
    description:
-     "Fill out our caravan enquiry form to receive exclusive offers from select quality caravan manufacturers. Get the best caravan deals sent directly to you.",
+     "Fill out our campervan enquiry form to receive exclusive offers from select quality campervan manufacturers. Get the best campervan deals sent directly to you.",
    icons: { icon: "/favicon.ico" },
    robots: "index, follow",
    verification: {

@@ -1,4 +1,4 @@
-// src/api/products/fetchRangeFeaturedCategories.ts
+﻿// src/api/products/fetchRangeFeaturedCategories.ts
 const API_BASE = process.env.NEXT_PUBLIC_CFS_API_BASE;
 
 export interface RangeFeaturedCategory {
@@ -7,7 +7,7 @@ export interface RangeFeaturedCategory {
   slug?: string;
   description?: string; // cleaned (tags stripped, entities decoded)
   custom_link?: string | null;
-  caravan_type?: string | null;
+  campervan_type?: string | null;
   logo_url?: string | null;
   is_top?: boolean | null; // some APIs send 0/1/bool; we’ll normalize to boolean/null
   [k: string]: unknown; // keep extra fields without breaking
@@ -60,7 +60,7 @@ export const fetchRangeFeaturedCategories = async (): Promise<
         slug: obj?.slug ? String(obj.slug) : undefined,
         description: cleanHtmlToText(obj?.description),
         custom_link: obj?.custom_link ? String(obj.custom_link) : null,
-        caravan_type: obj?.caravan_type ? String(obj.caravan_type) : null,
+        campervan_type: obj?.caravan_type ? String(obj.caravan_type) : null,
         logo_url: obj?.logo_url ? String(obj.logo_url) : null,
         is_top:
           typeof obj?.is_top === "boolean"

@@ -1,4 +1,4 @@
-// utils/parseFilters.ts
+﻿// utils/parseFilters.ts
 
 export interface Filters {
   category?: string;
@@ -225,8 +225,8 @@ export function parseSlugToFilters(
       return;
     }
   // ✅ Year (single-year range only)
-    if (part.includes("-caravans-range")) {
-      const yearMatch = part.match(/^(\d{4})-caravans-range$/);
+    if (part.includes("-campervans-range")) {
+      const yearMatch = part.match(/^(\d{4})-campervans-range$/);
       if (yearMatch) {
         filters.acustom_fromyears = yearMatch[1];
         filters.acustom_toyears = yearMatch[1];

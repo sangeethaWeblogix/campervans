@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
@@ -56,7 +56,7 @@ export default function RelatedNews({ blogs }: { blogs: BlogPost[] }) {
                   <div className="title">
                     <div className="tpof_tab flex items-center justify-between">
                       <h3 className="text-xl font-bold">
-                        Alternatives to Semi Caravans
+                        Alternatives to Semi Campervans
                       </h3>
                       <div className="viewall_bttn">
                         <Link href={href}>

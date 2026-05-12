@@ -1,15 +1,15 @@
- import { Metadata } from "next";
+﻿ import { Metadata } from "next";
 import { ReactNode } from "react";
 
 
 
  export const metadata: Metadata = {
    title: {
-     default: "Sell Your Caravan for $35 Until Sold | CaravansForSale.com.au",
+     default: "Sell Your Campervan for $35 Until Sold | CampervansForSale.com.au",
      template: "%s ",
    },
    description:
-     "Sell your caravan on CaravansForSale.com.au for just $35 until sold. No subscriptions, no commissions, and connect directly with caravan buyers across Australia.",
+     "Sell your campervan on CampervansForSale.com.au for just $35 until sold. No subscriptions, no commissions, and connect directly with campervan buyers across Australia.",
    icons: { icon: "/favicon.ico" },
    robots: "index, follow",
    verification: {

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
@@ -13,7 +13,7 @@ import { createProductEnquiry } from "@/api/enquiry/api";
 import { useRouter } from "next/navigation";
 // import Link from "next/link";
 
-type CaravanDetailModalProps = {
+type CampervanDetailModalProps = {
   isOpen: boolean;
   onClose: () => void;
   images: string[];
@@ -30,12 +30,12 @@ type CaravanDetailModalProps = {
   };
 };
 
-export default function CaravanDetailModal({
+export default function CampervanDetailModal({
   isOpen,
   onClose,
   images,
   product,
-}: CaravanDetailModalProps) {
+}: CampervanDetailModalProps) {
   const swiperRef = useRef<SwiperType | null>(null);
 
   const [form, setForm] = useState({

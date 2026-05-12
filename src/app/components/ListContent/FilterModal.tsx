@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import { fetchLocations } from "@/api/location/api";
 import React, {
   useState,
@@ -112,7 +112,7 @@ type ProductListResponse = {
     model_options?: Model[];
   };
 };
-interface CaravanFilterProps {
+interface CampervanFilterProps {
   onClose?: () => void;
   categories: Category[];
   onClearAll?: () => void;
@@ -155,7 +155,7 @@ type HomeSearchItem = {
 
 type KeywordItem = { label: string; url?: string };
 
-const FilterModal: React.FC<CaravanFilterProps> = ({
+const FilterModal: React.FC<CampervanFilterProps> = ({
   onClose,
   onClearAll,
   onFilterChange,
@@ -314,7 +314,7 @@ const [states, setStates] = useState<StateOption[]>([]);
 
   const years = [
     2026, 2025, 2024, 2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015,
-    2014, 2013, 2012, 2011, 2010, 2009, 2008, 2007, 2006, 2005, 2004,
+    2014, 2013, 2012, 2011, 2010, 2009, 2008, 2007, 2006, 2005, 2004,2003, 2002, 2001, 2000,
   ];
 
   const length = [
@@ -2051,55 +2051,6 @@ fetch(`/api/params-count?${catParams.toString()}`, { signal })
           {/* Filters */}
           <div className="filter-body">
             <>
-              <div className="filter-item pt-0" ref={categoryRef}>
-                <h4>Caravan Type</h4>
-                <ul className="category-list">
-                  {categoryCounts.length === 0 ? (
-                    // ✅ Skeleton - data வரும் வரை காட்டு
-                    <CategorySkeleton />
-                  ) : (
-                    categoryCounts.map((cat) => (
-                      <li key={cat.slug} className="category-item">
-                        <label className="category-checkbox-row checkbox">
-                          <div className="d-flex align-items-center">
-                            <input
-                              className="checkbox__trigger visuallyhidden"
-                              type="checkbox"
-                              checked={tempCategory === cat.slug}
-                              onChange={() => {
-                                setTempCategory((prev) =>
-                                  prev === cat.slug ? null : cat.slug,
-                                ); // ← toggle
-                                triggerOptimizeApi("category", cat.slug); // ✅
-                              }}
-                            />
-                            <span className="checkbox__symbol">
-                              <svg
-                                aria-hidden="true"
-                                className="icon-checkbox"
-                                width="28px"
-                                height="28px"
-                                viewBox="0 0 28 28"
-                                version="1"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path d="M4 14l8 7L24 7"></path>
-                              </svg>
-                            </span>
-                            <span className="category-name"> {cat.name}</span>
-                          </div>
-                          <div>
-                            <span className="category-count">
-                              {" "}
-                              ({cat.count})
-                            </span>
-                          </div>
-                        </label>
-                      </li>
-                    ))
-                  )}
-                </ul>
-              </div>
               <div className="filter-item">
                 <h4>Location</h4>
                 <div className="location-list">
@@ -2749,7 +2700,7 @@ fetch(`/api/params-count?${catParams.toString()}`, { signal })
                     <i className="bi bi-search search-icon"></i>
                     <input
                       type="text"
-                      placeholder="Try caravans with bunks"
+                      placeholder="Try campervans with bunks"
                       className="filter-dropdown cfs-select-input"
                       autoComplete="off"
                       value={modalKeyword}
@@ -2871,7 +2822,7 @@ fetch(`/api/params-count?${catParams.toString()}`, { signal })
               style={{
                 opacity: hasAnyTempFilter ? 1 : 0.4,
                 cursor: hasAnyTempFilter ? "pointer" : "not-allowed",
-                color: hasAnyTempFilter ? "#ff6b00" : "#555", // ✅ orange
+                color: hasAnyTempFilter ? "#4a4a99" : "#555", // ✅ orange
               }}
               onClick={() => {
                 // ✅ Local temp states reset

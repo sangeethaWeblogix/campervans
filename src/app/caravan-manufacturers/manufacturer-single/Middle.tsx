@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react"; // ✅ missing import
 import Image from "next/image";
@@ -9,7 +9,7 @@ import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 
-export default function EverestCaravans() {
+export default function EverestCampervans() {
   const [flippedCard, setFlippedCard] = useState<number | null>(null);
   return (
     <>
@@ -33,7 +33,7 @@ export default function EverestCaravans() {
                         <div className="box_mid">
                           <Image
                             src="https://admin.caravansforsale.com.au/wp-content/uploads/2023/08/1-13.png"
-                            alt="Falcon Caravan"
+                            alt="Falcon Campervan"
                             width={1000}
                             height={476}
                           />
@@ -78,7 +78,7 @@ export default function EverestCaravans() {
                         <div className="box_mid">
                           <Image
                             src="https://admin.caravansforsale.com.au/wp-content/uploads/2023/08/1-16.png"
-                            alt="Nitro Extreme Caravan"
+                            alt="Nitro Extreme Campervan"
                             width={1000}
                             height={476}
                           />
@@ -124,7 +124,7 @@ export default function EverestCaravans() {
         <div className="container">
           <div className="title">
             <div className="tpof_tab">
-              <h2>Recent Everest Caravans Listings</h2>
+              <h2>Recent Everest Campervans Listings</h2>
             </div>
           </div>
 

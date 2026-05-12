@@ -1,4 +1,4 @@
- "use client";
+﻿ "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -7,8 +7,8 @@ import "swiper/css";
 import "swiper/css/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import CaravanDetailModal from "./CaravanDetailModal";
-import "./product.css?=223";
+import CampervanDetailModal from "./CaravanDetailModal";
+import "./product.css?=226";
  
 import DOMPurify from "dompurify";
 import { type HomeBlogPost } from "@/api/home/api";
@@ -276,7 +276,7 @@ export default function ClientLogger({
     // ✅ Always force clean path for Year (ignore API URL)
     if (L === "year" || L === "years") {
       const s = toInt(v);
-      return s ? [{ href: `/listings/${s}-caravans-range/`, text: v }] : null;
+      return s ? [{ href: `/listings/${s}-campervans-range/`, text: v }] : null;
     }
 
     // ✅ Only use API URL for fields that are NOT year-related
@@ -555,7 +555,7 @@ export default function ClientLogger({
 
   return (
     <>
-      <section className={`product caravan_dtt sku-${sku}`}>
+      <section className={`product campervan_dtt sku-${sku}`}>
         <div className="container">
           <div className="content">
             <div className="row justify-content-center">
@@ -578,7 +578,7 @@ export default function ClientLogger({
                       className="back_to_search back_to_search_btn"
                     >
                       <i className="bi bi-chevron-left"></i> Back to Similar
-                      Caravans
+                      Campervans
                     </a>
                   ))}
 
@@ -638,7 +638,7 @@ export default function ClientLogger({
 
                 </div>
 
-                <div className="caravan_slider_visible">
+                <div className="campervan_slider_visible">
                   <button
                     className="hover_link Click-here"
                     onClick={() => setShowModal(true)}
@@ -675,7 +675,7 @@ export default function ClientLogger({
                         </div>
                       ))}
                       <div>
-                        <span className="caravan__image_count">
+                        <span className="campervan__image_count">
                           {apiImages.length}
                         </span>
                       </div>
@@ -798,7 +798,7 @@ export default function ClientLogger({
                           className="cravan_buyer"
                           onClick={() => setShowPopup(true)}
                         >
-                          Caravan Buyer Safety Checklist <i className="bi bi-info-circle-fill"></i>
+                          Campervan Buyer Safety Checklist <i className="bi bi-info-circle-fill"></i>
                         </button>
                   <p className="terms_text small">
                     By clicking 'Send Enquiry', you agree to Marketplace Network
@@ -886,7 +886,7 @@ export default function ClientLogger({
                           className="cravan_buyer"
                           onClick={() => setShowPopup(true)}
                         >
-                          Caravan Buyer Safety Checklist <i className="bi bi-info-circle-fill"></i>
+                          Campervan Buyer Safety Checklist <i className="bi bi-info-circle-fill"></i>
                         </button>
                       </div>
                     </div>
@@ -913,9 +913,9 @@ export default function ClientLogger({
                       </svg>
                     </button>
 
-                    <h2 className="title">Caravan Buyer Safety Checklist</h2>
+                    <h2 className="title">Campervan Buyer Safety Checklist</h2>
                     <p className="subtitle">
-                      Follow these steps to reduce the risk of scams when buying a caravan.
+                      Follow these steps to reduce the risk of scams when buying a campervan.
                     </p>
 
                     <div className="safety-wrapper">
@@ -945,7 +945,7 @@ export default function ClientLogger({
                           <li>
                             <span className="num">3</span>
                             <div>
-                              <h4>Inspect the caravan first</h4>
+                              <h4>Inspect the campervan first</h4>
                               <p>Inspect in person or arrange an inspection.</p>
                             </div>
                           </li>
@@ -978,7 +978,7 @@ export default function ClientLogger({
 
               {/* Modal */}
               {showModal && (
-                <CaravanDetailModal
+                <CampervanDetailModal
                   isOpen={showModal}
                   onClose={() => setShowModal(false)}
                   images={apiImages}
@@ -1008,7 +1008,7 @@ export default function ClientLogger({
           <div className="container">
             <div className="re-title">
               <div className="tpof_tab">
-                <h3>Browse Similar Caravans</h3>
+                <h3>Browse Similar Campervans</h3>
               </div>
             </div>
             <div className="similar-products-three position-relative">

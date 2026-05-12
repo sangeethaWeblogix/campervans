@@ -1,4 +1,4 @@
-// export const dynamic = "force-dynamic"
+﻿// export const dynamic = "force-dynamic"
 ;
 
 import Header from "./Header";
@@ -9,9 +9,9 @@ import { Metadata } from "next";
 
 export async function generateMetadata(): Promise<Metadata> {
   const metaTitle =
-    "Top 10 Caravan Manufacturers in Australia: Best Brands of 2024";
+    "Top 10 Campervan Manufacturers in Australia: Best Brands of 2024";
   const metaDescription =
-    "See how top Australian caravan manufacturers excel with the best in innovative designs, quality construction, cost efficiency, and expert craftsmanship.";
+    "See how top Australian campervan manufacturers excel with the best in innovative designs, quality construction, cost efficiency, and expert craftsmanship.";
 
   const robots = "index, follow";
 

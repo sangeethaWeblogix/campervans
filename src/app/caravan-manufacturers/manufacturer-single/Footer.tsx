@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -8,22 +8,22 @@ export default function DealersAndManufacturers() {
     {
       href: "https://admin.caravansforsale.com.au/caravan-dealer/everest-caravans-vic",
       img: "https://admin.caravansforsale.com.au/wp-content/uploads/2024/07/Everest-Caravans.png",
-      alt: "Everest Caravans - VIC",
-      label: "Everest Caravans - VIC",
+      alt: "Everest Campervans - VIC",
+      label: "Everest Campervans - VIC",
       listings: "https://admin.caravansforsale.com.au/dealers/everest-caravans-vic",
     },
     {
       href: "https://admin.caravansforsale.com.au/caravan-dealer/everest-caravans-nsw",
       img: "https://admin.caravansforsale.com.au/wp-content/uploads/2024/10/Everest-Caravans.png",
-      alt: "Everest Caravans - NSW",
-      label: "Everest Caravans - NSW",
+      alt: "Everest Campervans - NSW",
+      label: "Everest Campervans - NSW",
       listings: "https://admin.caravansforsale.com.au/dealers/everest-caravans-nsw",
     },
     {
       href: "https://admin.caravansforsale.com.au/caravan-dealer/everest-caravans-qld",
       img: "https://admin.caravansforsale.com.au/wp-content/uploads/2024/10/Everest-Caravans.png",
-      alt: "Everest Caravans - QLD",
-      label: "Everest Caravans - QLD",
+      alt: "Everest Campervans - QLD",
+      label: "Everest Campervans - QLD",
       listings: "https://admin.caravansforsale.com.au/dealers/everest-caravans-qld",
     },
   ];
@@ -32,8 +32,8 @@ export default function DealersAndManufacturers() {
     {
       href: "https://admin.caravansforsale.com.au/caravan-manufacturers/grand-caravans",
       img: "https://admin.caravansforsale.com.au/wp-content/uploads/2025/01/Grand-City-Caravans.png",
-      alt: "Grand Caravans",
-      label: "Grand Caravans",
+      alt: "Grand Campervans",
+      label: "Grand Campervans",
     },
     {
       href: "https://admin.caravansforsale.com.au/caravan-manufacturers/coronet-rv",
@@ -44,14 +44,14 @@ export default function DealersAndManufacturers() {
     {
       href: "https://admin.caravansforsale.com.au/caravan-manufacturers/orbit-caravans",
       img: "https://admin.caravansforsale.com.au/wp-content/uploads/2025/01/Orbit-Caravans.png",
-      alt: "Orbit Caravans",
-      label: "Orbit Caravans",
+      alt: "Orbit Campervans",
+      label: "Orbit Campervans",
     },
     {
       href: "https://admin.caravansforsale.com.au/caravan-manufacturers/red-centre-caravans",
       img: "https://admin.caravansforsale.com.au/wp-content/uploads/2025/01/Red-Centre-Caravans.png",
-      alt: "Red Centre Caravans",
-      label: "Red Centre Caravans",
+      alt: "Red Centre Campervans",
+      label: "Red Centre Campervans",
     },
   ];
 
@@ -65,7 +65,7 @@ export default function DealersAndManufacturers() {
         <div className="container">
           <div className="title">
             <div className="tpof_tab">
-              <h2>Everest Caravans Dealers</h2>
+              <h2>Everest Campervans Dealers</h2>
             </div>
           </div>
           <div className="row">
@@ -83,7 +83,7 @@ export default function DealersAndManufacturers() {
                   </Link>
                 </div>
                 <Link className="quick_lnk" href={dealer.listings}>
-                  View Caravans Listings
+                  View Campervans Listings
                 </Link>
               </div>
             ))}

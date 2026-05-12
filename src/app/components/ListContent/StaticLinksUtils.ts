@@ -1,4 +1,4 @@
-  // ============================================================
+﻿  // ============================================================
  // FILE: staticLinksUtils.ts
  // ============================================================
  
@@ -58,11 +58,11 @@
  // ── Name Formatters ──────────────────────────────────────────
  
  function formatCategoryName(name: string): string {
-   if (name.toLowerCase().includes("caravan")) return name;
-   return `${name} Caravans for Sale`;
+   if (name.toLowerCase().includes("campervan")) return name;
+   return `${name} Campervans for Sale`;
  }
  function formatSearchName(search: string): string {
-  // "off-road-caravans-with-bunks" → "Off Road Caravans With Bunks for Sale in Australia"
+  // "off-road-campervans-with-bunks" → "Off Road Campervans With Bunks for Sale in Australia"
   return search
     .replace(/-search$/i, "")       // remove trailing -search if present
     .split("-")
@@ -74,18 +74,18 @@
    const lower = name.toLowerCase();
    if (lower.startsWith("under")) {
      const amount = name.replace(/under\s*/i, "").trim();
-     return `Caravans Under ${amount} in Australia`;
+     return `Campervans Under ${amount} in Australia`;
    }
    if (lower.startsWith("over")) {
      const amount = name.replace(/over\s*/i, "").trim();
-     return `Caravans Over ${amount} in Australia`;
+     return `Campervans Over ${amount} in Australia`;
    }
    if (lower.startsWith("between")) {
      const range = name
        .replace(/between\s*/i, "")
        .replace(" - ", " to ")
        .trim();
-     return `Caravans between ${range} in Australia`;
+     return `Campervans between ${range} in Australia`;
    }
    return name;
  }
@@ -94,15 +94,15 @@
    const lower = name.toLowerCase();
    if (lower.startsWith("under")) {
      const val = name.replace(/under\s*/i, "").trim();
-     return `Caravans under ${val} ATM in Australia`;
+     return `Campervans under ${val} ATM in Australia`;
    }
    if (lower.startsWith("over")) {
      const val = name.replace(/over\s*/i, "").trim();
-     return `Caravans over ${val} ATM in Australia`;
+     return `Campervans over ${val} ATM in Australia`;
    }
    if (name.includes("-")) {
      const range = name.replace(" - ", " to ").trim();
-     return `Caravans between ${range} ATM in Australia`;
+     return `Campervans between ${range} ATM in Australia`;
    }
    return name;
  }
@@ -110,21 +110,21 @@
   function formatLengthName(name: string): string {
    const lower = name.toLowerCase();
  
-   // "Under 12ft" → "Caravans under 12ft in Australia"
+   // "Under 12ft" → "Campervans under 12ft in Australia"
    if (lower.startsWith("under")) {
      const val = name.replace(/under\s*/i, "").trim();
-     return `Caravans under ${val} in Australia`;
+     return `Campervans under ${val} in Australia`;
    }
  
-   // "Over 24ft" → "Caravans over 24ft in Australia"
+   // "Over 24ft" → "Campervans over 24ft in Australia"
    if (lower.startsWith("over")) {
      const val = name.replace(/over\s*/i, "").trim();
-     return `Caravans over ${val} in Australia`;
+     return `Campervans over ${val} in Australia`;
    }
  
-   // "15ft to 17ft" → "Caravans between 15ft to 17ft in Australia"
+   // "15ft to 17ft" → "Campervans between 15ft to 17ft in Australia"
    if (lower.includes("ft")) {
-     return `Caravans between ${name} in Australia`;
+     return `Campervans between ${name} in Australia`;
    }
  
    return name;
@@ -134,15 +134,15 @@
    const lower = name.toLowerCase();
    if (lower.startsWith("under")) {
      const val = name.replace(/under\s*/i, "").trim();
-     return `Caravans under ${val} berth in Australia`;
+     return `Campervans under ${val} berth in Australia`;
    }
    if (lower.startsWith("over")) {
      const val = name.replace(/over\s*/i, "").trim();
-     return `Caravans over ${val} berth in Australia`;
+     return `Campervans over ${val} berth in Australia`;
    }
    if (name.includes("-")) {
      const range = name.replace(" - ", " to ").trim();
-     return `Caravans between ${range} berth in Australia`;
+     return `Campervans between ${range} berth in Australia`;
    }
    return name;
  }
@@ -446,34 +446,34 @@ function getNearestSleepLink(filters: Filters): { name: string; slug: string } |
        ? activeFilters + 1
        : activeFilters;
  
-   links.home = [{ name: "Caravans for Sale", slug: "/" }];
+   links.home = [{ name: "Campervans for Sale", slug: "/" }];
  
    if (effectiveCount === 0) {
-     links.home = [{ name: "Caravans for Sale", slug: "/" }];
+     links.home = [{ name: "Campervans for Sale", slug: "/" }];
      return links;
    }
  
    if (effectiveCount === 1) {
-         links.all = [{ name: "All Caravans", slug: "/listings/" }];
+         links.all = [{ name: "All Campervans", slug: "/listings/" }];
  
      if (hasMake && hasModel) {
     links.makes = [
       { 
-      name: `${filters.make!} Caravans for Sale in Australia`,  // ✅ formatted
+      name: `${filters.make!} Campervans for Sale in Australia`,  // ✅ formatted
       slug: `/${filters.make!.toLowerCase()}/` 
     },
     ];
     // ✅ Add this
     links.models = [
        {
-      name: `${filters.make!} ${filters.model!} Caravans for Sale in Australia`,  // ✅ formatted
+      name: `${filters.make!} ${filters.model!} Campervans for Sale in Australia`,  // ✅ formatted
       slug: `/${filters.make!.toLowerCase()}/${filters.model!.toLowerCase()}/`,
     },
     ];
   }
   return links;
 }
-   links.all = [{ name: "Browse by All Caravans", slug: "/listings/" }];
+   links.all = [{ name: "Browse by All Campervans", slug: "/listings/" }];
  
    // ── Category ─────────────────────────────────────────────
    if (hasCategory) {
@@ -494,7 +494,7 @@ function getNearestSleepLink(filters: Filters): { name: string; slug: string } |
      );
      if (stateEntryS) {
        links.states = [{
-         name: `Caravans for Sale in ${stateEntryS.name}`,
+         name: `Campervans for Sale in ${stateEntryS.name}`,
          slug: stateEntryS.slug,
        }];
      }
@@ -505,12 +505,12 @@ function getNearestSleepLink(filters: Filters): { name: string; slug: string } |
        const statePart = filters.state!.toLowerCase().replace(/ /g, "-");
        const regionPart = filters.region!.toLowerCase().replace(/ /g, "-");
        links.regions = [{
-         name: `Caravans for Sale in ${regionEntryS.name} Region`,
+         name: `Campervans for Sale in ${regionEntryS.name} Region`,
          slug: `/${statePart}-state/${regionPart}-region/`,
        }];
      }
      links.suburbs = [{
-       name: `Caravans for Sale in ${filters.suburb!}`,
+       name: `Campervans for Sale in ${filters.suburb!}`,
        slug: `/${filters.state!.toLowerCase()}-state/${filters.region!.toLowerCase()}-region/${filters.suburb!.toLowerCase()}-${filters.pincode}-suburb/`,
      }];
    } else if (hasRegion && hasState) {
@@ -519,7 +519,7 @@ function getNearestSleepLink(filters: Filters): { name: string; slug: string } |
      );
      if (stateEntry) {
        links.states = [{
-         name: `Caravans for Sale in ${stateEntry.name}`,
+         name: `Campervans for Sale in ${stateEntry.name}`,
          slug: stateEntry.slug,
        }];
      }
@@ -530,7 +530,7 @@ function getNearestSleepLink(filters: Filters): { name: string; slug: string } |
        const statePart = filters.state!.toLowerCase().replace(/ /g, "-");
        const regionPart = filters.region!.toLowerCase().replace(/ /g, "-");
        links.regions = [{
-         name: `Caravans for Sale in ${regionEntry.name} Region`,
+         name: `Campervans for Sale in ${regionEntry.name} Region`,
          slug: `/${statePart}-state/${regionPart}-region/`,
        }];
      }
@@ -540,7 +540,7 @@ function getNearestSleepLink(filters: Filters): { name: string; slug: string } |
      );
      if (stateEntry) {
        links.states = [{
-         name: `Caravans for Sale in ${stateEntry.name}`,
+         name: `Campervans for Sale in ${stateEntry.name}`,
          slug: stateEntry.slug,
        }];
      }
@@ -548,7 +548,7 @@ function getNearestSleepLink(filters: Filters): { name: string; slug: string } |
   // ── Make / Model ─────────────────────────────────────────
    if (hasMake) {
      links.makes = [
-       { name: `${filters.make!} Caravans for Sale in Australia`,  // ✅ formatted
+       { name: `${filters.make!} Campervans for Sale in Australia`,  // ✅ formatted
  
         slug: `/${filters.make!.toLowerCase()}/` },
      ];
@@ -556,7 +556,7 @@ function getNearestSleepLink(filters: Filters): { name: string; slug: string } |
    if (hasMake && hasModel) {
      links.models = [
        {
-              name: `${filters.make!} ${filters.model!} Caravans for Sale in Australia`,  // ✅ formatted
+              name: `${filters.make!} ${filters.model!} Campervans for Sale in Australia`,  // ✅ formatted
 
          slug: `/${filters.make!.toLowerCase()}/${filters.model!.toLowerCase()}/`,
        },
@@ -603,7 +603,7 @@ function getNearestSleepLink(filters: Filters): { name: string; slug: string } |
    // ── Year ──────────────────────────────────────────────────
    if (hasYear && activeFilters >= 1) {
      const year = filters.acustom_fromyears ?? filters.acustom_toyears;
-     links.years = [{ name: `${year}`, slug: `/${year}-caravans-range/` }];
+     links.years = [{ name: `${year}`, slug: `/${year}-campervans-range/` }];
    }
  
    // ── Search ────────────────────────────────────────────────

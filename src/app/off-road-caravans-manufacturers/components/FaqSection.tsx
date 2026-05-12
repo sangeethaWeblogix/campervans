@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Link from "next/link";
@@ -33,7 +33,7 @@ export default function FAQSection() {
                         data-bs-target="#collapse1"
                         aria-controls="collapse1"
                       >
-                        Semi Off Road & Full Off Road Caravans
+                        Semi Off Road & Full Off Road Campervans
                       </button>
                     </h3>
                     <div
@@ -47,7 +47,7 @@ export default function FAQSection() {
                       <div className="accordion-body">
                         <h4>
                           What off-road features are highlighted in the
-                          Discovery X and Space V models by Orbit Caravans?
+                          Discovery X and Space V models by Orbit Campervans?
                         </h4>
                         <p>
                           The{" "}
@@ -66,12 +66,12 @@ export default function FAQSection() {
                           >
                             Space V
                           </Link>{" "}
-                          models from Orbit Caravans feature extremely tough
+                          models from Orbit Campervans feature extremely tough
                           off-road chassis and suspension systems, ensuring
                           durability and performance in harsh conditions.
                         </p>
                         <h4>
-                          How does the Eclipse X caravan excel in handling
+                          How does the Eclipse X campervan excel in handling
                           extreme off-road conditions?
                         </h4>
                         <p>
@@ -83,17 +83,17 @@ export default function FAQSection() {
                           >
                             Eclipse X
                           </Link>{" "}
-                          caravan includes a robust off-road chassis and
+                          campervan includes a robust off-road chassis and
                           suspension system, along with solar power, a lithium
                           battery, and water tanks, making it ideal for extreme
                           off-road conditions.
                         </p>
                         <h4>
-                          What makes Orbit Caravans’ off-road chassis and
+                          What makes Orbit Campervans’ off-road chassis and
                           suspension system stand out?
                         </h4>
                         <p>
-                          Orbit Caravans’ off-road models are known for their
+                          Orbit Campervans’ off-road models are known for their
                           exceptionally tough off-road chassis and suspension
                           systems, designed to withstand harsh terrains.
                         </p>
@@ -110,13 +110,13 @@ export default function FAQSection() {
                           >
                             Tracker
                           </Link>{" "}
-                          15’6″ from Grand City Caravans features a 6-inch
+                          15’6″ from Grand City Campervans features a 6-inch
                           chassis and Cruisemaster XT Freestyle Coil Suspension,
                           providing excellent off-road capabilities for rugged
                           terrains.
                         </p>
                         <h4>
-                          How does the Nomad 17′ caravan perform in off-road
+                          How does the Nomad 17′ campervan perform in off-road
                           conditions?
                         </h4>
                         <p>
@@ -128,14 +128,14 @@ export default function FAQSection() {
                           >
                             Nomad
                           </Link>{" "}
-                          17′ caravan is designed with off-road features similar
+                          17′ campervan is designed with off-road features similar
                           to the Tracker, including a robust chassis and
                           suspension system to handle diverse terrains
                           effectively.
                         </p>
                         <h4>
                           What are the off-road advantages of the Explorer 18’6″
-                          caravan?
+                          campervan?
                         </h4>
                         <p>
                           The{" "}
@@ -153,8 +153,8 @@ export default function FAQSection() {
                         </p>
                         <p>
                           <b>
-                            What makes Titanium Caravans a market leader in
-                            off-road caravans?
+                            What makes Titanium Campervans a market leader in
+                            off-road campervans?
                           </b>
                         </p>
                         <p>
@@ -163,7 +163,7 @@ export default function FAQSection() {
                             target="_blank"
                             rel="noopener"
                           >
-                            Titanium Caravans
+                            Titanium Campervans
                           </Link>{" "}
                           combine heavy-duty hot-dipped galvanised chassis,
                           advanced airbag suspension systems, and smart off-grid
@@ -172,7 +172,7 @@ export default function FAQSection() {
                         </p>
                         <p>
                           <b>
-                            Are Titanium Caravans suitable for off-grid living?
+                            Are Titanium Campervans suitable for off-grid living?
                           </b>
                         </p>
                         <p>
@@ -190,7 +190,7 @@ export default function FAQSection() {
                         </p>
                         <p>
                           <b>
-                            How does the Ti22 S1 by Titanium Caravans deliver
+                            How does the Ti22 S1 by Titanium Campervans deliver
                             comfort during off-grid adventures?
                           </b>
                         </p>
@@ -203,7 +203,7 @@ export default function FAQSection() {
                           >
                             Ti22 S1
                           </Link>
-                          , from Titanium Caravans, features 400W solar, lithium
+                          , from Titanium Campervans, features 400W solar, lithium
                           batteries, a full kitchen, soft-close cabinetry, and
                           even a washing machine—making it a reliable and
                           comfortable off-grid home on wheels.
@@ -224,7 +224,7 @@ export default function FAQSection() {
                         data-bs-target="#collapse2"
                         aria-controls="collapse2"
                       >
-                        Hybrid Off Road Caravans
+                        Hybrid Off Road Campervans
                       </button>
                     </h3>
                     <div
@@ -238,7 +238,7 @@ export default function FAQSection() {
                       <div className="accordion-body">
                         <p>
                           <b>
-                            What makes X Series RV caravans ideal for off-road
+                            What makes X Series RV campervans ideal for off-road
                             adventures?
                           </b>
                         </p>
@@ -250,7 +250,7 @@ export default function FAQSection() {
                           >
                             X Series RV
                           </Link>{" "}
-                          caravans are built tough for Australia’s harshest
+                          campervans are built tough for Australia’s harshest
                           terrains, offering rugged construction, high-quality
                           materials, and reliable off-road performance. Their
                           range includes off-road pods, hybrids, and toy haulers
@@ -271,7 +271,7 @@ export default function FAQSection() {
                           >
                             X Element
                           </Link>{" "}
-                          is a lightweight, compact caravan designed for singles
+                          is a lightweight, compact campervan designed for singles
                           or couples. It includes a well-equipped kitchen and
                           bathroom, delivering cozy comfort and essential
                           amenities in a travel-friendly size for easy off-road
@@ -284,7 +284,7 @@ export default function FAQSection() {
                           </b>
                         </p>
                         <p>
-                          X Series RV caravans are engineered to deliver premium
+                          X Series RV campervans are engineered to deliver premium
                           amenities like ensuites, full kitchens, and smart
                           storage, while maintaining rugged builds capable of
                           handling rough terrains. This ensures home-like
@@ -307,7 +307,7 @@ export default function FAQSection() {
                           </Link>{" "}
                           is perfect for families, offering 2 or 3 bunks, a
                           private ensuite, a washing machine, and ample storage.
-                          This 22ft hard roof hybrid caravan provides both
+                          This 22ft hard roof hybrid campervan provides both
                           luxury and durability for comfortable long-distance
                           family travel.
                         </p>
@@ -341,7 +341,7 @@ export default function FAQSection() {
                         data-bs-target="#collapse3"
                         aria-controls="collapse3"
                       >
-                        Extreme Off Road Caravans
+                        Extreme Off Road Campervans
                       </button>
                     </h3>
                     <div
@@ -355,7 +355,7 @@ export default function FAQSection() {
                       <div className="accordion-body">
                         <h4>
                           What key features contribute to the extreme off-road
-                          capability of the Nitro Extreme from Everest Caravans?
+                          capability of the Nitro Extreme from Everest Campervans?
                         </h4>
                         <p>
                           The{" "}
@@ -366,7 +366,7 @@ export default function FAQSection() {
                           >
                             Nitro Extreme
                           </Link>{" "}
-                          from Everest Caravans is built with a robust 9”
+                          from Everest Campervans is built with a robust 9”
                           chassis, a 6′ deck with a 3” riser, and a 6” extended
                           A-frame. These features, along with the Supergal
                           Australian RHS Steel Chassis and 3.5 T Oz Trekker
@@ -374,7 +374,7 @@ export default function FAQSection() {
                           and durability.
                         </p>
                         <h4>
-                          How does the Summitt model from Everest Caravans
+                          How does the Summitt model from Everest Campervans
                           ensure reliability on challenging terrains?
                         </h4>
                         <p>
@@ -386,7 +386,7 @@ export default function FAQSection() {
                           >
                             Summitt
                           </Link>{" "}
-                          model from Everest Caravans features a 9” chassis
+                          model from Everest Campervans features a 9” chassis
                           constructed from RHS Australian Steel, a 6” extended
                           A-frame, and Supergal Australian RHS Steel Chassis. It
                           is equipped with 3.5 T Oz Trekker Suspension for full
@@ -396,10 +396,10 @@ export default function FAQSection() {
                         </p>
                         <h4>
                           What off-road features are standard across Everest
-                          Caravans’ extreme off-road models?
+                          Campervans’ extreme off-road models?
                         </h4>
                         <p>
-                          Everest Caravans’ extreme off-road models, including
+                          Everest Campervans’ extreme off-road models, including
                           the{" "}
                           <Link
                             href="https://www.everestcaravans.com.au/range/ice-glider/"
@@ -435,7 +435,7 @@ export default function FAQSection() {
                           >
                             Kimberley Plus
                           </Link>{" "}
-                          from Red Centre Caravans features a robust 4-inch main
+                          from Red Centre Campervans features a robust 4-inch main
                           chassis, a 6-inch drawbar with extension, a 4-inch
                           riser, and fully independent 3.7T dual shock
                           suspension with 12” brakes, providing unmatched
@@ -470,11 +470,11 @@ export default function FAQSection() {
                           enhancements.
                         </p>
                         <h4>
-                          What makes Red Centre Caravans’ off-road suspension
+                          What makes Red Centre Campervans’ off-road suspension
                           systems suitable for tough Australian conditions?
                         </h4>
                         <p>
-                          Red Centre Caravans’ off-road suspension systems, such
+                          Red Centre Campervans’ off-road suspension systems, such
                           as the 3.7T dual shock suspension in the Kimberley
                           Plus and the 4T dual shock suspension in the Tanami
                           and Tanami Plus models, are designed for extreme

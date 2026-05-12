@@ -1,4 +1,4 @@
-// app/page.tsx
+﻿// app/page.tsx
 "use client";
 
 import Image from "next/image";
@@ -9,19 +9,18 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { fetchUsedBlogList } from "@/api/usedBlog/api";
 import { useEffect, useState } from "react";
-import { fetchUsedStateBasedCaravans } from "@/api/homeApi/usedState/api";
+import { fetchUsedStateBasedCampervans } from "@/api/homeApi/usedState/api";
 import { fetchSleepBands } from "@/api/homeApi/sleep/api";
 import { fetchRegion } from "@/api/homeApi/region/api";
 import { fetchManufactures } from "@/api/homeApi/manufacture/api";
-import { fetchPriceBasedCaravans } from "@/api/homeApi/price/api";
-import { fetchAtmBasedCaravans } from "@/api/homeApi/weight/api";
-import { fetchLengthBasedCaravans } from "@/api/homeApi/length/api";
-import { fetchUsedCaravansList } from "@/api/homeApi/usedCaravanList/api";
-import { fetchFeaturedUsedCaravans } from "@/api/featuredCaravanList/api";
+import { fetchPriceBasedCampervans } from "@/api/homeApi/price/api";
+import { fetchAtmBasedCampervans } from "@/api/homeApi/weight/api";
+import { fetchLengthBasedCampervans } from "@/api/homeApi/length/api";
+import { fetchUsedCampervansList } from "@/api/homeApi/usedCaravanList/api";
+import { fetchFeaturedUsedCampervans } from "@/api/featuredCaravanList/api";
 import FetauredLsit from './fetauredList'
-import LatestList from './usedCaravanList'
-import { fetchLatestUsedCaravans } from "@/api/usedCaravanList/api";
-import { fetchCaravanList } from "@/api/caravanlist/api";
+import LatestList from "./usedCaravanList";
+import { fetchCampervanList } from "@/api/caravanlist/api";
 
 type BlogItem = {
   id: number;
@@ -37,7 +36,7 @@ interface Item {
   capacity: number;
   slug: string;
   permalink: string;
-  caravan_count: number;
+  campervan_count: number;
   starting_price: number;
   display_text: string;
   state: string;
@@ -102,12 +101,12 @@ export default function Home() {
 
 
   const [products, setProducts] = useState<Product[]>([]);
-    const [latestCaravans, setLatestCaravans] = useState<Product[]>([]);
+    const [latestCampervans, setLatestCampervans] = useState<Product[]>([]);
 
  
   useEffect(() => {
     const loadData = async () => {
-      const data = await fetchFeaturedUsedCaravans();
+      const data = await fetchFeaturedUsedCampervans();
       setProducts(data?.products || []);
       setLoading(false);
     };
@@ -117,8 +116,8 @@ export default function Home() {
 
  useEffect(() => {
     const loadData = async () => {
-      const data = await fetchLatestUsedCaravans();
-      setLatestCaravans(data?.products || []);
+      const data = await fetchLatestUsedCampervans();
+      setLatestCampervans(data?.products || []);
       setLoading(false);
     };
 
@@ -175,17 +174,17 @@ const formatBlogDate = (dateString: string) => {
  useEffect(() => {
     async function loadAll() {
       // const [sleep, region, weight, length] = await Promise.all([
-      const [sleep, region, manufactures, weight, length, price, usedData, state, caravan] =
+      const [sleep, region, manufactures, weight, length, price, usedData, state, campervan] =
         await Promise.all([
           fetchSleepBands(),
           fetchRegion(),
           fetchManufactures(),
-          fetchAtmBasedCaravans(),
-          fetchLengthBasedCaravans(),
-          fetchPriceBasedCaravans(),
-          fetchUsedCaravansList(),
-          fetchUsedStateBasedCaravans(),
-          fetchCaravanList()
+          fetchAtmBasedCampervans(),
+          fetchLengthBasedCampervans(),
+          fetchPriceBasedCampervans(),
+          fetchUsedCampervansList(),
+          fetchUsedStateBasedCampervans(),
+          fetchCampervanList()
           
           ,
         ]);
@@ -200,7 +199,7 @@ const formatBlogDate = (dateString: string) => {
       setUsedState(usedData.by_state);
       setUsedRegion(usedData.by_region);
       setStateBands(state);
-      setCategoryBands(caravan);
+      setCategoryBands(campervan);
 
     }
 
@@ -209,7 +208,7 @@ const formatBlogDate = (dateString: string) => {
 
   const categories: CategorySection[] = [
   {
-    title: "Caravans For Sale By Price",
+    title: "Campervans For Sale By Price",
     items: priceBands.map((item) => ({
       label:  item.label,
       count: item.display_text  ,
@@ -217,7 +216,7 @@ const formatBlogDate = (dateString: string) => {
     })),
   },
   {
-    title: "Caravans For Sale By Weight",
+    title: "Campervans For Sale By Weight",
     items: atmBands.map((item) => ({
      label:  item.label,
       count: item.display_text  ,
@@ -225,7 +224,7 @@ const formatBlogDate = (dateString: string) => {
     })),
   },
   {
-    title: "Caravans For Sale By Length",
+    title: "Campervans For Sale By Length",
     items: lengthBands.map((item) => ({
      label:  item.label,
       count: item.display_text  ,
@@ -233,7 +232,7 @@ const formatBlogDate = (dateString: string) => {
     })),
   },
   {
-    title: "Caravans For Sale By Sleeps",
+    title: "Campervans For Sale By Sleeps",
     items: sleepBands.map((item) => ({
     label:  item.label,
       count: item.display_text  ,
@@ -241,7 +240,7 @@ const formatBlogDate = (dateString: string) => {
     })),
   },
    {
-    title: "Caravans For Sale By Type",
+    title: "Campervans For Sale By Type",
     items: categoryBands.map((item) => ({
     label:  item.label,
       count: item.display_text  ,
@@ -249,7 +248,7 @@ const formatBlogDate = (dateString: string) => {
     })),
   },
   {
-    title: "Caravans By Popular Manufacturers",
+    title: "Campervans By Popular Manufacturers",
     items: manufactureBands.map((item) => ({
      label:  item.label,
       count: item.display_text  ,
@@ -290,25 +289,25 @@ const formatBlogDate = (dateString: string) => {
       <div className="search_requirement_area py-12 bg-white">
         <div className="container mx-auto px-4">
           <div className="section-head search_home">
-            <h3>Used caravans for sale in Australia</h3>
+            <h3>Used campervans for sale in Australia</h3>
             <p className="mb-2 mt-3 fw-semibold">
-              Find your perfect used caravan for sale in Australia from thousands of listings across the country, listed by dealers and private sellers.
+              Find your perfect used campervan for sale in Australia from thousands of listings across the country, listed by dealers and private sellers.
             </p>
             <p>
-              Whether you’re searching by price, weight, length, caravan type, sleeping capacity, manufacturer, or location, CaravansForSale.com.au makes it easy to compare options and find the right caravan for your lifestyle. Browse Australia-wide used caravan listings, explore popular categories, and access expert buying guides to help you make a confident decision.
+              Whether you’re searching by price, weight, length, campervan type, sleeping capacity, manufacturer, or location, CampervansForSale.com.au makes it easy to compare options and find the right campervan for your lifestyle. Browse Australia-wide used campervan listings, explore popular categories, and access expert buying guides to help you make a confident decision.
             </p>
             <a href="/listings/used-condition/" className="btn">
-              Browse Used Caravans
+              Browse Used Campervans
             </a>
           </div>
         </div>
       </div>
 
       {/* States Carousel */}
-      <section className="caravans_by_state related-products services section-padding mt-3 style-1">
+      <section className="campervans_by_state related-products services section-padding mt-3 style-1">
         <div className="container">
           <div className="section-head mb-4">
-            <h2>Used Caravans For Sale by State</h2>
+            <h2>Used Campervans For Sale by State</h2>
           </div>
           <div className="content">
             <div className="explore-state position-relative">
@@ -389,10 +388,10 @@ const formatBlogDate = (dateString: string) => {
       </section>
 
       {/* Regions */}
-      <section className="caravans_by_state related-products services section-padding pt-0 style-1">
+      <section className="campervans_by_state related-products services section-padding pt-0 style-1">
         <div className="container">
           <div className="section-head mb-4">
-            <h2>Used Caravans For Sale by Region</h2>
+            <h2>Used Campervans For Sale by Region</h2>
             <hr className="mb-6" />
           </div>
           <div className="content listing_region">
@@ -415,9 +414,9 @@ const formatBlogDate = (dateString: string) => {
       </section>
 
       {/* Popular Searches Grid */}
-      <section className="shop-used-caravans py-12" style={{ background: "#fcfcfc", borderTop: "1px solid #ddd", borderBottom: "1px solid #ddd" }}>
+      <section className="shop-used-campervans py-12" style={{ background: "#fcfcfc", borderTop: "1px solid #ddd", borderBottom: "1px solid #ddd" }}>
         <div className="container">
-          <h2>Browse Caravans by Popular Searches</h2>
+          <h2>Browse Campervans by Popular Searches</h2>
 
           <div className="shop-grid">
             {categories.map((cat, i) => (
@@ -439,11 +438,11 @@ const formatBlogDate = (dateString: string) => {
       </section>
 
 
-      {/* Featured Caravans */}
-      <section className="caravans_by_state related-products services section-padding style-1">
+      {/* Featured Campervans */}
+      <section className="campervans_by_state related-products services section-padding style-1">
         <div className="container">
           <div className="section-head mb-4">
-            <h2>Featured Used Caravans For Sale</h2>
+            <h2>Featured Used Campervans For Sale</h2>
           </div>
           <div className="content">
             <div className="explore-state position-relative">
@@ -461,9 +460,9 @@ const formatBlogDate = (dateString: string) => {
                   prevEl: ".featured-prev",
                 }}
               >
-                {products.map((caravan, i) => (
+                {products.map((campervan, i) => (
                   <SwiperSlide key={i}>
-                   <FetauredLsit key={caravan.id} caravan={caravan} />
+                   <FetauredLsit key={campervan.id} campervan={campervan} />
                   </SwiperSlide>
                 ))}
               </Swiper>
@@ -475,20 +474,20 @@ const formatBlogDate = (dateString: string) => {
           </div>
 
           {/* Sell Banner */}
-          <div className="banner_sell_caravan">
+          <div className="banner_sell_campervan">
             <Image
               src="/images/sell-banner.jpg"
-              alt="Sell Your Caravan Banner"
+              alt="Sell Your Campervan Banner"
               fill
               className="bgImg"
             />
             <div className="overlay"></div>
             <div className="content">
-              <h2 className="title">Sell Your Caravan Today!</h2>
+              <h2 className="title">Sell Your Campervan Today!</h2>
               <p className="desc">
                 Reach thousands of potential buyers in minutes.<br />
-                List your caravan for sale on CaravansForSale.com.au,<br />
-                the trusted marketplace for Aussie caravan owners.
+                List your campervan for sale on CampervansForSale.com.au,<br />
+                the trusted marketplace for Aussie campervan owners.
               </p>
               {/* <a href="#" className="btn">
                 SELL YOUR CARAVAN
@@ -498,11 +497,11 @@ const formatBlogDate = (dateString: string) => {
         </div>
       </section>
 
-      {/* Latest Caravans */}
-      <section className="caravans_by_state related-products services section-padding style-1">
+      {/* Latest Campervans */}
+      <section className="campervans_by_state related-products services section-padding style-1">
         <div className="container">
           <div className="section-head mb-4">
-            <h2>Latest Used Caravans For Sale</h2>
+            <h2>Latest Used Campervans For Sale</h2>
           </div>
           <div className="content">
             <div className="explore-state position-relative">
@@ -520,9 +519,9 @@ const formatBlogDate = (dateString: string) => {
                   prevEl: ".latest-prev",
                 }}
               >
-                {latestCaravans.map((car, i) => (
+                {latestCampervans.map((car, i) => (
                   <SwiperSlide key={i}>
-                    <LatestList caravan={car} />
+                    <LatestList campervan={car} />
                   </SwiperSlide>
                 ))}
               </Swiper>
@@ -539,7 +538,7 @@ const formatBlogDate = (dateString: string) => {
         <div className="container">
           <div className="title">
             <div className="tpof_tab">
-              <h3>Latest Blogs on Used Caravans</h3>
+              <h3>Latest Blogs on Used Campervans</h3>
               <a href="/blog">
                 View All <i className="bi bi-chevron-right"></i>
               </a>

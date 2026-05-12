@@ -1,19 +1,19 @@
-import React from "react";
+﻿import React from "react";
 import Link from "next/link";
 
-const OffRoadCaravanHeader = () => {
+const OffRoadCampervanHeader = () => {
   return (
     <div className="sc_recent_news sc_recent_news_style_news-announce">
       <article className="post_item post_size_big post hover14">
         <div className="post_featured with_thumb hover_simple post_featured_bg buzzstone_inline_210659395">
           <div className="post_info">
             <h1 className="post_title entry-title">
-              Best <span>Off-Road Caravan</span> Manufacturers You Haven&apos;t
+              Best <span>Off-Road Campervan</span> Manufacturers You Haven&apos;t
               Heard Of
             </h1>
             <p>
               Comprehensive information that helps our users research in the
-              ever growing off road caravan marketplace in Australia.
+              ever growing off road campervan marketplace in Australia.
             </p>
             <div>
               <Link
@@ -22,7 +22,7 @@ const OffRoadCaravanHeader = () => {
               >
                 <small>
                   Hybrid Off Road, Semi Off Road, Full Off Road &amp; Extreme
-                  Off Road Caravan Manufacturers
+                  Off Road Campervan Manufacturers
                 </small>
               </Link>
             </div>
@@ -53,4 +53,4 @@ const OffRoadCaravanHeader = () => {
   );
 };
 
-export default OffRoadCaravanHeader;
+export default OffRoadCampervanHeader;

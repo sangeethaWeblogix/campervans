@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 // export const dynamic = "force-dynamic"
 ;
@@ -8,12 +8,12 @@ import Notfound from "./searchError";
 
 export default function NotFoundPage() {
   const categories = [
-    { name: "Off Road Caravans", slug: "off-road-category" },
-    { name: "Hybrid Caravans", slug: "hybrid-category" },
-    { name: "Pop Top Caravans", slug: "pop-top-category" },
-    { name: "Luxury Caravans", slug: "luxury-category" },
-    { name: "Family Caravans", slug: "family-category" },
-    { name: "Touring Caravans", slug: "touring-category" },
+    { name: "Off Road Campervans", slug: "off-road-category" },
+    { name: "Hybrid Campervans", slug: "hybrid-category" },
+    { name: "Pop Top Campervans", slug: "pop-top-category" },
+    { name: "Luxury Campervans", slug: "luxury-category" },
+    { name: "Family Campervans", slug: "family-category" },
+    { name: "Touring Campervans", slug: "touring-category" },
   ];
 
   const states = [
@@ -37,7 +37,7 @@ export default function NotFoundPage() {
           404
         </h1>
         <p className="err-sub">
-          Oops! The caravan or page you’re looking for isn’t available.
+          Oops! The campervan or page you’re looking for isn’t available.
         </p>
 
         <div className="search-wrap">
@@ -51,7 +51,7 @@ export default function NotFoundPage() {
             Go to Homepage
           </Link>
           <Link className="btn btn-outline" href="/listings/">
-            Browse Caravans
+            Browse Campervans
           </Link>
         </div>
 

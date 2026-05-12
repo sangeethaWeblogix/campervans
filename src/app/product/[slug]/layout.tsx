@@ -1,4 +1,4 @@
-// src/app/product-details/[slug]/page.tsx
+﻿// src/app/product-details/[slug]/page.tsx
 import type { Metadata } from "next";
 
 import { ReactNode } from "react";
@@ -42,7 +42,7 @@ export async function generateMetadata({
 console.log("image", ogImage)
   if (!data || Object.keys(data).length === 0) {
     return {
-      title: "Product Not Found - Caravans for Sale",
+      title: "Product Not Found - Campervans for Sale",
       description: "The product you are looking for does not exist.",
     };
   }
@@ -53,13 +53,13 @@ console.log("image", ogImage)
     seo.meta_title ||
     data?.title ||
     data?.name ||
-    "Product - Caravans for Sale";
+    "Product - Campervans for Sale";
 
   const description =
     seo.metadescription ||
     seo.meta_description ||
     data?.short_description ||
-    "View caravan details.";
+    "View campervan details.";
   const canonicalUrl = `https://www.caravansforsale.com.au/product/${slug}/`;
   const robots = "index, follow";
  console.log("og", ogImage)

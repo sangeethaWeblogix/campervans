@@ -1,4 +1,4 @@
- import { fetchListings } from "@/api/listings/api";
+﻿ import { fetchListings } from "@/api/listings/api";
  import { parseSlugToFilters } from "@/app/components/urlBuilder";
  import type { Metadata } from "next";
   
@@ -136,7 +136,7 @@ if (parsed.suburb) {
 
   const rawTitle =
     res?.seo_v2?.meta_title?.trim() ||
-    "Caravans for Sale in Australia - Find Exclusive Deals";
+    "Campervans for Sale in Australia - Find Exclusive Deals";
   const title = rawTitle.trim();
   const description =   res?.seo_v2?.meta_description?.trim(); 
 

@@ -1,6 +1,6 @@
-const API_BASE = process.env.NEXT_PUBLIC_CFS_API_BASE;
+﻿const API_BASE = process.env.NEXT_PUBLIC_CFS_API_BASE;
 
-export const fetchLatestUsedCaravans = async () => {
+export const fetchLatestUsedCampervans = async () => {
   try {
     const res = await fetch(
       `${API_BASE}/latest-used-caravans`,
@@ -10,13 +10,13 @@ export const fetchLatestUsedCaravans = async () => {
     );
 
     if (!res.ok) {
-      throw new Error("Failed to fetch   used caravans");
+      throw new Error("Failed to fetch   used campervans");
     }
 
     const data = await res.json();
     return data;
   } catch (error) {
-    console.error("fetchUsedCaravans error:", error);
+    console.error("fetchUsedCampervans error:", error);
     return null;
   }
 };

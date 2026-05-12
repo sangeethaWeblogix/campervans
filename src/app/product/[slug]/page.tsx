@@ -1,4 +1,4 @@
- // app/product-details/[slug]/page.tsx
+﻿ // app/product-details/[slug]/page.tsx
 import { Metadata } from "next";
 import ClientLogger from "./product";
 import { redirect } from "next/navigation";
@@ -45,7 +45,7 @@ async function fetchProductDetail(slug: string) {
  console.log("ogggggoo", ogImage)
    if (!data || Object.keys(data).length === 0) {
      return {
-       title: "Product Not Found - Caravans for Sale",
+       title: "Product Not Found - Campervans for Sale",
        description: "",
      };
    }
@@ -56,13 +56,13 @@ async function fetchProductDetail(slug: string) {
      seo.meta_title ||
      data?.title ||
      data?.name ||
-     "Product - Caravans for Sale";
+     "Product - Campervans for Sale";
  
    const description =
      seo.metadescription ||
      seo.meta_description ||
      data?.short_description ||
-     "View caravan details.";
+     "View campervan details.";
    const canonicalUrl = `https://www.caravansforsale.com.au/product/${slug}/`;
    const robots = "index, follow";
   console.log("og", ogImage)

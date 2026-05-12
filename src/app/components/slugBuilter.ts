@@ -1,4 +1,4 @@
-// utils/slugBuilter.ts
+﻿// utils/slugBuilter.ts
 import { toSlug } from "../../utils/seo/slug";
 import { Filters } from "../components/ListContent/Listings";
 
@@ -108,15 +108,15 @@ const toYear = asNum(f.acustom_toyears);
 
 if (fromYear !== undefined && toYear !== undefined) {
   if (fromYear === toYear) {
-    segments.push(`${fromYear}-caravans-range`);
+    segments.push(`${fromYear}-campervans-range`);
   } else {
     // two different years → ignore or skip adding year slug
     // just don’t add anything or fallback
   }
 } else if (fromYear !== undefined) {
-  segments.push(`${fromYear}-caravans-range`);
+  segments.push(`${fromYear}-campervans-range`);
 } else if (toYear !== undefined) {
-  segments.push(`${toYear}-caravans-range`);
+  segments.push(`${toYear}-campervans-range`);
 }
   const query = new URLSearchParams();
 

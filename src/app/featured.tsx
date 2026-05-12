@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
@@ -130,7 +130,7 @@ export default function DealsOnlyCFS() {
                         {hero?.image && (
                           <Image
                             src={hero.image}
-                            alt={hero.title ?? "caravan"}
+                            alt={hero.title ?? "campervan"}
                             width={900}
                             height={300}
                             className="attachment-full size-full wp-post-image"
@@ -147,7 +147,7 @@ export default function DealsOnlyCFS() {
                           <div className="metc1">
                             <h3 className="title">{hero?.title ?? "—"}</h3>
                           </div>
-                          <div className="caravan_type">
+                          <div className="campervan_type">
                             <span>
                               {categories.find((c) => c.alt === active)?.name}
                             </span>
@@ -215,7 +215,7 @@ export default function DealsOnlyCFS() {
                 <div className="related-products">
                   <h3>
                     Featured {categories.find((c) => c.alt === active)?.name}{" "}
-                    Caravans For Sale
+                    Campervans For Sale
                   </h3>
                   <CardSkeleton count={3} />
                 </div>
@@ -228,7 +228,7 @@ export default function DealsOnlyCFS() {
                       <h3>
                         Featured{" "}
                         {categories.find((c) => c.alt === active)?.name}{" "}
-                        Caravans For Sale
+                        Campervans For Sale
                       </h3>
 
                       <Link
@@ -269,7 +269,7 @@ export default function DealsOnlyCFS() {
                                   {it.image && (
                                     <Image
                                       src={it.image}
-                                      alt={it.title ?? "caravan"}
+                                      alt={it.title ?? "campervan"}
                                       width={300}
                                       height={200}
                                       unoptimized

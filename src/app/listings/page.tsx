@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+﻿import React, { Suspense } from "react";
 import Listing from "../components/ListContent/Listings";
 import { fetchListings } from "@/api/listings/api";
 import type { Metadata } from "next";
@@ -10,20 +10,20 @@ import { fetchProductList } from "@/api/productList/api";
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: "Caravans for Sale in Australia | New & Used Caravans",
+  title: "Campervans for Sale in Australia | New & Used Campervans",
   description:
-    "Browse caravans for sale across Australia. Compare new and used caravans including off road, hybrid, family and pop top caravans from dealers and private sellers.",
+    "Browse campervans for sale across Australia. Compare new and used campervans including off road, hybrid, family and pop top campervans from dealers and private sellers.",
   robots: "index, follow",
   openGraph: {
-    title: "Caravans for Sale in Australia | New & Used Caravans",
+    title: "Campervans for Sale in Australia | New & Used Campervans",
     description:
-      "Browse caravans for sale across Australia. Compare new and used caravans including off road, hybrid, family and pop top caravans from dealers and private sellers.",
+      "Browse campervans for sale across Australia. Compare new and used campervans including off road, hybrid, family and pop top campervans from dealers and private sellers.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Caravans for Sale in Australia | New & Used Caravans",
+    title: "Campervans for Sale in Australia | New & Used Campervans",
     description:
-      "Browse caravans for sale across Australia. Compare new and used caravans including off road, hybrid, family and pop top caravans from dealers and private sellers.",
+      "Browse campervans for sale across Australia. Compare new and used campervans including off road, hybrid, family and pop top campervans from dealers and private sellers.",
   },
   alternates: {
     canonical: "https://www.caravansforsale.com.au/listings",
@@ -106,16 +106,31 @@ export default async function ListingsPage({
     }
 const [listingsRes, productListRes] = await Promise.all([
     fetchListings({ page }),
-    fetchProductList(), // 👈 add this
+    fetchProductList(),
   ]);
-      console.log("productListRes", productListRes )
+  console.log("productListRes", productListRes);
 
-    // All checks passed - render the listings
-    return (
-      <Suspense>
-        <Listing initialData={listingsRes} page={page}    productListData={productListRes} />
-      </Suspense>
-    );
+  if (!listingsRes) {
+    return <ApiErrorFallback title="Unable to load listings" message="We couldn't connect to our servers. Please try again." showRetry={true} />;
+  }
+
+  if (listingsRes.success === false) {
+    return <ApiErrorFallback title="Service temporarily unavailable" message="Our listing service is currently experiencing issues. Please try again in a few moments." showRetry={true} />;
+  }
+
+  if (!listingsRes.data) {
+    return <ApiErrorFallback title="No data available" message="We received an incomplete response from our servers. Please try again." showRetry={true} />;
+  }
+
+  if (!Array.isArray(listingsRes.data.products) || listingsRes.data.products.length === 0) {
+    notFound();
+  }
+
+  return (
+    <Suspense>
+      <Listing initialData={listingsRes} page={page} productListData={productListRes} />
+    </Suspense>
+  );
   } catch (error) {
     // Log the error for debugging
     console.error("Listings page API error:", error);

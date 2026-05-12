@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -452,7 +452,7 @@ export default function ListingContent({
 
     return {
       count: match[1], // "3279"
-      text: match[2], // "Off Road Caravans for sale in Australia"
+      text: match[2], // "Off Road Campervans for sale in Australia"
     };
   }
 
@@ -599,7 +599,7 @@ useEffect(() => {
                                 <ImageWithSkeleton
                                   src={firstImage}
                                   priority={isPriority}
-                                  alt="Caravan"
+                                  alt="Campervan"
                                   width={800}
                                   height={600}
                                 />
@@ -647,7 +647,7 @@ useEffect(() => {
                                       <div className="thumb_img">
                                         <ImageWithSkeleton
                                           src={img}
-                                          alt={`Caravan ${i + 1}`}
+                                          alt={`Campervan ${i + 1}`}
                                           width={800}
                                           height={600}
                                         />
@@ -925,7 +925,7 @@ useEffect(() => {
                         <span className="lab">Spotlight Van</span>
                         <Image
                           src={firstImage || "/images/placeholder.png"}
-                          alt="Caravan"
+                          alt="Campervan"
                           width={400}
                           height={300}
                           className="w-100 h-100 object-fit-cover"

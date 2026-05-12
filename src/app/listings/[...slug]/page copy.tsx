@@ -1,4 +1,4 @@
-
+﻿
  // app/(listings)/[[...slug]]/page.tsx
 function normalizeSlug(v: string = "") {
   return decodeURIComponent(v)
@@ -123,7 +123,7 @@ function isTypedFilter(slug: string) {
     /^over-\d+$/.test(slug) ||
     /^under-\d+$/.test(slug) ||
     /^between-\d+-\d+$/.test(slug) ||
-    /\d{4}(-caravans-range)?$/.test(slug)
+    /\d{4}(-campervans-range)?$/.test(slug)
   );
 }
 
@@ -180,7 +180,7 @@ if (
       /^over-\d+$/,
       /^under-\d+$/,
       /^between-\d+-\d+$/,
-      /\d{4}(-caravans-range)?$/,
+      /\d{4}(-campervans-range)?$/,
       /-state$/,
       /-region$/,
       /-suburb$/,
@@ -225,7 +225,7 @@ if (
     else if (lower.includes("-kg-atm")) detectedType = "weight";
     else if (lower.includes("-length-in-feet")) detectedType = "length";
     else if (lower.includes("-people-sleeping-capacity")) detectedType = "sleeps";
-    else if (/\d{4}(-caravans-range)?$/.test(lower)) detectedType = "year";
+    else if (/\d{4}(-campervans-range)?$/.test(lower)) detectedType = "year";
     else if (lower.endsWith("-search")) detectedType = "search";
     else if (lower.endsWith("-condition")) detectedType = "condition";
     else if (lower.endsWith("-category")) detectedType = "category";

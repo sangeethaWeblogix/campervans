@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 export default function PrivacyPolicy() {
   return (
@@ -25,7 +25,7 @@ export default function PrivacyPolicy() {
               <p>These websites may include, but are not limited to:</p>
 
               <ul>
-                <li>caravansforsale.com.au</li>
+                <li>campervansforsale.com.au</li>
                 
               </ul>
 

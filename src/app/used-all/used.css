@@ -1,4 +1,4 @@
-/* Home page*/
+﻿/* Home page*/
 
 .home_top {
   background: #f1f1f1;
@@ -155,7 +155,7 @@
   position: relative;
   bottom: 0;
 }
-.caravan_type {
+.campervan_type {
   margin-bottom: 10px;
   display: flex;
   gap: 5px;
@@ -193,7 +193,7 @@
   letter-spacing: 0.5px;
   max-width: 300px;
 }
-.product_data .caravan_type span {
+.product_data .campervan_type span {
   background: #787878;
   color: #ffffff;
   padding: 3px 15px;
@@ -540,12 +540,12 @@
   border-color: #df6c00 !important;
 }
 
-.caravans_by_state h2 {
+.campervans_by_state h2 {
   font-weight: 600;
   font-size: 22px;
 }
 
-.caravans_by_state .service-box {
+.campervans_by_state .service-box {
     z-index: 1;
     -o-transition: all 0.3s ease;
     background-color: #fff;
@@ -562,27 +562,27 @@
     height: 200px;
 }
 
-.caravans_by_state .service-box:hover {
+.campervans_by_state .service-box:hover {
 }
 
-.caravans_by_state .col-lg-4 {
+.campervans_by_state .col-lg-4 {
   margin-bottom: 25px;
 }
 
-.caravans_by_state .swiper-button-next,
-.caravans_by_state .swiper-button-prev,
-.caravans_by_manufacturer .swiper-button-next,
-.caravans_by_manufacturer .swiper-button-prev {
+.campervans_by_state .swiper-button-next,
+.campervans_by_state .swiper-button-prev,
+.campervans_by_manufacturer .swiper-button-next,
+.campervans_by_manufacturer .swiper-button-prev {
   top: 45%;
 }
 
-.product-page .caravans_by_state.related-products .swiper-button-next,
-.product-page .caravans_by_manufacturer.related-products .swiper-button-next {
+.product-page .campervans_by_state.related-products .swiper-button-next,
+.product-page .campervans_by_manufacturer.related-products .swiper-button-next {
   right: -30px;
 }
 
-.product-page .caravans_by_state.related-products .swiper-button-prev,
-.product-page .caravans_by_manufacturer.related-products .swiper-button-prev {
+.product-page .campervans_by_state.related-products .swiper-button-prev,
+.product-page .campervans_by_manufacturer.related-products .swiper-button-prev {
   left: -30px;
 }
 
@@ -595,14 +595,14 @@
   overflow: hidden;
 }
 
-.caravans_by_state .service-box h5 {
+.campervans_by_state .service-box h5 {
   font-weight: 600;
   margin-bottom: 10px;
   font-size: 20px;
   letter-spacing: 0;
 }
 
-.caravans_by_state .service-box .sec_left {
+.campervans_by_state .service-box .sec_left {
   width: 75%;
 }
 
@@ -661,13 +661,13 @@
 	color:#fff
 }
 
-.shop-used-caravans {
+.shop-used-campervans {
   padding: 50px 0px;
   padding-top:20px;
   background: #ffffff;
 }
 
-.shop-used-caravans h2 {
+.shop-used-campervans h2 {
   font-size: 22px;
   margin-bottom: 30px;
   font-weight: 600;
@@ -752,7 +752,7 @@
     grid-template-columns: 1fr;
   }
 
-  .shop-used-caravans h2 {
+  .shop-used-campervans h2 {
     font-size: 22px;
   }
 }
@@ -805,7 +805,7 @@
 }
 
 
-.caravans_by_state .sec_left a {
+.campervans_by_state .sec_left a {
   color: #333;
   margin-bottom: 3px;
   font-weight: 500;
@@ -816,29 +816,29 @@
   font-size: 15px;
 }
 
-.caravans_by_state .sec_left a:hover {
+.campervans_by_state .sec_left a:hover {
   color: #0181dd;
   text-decoration: underline;
   transform: translateX(0px);
 }
 
-.caravans_by_state .sec_left a.view_all {
+.campervans_by_state .sec_left a.view_all {
   text-decoration: underline;
   margin-top: 20px;
   color: #1153a6;
 }
 
-.caravans_by_state .service-box .sec_right {
+.campervans_by_state .service-box .sec_right {
   width: 25%;
   display: flex;
   justify-content: end;
 }
 
-.caravans_by_state .sec_right img {
+.campervans_by_state .sec_right img {
   height: 115px;
 }
 
-.caravans_by_state .sec_left a.view_all i {
+.campervans_by_state .sec_left a.view_all i {
   font-size: 13px;
 }
 
@@ -984,7 +984,7 @@ a.ignoretext {
   margin-bottom: -6px;
 }
 
-.caravans_by_manufacturer {
+.campervans_by_manufacturer {
   border-bottom: none;
   padding: 30px 0;
   font-weight: 600;
@@ -1015,39 +1015,39 @@ a.ignoretext {
   border-color: #ddd;
 }
 
-.caravans_by_manufacturer h2 {
+.campervans_by_manufacturer h2 {
   font-weight: 600;
   margin-bottom: 12px;
 }
 
-.caravans_by_manufacturer p {
+.campervans_by_manufacturer p {
   font-size: 17px;
   line-height: 26px;
   font-weight: 400;
 }
 
-.caravans_by_manufacturer .post_image {
+.campervans_by_manufacturer .post_image {
   width: 100%;
   display: flex;
   justify-content: end;
   margin-bottom: 25px;
 }
 
-.caravans_by_manufacturer .post_image img {
+.campervans_by_manufacturer .post_image img {
   max-width: 150px;
 }
 
-.caravans_by_manufacturer .post_info {
+.campervans_by_manufacturer .post_info {
   width: 100%;
 }
 
-.caravans_by_manufacturer .post_info h3 {
+.campervans_by_manufacturer .post_info h3 {
   font-size: 23px;
   font-weight: 600;
   margin-bottom: 7px;
 }
 
-.caravans_by_manufacturer .post_info p {
+.campervans_by_manufacturer .post_info p {
   height: 100px;
   margin-bottom: 10px;
   font-size: 15px;
@@ -1056,11 +1056,11 @@ a.ignoretext {
   overflow: hidden;
 }
 
-.caravans_by_manufacturer .post_info ul {
+.campervans_by_manufacturer .post_info ul {
   padding-left: 0;
 }
 
-.caravans_by_manufacturer .post_info ul li {
+.campervans_by_manufacturer .post_info ul li {
   color: #333;
   padding-bottom: 5px;
   padding-left: 23px;
@@ -1070,17 +1070,17 @@ a.ignoretext {
   font-size: 15px;
 }
 
-.caravans_by_manufacturer .post_info ul li i {
+.campervans_by_manufacturer .post_info ul li i {
   position: absolute;
   left: 0;
   top: 0;
   color: #3d3d3c;
 }
 
-.caravans_by_manufacturer .post_info ul li span {
+.campervans_by_manufacturer .post_info ul li span {
 }
 
-.caravans_by_manufacturer .post_info a {
+.campervans_by_manufacturer .post_info a {
   margin-top: 20px;
   color: #1153a6;
   display: block;
@@ -1092,7 +1092,7 @@ a.ignoretext {
   font-size: 15px;
 }
 
-.caravans_by_manufacturer .post_info a:hover {
+.campervans_by_manufacturer .post_info a:hover {
 }
 
 .deal_icon {
@@ -1161,7 +1161,7 @@ a.ignoretext {
   pointer-events: none;
 }
 
-.caravans_by_state.services.style-1 {
+.campervans_by_state.services.style-1 {
     position: relative;
     background: #ffffff;
     padding: 30px 0;
@@ -1504,7 +1504,7 @@ a.ignoretext {
     line-height: 35px;
     margin-bottom: 5px;
   }
-  .caravans_by_manufacturer .post_info p {
+  .campervans_by_manufacturer .post_info p {
     height: auto;
   }
   .home_top {
@@ -1555,12 +1555,12 @@ a.ignoretext {
     padding: 15px;
   }
 
-  .product-page .caravans_by_state.related-products .swiper-button-next,
-  .product-page .caravans_by_manufacturer.related-products .swiper-button-next {
+  .product-page .campervans_by_state.related-products .swiper-button-next,
+  .product-page .campervans_by_manufacturer.related-products .swiper-button-next {
     right: -10px;
   }
-  .product-page .caravans_by_state.related-products .swiper-button-prev,
-  .product-page .caravans_by_manufacturer.related-products .swiper-button-prev {
+  .product-page .campervans_by_state.related-products .swiper-button-prev,
+  .product-page .campervans_by_manufacturer.related-products .swiper-button-prev {
     left: -10px;
   }
   .home-post_head h2 {
@@ -1640,7 +1640,7 @@ a.ignoretext {
     margin-bottom: 0px;
   }
 
-  .caravans_by_state .service-box h5 a {
+  .campervans_by_state .service-box h5 a {
     font-size: 20px;
   }
   .sidenav {
@@ -1823,7 +1823,7 @@ a.ignoretext {
   }
 }
 
-.banner_sell_caravan {
+.banner_sell_campervan {
     border-radius: 12px;
     align-items: center;
     width: 100%;
@@ -1834,7 +1834,7 @@ a.ignoretext {
     margin-top: 25px;
 }
 
-.banner_sell_caravan .bgImg {
+.banner_sell_campervan .bgImg {
     object-fit: cover;
     z-index: 1;
     position: absolute;
@@ -1847,7 +1847,7 @@ a.ignoretext {
     color: transparent;
 }
 
-.banner_sell_caravan .overlay {
+.banner_sell_campervan .overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
@@ -1859,28 +1859,28 @@ a.ignoretext {
   z-index: 2;
 }
 
-.banner_sell_caravan .content {
+.banner_sell_campervan .content {
   position: relative;
   z-index: 3;
   max-width: 520px;
   color: #fff;
 }
 
-.banner_sell_caravan .title {
+.banner_sell_campervan .title {
     margin: 0 0 15px;
     font-size: 30px;
     font-weight: 700;
     line-height: 1.1;
 }
 
-.banner_sell_caravan .desc {
+.banner_sell_campervan .desc {
     color: #eee;
     margin: 0 0 15px;
     font-size: 16px;
     line-height: 1.5;
 }
 
-.banner_sell_caravan .btn {
+.banner_sell_campervan .btn {
     color: #fff;
     background: #f58333;
     border-radius: 8px;
@@ -1893,22 +1893,22 @@ a.ignoretext {
     letter-spacing: 0.5px;
 }
 
-.banner_sell_caravan .btn:hover {
+.banner_sell_campervan .btn:hover {
   background: #f3751c;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-  .banner_sell_caravan {
+  .banner_sell_campervan {
     height: auto;
     padding: 18px;
   }
 
-  .banner_sell_caravan .title {
+  .banner_sell_campervan .title {
     font-size: 24px;
   }
 
-  .banner_sell_caravan .desc {
+  .banner_sell_campervan .desc {
     font-size: 13px;
   }
 }

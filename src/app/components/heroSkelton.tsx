@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import Skeleton from "@mui/material/Skeleton";
 
 export default function HeroSkeleton() {
@@ -11,7 +11,7 @@ export default function HeroSkeleton() {
         <div className="deal_info">
           <div className="dd-title">
             <Skeleton variant="text" width="90%" height={36} />
-            <div className="caravan_type">
+            <div className="campervan_type">
               <Skeleton variant="text" width="50%" height={24} />
             </div>
             <div className="metc2">

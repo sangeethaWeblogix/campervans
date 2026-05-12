@@ -1,4 +1,4 @@
- "use client";
+﻿ "use client";
 
 import Link from "next/link";
 
@@ -45,7 +45,7 @@ export default function ApiErrorFallback({
       case "api":
         return "Our servers are temporarily unavailable. We're working on it!";
       case "empty":
-        return "No caravans found matching your filters. Try adjusting your search criteria.";
+        return "No campervans found matching your filters. Try adjusting your search criteria.";
       default:
         return "We're having trouble loading this page. Please try again.";
     }

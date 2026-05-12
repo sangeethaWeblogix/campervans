@@ -704,29 +704,6 @@ const [states, setStates] = useState<StateOption[]>(
           >
             <SwiperSlide style={{ width: "auto" }}>
               <button
-                className={`tag ${currentFilters.category ? "active" : ""}`}
-                onClick={handleTypeOpen}
-              >
-                {currentFilters.category ? (
-                  <>
-                    <small className="selected_label">Type: </small>
-                    {toTitleCase(
-                      categoryCounts.find(
-                        (c) => c.slug === currentFilters.category,
-                      )?.name ?? currentFilters.category,
-                    )}
-                    <span className="active_filter">
-                      <i className="bi bi-circle-fill"></i>
-                    </span>
-                  </>
-                ) : (
-                  "Caravan Type"
-                )}
-              </button>
-            </SwiperSlide>
-
-            <SwiperSlide style={{ width: "auto" }}>
-              <button
                 className={`tag ${currentFilters.state || currentFilters.suburb ? "active" : ""}`}
                 onClick={handleLocationOpen}
               >
@@ -1154,86 +1131,6 @@ const [states, setStates] = useState<StateOption[]>(
                   router.push(safeSlug);
                   setOpenModal(null);
                 }}
-              >
-                Search
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Caravan Type Modal */}
-      {openModal === "type" && (
-        <div className="filter-overlay">
-          <div className="filter-modal">
-            <div className="filter-header">
-              <h3>Caravan Type</h3>
-              {closeBtn}
-            </div>
-            <div className="filter-body">
-              <div className="filter-item pt-0">
-                <ul
-                  className="category-list"
-                  style={{ listStyle: "none", padding: 0, margin: 0 }}
-                >
-                  {isCategoryCountLoading &&
-                  cachedCategoryCountsRef.current.length === 0 ? (
-                    <CategorySkeleton />
-                  ) : (
-                    // Use cached data as fallback while re-fetching
-                    (categoryCounts.length > 0
-                      ? categoryCounts
-                      : cachedCategoryCountsRef.current
-                    ).map((cat) => (
-                      <li key={cat.slug} className="category-item">
-                        <label className="category-checkbox-row checkbox">
-                          <div className="d-flex align-items-center">
-                            <input
-                              className="checkbox__trigger visuallyhidden"
-                              type="checkbox"
-                              checked={tempCategory === cat.slug}
-                              onChange={() =>
-                                setTempCategory(
-                                  tempCategory === cat.slug ? null : cat.slug,
-                                )
-                              }
-                            />
-                            <span className="checkbox__symbol">
-                              <svg
-                                aria-hidden="true"
-                                className="icon-checkbox"
-                                width="28px"
-                                height="28px"
-                                viewBox="0 0 28 28"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path d="M4 14l8 7L24 7"></path>
-                              </svg>
-                            </span>
-                            <span className="category-name">{cat.name}</span>
-                          </div>
-                          <span className="category-count">({cat.count})</span>
-                        </label>
-                      </li>
-                    ))
-                  )}
-                </ul>
-              </div>
-            </div>
-            <div className="filter-footer">
-              <button
-                className="clear"
-                onClick={handleTypeClear}
-                style={{
-                  opacity: tempCategory ? 1 : 0.4,
-                  cursor: tempCategory ? "pointer" : "not-allowed",
-                }}
-              >
-                Clear filters
-              </button>
-              <button
-                className={`search ${hasTypeChange ? "active" : ""}`}
-                onClick={handleTypeSearch}
               >
                 Search
               </button>

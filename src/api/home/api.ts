@@ -1,4 +1,4 @@
-// src/api/home/api.ts
+﻿// src/api/home/api.ts
 const API_BASE = process.env.NEXT_PUBLIC_CFS_API_BASE!;
 
 export type HomeProduct = {
@@ -64,7 +64,7 @@ type HomeRoot = {
   // products buckets
   featured?: ProductRaw[] | Wrapper<ProductRaw>;
   featured_products?: ProductRaw[] | Wrapper<ProductRaw>;
-  featured_caravans?: ProductRaw[] | Wrapper<ProductRaw>;
+  featured_campervans?: ProductRaw[] | Wrapper<ProductRaw>;
   top?: ProductRaw[] | Wrapper<ProductRaw>;
 
   products?: ProductRaw[] | Wrapper<ProductRaw>;
@@ -134,7 +134,7 @@ export async function fetchHomePage(): Promise<HomePageData> {
   const featuredRaw =
     root.featured ??
     root.featured_products ??
-    root.featured_caravans ??
+    root.featured_campervans ??
     root.top;
 
   const productsRaw =

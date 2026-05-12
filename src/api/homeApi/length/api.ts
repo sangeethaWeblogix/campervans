@@ -1,6 +1,6 @@
-const API_BASE = process.env.NEXT_PUBLIC_CFS_API_BASE;
+﻿const API_BASE = process.env.NEXT_PUBLIC_CFS_API_BASE;
 
-export const fetchLengthBasedCaravans = async () => {
+export const fetchLengthBasedCampervans = async () => {
   const res = await fetch(`${API_BASE}/length-based-caravans-list`, {
     cache: "no-store",
   });

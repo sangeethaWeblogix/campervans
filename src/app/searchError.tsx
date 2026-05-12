@@ -1,4 +1,4 @@
-// src/app/components/SearchSection.tsx
+﻿// src/app/components/SearchSection.tsx
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
@@ -216,7 +216,7 @@ export default function SearchSection() {
                     ref={searchInputRef}
                     type="text"
                     className="search-box"
-                    placeholder="Search by caravans..."
+                    placeholder="Search by campervans..."
                     id="searchInput"
                     autoComplete="off"
                     value={query}

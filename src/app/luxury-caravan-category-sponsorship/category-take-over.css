@@ -1,10 +1,10 @@
-:root {
-  --caravan-orange: #ec7200;
-  --caravan-orange-dark: #c55a22;
-  --caravan-navy: #1a243d;
-  --caravan-gray-bg: #f5f7f9;
-  --caravan-text-dark: #1a243d;
-  --caravan-text-gray: #4a4a4a;
+﻿:root {
+  --campervan-orange: #ec7200;
+  --campervan-orange-dark: #c55a22;
+  --campervan-navy: #1a243d;
+  --campervan-gray-bg: #f5f7f9;
+  --campervan-text-dark: #1a243d;
+  --campervan-text-gray: #4a4a4a;
 }
 
 .hero-bg {
@@ -47,9 +47,9 @@
   font-size: 65px;
 }
 
-.btn-caravan-orange {
-  background-color: var(--caravan-orange);
-  border-color: var(--caravan-orange);
+.btn-campervan-orange {
+  background-color: var(--campervan-orange);
+  border-color: var(--campervan-orange);
   color: white;
   font-weight: 700;
   text-transform: uppercase;
@@ -60,9 +60,9 @@
     background-color 0.2s;
 }
 
-.btn-caravan-orange:hover {
-  background-color: var(--caravan-orange-dark);
-  border-color: var(--caravan-orange-dark);
+.btn-campervan-orange:hover {
+  background-color: var(--campervan-orange-dark);
+  border-color: var(--campervan-orange-dark);
   color: white;
   transform: scale(1.05);
 }
@@ -104,7 +104,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--caravan-orange);
+  color: var(--campervan-orange);
   margin: 0 auto 1.5rem;
 }
 
