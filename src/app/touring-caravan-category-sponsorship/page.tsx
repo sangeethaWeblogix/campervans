@@ -1,13 +1,13 @@
-﻿import type { Metadata } from 'next'
+import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import './category-take-over.css'
 
 /* ── Meta Title & Description ── */
 export const metadata: Metadata = {
-  title: 'Touring Campervan Category Sponsorship | Australia-Wide Exposure',
+  title: 'Touring Caravan Category Sponsorship | Australia-Wide Exposure',
   description:
-    "Exclusive Off Road Campervan Listing Page Sponsorship for touring campervan advertisers. Limited to just 1 advertiser per month — maximum exposure, retargeting included, and 100% share of voice in the touring campervan category.",
+    "Exclusive Off Road Caravan Listing Page Sponsorship for touring caravan advertisers. Limited to just 1 advertiser per month — maximum exposure, retargeting included, and 100% share of voice in the touring caravan category.",
 }
 
 export default function OffRoadCategoryTakeOver() {
@@ -22,7 +22,7 @@ export default function OffRoadCategoryTakeOver() {
               DOMINATE THE TOURING <br className="d-none d-md-block" /> CARAVAN MARKET
             </h1>
             <p className="h4 fw-medium mb-5">
-              Exclusive Off Road Campervan Listing Page Sponsorship for <span className="fw-bold">Advertisers</span> —{' '}
+              Exclusive Off Road Caravan Listing Page Sponsorship for <span className="fw-bold">Advertisers</span> —{' '}
               <br className="d-none d-md-block" />
               Limited to Just 1 Spot Per Month
             </p>
@@ -51,7 +51,7 @@ export default function OffRoadCategoryTakeOver() {
                   <Image src="/images/hometk_visible.png" alt="Maximum Exposure" width={72} height={72} />
                 </div>
                 <h3 className="fw-bold text-uppercase mb-3">MAXIMUM EXPOSURE</h3>
-                <p>Be one of only two brands shown to highly interested touring campervan buyers.</p>
+                <p>Be one of only two brands shown to highly interested touring caravan buyers.</p>
               </div>
 
               <div className="col-md-3 p-4 text-center border-end border-light feature-card" data-purpose="feature-card">
@@ -67,7 +67,7 @@ export default function OffRoadCategoryTakeOver() {
                   <Image src="/images/hometk_target.png" alt="High Buyer Intent" width={72} height={72} />
                 </div>
                 <h3 className="fw-bold text-uppercase mb-3">HIGH BUYER INTENT</h3>
-                <p>Reach thousands of serious touring campervan enthusiasts searching for their next model.</p>
+                <p>Reach thousands of serious touring caravan enthusiasts searching for their next model.</p>
               </div>
 
               <div className="col-md-3 p-4 text-center feature-card" data-purpose="feature-card">
@@ -122,7 +122,7 @@ export default function OffRoadCategoryTakeOver() {
                       />
                       <div className="position-absolute inset-0 bg-dark bg-opacity-50 d-flex flex-column justify-content-end p-3">
                         <button
-                          className="btn btn-campervan-orange w-100 py-2 small tracking-widest"
+                          className="btn btn-caravan-orange w-100 py-2 small tracking-widest"
                           style={{ fontSize: '10px' }}
                         >
                           Discover Models
@@ -147,7 +147,7 @@ export default function OffRoadCategoryTakeOver() {
               THE ULTIMATE TOURING CARAVAN MARKETING PACKAGE
             </h2>
             <p className="h5 text-dark fw-medium">
-              A complete lead generation solution for your campervan brand
+              A complete lead generation solution for your caravan brand
             </p>
           </div>
           <div className="row g-4 justify-content-center">
@@ -158,11 +158,11 @@ export default function OffRoadCategoryTakeOver() {
                   <Image src="/images/hometk_tablet.png" alt="Premium Category Sponsorship" width={48} height={48} />
                 </div>
                 <div>
-                  <h4 className="fw-bold text-uppercase" style={{ color: 'var(--campervan-orange)' }}>
+                  <h4 className="fw-bold text-uppercase" style={{ color: 'var(--caravan-orange)' }}>
                     PREMIUM CATEGORY SPONSORSHIP
                   </h4>
                   <p className="small fw-medium m-0 lh-base">
-                    Your brand in the top-of page position for touring campervans.
+                    Your brand in the top-of page position for touring caravans.
                   </p>
                 </div>
               </div>
@@ -174,7 +174,7 @@ export default function OffRoadCategoryTakeOver() {
                   <Image src="/images/hometk_retarget.png" alt="Retargeting Campaign" width={48} height={48} />
                 </div>
                 <div>
-                  <h4 className="fw-bold text-uppercase" style={{ color: 'var(--campervan-orange)' }}>
+                  <h4 className="fw-bold text-uppercase" style={{ color: 'var(--caravan-orange)' }}>
                     RETARGETING CAMPAIGN
                   </h4>
                   <p className="small fw-medium m-0 lh-base">
@@ -190,11 +190,11 @@ export default function OffRoadCategoryTakeOver() {
                   <Image src="/images/hometk_check.png" alt="Exclusive Share of Voice" width={48} height={48} />
                 </div>
                 <div>
-                  <h4 className="fw-bold text-uppercase" style={{ color: 'var(--campervan-orange)' }}>
+                  <h4 className="fw-bold text-uppercase" style={{ color: 'var(--caravan-orange)' }}>
                     EXCLUSIVE SHARE OF VOICE
                   </h4>
                   <p className="small fw-medium m-0 lh-base">
-                    Limited to just 2 advertisers per category. You get 100% share of voice in touring Campervans.
+                    Limited to just 2 advertisers per category. You get 100% share of voice in touring Caravans.
                   </p>
                 </div>
               </div>
@@ -206,11 +206,11 @@ export default function OffRoadCategoryTakeOver() {
                   <Image src="/images/hometk_gps.png" alt="Aggressive Targeting" width={48} height={48} />
                 </div>
                 <div>
-                  <h4 className="fw-bold text-uppercase" style={{ color: 'var(--campervan-orange)' }}>
+                  <h4 className="fw-bold text-uppercase" style={{ color: 'var(--caravan-orange)' }}>
                     AGGRESSIVE TARGETING
                   </h4>
                   <p className="small fw-medium m-0 lh-base">
-                    We target users actively searching for touring campervans.
+                    We target users actively searching for touring caravans.
                   </p>
                 </div>
               </div>
@@ -238,7 +238,7 @@ export default function OffRoadCategoryTakeOver() {
             </div>
             <div className="col-auto">
               <Link
-                className="btn btn-campervan-orange btn-lg px-5 py-3 fs-4 shadow-lg"
+                className="btn btn-caravan-orange btn-lg px-5 py-3 fs-4 shadow-lg"
                 href="https://advertisers.caravansforsale.com.au/touring-ad-type/"
               >
                 Subscribe Now

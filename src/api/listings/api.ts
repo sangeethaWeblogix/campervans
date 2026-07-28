@@ -1,4 +1,4 @@
-﻿const API_BASE = process.env.NEXT_PUBLIC_CFS_API_BASE;
+const API_BASE = process.env.NEXT_PUBLIC_CFS_API_BASE;
 
 interface Filters {
   page?: number;
@@ -29,6 +29,7 @@ interface Filters {
   to_sleep?: string | number;
   msid?: string | null;
   shuffle_seed?: string | number; // NEW: For Cloudflare cache variants
+  indexed?: boolean; // Tells the Cloudflare Worker whether this page is eligible for KV caching
 }
 
 export type Item = {
@@ -43,6 +44,9 @@ export type Item = {
   link: string;
   condition: string;
   location?: string;
+  region?: string;
+  suburb?: string;
+  pincode?: string;
   categories?: string[];
   people?: string;
   make?: string;
@@ -56,7 +60,7 @@ export type Item = {
   image_format?: string[];
   image_url?: string[];
   seller_type?: string;
-
+  axle?: string;
 };
 
 export interface ApiSEO {
@@ -70,6 +74,10 @@ export interface ApiSEO {
   list_page_metatitle?: string;
   meta_title?: string;
   meta_description?: string;
+  short_description?: string;
+  footer_description?: string;
+  /** JSON-encoded string: `[{ "q": "...", "a": "..." }, ...]` */
+  faq?: string;
   cacheable?: boolean; // NEW: Cache hint for CDN
 }
 
@@ -98,6 +106,7 @@ export type ApiResponse = {
   seo_v2?: ApiSEO;
   pagination?: ApiPagination;
   data?: ApiData;
+  emp_exclusive_products?: Item[]; // top-level in 0-product (410) responses
   message?: string;
   errors?: string[];
   msid?: string | null;
@@ -108,6 +117,11 @@ export type ApiResponse = {
 /** Normalize "+", spaces for search/keyword */
 const normalizeQuery = (s?: string) =>
   (s ?? "").replace(/\+/g, " ").trim().replace(/\s+/g, " ");
+
+// NOTE: no client-side result cache here by design — Cloudflare KV (fed by the WP
+// admin warmer) is the single source of truth for cached listings JSON. A separate
+// browser-local cache could serve a visitor stale data for minutes after the admin
+// has already pushed a fresh version to KV, so every call goes straight through.
 
 export const fetchListings = async (
   filters: Filters = {}
@@ -137,6 +151,7 @@ export const fetchListings = async (
     from_sleep,
     to_sleep,
     shuffle_seed, // NEW: Extract shuffle_seed
+    indexed,
   } = filters;
 
   const params = new URLSearchParams();
@@ -169,42 +184,130 @@ export const fetchListings = async (
   // NEW: Pass shuffle_seed to API for deterministic shuffle (CDN cache variants)
   if (shuffle_seed) params.append("shuffle_seed", `${shuffle_seed}`);
 
+  // Tells the Cloudflare Worker this page is indexed/curated and eligible for KV
+  // caching. Non-indexed (long-tail) requests omit this and are always live-proxied.
+  if (indexed) params.append("indexed", "1");
+
   const s = normalizeQuery(search);
   if (s) params.append("search", s);
 
-  const url = `${API_BASE}/new_optimize_code?${params.toString()}`;
-  const res = await fetch(url);
-  console.log("[list API] GET", res.url);
+  // Client-side: use internal proxy to avoid CORS. Server-side: call admin API directly.
+  const isClient = typeof window !== "undefined";
+  const url = isClient
+    ? `/api/listings/?${params.toString()}`
+    : `${API_BASE}/new_optimize_code?${params.toString()}`;
+
+  const controller = new AbortController();
+  const timeoutMs = Number(process.env.CFS_API_TIMEOUT_MS) || 30000;
+  const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
+
+  let res: Response;
+  try {
+    res = await fetch(url, {
+      signal: controller.signal,
+      headers: {
+        Accept: "application/json",
+        ...(!isClient && process.env.CFS_API_KEY
+          ? { "X-API-Key": process.env.CFS_API_KEY }
+          : {}),
+      },
+      ...(!isClient && { cache: 'no-store' }),
+    });
+  } catch (err: any) {
+    clearTimeout(timeoutId);
+
+    if (err?.name === "AbortError") {
+      console.error("[BACKEND ERROR] API no response — timed out after 30s:", url);
+      throw new Error("API no response — timed out after 30s");
+    }
+
+    // iOS Safari "Load failed" — network offline or CORS
+    console.error("[FRONTEND ERROR] Fetch failed — client cannot reach server:", err?.message, url);
+    throw new Error("Fetch failed: " + (err?.message ?? "Load failed"));
+  }
+
+  clearTimeout(timeoutId);
 
   if (!res.ok) {
     const errText = await res.text();
-    console.error("API Error:", res.status, errText);
-    throw new Error(`API failed: ${res.status}`);
+
+    // WordPress returns HTTP 410 for 0-product pages — parse body and return data normally
+    if (res.status === 410) {
+      try {
+        const idx410 = errText.indexOf('{"');
+        const json: ApiResponse = JSON.parse(idx410 > 0 ? errText.substring(idx410) : errText);
+        return {
+          success: json.success,
+          list_page_title: json.h1,
+          seo_v2: json.seo_v2,
+          pagination: json.pagination,
+          data: {
+            products: json.data?.products ?? [],
+            exclusive_products: json.data?.exclusive_products ?? [],
+            emp_exclusive_products: json.emp_exclusive_products ?? json.data?.emp_exclusive_products ?? [],
+            featured_products: json.data?.featured_products ?? [],
+            premium_products: json.data?.premium_products ?? [],
+            make_options: json.data?.make_options ?? [],
+            model_options: json.data?.model_options ?? [],
+            all_categories: json.data?.all_categories ?? [],
+            states: json.data?.states ?? [],
+          },
+        };
+      } catch {
+        // JSON parse failed — still return empty data so noindex is set correctly
+        return {
+          success: false,
+          data: {
+            products: [],
+            exclusive_products: [],
+            emp_exclusive_products: [],
+            featured_products: [],
+            premium_products: [],
+            make_options: [],
+            model_options: [],
+            all_categories: [],
+            states: [],
+          },
+        };
+      }
+    }
+
+    if (res.status >= 500) {
+      console.error(`[BACKEND ERROR] HTTP ${res.status} from API:`, errText.substring(0, 300));
+      throw new Error(`Backend server error (HTTP ${res.status})`);
+    }
+    if (res.status === 401 || res.status === 403) {
+      throw new Error("Missing or invalid API key");
+    }
+    if (res.status === 404) {
+      throw new Error("API endpoint not found (404)");
+    }
+    throw new Error(`API failed: HTTP ${res.status}`);
   }
 
   const raw = await res.text();
   let json: ApiResponse;
   try {
+    // Fast path — clean response
     json = JSON.parse(raw);
   } catch {
-    console.error("Invalid JSON response:", raw);
-    throw new Error("Invalid API response");
+    // WordPress WP_DEBUG ON can prepend PHP notices before JSON.
+    // Find the start of the actual JSON object ({"success":...) and retry.
+    const jsonIdx = raw.indexOf('{"');
+    if (jsonIdx > 0) {
+      try {
+        json = JSON.parse(raw.substring(jsonIdx));
+      } catch {
+        console.error("[BACKEND ERROR] Invalid JSON from API (after strip):", raw.substring(0, 300));
+        throw new Error("Invalid API response — unexpected non-JSON reply");
+      }
+    } else {
+      console.error("[BACKEND ERROR] Invalid JSON from API:", raw.substring(0, 300));
+      throw new Error("Invalid API response — unexpected non-JSON reply");
+    }
   }
 
-  // Normalise API "Caravan/Caravans" → "Campervan/Campervans" in SEO fields
-  const replaceCampervan = (s?: string) =>
-    s?.replace(/\bCaravans\b/g, "Campervans").replace(/\bCaravan\b/g, "Campervan");
-
-  if (json.seo_v2) {
-    json.seo_v2.h1             = replaceCampervan(json.seo_v2.h1);
-    json.seo_v2.meta_title     = replaceCampervan(json.seo_v2.meta_title);
-    json.seo_v2.meta_description = replaceCampervan(json.seo_v2.meta_description);
-    json.seo_v2.metatitle      = replaceCampervan(json.seo_v2.metatitle);
-    json.seo_v2.metadescription = replaceCampervan(json.seo_v2.metadescription);
-  }
-
-  // Return all useful sections from API
-  return {
+  const result: ApiResponse = {
     success: json.success,
     list_page_title: json.h1,
     seo_v2: json.seo_v2,
@@ -212,7 +315,7 @@ export const fetchListings = async (
     data: {
       products: json.data?.products ?? [],
       exclusive_products: json.data?.exclusive_products ?? [],
-      emp_exclusive_products: json.data?.emp_exclusive_products ?? [],
+      emp_exclusive_products: json.emp_exclusive_products ?? json.data?.emp_exclusive_products ?? [],
       featured_products: json.data?.featured_products ?? [],
       premium_products: json.data?.premium_products ?? [],
       make_options: json.data?.make_options ?? [],
@@ -221,4 +324,9 @@ export const fetchListings = async (
       states: json.data?.states ?? [],
     },
   };
+
+  return result;
 };
+
+// Re-export for page imports
+export { fetchListings as getCachedListings };

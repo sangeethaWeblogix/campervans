@@ -1,35 +1,10 @@
-﻿import React, { ReactNode } from "react";
-import "../components/ListContent/newList.css";
-import "./listings.css?=4";
-import "../components/ListContent/newList.css";
-import { Metadata } from "next";
-
-export const revalidate = 3600;
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Campervans for Sale in Australia | New & Used Campervans",
-  description:
-    "Browse campervans for sale across Australia. Compare new and used campervans including off road, hybrid, family and pop top campervans from dealers and private sellers.",
-  robots: "index, follow",
-  openGraph: {
-    title: "Campervans for Sale in Australia | New & Used Campervans",
-    description:
-      "Browse campervans for sale across Australia. Compare new and used campervans including off road, hybrid, family and pop top campervans from dealers and private sellers.",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Campervans for Sale in Australia | New & Used Campervans",
-    description:
-      "Browse campervans for sale across Australia. Compare new and used campervans including off road, hybrid, family and pop top campervans from dealers and private sellers.",
-  },
-  alternates: {
-    canonical: "https://www.caravansforsale.com.au/listings",
-  },
-  verification: {
-    google: "6tT6MT6AJgGromLaqvdnyyDQouJXq0VHS-7HC194xEo", // ✅ add here
-  },
+  title: "Caravans for Sale in Victoria | CaravansForSale.com.au",
+  description: "Browse new and used caravans for sale in Victoria from dealers and private sellers.",
 };
 
-export default function Layout({ children }: { children: ReactNode }) {
-  return <div>{children}</div>;
+export default function Layout({ children }: { children: React.ReactNode }) {
+  return <>{children}</>;
 }

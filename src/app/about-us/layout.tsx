@@ -1,15 +1,15 @@
-﻿ import { Metadata } from "next";
+ import { Metadata } from "next";
 import { ReactNode } from "react";
 
 
 
  export const metadata: Metadata = {
    title: {
-     default: "About Campervan Marketplace - Your Trusted Campervan Resource",
+     default: "About Caravan Marketplace - Your Trusted Caravan Resource",
      template: "%s ",
    },
    description:
-     "Campervan Marketplace is your go-to platform for finding the perfect campervan from the right manufacturer or dealer @ the right price.",
+     "Caravan Marketplace is your go-to platform for finding the perfect caravan from the right manufacturer or dealer @ the right price.",
    icons: { icon: "/favicon.ico" },
    robots: "index, follow",
    verification: {

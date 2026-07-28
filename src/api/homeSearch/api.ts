@@ -1,5 +1,6 @@
 // src/api/homeSearch/api.ts
 const API_BASE = process.env.NEXT_PUBLIC_CFS_API_BASE;
+const API_KEY = process.env.CFS_API_KEY; // ✅ Add this
 
 export interface KeywordSuggestion {
   keyword: string;
@@ -48,32 +49,34 @@ function extractList(payload: unknown): HomeSearchItem[] {
 }
 
 export async function fetchHomeSearchList(): Promise<HomeSearchItem[]> {
-  if (!API_BASE) throw new Error("Missing NEXT_PUBLIC_CFS_API_BASE");
-
-  const url = `${API_BASE}/home_search_new`;
-  // if (typeof window !== "undefined") console.log("[HomeSearch API] GET", url);
+  const url = `/api/home-search`;
 
   const res = await fetch(url, { cache: "no-store" });
   if (!res.ok) throw new Error(`HomeSearch API failed: ${res.status}`);
 
-  const json = await res.json();
-  return extractList(json);
+  try {
+    const json = await res.json();
+    return extractList(json);
+  } catch {
+    return [];
+  }
 }
 
 export async function fetchKeywordSuggestions(
   query: string,
   signal?: AbortSignal
 ): Promise<KeywordSuggestion[]> {
-  if (!API_BASE) throw new Error("Missing NEXT_PUBLIC_CFS_API_BASE");
-  const url = `${API_BASE}/home_search_new?keyword=${encodeURIComponent(query)}`;
+  const url = `/api/home-search/?keyword=${encodeURIComponent(query)}`;
 
   const res = await fetch(url, { cache: "no-store", signal });
   if (!res.ok) throw new Error(`Keyword API failed: ${res.status}`);
 
-  const json = (await res.json()) as {
-    success?: boolean;
-    data?: { keyword?: string; url?: string; id?: string | number }[];
-  };
+  let json: { success?: boolean; data?: { keyword?: string; url?: string; id?: string | number }[] };
+  try {
+    json = await res.json();
+  } catch {
+    return [];
+  }
 
   const arr = Array.isArray(json?.data) ? json.data : [];
 

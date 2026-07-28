@@ -1,4 +1,4 @@
-﻿// src/app/general-sitemap.xml/route.ts
+// src/app/general-sitemap.xml/route.ts
 import { NextResponse } from "next/server";
 
 const SITE_URL =
@@ -6,12 +6,14 @@ const SITE_URL =
 
 // Static URLs (you can extend this later with categories, states, regions)
 const staticUrls = [
-  "campervan-manufacturers",
-  "off-road-campervans-manufacturers",
+  "caravan-manufacturers",
+  "off-road-caravans-manufacturers",
   "listings",
   "blog",
   "about-us",
   "contact",
+  "dealer-advertising",
+  "sell-my-caravan",
 ];
 
 export async function GET() {

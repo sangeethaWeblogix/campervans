@@ -1,4 +1,4 @@
-﻿ import type { Metadata } from "next";
+ import type { Metadata } from "next";
 import DeatilsPage from "./details";
 
 import "./details.css";
@@ -59,13 +59,13 @@ export async function generateMetadata({
     seo.meta_title ||
     data?.title ||
     data?.name ||
-    "Product - Campervans for Sale";
+    "Product - Caravans for Sale";
 
   const description =
     seo.metadescription ||
     seo.meta_description ||
     data?.short_description ||
-    "View campervan details.";
+    "View caravan details.";
   const robots = "index, follow";
   const canonicalUrl = `https://www.caravansforsale.com.au/${slug}/`;
 
@@ -139,11 +139,11 @@ export default async function ProductDetailPage({ params }: PageProps) {
             </div>
             <Typography variant="h5" fontWeight="bold" gutterBottom>
               Thank you for submitting your information with{" "}
-              <span style={{ color: "#000" }}>campervansforsale.com.au</span>.
+              <span style={{ color: "#000" }}>caravansforsale.com.au</span>.
             </Typography>
 
             <Typography variant="body1" color="text.secondary" gutterBottom>
-              Your campervan dealer will contact you as soon as possible.
+              Your caravan dealer will contact you as soon as possible.
             </Typography>
 
             <Link href="/" style={{ textDecoration: "none" }}>

@@ -1,8 +1,8 @@
-﻿import Image from "next/image";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-export default function OffRoadCampervanMiddle() {
+export default function OffRoadCaravanMiddle() {
   return (
     <section
       className="services manufacture_content_area section-padding pt-30 pb-50 style-1"
@@ -15,35 +15,37 @@ export default function OffRoadCampervanMiddle() {
               <div className="advertisement">
                 <Image
                   className="hidden-xs"
-                  src="/images/Best-Off-Road-Campervan-Manufacturers-You-Havent-Heard-Of.jpg"
-                  alt="Best Off Road Campervan Manufacturers"
-                  width={100}
-                  height={100}
+                  src="/images/Best-Off-Road-Caravan-Manufacturers-You-Havent-Heard-Of.jpg"
+                  alt="Best Off Road Caravan Manufacturers"
+                  width={800}
+                  height={250}
+                  style={{ width: "100%", height: "auto" }}
                 />
                 <Image
                   className="hidden-lg hidden-md hidden-sm br-m-8"
-                  src="/images/Best-Off-Road-Campervan-Manufacturers-You-Havent-Heard-Of-Mob.jpg"
-                  alt="Best Off Road Campervan Manufacturers"
-                  width={100}
-                  height={100}
+                  src="/images/Best-Off-Road-Caravan-Manufacturers-You-Havent-Heard-Of-Mob.jpg"
+                  alt="Best Off Road Caravan Manufacturers"
+                  width={400}
+                  height={250}
+                  style={{ width: "100%", height: "auto" }}
                 />
               </div>
               <h2 className="divide-orange pb-20">
-                Explore the Full Range from Top-Quality Off-Road Campervan
+                Explore the Full Range from Top-Quality Off-Road Caravan
                 Manufacturers
               </h2>
               <p>
-                We understand that buying a campervan is a significant investment,
+                We understand that buying a caravan is a significant investment,
                 and we offer resources to help make the process easier and help
                 you finding some of the
                 <Link href="https://www.caravansforsale.com.au/best-caravans-full-off-road-capabilities-australia/">
-                  best off-road campervans in Australia
+                  best off-road caravans in Australia
                 </Link>
                 . We are here to make a difference and to genuinely help both
                 the consumer and the manufacturer.
               </p>
               <p>
-                We have showcased below the best off-road campervan manufacturers
+                We have showcased below the best off-road caravan manufacturers
                 and brands that don&apos;t participate in all the big events and
                 spend big on advertising. So, all the spend goes towards
                 building good quality off road vans.
@@ -51,48 +53,48 @@ export default function OffRoadCampervanMiddle() {
               <h3>
                 1.
                 <Link href="https://www.orbitcaravans.com.au/" target="_blank">
-                  Orbit Campervans
+                  Orbit Caravans
                 </Link>
               </h3>
               <div className="key_features">
                 <h4>
-                  Key Reasons Why Orbit Campervans is a Leading Off-Road Campervan
+                  Key Reasons Why Orbit Caravans is a Leading Off-Road Caravan
                   Manufacturer with TIG-Welded Aluminum Frames
                 </h4>
                 <ul>
                   <li>
                     Manufacturing Costs: Significantly lower than any other off
-                    road campervan manufacturers that build TIG welded aluminium
-                    frame campervans.
+                    road caravan manufacturers that build TIG welded aluminium
+                    frame caravans.
                   </li>
                   <li>
                     Advertising: No expensive celebrity endorsements, TV
                     commercials, or heavy online spending. limited presence at
-                    campervan shows and limited dealers.
+                    caravan shows and limited dealers.
                   </li>
                   <li>
                     Build Focus: Resources are efficiently managed and dedicated
                     to high-quality van construction.
                   </li>
                   <li>
-                    Australian Owned & Operated: Australian Campervan
+                    Australian Owned & Operated: Australian Caravan
                     Manufacturer.
                   </li>
                   <li>
                     Expert Staff: All workers with extensive experience from the
-                    campervan industry.
+                    caravan industry.
                   </li>
                   <li>
-                    Owner : Run by a skilled off-road campervan manufacturer who
+                    Owner : Run by a skilled off-road caravan manufacturer who
                     is very customer centric.
                   </li>
                   <li>
                     Technology: Integrates the latest advancements in technology
-                    and design to enhance the performance of every campervan.
+                    and design to enhance the performance of every caravan.
                   </li>
                   <li>
                     What to Expect: Best value for money , best performance and
-                    quality in the TIG welded aluminium frame campervan range in
+                    quality in the TIG welded aluminium frame caravan range in
                     Australia.
                   </li>
                 </ul>
@@ -102,16 +104,16 @@ export default function OffRoadCampervanMiddle() {
                      paddingLeft: "25px",
                      textDecoration: "underline !important",
                    }}
-                   href="/campervan-manufacturers/orbit-campervans"
+                   href="/caravan-manufacturers/orbit-caravans"
                  >
                    View All Range
                  </Link> */}
               </div>
               <p>
-                Orbit Campervans, a best off road campervan manufacturer,
-                specializes in TIG welded aluminium frame campervans that are
+                Orbit Caravans, a best off road caravan manufacturer,
+                specializes in TIG welded aluminium frame caravans that are
                 built to last and withstand the toughest conditions. The
-                craftsmanship and engineering that goes into their campervans is
+                craftsmanship and engineering that goes into their caravans is
                 evident in every detail so they are the top choice for off-road
                 enthusiasts who demand durability and comfort.
               </p>
@@ -129,7 +131,7 @@ export default function OffRoadCampervanMiddle() {
               <p>
                 If you want the ultimate in full off-road capability the Eclipse
                 X is the top of the range. This luxury premium full off-road
-                campervan is built to the highest standard and has all the
+                caravan is built to the highest standard and has all the
                 essentials for rough terrain. The Eclipse X has a strong chassis
                 and suspension system to tackle the toughest landscapes. It has
                 solar power, lithium battery and large water tanks so you can go
@@ -146,26 +148,28 @@ export default function OffRoadCampervanMiddle() {
                 it&apos;s tough and luxurious.
               </p>
               <p>
-                In short, Orbit Campervans are built to be durable and comfortable
+                In short, Orbit Caravans are built to be durable and comfortable
                 so if you love off-road adventures choose the Discovery X, Space
-                V or Eclipse X and you can be sure you are getting a campervan
+                V or Eclipse X and you can be sure you are getting a caravan
                 that will perform in any condition and be your home away from
                 home.
               </p>
               <div className="advertisement">
                 <Image
                   className="hidden-xs"
-                  width={100}
-                  height={100}
-                  src="/images/Orbit-tig-welded-aluminium-frame-off-road-campervan-manufacturer.jpg"
-                  alt="Orbit Campervans - tig welded aluminium frame off road campervan manufacturer"
+                  width={800}
+                  height={250}
+                  style={{ width: "100%", height: "auto" }}
+                  src="/images/Orbit-tig-welded-aluminium-frame-off-road-caravan-manufacturer.jpg"
+                  alt="Orbit Caravans - tig welded aluminium frame off road caravan manufacturer"
                 />
                 <Image
-                  width={100}
-                  height={100}
+                  width={800}
+                  height={250}
+                  style={{ width: "100%", height: "auto" }}
                   className="hidden-lg hidden-md hidden-sm br-m-8"
-                  src="/images/tig-welded-aluminium-frame-off-road-campervan-manufacturer-Orbit.jpg"
-                  alt="Orbit Campervans - tig welded aluminium frame off road campervan manufacturer"
+                  src="/images/tig-welded-aluminium-frame-off-road-caravan-manufacturer-Orbit.jpg"
+                  alt="Orbit Caravans - tig welded aluminium frame off road caravan manufacturer"
                 />
               </div>
               <Link
@@ -182,37 +186,39 @@ export default function OffRoadCampervanMiddle() {
                   className="hidden-xs"
                   src="/images/index_link_dk.jpg"
                   alt=""
-                  width={100}
-                  height={100}
+                  width={800}
+                  height={250}
+                  style={{ width: "100%", height: "auto" }}
                 />
                 <Image
                   className="hidden-lg hidden-md hidden-sm"
                   src="/images/index_link_m.jpg"
                   alt=""
-                  width={100}
-                  height={100}
+                  width={800}
+                  height={250}
+                  style={{ width: "100%", height: "auto" }}
                 />
               </Link>
               <h3>
                 2.
                 <Link href="https://grandcitycaravans.com.au/" target="_blank">
-                  Grand City Campervans
+                  Grand City Caravans
                 </Link>
               </h3>
               <div className="key_features">
                 <h4>
-                  Key Reasons Why Grand City Campervans is Widely Regarded as a
-                  Top of the Range Luxury Off Road Campervan Manufacturer
+                  Key Reasons Why Grand City Caravans is Widely Regarded as a
+                  Top of the Range Luxury Off Road Caravan Manufacturer
                 </h4>
                 <ul>
                   <li>
                     Manufacturing Costs: Significantly lower than major off-road
-                    campervan manufacturers.
+                    caravan manufacturers.
                   </li>
                   <li>
                     Advertising: No expensive celebrity endorsements, TV
                     commercials, or heavy online spending. limited presence at
-                    campervan shows.
+                    caravan shows.
                   </li>
                   <li>
                     Build Focus: All resources are well managed and dedicated to
@@ -221,11 +227,11 @@ export default function OffRoadCampervanMiddle() {
                   <li>Australian Owned & Operated: Proudly Australian.</li>
                   <li>
                     Expert Staff: All workers with extensive experience from the
-                    campervan industry.
+                    caravan industry.
                   </li>
                   <li>
                     Owner: Run by 2 brothers, with the entire family bringing
-                    over 20 years of experience as an off-road campervan
+                    over 20 years of experience as an off-road caravan
                     manufacturer.
                   </li>
                   <li>
@@ -243,21 +249,21 @@ export default function OffRoadCampervanMiddle() {
                      paddingLeft: "25px",
                      textDecoration: "underline !important",
                    }}
-                   href="/campervan-manufacturers/grand-city-campervans"
+                   href="/caravan-manufacturers/grand-city-caravans"
                  >
                    View All Range
                  </Link> */}
               </div>
               <p>
-                Grand City Campervans is a renowned luxury off-road campervan
+                Grand City Caravans is a renowned luxury off-road caravan
                 manufacturer, known for using 3D technology to design and build
-                campervans that let you go and perform anywhere. Their off-road
+                caravans that let you go and perform anywhere. Their off-road
                 range is built to withstand the toughest conditions so you can
                 be sure you&apos;re in safe hands as an adventurer.
               </p>
               <p>
                 One of their standouts is the Tracker, a 15&apos;6” off-road
-                campervan that&apos;s one of the best in Australia for its size.
+                caravan that&apos;s one of the best in Australia for its size.
                 With a 6” chassis and Cruisemaster XT Freestyle Coil Suspension
                 and 16” all-terrain tyres, it&apos;s super stable and handles
                 like a dream on uneven ground. 3D design has made the Tracker
@@ -278,29 +284,31 @@ export default function OffRoadCampervanMiddle() {
                 without sacrificing off-road ability.
               </p>
               <p>
-                And the Royale at 19&apos;6” is a custom couples&apos; campervan
+                And the Royale at 19&apos;6” is a custom couples&apos; caravan
                 on an FP Chassis. Like the others it has the precision and
                 durability of 3D design so you can be luxurious and tough in
-                extreme conditions. That&apos;s why Grand City Campervans is the
-                go-to choice among off-road campervan manufacturers for those
+                extreme conditions. That&apos;s why Grand City Caravans is the
+                go-to choice among off-road caravan manufacturers for those
                 seeking quality and reliability.
               </p>
 
               <div className="advertisement">
                 <Image
                   className="hidden-xs"
-                  width={100}
-                  height={100}
-                  src="/images/Grand-City-luxury-off-road-campervan-manufacturer.jpg"
-                  alt="Grand City Campervans - luxury off road campervan manufacturer"
+                  width={800}
+                  height={250}
+                  style={{ width: "100%", height: "auto" }}
+                  src="/images/Grand-City-luxury-off-road-caravan-manufacturer.jpg"
+                  alt="Grand City Caravans - luxury off road caravan manufacturer"
                 />
 
                 <Image
                   className="hidden-lg hidden-md hidden-sm br-m-8"
-                  width={100}
-                  height={100}
-                  src="/images/luxury-off-road-campervan-manufacturer-Grand-City.jpg"
-                  alt="Grand City Campervans - luxury off road campervan manufacturer"
+                  width={800}
+                  height={250}
+                  style={{ width: "100%", height: "auto" }}
+                  src="/images/luxury-off-road-caravan-manufacturer-Grand-City.jpg"
+                  alt="Grand City Caravans - luxury off road caravan manufacturer"
                 />
               </div>
 
@@ -310,23 +318,23 @@ export default function OffRoadCampervanMiddle() {
                   href="https://www.everestcaravans.com.au/"
                   target="_blank"
                 >
-                  Everest Campervans
+                  Everest Caravans
                 </Link>
               </h3>
               <div className="key_features">
                 <h4>
                   Key Reasons Why Everest is best suited as a Custom & Extreme
-                  Off Road Campervan Manufacturer
+                  Off Road Caravan Manufacturer
                 </h4>
                 <ul>
                   <li>
                     Manufacturing Costs: Operates from a little factory in
                     Campbellfield, Melbourne but builds better quality vans than
-                    other off road campervan manufacturers.
+                    other off road caravan manufacturers.
                   </li>
                   <li>
                     Advertising: Avoids costly celebrity endorsements, TV ads,
-                    No Dealers, Sells Direct. Zero participation in campervan
+                    No Dealers, Sells Direct. Zero participation in caravan
                     shows.
                   </li>
                   <li>
@@ -336,19 +344,19 @@ export default function OffRoadCampervanMiddle() {
                   <li>Australian Owned & Operated: Proudly Australian.</li>
                   <li>
                     Expert Staff: All workers with extensive experience from the
-                    campervan industry.
+                    caravan industry.
                   </li>
                   <li>
                     Owner: Built this business from scratch and has over 15
-                    years of experience as an off road campervan manufacturer.
+                    years of experience as an off road caravan manufacturer.
                   </li>
                   <li>
                     Strengths : Unmatched superior quality and one of the few
-                    off road campervan manufacturers that offers a 10 year
+                    off road caravan manufacturers that offers a 10 year
                     structural warranty.
                   </li>
                   <li>
-                    What to Expect: If you&apos;re seeking the perfect campervan
+                    What to Expect: If you&apos;re seeking the perfect caravan
                     with off-road capabilities, whether full off-road or extreme
                     off-road, Everest is your destination.
                   </li>
@@ -359,101 +367,103 @@ export default function OffRoadCampervanMiddle() {
                      paddingLeft: "25px",
                      textDecoration: "underline !important",
                    }}
-                   href="/campervan-manufacturers/everest-campervans"
+                   href="/caravan-manufacturers/everest-caravans"
                  >
                    View All Range
                  </Link> */}
               </div>
               <p>
-                Everest Campervans is fast becoming the best extreme off-road
-                campervan manufacturer in the industry, known for custom-built
-                campervans with a 10-year structural warranty. This commitment to
+                Everest Caravans is fast becoming the best extreme off-road
+                caravan manufacturer in the industry, known for custom-built
+                caravans with a 10-year structural warranty. This commitment to
                 quality and durability is evident throughout their entire range
                 of models, Nitro Extreme, Falcon, Kombat Performance, Summitt,
                 Calibra, S.C.O.T.A, Storm, Ice Glider, Blizzard, Vantage and
                 Warrior. Each of these models is designed to tackle the toughest
                 terrain, so if you want the ultimate off-road experience then
-                these are the campervans for you.
+                these are the caravans for you.
               </p>
               <p>
-                The strength of Everest Campervans is in the structure, each
-                campervan has a 9 inch chassis, 6 foot deck and 3 inch riser.
+                The strength of Everest Caravans is in the structure, each
+                caravan has a 9 inch chassis, 6 foot deck and 3 inch riser.
                 These are all made from RHS Australian Steel, the strongest and
                 most durable steel in the world. The 6 inch extended A-frame and
-                the Supergal Australian RHS Steel Chassis gives these campervans a
+                the Supergal Australian RHS Steel Chassis gives these caravans a
                 solid base to withstand the toughest conditions.
               </p>
               <p>
-                One of the features that sets Everest Campervans apart is their
+                One of the features that sets Everest Caravans apart is their
                 3.5 T Oz Trekker Suspension system which is full off-road
                 independent suspension. This suspension system is designed to
                 perform, so you can tackle rough and uneven terrain with ease.
                 Whether you&apos;re going off the beaten track in the outback or
-                tackling mountain trails Everest Campervans will deliver
+                tackling mountain trails Everest Caravans will deliver
                 reliability and comfort so you can go safe and enjoy.
               </p>
               <p>
                 With their focus on quality, innovation, and durability, Everest
-                Campervans is a top choice among extreme off-road campervan
+                Caravans is a top choice among extreme off-road caravan
                 manufacturers for those who want the best in off-road
-                campervanning.
+                caravanning.
               </p>
               <div className="advertisement">
                 <Image
                   className="hidden-xs"
-                  width={100}
-                  height={100}
-                  src="/images/Everest-extreme-off-road-campervan-manufacturer.jpg"
-                  alt="Everest Campervans - extreme off road campervan manufacturer"
+                  width={800}
+                  height={250}
+                  style={{ width: "100%", height: "auto" }}
+                  src="/images/Everest-extreme-off-road-caravan-manufacturer.jpg"
+                  alt="Everest Caravans - extreme off road caravan manufacturer"
                 />
                 <Image
                   className="hidden-lg hidden-md hidden-sm br-m-8"
-                  width={100}
-                  height={100}
-                  src="/images/extreme-off-road-campervan-manufacturer-Everest.jpg"
-                  alt="Everest Campervans - extreme off road campervan manufacturer"
+                  width={800}
+                  height={250}
+                  style={{ width: "100%", height: "auto" }}
+                  src="/images/extreme-off-road-caravan-manufacturer-Everest.jpg"
+                  alt="Everest Caravans - extreme off road caravan manufacturer"
                 />
               </div>
               <h3>
                 4.
                 <Link href="https://redcentrecaravans.com.au/" target="_blank">
-                  Red Centre Campervans
+                  Red Centre Caravans
                 </Link>
               </h3>
               <div className="key_features">
                 <h4>
-                  Key Reasons Why Red Centre Campervans is a Leading Extreme Off
-                  Road Campervan Manufacturer
+                  Key Reasons Why Red Centre Caravans is a Leading Extreme Off
+                  Road Caravan Manufacturer
                 </h4>
                 <ul>
                   <li>
                     Manufacturing Costs: Significantly lower than major extreme
-                    off road campervan manufacturers.
+                    off road caravan manufacturers.
                   </li>
                   <li>
                     Advertising: No celebrity endorsements, TV commercials, or
-                    heavy online spending; minimal presence at campervan shows.
+                    heavy online spending; minimal presence at caravan shows.
                   </li>
                   <li>
                     Build Focus: Resources are efficiently managed and dedicated
-                    to top-quality campervan construction.
+                    to top-quality caravan construction.
                   </li>
                   <li>
-                    Australian Owned & Operated: Australian Campervan
+                    Australian Owned & Operated: Australian Caravan
                     Manufacturer.
                   </li>
                   <li>
                     Expert Staff: All team members have extensive experience in
-                    the campervan industry.
+                    the caravan industry.
                   </li>
                   <li>
-                    Owner: With 20 years of experience in building campervans, has
-                    significantly grown as a leading extreme off road campervan
+                    Owner: With 20 years of experience in building caravans, has
+                    significantly grown as a leading extreme off road caravan
                     manufacturer over the years.
                   </li>
                   <li>
                     What to Expect: Exceptional build quality and performance in
-                    the extreme off-road campervan range.
+                    the extreme off-road caravan range.
                   </li>
                 </ul>
                 {/* <Link
@@ -462,14 +472,14 @@ export default function OffRoadCampervanMiddle() {
                      paddingLeft: "25px",
                      textDecoration: "underline !important",
                    }}
-                   href="/campervan-manufacturers/red-centre-campervans"
+                   href="/caravan-manufacturers/red-centre-caravans"
                  >
                    View All Range
                  </Link> */}
               </div>
               <p>
-                Red Centre Campervans is becoming a prominent extreme off-road
-                campervan manufacturer, known for building campervans designed to
+                Red Centre Caravans is becoming a prominent extreme off-road
+                caravan manufacturer, known for building caravans designed to
                 withstand the toughest Australian conditions. In their range the
                 Kimberley Plus stands out for its ruggedness and features. This
                 model has a 4” main chassis with a 6” drawbar extension and 4”
@@ -479,7 +489,7 @@ export default function OffRoadCampervanMiddle() {
                 reliability is key.
               </p>
               <p>
-                Along with the Kimberley Plus Red Centre Campervans also have the
+                Along with the Kimberley Plus Red Centre Caravans also have the
                 Tanami and Tanami Plus models, both for the serious off roaders.
                 The Tanami has a 6” main chassis and 6” drawbar with a 4 ton off
                 road dual shock suspension system. This will give you great
@@ -490,26 +500,28 @@ export default function OffRoadCampervanMiddle() {
                 the roughest terrain.
               </p>
               <p>
-                Red Centre Campervans offers campervans with off-road features for
+                Red Centre Caravans offers caravans with off-road features for
                 adventurers who need reliability and performance in extreme
                 conditions. Whether its the Kimberley Plus or one of the
-                Tanami&apos;s you can trust your campervan to take on
+                Tanami&apos;s you can trust your caravan to take on
                 Australia&apos;s toughest conditions.
               </p>
               <div className="advertisement">
                 <Image
                   className="hidden-xs"
-                  width={100}
-                  height={100}
-                  src="/images/Red-Center-leading-extreme-off-road-campervan-manufacturer.jpg"
-                  alt="Red Center Campervans - leading extreme off road campervan manufacturer"
+                  width={800}
+                  height={250}
+                  style={{ width: "100%", height: "auto" }}
+                  src="/images/Red-Center-leading-extreme-off-road-caravan-manufacturer.jpg"
+                  alt="Red Center Caravans - leading extreme off road caravan manufacturer"
                 />
                 <Image
-                  width={100}
-                  height={100}
+                  width={800}
+                  height={250}
+                  style={{ width: "100%", height: "auto" }}
                   className="hidden-lg hidden-md hidden-sm br-m-8"
-                  src="/images/leading-extreme-off-road-campervan-manufacturer-Red-Centre.jpg"
-                  alt="Red Center Campervans - leading extreme off road campervan manufacturer"
+                  src="/images/leading-extreme-off-road-caravan-manufacturer-Red-Centre.jpg"
+                  alt="Red Center Caravans - leading extreme off road caravan manufacturer"
                 />
               </div>
               <h3>
@@ -520,18 +532,18 @@ export default function OffRoadCampervanMiddle() {
               </h3>
               <div className="key_features">
                 <h4>
-                  Key Reasons Why Coronet RV is the Best Off-road Campervan
-                  Manufacturer for Family Friendly Campervans
+                  Key Reasons Why Coronet RV is the Best Off-road Caravan
+                  Manufacturer for Family Friendly Caravans
                 </h4>
                 <ul>
                   <li>
                     Manufacturing Costs: Significantly lower than major off road
-                    campervan manufacturers.
+                    caravan manufacturers.
                   </li>
                   <li>
                     Advertising: Relies on word-of-mouth rather than big
                     celebrities, TV ads, or extensive online campaigns. Limited
-                    presence at campervan shows.
+                    presence at caravan shows.
                   </li>
                   <li>
                     Dealership: Operates through a single main dealership
@@ -539,24 +551,24 @@ export default function OffRoadCampervanMiddle() {
                   </li>
                   <li>
                     Build Focus: All resources are dedicated to constructing
-                    your campervan.
+                    your caravan.
                   </li>
                   <li>
                     Owner: Operated by a seasoned expert with extensive
-                    experience as an off road campervan manufacturer since 1959.
+                    experience as an off road caravan manufacturer since 1959.
                   </li>
                   <li>
-                    Australian Owned & Operated: Australian Campervan
+                    Australian Owned & Operated: Australian Caravan
                     Manufacturer.
                   </li>
                   <li>
-                    Strength: Specializes in campervans designed for off-road use,
+                    Strength: Specializes in caravans designed for off-road use,
                     offering exceptional family-friendly layouts and multiple
                     options.
                   </li>
                   <li>
                     What to Expect: Budget-friendly and affordable high-quality
-                    semi-off-road and full off-road campervans.
+                    semi-off-road and full off-road caravans.
                   </li>
                 </ul>
                 {/* <Link
@@ -565,22 +577,22 @@ export default function OffRoadCampervanMiddle() {
                      paddingLeft: "25px",
                      textDecoration: "underline !important",
                    }}
-                   href="/campervan-manufacturers/coronet-rv"
+                   href="/caravan-manufacturers/coronet-rv"
                  >
                    View All Range
                  </Link> */}
               </div>
               <p>
-                Coronet RV is an established off road campervan manufacturer and
-                is well known for their family friendly campervans. With over 50
+                Coronet RV is an established off road caravan manufacturer and
+                is well known for their family friendly caravans. With over 50
                 different internal layouts to choose from Coronet RV can cater
                 to all family needs with traditional, contemporary and modern
                 designs. Their focus on innovation and quality means each
-                campervan is functional, stylish and comfortable.
+                caravan is functional, stylish and comfortable.
               </p>
               <p>
                 One of Coronet RV&apos;s standout models is the ULTIMATE range
-                and the 19 ft 6 customizable couples campervan is one of them.
+                and the 19 ft 6 customizable couples caravan is one of them.
                 This model is luxury and versatility personified, couples can
                 customize their space to their liking. The spacious interior is
                 comfortable and convenient making it perfect for extended trips
@@ -599,41 +611,43 @@ export default function OffRoadCampervanMiddle() {
                 Meranti frame and an Alucom finish that&apos;s tough and looks
                 good. Equipped with advanced electronics and bush camping
                 amenities the PTR and FTR series are perfect for those who like
-                to semi off road. These campervans have features designed to
+                to semi off road. These caravans have features designed to
                 enhance the camping experience, so are great for families who
                 want adventure and comfort.
               </p>
               <p>
-                In summary, Coronet RV stands out among off-road campervan
-                manufacturers for its family-friendly campervans that cater to
-                all. Whether it&apos;s a luxury couples campervan or a tough
+                In summary, Coronet RV stands out among off-road caravan
+                manufacturers for its family-friendly caravans that cater to
+                all. Whether it&apos;s a luxury couples caravan or a tough
                 family model Coronet RV has got it covered.
               </p>
               <div className="advertisement">
                 <Image
                   className="hidden-xs"
-                  width={100}
-                  height={100}
-                  src="/images/Coronet-RV-family-friendy-off-road-campervan-manufacturer.jpg"
-                  alt="Coronet RV - family friendy off road campervan manufacturer"
+                  width={800}
+                  height={250}
+                  style={{ width: "100%", height: "auto" }}
+                  src="/images/Coronet-RV-family-friendy-off-road-caravan-manufacturer.jpg"
+                  alt="Coronet RV - family friendy off road caravan manufacturer"
                 />
                 <Image
                   className="hidden-lg hidden-md hidden-sm br-m-8"
-                  width={100}
-                  height={100}
-                  src="/images/family-friendy-off-road-campervan-manufacturer-Coronet-RV.jpg"
-                  alt="Coronet RV - family friendy off road campervan manufacturer"
+                  width={800}
+                  height={250}
+                  style={{ width: "100%", height: "auto" }}
+                  src="/images/family-friendy-off-road-caravan-manufacturer-Coronet-RV.jpg"
+                  alt="Coronet RV - family friendy off road caravan manufacturer"
                 />
               </div>
-              <h3>6. Masterpiece Campervans</h3>
+              <h3>6. Masterpiece Caravans</h3>
               <div className="key_features">
                 <h4>
-                  Key Reasons Why Masterpiece Campervans is the Ultimate Off Road
-                  Campervan Manufacturer
+                  Key Reasons Why Masterpiece Caravans is the Ultimate Off Road
+                  Caravan Manufacturer
                 </h4>
                 <ul>
                   <li>
-                    Quality: Masterpiece Campervans is the only off road
+                    Quality: Masterpiece Caravans is the only off road
                     manufacturer using the groundbreaking R-Tech construction
                     method.
                   </li>
@@ -643,7 +657,7 @@ export default function OffRoadCampervanMiddle() {
                   </li>
                   <li>
                     Strengths: Renowned for crafting some of Australia&apos;s
-                    most premium campervans.
+                    most premium caravans.
                   </li>
                   <li>
                     Australian Owned & Operated: Proudly based in Australia,
@@ -651,7 +665,7 @@ export default function OffRoadCampervanMiddle() {
                   </li>
                   <li>
                     Owner: Led by a seasoned expert with extensive knowledge in
-                    building top-tier campervans as a leading off road campervan
+                    building top-tier caravans as a leading off road caravan
                     manufacturer.
                   </li>
                   <li>
@@ -660,10 +674,10 @@ export default function OffRoadCampervanMiddle() {
                   </li>
                   <li>
                     Technology: Incorporates the latest advancements in
-                    technology and design to optimize campervan performance.
+                    technology and design to optimize caravan performance.
                   </li>
                   <li>
-                    What to Expect: Experience the highest quality campervans
+                    What to Expect: Experience the highest quality caravans
                     Australia has to offer.
                   </li>
                 </ul>
@@ -673,13 +687,13 @@ export default function OffRoadCampervanMiddle() {
                      paddingLeft: "25px",
                      textDecoration: "underline !important",
                    }}
-                   href="/campervan-manufacturers/masterpiece-campervans"
+                   href="/caravan-manufacturers/masterpiece-caravans"
                  >
                    View All Range
                  </Link> */}
               </div>
               <p>
-                Masterpiece Campervans, a best off-road campervan manufacturer, has
+                Masterpiece Caravans, a best off-road caravan manufacturer, has
                 changed the game with its R-Tech construction. This is a game
                 changing process that uses framing materials that are 30%
                 lighter than traditional materials, that&apos;s a big win for
@@ -688,8 +702,8 @@ export default function OffRoadCampervanMiddle() {
                 lasting reliability and resilience in the rough stuff.
               </p>
               <p>
-                In the Masterpiece Campervans range are the Optimum, Optimum CRZR
-                and Performance models, each is the ultimate off-road campervan.
+                In the Masterpiece Caravans range are the Optimum, Optimum CRZR
+                and Performance models, each is the ultimate off-road caravan.
                 The Optimum series is famous for its solid construction and
                 luxurious interiors, it&apos;s the ultimate off-road experience.
                 These models can tackle the toughest terrain while delivering
@@ -704,36 +718,38 @@ export default function OffRoadCampervanMiddle() {
                 quality interior.
               </p>
               <p>
-                Masterpiece Campervans attention to detail and innovative
+                Masterpiece Caravans attention to detail and innovative
                 construction is evident in every aspect. The R-Tech process not
-                only makes their campervans perform better but also makes them
+                only makes their caravans perform better but also makes them
                 last longer. Whether you&apos;re tackling extreme off-road or
                 looking for a comfortable living space in a compact design
-                Masterpiece Campervans have models that meet the highest standards
+                Masterpiece Caravans have models that meet the highest standards
                 of quality and functionality. Strength and luxury, Masterpiece
-                Campervans is all about the ultimate off-road adventure.
+                Caravans is all about the ultimate off-road adventure.
               </p>
               <div className="advertisement">
                 <Image
                   className="hidden-xs"
-                  width={100}
-                  height={100}
-                  src="/images/Masterpiece-extreme-off-road-campervan-manufacturer.jpg"
-                  alt="Masterpiece Campervans - extreme off road campervan manufacturer"
+                  width={800}
+                  height={250}
+                  style={{ width: "100%", height: "auto" }}
+                  src="/images/Masterpiece-extreme-off-road-caravan-manufacturer.jpg"
+                  alt="Masterpiece Caravans - extreme off road caravan manufacturer"
                 />
                 <Image
                   className="hidden-lg hidden-md hidden-sm br-m-8"
-                  width={100}
-                  height={100}
-                  src="/images/extreme-off-road-campervan-manufacturer-Masterpiece.jpg"
-                  alt="Masterpiece Campervans - extreme off road campervan manufacturer"
+                  width={800}
+                  height={250}
+                  style={{ width: "100%", height: "auto" }}
+                  src="/images/extreme-off-road-caravan-manufacturer-Masterpiece.jpg"
+                  alt="Masterpiece Caravans - extreme off road caravan manufacturer"
                 />
               </div>
-              <h3>7. Apache Campervans</h3>
+              <h3>7. Apache Caravans</h3>
               <div className="key_features">
                 <h4>
-                  Key Reasons Why Apache Campervans is a Trendsetter Among Hybrid
-                  Off-Road Campervan Manufacturers
+                  Key Reasons Why Apache Caravans is a Trendsetter Among Hybrid
+                  Off-Road Caravan Manufacturers
                 </h4>
                 <ul>
                   <li>
@@ -769,13 +785,13 @@ export default function OffRoadCampervanMiddle() {
                      paddingLeft: "25px",
                      textDecoration: "underline !important",
                    }}
-                   href="/campervan-manufacturers/apache-campervans"
+                   href="/caravan-manufacturers/apache-caravans"
                  >
                    View All Range
                  </Link> */}
               </div>
               <p>
-                Apache Campervans are built for off road and off grid camping,
+                Apache Caravans are built for off road and off grid camping,
                 with luxury and comfort for all types of adventures. They have
                 models to suit every need, each with its own unique features and
                 capabilities for the ultimate outdoor experience.
@@ -812,59 +828,61 @@ export default function OffRoadCampervanMiddle() {
                 engineering.
               </p>
               <p>
-                Apache Campervans has a model for every type of adventurer,
+                Apache Caravans has a model for every type of adventurer,
                 enhancing the outdoor experience with a range of hybrid off road
                 models. Whether you want compact ruggedness, luxury or eco
-                friendly options Apache Campervans has the solution for you and
+                friendly options Apache Caravans has the solution for you and
                 your off road adventures.
               </p>
               <div className="advertisement">
                 <Image
                   className="hidden-xs"
-                  src="/images/Apache-hybrid-off-road-campervan-manufacturer.jpg"
-                  alt="Apache Campervans - hybrid off road campervan manufacturer"
-                  width={100}
-                  height={100}
+                  src="/images/Apache-hybrid-off-road-caravan-manufacturer.jpg"
+                  alt="Apache Caravans - hybrid off road caravan manufacturer"
+                  width={800}
+                  height={250}
+                  style={{ width: "100%", height: "auto" }}
                 />
                 <Image
                   className="hidden-lg hidden-md hidden-sm br-m-8"
-                  src="/images/hybrid-off-road-campervan-manufacturer-Apache.jpg"
-                  alt="Apache Campervans - hybrid off road campervan manufacturer"
-                  width={100}
-                  height={100}
+                  src="/images/hybrid-off-road-caravan-manufacturer-Apache.jpg"
+                  alt="Apache Caravans - hybrid off road caravan manufacturer"
+                  width={800}
+                  height={250}
+                  style={{ width: "100%", height: "auto" }}
                 />
               </div>
-              <h3>8. Villa Campervans</h3>
+              <h3>8. Villa Caravans</h3>
               <div className="key_features">
                 <h4>
-                  Key Reasons Why Villa Campervans is the best Semi Off Road
-                  Campervan Manufacturer
+                  Key Reasons Why Villa Caravans is the best Semi Off Road
+                  Caravan Manufacturer
                 </h4>
                 <ul>
                   <li>
                     Manufacturing Costs: Significantly lower than those of major
-                    semi off road campervan manufacturers.
+                    semi off road caravan manufacturers.
                   </li>
                   <li>
                     Advertising: No celebrity endorsements, TV commercials, or
-                    heavy online spending. Limited presence at campervan shows and
+                    heavy online spending. Limited presence at caravan shows and
                     only 2 dealers.
                   </li>
                   <li>
                     Build Focus: Resources are effectively managed and dedicated
-                    to high-quality campervan construction.
+                    to high-quality caravan construction.
                   </li>
                   <li>
-                    Australian Owned & Operated: Australian Campervan
+                    Australian Owned & Operated: Australian Caravan
                     Manufacturer.
                   </li>
                   <li>
                     Expert Staff: All team members have extensive experience in
-                    the campervan industry.
+                    the caravan industry.
                   </li>
                   <li>
-                    Owner: Third generation campervan manufacturer with the entire
-                    family in the campervan manufacturing industry.
+                    Owner: Third generation caravan manufacturer with the entire
+                    family in the caravan manufacturing industry.
                   </li>
                   <li>
                     What to Expect: Superior build and quality in the semi off
@@ -877,16 +895,16 @@ export default function OffRoadCampervanMiddle() {
                      paddingLeft: "25px",
                      textDecoration: "underline !important",
                    }}
-                   href="/campervan-manufacturers/villa-campervans"
+                   href="/caravan-manufacturers/villa-caravans"
                  >
                    View All Range
                  </Link> */}
               </div>
               <p>
-                Villa Campervans is a well-known name among semi off-road campervan
-                manufacturers, building unique campervans that combine luxury with
+                Villa Caravans is a well-known name among semi off-road caravan
+                manufacturers, building unique caravans that combine luxury with
                 ruggedness. They use top of the line materials inside and out to
-                make sure every campervan they build is built to last and can
+                make sure every caravan they build is built to last and can
                 handle the challenges of semi off road travel.
               </p>
               <p>
@@ -899,39 +917,41 @@ export default function OffRoadCampervanMiddle() {
                 without compromising on comfort or safety.
               </p>
               <p>
-                The Escape is another of Villa Campervans&apos; great models, the
+                The Escape is another of Villa Caravans&apos; great models, the
                 ultimate touring companion for those who love to hit the road.
                 It&apos;s full of features to make long trips more enjoyable and
                 easier. Built to withstand the rough and tough conditions of
                 Australia, the Escape lets you get amongst the country and its
-                remote areas. This is what Villa Campervans means by campervans that
+                remote areas. This is what Villa Caravans means by caravans that
                 are luxurious and tough enough for semi off road travel.
               </p>
               <p>
-                The Escape SE and Escape are the proof of Villa Campervans&apos;
+                The Escape SE and Escape are the proof of Villa Caravans&apos;
                 ability to combine luxury with toughness. If you want a quality,
-                reliable campervan that can handle semi off road and has all the
-                comforts of home, Villa Campervans is a leading choice among semi
-                off-road campervan manufacturers for tackling dirt roads and long
+                reliable caravan that can handle semi off road and has all the
+                comforts of home, Villa Caravans is a leading choice among semi
+                off-road caravan manufacturers for tackling dirt roads and long
                 touring trips.
               </p>
               <div className="advertisement">
                 <Image
                   className="hidden-xs"
-                  src="/images/Villa-best-semi-off-road-campervan-manufacturer.jpg"
-                  alt="Villa Campervans - best semi off road campervan manufacturer"
-                  width={100}
-                  height={100}
+                  src="/images/Villa-best-semi-off-road-caravan-manufacturer.jpg"
+                  alt="Villa Caravans - best semi off road caravan manufacturer"
+                  width={800}
+                  height={250}
+                  style={{ width: "100%", height: "auto" }}
                 />
                 <Image
                   className="hidden-lg hidden-md hidden-sm br-m-8"
-                  src="/images/best-semi-off-road-campervan-manufacturer-Villa.jpg"
-                  alt="Villa Campervans - best semi off road campervan manufacturer"
-                  width={100}
-                  height={100}
+                  src="/images/best-semi-off-road-caravan-manufacturer-Villa.jpg"
+                  alt="Villa Caravans - best semi off road caravan manufacturer"
+                  width={800}
+                  height={250}
+                  style={{ width: "100%", height: "auto" }}
                 />
               </div>
-              <Link
+              <a
                 className="banner_ad_now"
                 href="/listings/off-road-category/"
                 style={{
@@ -945,17 +965,19 @@ export default function OffRoadCampervanMiddle() {
                   className="hidden-xs"
                   alt="forsale_link_offroad_dk-3"
                   src="/images/forsale_link_offroad_dk-3.jpg"
-                  width={100}
-                  height={100}
+                  width={800}
+                  height={250}
+                  style={{ width: "100%", height: "auto" }}
                 />
                 <Image
                   className="hidden-lg hidden-md hidden-sm"
                   alt="forsale_link_offroad_mb-1"
                   src="/images/forsale_link_offroad_mb-1.jpg"
-                  width={100}
-                  height={100}
+                  width={800}
+                  height={250}
+                  style={{ width: "100%", height: "auto" }}
                 />
-              </Link>
+              </a>
               <h3>
                 9.
                 <Link href="https://xseriesrv.au/" target="_blank">
@@ -965,7 +987,7 @@ export default function OffRoadCampervanMiddle() {
               <div className="key_features">
                 <h4>
                   Key Reasons Why X Series RV is the Ultimate Hybrid Off Road
-                  Campervan Manufacturer
+                  Caravan Manufacturer
                 </h4>
                 <ul>
                   <li>
@@ -979,7 +1001,7 @@ export default function OffRoadCampervanMiddle() {
                   </li>
                   <li>
                     Ideal for Couples & Singles : X Element is a lightweight,
-                    cozy campervan with kitchen and bathroom for smaller groups.
+                    cozy caravan with kitchen and bathroom for smaller groups.
                   </li>
                   <li>
                     Rugged Off-Road Capability : Built tough to handle rough
@@ -990,7 +1012,7 @@ export default function OffRoadCampervanMiddle() {
                     with home-like comforts.
                   </li>
                   <li>
-                    What to Expect : Durable, well-designed campervans ready for
+                    What to Expect : Durable, well-designed caravans ready for
                     any adventure.
                   </li>
                 </ul>
@@ -1000,14 +1022,14 @@ export default function OffRoadCampervanMiddle() {
                      paddingLeft: "25px",
                      textDecoration: "underline !important",
                    }}
-                   href="/campervan-manufacturers/willow-rv"
+                   href="/caravan-manufacturers/willow-rv"
                  >
                    View All Range
                  </Link> */}
               </div>
               <p>
-                X Series RV is a specialist off-road campervan manufacturer
-                focused on creating adventure-ready campervans built for
+                X Series RV is a specialist off-road caravan manufacturer
+                focused on creating adventure-ready caravans built for
                 Australia&apos;s toughest conditions. Their range includes
                 off-road pods, hybrids, and toy haulers designed for
                 everyone—from solo travellers to families wanting to bring
@@ -1015,7 +1037,7 @@ export default function OffRoadCampervanMiddle() {
               </p>
               <p>
                 A standout in their lineup is the X Commander, a 22ft hard roof
-                hybrid campervan perfect for larger families. It offers luxury
+                hybrid caravan perfect for larger families. It offers luxury
                 camping with multiple bunk options, an island-style bed,
                 separate ensuite with shower and toilet, and even a washing
                 machine—combining comfort and off-road capability in one rugged
@@ -1023,43 +1045,45 @@ export default function OffRoadCampervanMiddle() {
               </p>
               <p>
                 For couples or singles seeking a cozy, lightweight option, the X
-                Element is an ideal choice. This full campervan features a compact
+                Element is an ideal choice. This full caravan features a compact
                 design with all the essentials, including a fully equipped
                 kitchen and bathroom, delivering flexibility and comfort
                 wherever you roam.
               </p>
               <p>
                 With a focus on durability and premium features, X Series RV
-                builds campervans that handle rough terrains without compromising
+                builds caravans that handle rough terrains without compromising
                 on home-like comforts. That&apos;s why X Series is trusted by
-                outdoor enthusiasts as a top off-road campervan manufacturer ready
+                outdoor enthusiasts as a top off-road caravan manufacturer ready
                 to take you on extraordinary adventures.
               </p>
               <div className="advertisement">
                 <Image
                   className="hidden-xs"
-                  width={100}
-                  height={100}
-                  src="/images/X-Series-RV-Hybrid-Off-Road-Campervan-Manufacturer-for-the-Wild-at-Heart.jpg"
-                  alt="X Series RV Hybrid Off-Road Campervan Manufacturer for the Wild at Heart"
+                  width={800}
+                  height={250}
+                  style={{ width: "100%", height: "auto" }}
+                  src="/images/X-Series-RV-Hybrid-Off-Road-Caravan-Manufacturer-for-the-Wild-at-Heart.jpg"
+                  alt="X Series RV Hybrid Off-Road Caravan Manufacturer for the Wild at Heart"
                 />
                 <Image
                   className="hidden-lg hidden-md hidden-sm br-m-8"
-                  width={100}
-                  height={100}
-                  src="/images/X-Series-RV-Hybrid-Off-Road-Campervan-Manufacturer-for-the-Wild-at-Heart-Mob.jpg"
-                  alt="X Series RV Hybrid Off-Road Campervan Manufacturer for the Wild at Heart"
+                  width={800}
+                  height={250}
+                  style={{ width: "100%", height: "auto" }}
+                  src="/images/X-Series-RV-Hybrid-Off-Road-Caravan-Manufacturer-for-the-Wild-at-Heart-Mob.jpg"
+                  alt="X Series RV Hybrid Off-Road Caravan Manufacturer for the Wild at Heart"
                 />
               </div>
               <h3>
                 10.
                 <Link href="https://titaniumcaravans.com.au/" target="_blank">
-                  Titanium Campervans
+                  Titanium Caravans
                 </Link>
               </h3>
               <div className="key_features">
                 <h4>
-                  Key Reasons Why Titanium Campervans is a Market Leader in
+                  Key Reasons Why Titanium Caravans is a Market Leader in
                   Off-Road Type
                 </h4>
                 <ul>
@@ -1105,16 +1129,16 @@ export default function OffRoadCampervanMiddle() {
                      paddingLeft: "25px",
                      textDecoration: "underline !important",
                    }}
-                   href="/campervan-manufacturers/titanium-campervans"
+                   href="/caravan-manufacturers/titanium-caravans"
                  >
                    View All Range
                  </Link> */}
               </div>
               <p>
-                Titanium Campervans is redefining what it means to own an off-road
-                campervan in Australia. Proudly Australian-owned and operated,
+                Titanium Caravans is redefining what it means to own an off-road
+                caravan in Australia. Proudly Australian-owned and operated,
                 this family-run business has carved a name as a leader in
-                premium off-road and hybrid campervans. Every campervan is built
+                premium off-road and hybrid caravans. Every caravan is built
                 tough, thoughtfully equipped, and proudly manufactured using
                 locally sourced materials and in-house craftsmanship.
               </p>
@@ -1144,17 +1168,19 @@ export default function OffRoadCampervanMiddle() {
               <div className="advertisement">
                 <Image
                   className="hidden-xs"
-                  width={100}
-                  height={100}
-                  src="/images/Titanium-Campervans-Off-Road-Campervan-Manufacturer.jpg"
-                  alt="Titanium Campervans - Off Road Campervan Manufacturer"
+                  width={800}
+                  height={250}
+                  style={{ width: "100%", height: "auto" }}
+                  src="/images/Titanium-Caravans-Off-Road-Caravan-Manufacturer.jpg"
+                  alt="Titanium Caravans - Off Road Caravan Manufacturer"
                 />
                 <Image
                   className="hidden-lg hidden-md hidden-sm br-m-8"
-                  width={100}
-                  height={100}
-                  src="/images/Titanium-Campervans-Off-Road-Campervan-Manufacturer - Mobile.jpg"
-                  alt="Titanium Campervans - Off Road Campervan Manufacturer"
+                  width={800}
+                  height={250}
+                  style={{ width: "100%", height: "auto" }}
+                  src="/images/Titanium-Caravans-Off-Road-Caravan-Manufacturer - Mobile.jpg"
+                  alt="Titanium Caravans - Off Road Caravan Manufacturer"
                 />
               </div>
             </div>

@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import statesData from "../../../../cfs-paths/states.json";
 
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ||
@@ -6,14 +7,10 @@ const SITE_URL =
 
 export async function GET() {
   try {
-    const res = await fetch(
-      "https://admin.caravansforsale.com.au/wp-json/cfs/v1/sitemap/states",
-    );
-
-    const data = await res.json();
+    const data = statesData as { success: boolean; paths: string[] };
 
     if (!data?.success || !Array.isArray(data.paths)) {
-      throw new Error("Invalid sitemap API response");
+      throw new Error("Invalid sitemap data");
     }
 
     const urls = data.paths

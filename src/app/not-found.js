@@ -1,19 +1,21 @@
-﻿"use client";
-
-// export const dynamic = "force-dynamic"
-;
 import Link from "next/link";
 import "./not-found.css";
 import Notfound from "./searchError";
 
+export const metadata = {
+  title: "404 - Page Not Found | Caravans For Sale",
+  description: "The page you're looking for doesn't exist or has been moved. Browse our range of caravans for sale across Australia.",
+  robots: "noindex, nofollow",
+};
+
 export default function NotFoundPage() {
   const categories = [
-    { name: "Off Road Campervans", slug: "off-road-category" },
-    { name: "Hybrid Campervans", slug: "hybrid-category" },
-    { name: "Pop Top Campervans", slug: "pop-top-category" },
-    { name: "Luxury Campervans", slug: "luxury-category" },
-    { name: "Family Campervans", slug: "family-category" },
-    { name: "Touring Campervans", slug: "touring-category" },
+    { name: "Off Road Caravans", slug: "off-road-category" },
+    { name: "Hybrid Caravans", slug: "hybrid-category" },
+    { name: "Pop Top Caravans", slug: "pop-top-category" },
+    { name: "Luxury Caravans", slug: "luxury-category" },
+    { name: "Family Caravans", slug: "family-category" },
+    { name: "Touring Caravans", slug: "touring-category" },
   ];
 
   const states = [
@@ -37,7 +39,7 @@ export default function NotFoundPage() {
           404
         </h1>
         <p className="err-sub">
-          Oops! The campervan or page you’re looking for isn’t available.
+          Oops! The caravan or page you’re looking for isn’t available.
         </p>
 
         <div className="search-wrap">
@@ -50,9 +52,9 @@ export default function NotFoundPage() {
           <Link className="btn btn-primary" href="/">
             Go to Homepage
           </Link>
-          <Link className="btn btn-outline" href="/listings/">
-            Browse Campervans
-          </Link>
+          <a className="btn btn-outline" href="/listings/">
+            Browse Caravans
+          </a>
         </div>
 
         {/* ✅ Browse by Type & State Side by Side */}
@@ -63,7 +65,7 @@ export default function NotFoundPage() {
             <ul>
               {categories.map((cat) => (
                 <li key={cat.slug}>
-                  <Link href={`/listings/${cat.slug}/`}>{cat.name}</Link>
+                  <a href={`/listings/${cat.slug}/`}>{cat.name}</a>
                 </li>
               ))}
             </ul>
@@ -75,9 +77,9 @@ export default function NotFoundPage() {
             <ul>
               {states.map((state) => (
                 <li key={state.slug}>
-                  <Link href={`/listings/${state.slug}/`}>
+                  <a href={`/listings/${state.slug}/`}>
                     {state.name}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>

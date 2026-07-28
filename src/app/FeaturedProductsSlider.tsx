@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
@@ -79,7 +79,7 @@ const FeaturedProductsSlider = () => {
       <div className="container">
         <div className="title">
           <div className="tpof_tab">
-            <h2>Featured Campervans For Sale</h2>
+            <h2>Featured Caravans For Sale</h2>
             <div className="viewall_bttn">
               <Link href="">
                 <i className="bi bi-chevron-right"></i>
@@ -113,7 +113,7 @@ const FeaturedProductsSlider = () => {
                     <div className="product_de">
                       <div className="info">
                         <h6 className="category">
-                          <i className="far fa-map-marker-alt"></i>
+                          <i className="fa-solid fa-location-dot"></i>
                           <span>{product.location}</span>
                         </h6>
                         <h3 className="title">{product.title}</h3>

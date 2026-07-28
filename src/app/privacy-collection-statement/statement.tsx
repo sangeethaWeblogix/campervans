@@ -1,4 +1,4 @@
-﻿'use client'
+'use client'
 
 import Link from 'next/link'
 
@@ -32,7 +32,7 @@ export default function PrivacyCollectionStatement() {
               <p>These platforms may include, but are not limited to:</p>
 
               <ul>
-                <li>campervansforsale.com.au</li>
+                <li>caravansforsale.com.au</li>
                 
               </ul>
 

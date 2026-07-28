@@ -1,4 +1,4 @@
-﻿ import "./contact.css";
+ import "./contact.css";
 import { Metadata } from "next";
 import { ReactNode } from "react";
 
@@ -6,11 +6,11 @@ import { ReactNode } from "react";
 
  export const metadata: Metadata = {
    title: {
-     default: "Contact Campervans For Sale | Australia’s Campervan Marketplace",
+     default: "Contact Caravans For Sale | Australia’s Caravan Marketplace",
      template: "%s ",
    },
    description:
-     "Have a question about campervans in Australia? Contact Campervans For Sale for support, inquiries, or help finding your next campervan today.",
+     "Have a question about caravans in Australia? Contact Caravans For Sale for support, inquiries, or help finding your next caravan today.",
    icons: { icon: "/favicon.ico" },
    robots: "index, follow",
    verification: {

@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Link from "next/link";
@@ -15,7 +15,7 @@ const FaqSection = () => {
             <div className="faq style-3 style-4">
               <div className="row">
                 <div className="col-lg-12">
-                  {/* 1. Everest Campervans */}
+                  {/* 1. Everest Caravans */}
                   <div className="accordion-item border-bottom rounded-0">
                     <h3 className="accordion-header" id="heading1">
                       <button
@@ -26,7 +26,7 @@ const FaqSection = () => {
                         aria-expanded="true"
                         aria-controls="collapse1"
                       >
-                        1. Everest Campervans
+                        1. Everest Caravans
                       </button>
                     </h3>
                     <div
@@ -37,12 +37,12 @@ const FaqSection = () => {
                     >
                       <div className="accordion-body">
                         <h4>
-                          What types of campervans does Everest Campervans
+                          What types of caravans does Everest Caravans
                           specialize in?
                         </h4>
                         <p>
-                          Everest Campervans specializes in custom-built extreme
-                          off-road campervans, including models like{" "}
+                          Everest Caravans specializes in custom-built extreme
+                          off-road caravans, including models like{" "}
                           <Link
                             href="https://www.everestcaravans.com.au/range/falcon/"
                             target="_blank"
@@ -85,14 +85,14 @@ const FaqSection = () => {
                           series.
                         </p>
                         <h4>
-                          Can I customize my campervan with Everest Campervans?
+                          Can I customize my caravan with Everest Caravans?
                         </h4>
                         <p>
-                          Yes, Everest Campervans offers custom-built options to
-                          tailor the campervan to your specific needs and
+                          Yes, Everest Caravans offers custom-built options to
+                          tailor the caravan to your specific needs and
                           preferences.
                         </p>
-                        <h4>Are their campervans family-friendly?</h4>
+                        <h4>Are their caravans family-friendly?</h4>
                         <p>
                           Yes, the Calibra and Summit models are particularly
                           designed to accommodate families, offering spacious
@@ -101,7 +101,7 @@ const FaqSection = () => {
                       </div>
                     </div>
                   </div>
-                  {/* 2. Orbit Campervans */}
+                  {/* 2. Orbit Caravans */}
                   <div className="accordion-item border-bottom rounded-0">
                     <h3 className="accordion-header" id="heading2">
                       <button
@@ -112,7 +112,7 @@ const FaqSection = () => {
                         aria-expanded="false"
                         aria-controls="collapse2"
                       >
-                        2. Orbit Campervans
+                        2. Orbit Caravans
                       </button>
                     </h3>
                     <div
@@ -123,10 +123,10 @@ const FaqSection = () => {
                     >
                       <div className="accordion-body">
                         <h4>
-                          What range of campervans does Orbit Campervans offer?
+                          What range of caravans does Orbit Caravans offer?
                         </h4>
                         <p>
-                          Orbit Campervans offers luxury off-road campervans such as
+                          Orbit Caravans offers luxury off-road caravans such as
                           the{" "}
                           <Link
                             href="https://orbitcaravans.com.au/range/discovery-x/"
@@ -153,7 +153,7 @@ const FaqSection = () => {
                           </Link>
                           , focusing on a blend of durability and luxury.
                         </p>
-                        <h4>Are Orbit Campervans suitable for couples?</h4>
+                        <h4>Are Orbit Caravans suitable for couples?</h4>
                         <p>
                           Yes, models like the Eclipse X and Space V are perfect
                           for couples seeking a luxurious and feature-rich
@@ -168,7 +168,7 @@ const FaqSection = () => {
                       </div>
                     </div>
                   </div>
-                  {/* 3. Grand City Campervans */}
+                  {/* 3. Grand City Caravans */}
                   <div className="accordion-item border-bottom rounded-0">
                     <h3 className="accordion-header" id="heading3">
                       <button
@@ -179,7 +179,7 @@ const FaqSection = () => {
                         aria-expanded="false"
                         aria-controls="collapse3"
                       >
-                        3. Grand City Campervans
+                        3. Grand City Caravans
                       </button>
                     </h3>
                     <div
@@ -189,12 +189,12 @@ const FaqSection = () => {
                       data-bs-parent="#accordionSt4"
                     >
                       <div className="accordion-body">
-                        <h4>What technology is used in Grand City Campervans?</h4>
+                        <h4>What technology is used in Grand City Caravans?</h4>
                         <p>
-                          Grand City Campervans utilizes state-of-the-art 3D
+                          Grand City Caravans utilizes state-of-the-art 3D
                           modeling software for precise and high-quality builds.
                         </p>
-                        <h4>Are Grand City Campervans customizable?</h4>
+                        <h4>Are Grand City Caravans customizable?</h4>
                         <p>
                           Yes, models like the{" "}
                           <Link
@@ -215,9 +215,9 @@ const FaqSection = () => {
                           offer customizable options to suit individual
                           preferences and travel needs.
                         </p>
-                        <h4>What types of campervans do they offer?</h4>
+                        <h4>What types of caravans do they offer?</h4>
                         <p>
-                          Grand City Campervans offers full off-road campervans like
+                          Grand City Caravans offers full off-road caravans like
                           Nomad and Explorer, semi off-road models like{" "}
                           <Link
                             href="https://grandcitycaravans.com.au/range/royale/"
@@ -239,7 +239,7 @@ const FaqSection = () => {
                       </div>
                     </div>
                   </div>
-                  {/* 4. High Country Campervans */}
+                  {/* 4. High Country Caravans */}
                   <div className="accordion-item border-bottom rounded-0">
                     <h3 className="accordion-header" id="heading4">
                       <button
@@ -250,7 +250,7 @@ const FaqSection = () => {
                         aria-expanded="false"
                         aria-controls="collapse4"
                       >
-                        4. High Country Campervans
+                        4. High Country Caravans
                       </button>
                     </h3>
                     <div
@@ -260,21 +260,21 @@ const FaqSection = () => {
                       data-bs-parent="#accordionSt4"
                     >
                       <div className="accordion-body">
-                        <h4>What makes High Country Campervans stand out?</h4>
+                        <h4>What makes High Country Caravans stand out?</h4>
                         <p>
-                          High Country Campervans are designed to tackle the
+                          High Country Caravans are designed to tackle the
                           harshest Australian off-road conditions, combining
                           comfort with durability.
                         </p>
                         <h4>
-                          What models are available from High Country Campervans?
+                          What models are available from High Country Caravans?
                         </h4>
                         <p>
                           They offer models such as the Alpine, Explore,
                           Extreme, and Summit, all built for off-road
                           adventures.
                         </p>
-                        <h4>Are their campervans family-friendly?</h4>
+                        <h4>Are their caravans family-friendly?</h4>
                         <p>
                           Yes, their models cater to families looking for
                           off-road adventures with ample space and modern
@@ -283,7 +283,7 @@ const FaqSection = () => {
                       </div>
                     </div>
                   </div>
-                  {/* 5. Silver Valley Campervans */}
+                  {/* 5. Silver Valley Caravans */}
                   <div className="accordion-item border-bottom rounded-0">
                     <h3 className="accordion-header" id="heading5">
                       <button
@@ -294,7 +294,7 @@ const FaqSection = () => {
                         aria-expanded="false"
                         aria-controls="collapse5"
                       >
-                        5. Silver Valley Campervans
+                        5. Silver Valley Caravans
                       </button>
                     </h3>
                     <div
@@ -305,11 +305,11 @@ const FaqSection = () => {
                     >
                       <div className="accordion-body">
                         <h4>
-                          What types of campervans does Silver Valley Campervans
+                          What types of caravans does Silver Valley Caravans
                           offer?
                         </h4>
                         <p>
-                          Silver Valley Campervans offers luxury touring campervans
+                          Silver Valley Caravans offers luxury touring caravans
                           such as the{" "}
                           <Link
                             href="https://www.silvervalleycaravans.com.au/range/the-family-getaway.html"
@@ -352,22 +352,22 @@ const FaqSection = () => {
                           </Link>
                           .
                         </p>
-                        <h4>Are their campervans customizable?</h4>
+                        <h4>Are their caravans customizable?</h4>
                         <p>
                           Yes, their models come with customizable options for
                           both interiors and exteriors to meet individual
                           preferences.
                         </p>
-                        <h4>What makes their campervans luxurious?</h4>
+                        <h4>What makes their caravans luxurious?</h4>
                         <p>
-                          Silver Valley Campervans incorporate high-quality
+                          Silver Valley Caravans incorporate high-quality
                           materials, modern appliances, and smart storage
                           solutions to provide a luxurious travel experience.
                         </p>
                       </div>
                     </div>
                   </div>
-                  {/* 6. Red Centre Campervans */}
+                  {/* 6. Red Centre Caravans */}
                   <div className="accordion-item border-bottom rounded-0">
                     <h3 className="accordion-header" id="heading6">
                       <button
@@ -378,7 +378,7 @@ const FaqSection = () => {
                         aria-expanded="false"
                         aria-controls="collapse6"
                       >
-                        6. Red Centre Campervans
+                        6. Red Centre Caravans
                       </button>
                     </h3>
                     <div
@@ -389,17 +389,17 @@ const FaqSection = () => {
                     >
                       <div className="accordion-body">
                         <h4>
-                          What distinguishes Red Centre Campervans from others?
+                          What distinguishes Red Centre Caravans from others?
                         </h4>
                         <p>
-                          Red Centre Campervans are known for their sturdy
+                          Red Centre Caravans are known for their sturdy
                           aluminium frame construction, combining lightness with
                           strength for both on-road and off-road adventures.
                         </p>
-                        <h4>What types of campervans do they offer?</h4>
+                        <h4>What types of caravans do they offer?</h4>
                         <p>
                           They offer a variety of models including on-road,
-                          off-road, and semi off-road campervans like the{" "}
+                          off-road, and semi off-road caravans like the{" "}
                           <Link
                             href="https://redcentrecaravans.com.au/newell/"
                             target="_blank"
@@ -433,7 +433,7 @@ const FaqSection = () => {
                           </Link>
                           .
                         </p>
-                        <h4>Are their campervans energy-efficient?</h4>
+                        <h4>Are their caravans energy-efficient?</h4>
                         <p>
                           Yes, many of their models feature advanced
                           energy-efficient designs and systems, such as the
@@ -442,7 +442,7 @@ const FaqSection = () => {
                       </div>
                     </div>
                   </div>
-                  {/* 7. Masterpiece Campervans */}
+                  {/* 7. Masterpiece Caravans */}
                   <div className="accordion-item border-bottom rounded-0">
                     <h3 className="accordion-header" id="heading7">
                       <button
@@ -453,7 +453,7 @@ const FaqSection = () => {
                         aria-expanded="false"
                         aria-controls="collapse7"
                       >
-                        7. Masterpiece Campervans
+                        7. Masterpiece Caravans
                       </button>
                     </h3>
                     <div
@@ -464,19 +464,19 @@ const FaqSection = () => {
                     >
                       <div className="accordion-body">
                         <h4>
-                          What range of campervans does Masterpiece Campervans
+                          What range of caravans does Masterpiece Caravans
                           provide?
                         </h4>
                         <p>
-                          Masterpiece Campervans offers the ultimate in off-road
-                          campervans with models like Optimum, Performance and
+                          Masterpiece Caravans offers the ultimate in off-road
+                          caravans with models like Optimum, Performance and
                           XTM.
                         </p>
                         <h4>
-                          Are their campervans designed for extreme conditions?
+                          Are their caravans designed for extreme conditions?
                         </h4>
                         <p>
-                          Yes, their campervans are engineered for excellence in
+                          Yes, their caravans are engineered for excellence in
                           the most rugged terrains, providing robust
                           construction and luxurious interiors.
                         </p>
@@ -489,7 +489,7 @@ const FaqSection = () => {
                       </div>
                     </div>
                   </div>
-                  {/* 8. Villa Campervans */}
+                  {/* 8. Villa Caravans */}
                   <div className="accordion-item border-bottom rounded-0">
                     <h3 className="accordion-header" id="heading8">
                       <button
@@ -500,7 +500,7 @@ const FaqSection = () => {
                         aria-expanded="false"
                         aria-controls="collapse8"
                       >
-                        8. Villa Campervans
+                        8. Villa Caravans
                       </button>
                     </h3>
                     <div
@@ -511,23 +511,23 @@ const FaqSection = () => {
                     >
                       <div className="accordion-body">
                         <h4>
-                          What type of campervans does Villa Campervans specialize
+                          What type of caravans does Villa Caravans specialize
                           in?
                         </h4>
                         <p>
-                          Villa Campervans specializes in semi off-road campervans
+                          Villa Caravans specializes in semi off-road caravans
                           like the Escape SE and Escape, designed for exploring
                           remote areas with semi off-road capabilities.
                         </p>
-                        <h4>Are Villa Campervans suitable for rough terrains?</h4>
+                        <h4>Are Villa Caravans suitable for rough terrains?</h4>
                         <p>
-                          Yes, their semi off-road campervans are built to
+                          Yes, their semi off-road caravans are built to
                           withstand dirt roads and remote areas while providing
                           comfort and luxury.
                         </p>
                         <h4>Do they offer family-friendly options?</h4>
                         <p>
-                          Yes, their campervans are designed to cater to families,
+                          Yes, their caravans are designed to cater to families,
                           offering spacious and feature-rich models.
                         </p>
                       </div>
@@ -556,11 +556,11 @@ const FaqSection = () => {
                       <div className="accordion-body">
                         <p>
                           <strong>
-                            What types of campervans does Willow RV offer?
+                            What types of caravans does Willow RV offer?
                           </strong>
                         </p>
                         <p>
-                          Willow RV offers a range of Australian-made campervans
+                          Willow RV offers a range of Australian-made caravans
                           including the{" "}
                           <Link
                             href="https://willowrv.com.au/illawarra-series-caravans/"
@@ -598,13 +598,13 @@ const FaqSection = () => {
                         </p>
                         <p>
                           <strong>
-                            Are the interiors of Willow RV campervans comfortable
+                            Are the interiors of Willow RV caravans comfortable
                             for long trips?
                           </strong>
                         </p>
                         <p>
                           <span style={{ fontWeight: 400 }}>
-                            Absolutely. Willow RV campervans feature luxury
+                            Absolutely. Willow RV caravans feature luxury
                             interiors with open-plan layouts, spacious ensuites,
                             and five-star comfort suitable for both short and
                             extended stays.
@@ -613,11 +613,11 @@ const FaqSection = () => {
                         <p>
                           <strong>
                             What kind of value can I expect from a Willow RV
-                            campervan?
+                            caravan?
                           </strong>
                           <br />
                           <span style={{ fontWeight: 400 }}>
-                            Willow RV campervans come with premium features
+                            Willow RV caravans come with premium features
                             included as standard—delivering exceptional value
                             without hidden costs or extra upgrades.
                           </span>
@@ -625,7 +625,7 @@ const FaqSection = () => {
                       </div>
                     </div>
                   </div>
-                  {/* 10. Apache Campervans */}
+                  {/* 10. Apache Caravans */}
                   <div className="accordion-item border-bottom rounded-0">
                     <h3 className="accordion-header" id="heading10">
                       <button
@@ -636,7 +636,7 @@ const FaqSection = () => {
                         aria-expanded="false"
                         aria-controls="collapse10"
                       >
-                        10. Apache Campervans
+                        10. Apache Caravans
                       </button>
                     </h3>
                     <div
@@ -648,12 +648,12 @@ const FaqSection = () => {
                       <div className="accordion-body">
                         <p>
                           <strong>
-                            What makes Apache Campervans stand out in the
+                            What makes Apache Caravans stand out in the
                             Australian market?
                           </strong>
                           <br />
                           <span style={{ fontWeight: 400 }}>
-                            Apache Campervans are known for their innovative
+                            Apache Caravans are known for their innovative
                             layouts, eco-friendly features, and space-efficient
                             interiors. Their designs prioritise comfort,
                             practicality, and flexibility for all types of
@@ -661,7 +661,7 @@ const FaqSection = () => {
                           </span>
                         </p>
                         <p>
-                          <strong>Are Apache Campervans budget-friendly?</strong>
+                          <strong>Are Apache Caravans budget-friendly?</strong>
                           <br />
                           <span style={{ fontWeight: 400 }}>
                             Yes, Apache keeps costs competitive by streamlining
@@ -673,7 +673,7 @@ const FaqSection = () => {
                         </p>
                         <p>
                           <strong>
-                            Do Apache Campervans cater to off-road conditions?
+                            Do Apache Caravans cater to off-road conditions?
                           </strong>
                         </p>
                         <p>

@@ -1,4 +1,4 @@
-﻿export default function CampervanTypeFilter() {
+export default function CaravanTypeFilter() {
   return (
     <div className="filter-item">
       <ul className="category-list">

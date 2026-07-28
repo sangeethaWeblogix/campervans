@@ -1,26 +1,29 @@
-﻿ // "use client" வேண்டாம் — இது Server Component
+ // "use client" வேண்டாம் — இது Server Component
 import { fetchBlogs } from "@/api/blog/api";
 import BlogListClient from "./BlogListClient";
 import { redirect } from "next/navigation";
+import "../../blog.css?=3";
 import { Metadata } from "next";
+
+export const dynamic = "force-dynamic";
 
 type Params = Promise<{ page?: string }>;
  
 export const metadata: Metadata = {
 title: "Latest News, Reviews & Advice",
   description:
-    "Latest news, in-depth reviews, and expert advice on the latest in the campervan market. Stay informed and make smarter decisions.",
+    "Latest news, in-depth reviews, and expert advice on the latest in the caravan market. Stay informed and make smarter decisions.",
   robots: "index, follow",
   openGraph: {
   title: "Latest News, Reviews & Advice",
   description:
-    "Latest news, in-depth reviews, and expert advice on the latest in the campervan market. Stay informed and make smarter decisions.",
+    "Latest news, in-depth reviews, and expert advice on the latest in the caravan market. Stay informed and make smarter decisions.",
   },
   twitter: {
     card: "summary_large_image",
     title: "Latest News, Reviews & Advice",
     description:
-      "Latest news, in-depth reviews, and expert advice on the latest in the campervan market. Stay informed and make smarter decisions.",
+      "Latest news, in-depth reviews, and expert advice on the latest in the caravan market. Stay informed and make smarter decisions.",
   },
   alternates: {
     canonical: "https://www.caravansforsale.com.au/blog/",

@@ -29,46 +29,50 @@ type BannerContextType = {
   matchedBanners: FullBanner[];
   isMobile: boolean;
   currentHomeBannerIndex: number;
-   isLoading: boolean;
-  
+  isLoading: boolean;
 };
 
 const BannerContext = createContext<BannerContextType | undefined>(undefined);
 
 export function BannerProvider({ children }: { children: ReactNode }) {
-   console.log("BannerProvider mounted");
   const [allBanners, setAllBanners] = useState<FullBanner[]>([]);
   const [matchedBanners, setMatchedBanners] = useState<FullBanner[]>([]);
   const [isMobile, setIsMobile] = useState(false);
-    const [currentHomeBannerIndex, setCurrentHomeBannerIndex] = useState(0); // ✅ inside component
-
+  const [currentHomeBannerIndex, setCurrentHomeBannerIndex] = useState(0);
   const pathname = usePathname();
-const PLACEMENTS = ["listings", "homepage", "sidebar", "header", "footer"];
-  const [isLoading, setIsLoading] = useState(true); // ✅ add
+  const [isLoading, setIsLoading] = useState(true);
 
- useEffect(() => {
-  async function fetchAllBanners() {
-    try {
-      setIsLoading(true);
-        const cached = sessionStorage.getItem("banners_cache");
-      if (cached) {
-        setAllBanners(JSON.parse(cached));
-        setIsLoading(false);
-        return; // ✅ fetch-யே skip பண்ணு
-      }
-      const res = await fetch("/api/banners"); // ✅ CORS இல்லை
-      const data = await res.json();
-      const banners = Array.isArray(data) ? data : [];
-      console.log(`✅ Total banners: ${banners.length}`, banners);
-      setAllBanners(banners);
-    } catch (error) {
-      console.error("Banner fetch error:", error);
-    }  finally {
-        setIsLoading(false); // ✅ fetch முடிஞ்சது
-      }
-  }
-  fetchAllBanners();
-}, []);
+  useEffect(() => {
+    // TODO: Re-enable when ads-manager WP plugin is active and returning banners.
+    // The /api/banners/ → ads-manager/v1/banners WP endpoint is currently 404ing,
+    // causing error logs on every page load. Uncomment the fetch below to restore.
+    setIsLoading(false);
+
+    // async function fetchAllBanners() {
+    //   try {
+    //     setIsLoading(true);
+    //     const cached = sessionStorage.getItem("banners_cache");
+    //     if (cached) {
+    //       setAllBanners(JSON.parse(cached));
+    //       setIsLoading(false);
+    //       return;
+    //     }
+    //     const res = await fetch("/api/banners/");
+    //     if (!res.ok) {
+    //       setAllBanners([]);
+    //       return;
+    //     }
+    //     const data = await res.json();
+    //     const banners = Array.isArray(data) ? data : [];
+    //     setAllBanners(banners);
+    //   } catch (error) {
+    //     console.error("Banner fetch error:", error);
+    //   } finally {
+    //     setIsLoading(false);
+    //   }
+    // }
+    // fetchAllBanners();
+  }, []);
 
   useEffect(() => {
     const homeBanners = allBanners.filter((b) => b.placement === "home");
@@ -80,51 +84,21 @@ const PLACEMENTS = ["listings", "homepage", "sidebar", "header", "footer"];
     setCurrentHomeBannerIndex(next);
   }, [allBanners]);
 
-  // BannerProvider-ல் இதை add பண்ணு debug-க்கு
-allBanners.forEach((banner) => {
-  console.log(
-    "Banner:", banner.name,
-    "| page_url:", banner.page_url,
-    "| pathname:", pathname,
-    "| shouldShow:", shouldShowBanner(pathname, banner)
-  );
-});
-
   useEffect(() => {
     if (!pathname || allBanners.length === 0) return;
- console.log("All banners:", allBanners);        // ← banners வருகிறதா?
-  console.log("Pathname:", pathname);              // ← pathname என்ன?
-  console.log("isMobile:", isMobile);  
+
     const device = isMobile ? "mobile" : "desktop";
 
     const filtered = allBanners.filter((banner) => {
-        const result = shouldShowBanner(pathname, banner);
-
-// if (!["home", "homepage"].includes(banner.placement)) return true;
- console.log(
-    "Banner:", banner.name,
-    "| placement:", banner.placement,
-    "| page_url:", banner.page_url,
-    "| pathname:", pathname,
-    "| shouldShow result:", result  // ← true வருதா false வருதா?
-  );
-  if (!shouldShowBanner(pathname, banner)) return false;
-
-      // ✅ 2. Device check — "all" இருந்தா எல்லா device-லயும் காட்டு
+      if (!shouldShowBanner(pathname, banner)) return false;
       if (
         banner.device_target !== "all" &&
         banner.device_target !== device
       ) {
         return false;
       }
-
       return true;
     });
-
-    console.log("Pathname:", pathname);
-    console.log("Device:", device);
-    console.log("Matched banners:", filtered);
-
 
     setMatchedBanners(filtered);
   }, [pathname, allBanners, isMobile]);
@@ -141,16 +115,16 @@ allBanners.forEach((banner) => {
   }, []);
 
   return (
-    <BannerContext.Provider value={{ matchedBanners, isMobile, currentHomeBannerIndex, isLoading   }}>
+    <BannerContext.Provider value={{ matchedBanners, isMobile, currentHomeBannerIndex, isLoading }}>
       {children}
     </BannerContext.Provider>
   );
 }
 
-export function useBanners() {
+export function useBanners(): BannerContextType {
   const context = useContext(BannerContext);
   if (!context) {
-    throw new Error("useBanners must be used inside BannerProvider");
+    return { matchedBanners: [], isMobile: false, currentHomeBannerIndex: 0, isLoading: true };
   }
   return context;
 }

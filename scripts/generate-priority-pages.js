@@ -5,9 +5,9 @@
  * REQUIRES PUPPETEER
  * 
  * IMPORTANT - SLUG FORMAT (DO NOT CHANGE):
- * Homepage:  homepage-v1, homepage-v2, homepage-v3, homepage-v4
- * Listings:  listings-home-v1, listings-home-v2, listings-home-v3, listings-home-v4
- * 
+ * Homepage:  homepage-v1, homepage-v2, homepage-v3, homepage-v4, homepage-v5
+ * Listings:  listings-home-v1, listings-home-v2, listings-home-v3, listings-home-v4, listings-home-v5
+ *
  * Routes-mapping format (DO NOT CHANGE):
  * { "/": ["homepage-v1", "homepage-v2", ...], "/listings/": ["listings-home-v1", ...] }
  * Values are ALWAYS arrays, never strings.
@@ -28,7 +28,17 @@ const TARGET_PAGE = process.env.TARGET_PAGE || 'all';
 // The update-routes-mapping job will handle it after all jobs complete.
 const SKIP_ROUTES_UPDATE = process.env.SKIP_ROUTES_UPDATE === 'true';
 
-const LISTINGS_VARIANTS = 4;
+// REQUIRE_FULL_SUCCESS: set by the post-deploy canary run (post-deploy-warmup.yml).
+// That run only generates 10 variants total (homepage + /listings/), so it's cheap
+// to require a perfectly clean render before trusting the new deployment. When set,
+// current-build-id is left untouched unless every single variant succeeds with no
+// errors — this is what stops a broken deploy from ever going live to real traffic.
+// Not set during the weekly full url.csv rebuild (individual pages there already
+// have their own per-variant error skip; a single flaky listing shouldn't block
+// the whole site's cache from refreshing).
+const REQUIRE_FULL_SUCCESS = process.env.REQUIRE_FULL_SUCCESS === 'true';
+
+const LISTINGS_VARIANTS = 7;
 const KV_UPLOAD_RETRIES = 3;
 const KV_RETRY_DELAY = 2000;
 
@@ -56,41 +66,52 @@ async function uploadToKV(key, value, metadata = null) {
       
       if (metadata) {
         const boundary = '----CFSFormBoundary' + Date.now();
-        let body = '';
-        
+        let bodyStr = '';
+
         // Value part
-        body += `--${boundary}\r\n`;
-        body += `Content-Disposition: form-data; name="value"; filename="blob"\r\n`;
-        body += `Content-Type: text/html\r\n\r\n`;
-        body += value;
-        body += `\r\n`;
-        
+        bodyStr += `--${boundary}\r\n`;
+        bodyStr += `Content-Disposition: form-data; name="value"; filename="blob"\r\n`;
+        bodyStr += `Content-Type: text/html\r\n\r\n`;
+        bodyStr += value;
+        bodyStr += `\r\n`;
+
         // Metadata part
-        body += `--${boundary}\r\n`;
-        body += `Content-Disposition: form-data; name="metadata"\r\n`;
-        body += `Content-Type: application/json\r\n\r\n`;
-        body += JSON.stringify(metadata);
-        body += `\r\n`;
-        
-        body += `--${boundary}--\r\n`;
-        
+        bodyStr += `--${boundary}\r\n`;
+        bodyStr += `Content-Disposition: form-data; name="metadata"\r\n`;
+        bodyStr += `Content-Type: application/json\r\n\r\n`;
+        bodyStr += JSON.stringify(metadata);
+        bodyStr += `\r\n`;
+
+        bodyStr += `--${boundary}--\r\n`;
+
+        // Convert to Buffer so node-fetch sends Content-Length instead of
+        // Transfer-Encoding: chunked — Cloudflare KV closes chunked connections
+        // prematurely on large payloads (>30KB), causing "Premature close" errors.
+        const bodyBuffer = Buffer.from(bodyStr, 'utf8');
+
         requestOptions = {
           method: 'PUT',
           headers: {
             'Authorization': `Bearer ${CF_API_TOKEN}`,
-            'Content-Type': `multipart/form-data; boundary=${boundary}`
+            'Content-Type': `multipart/form-data; boundary=${boundary}`,
+            'Content-Length': String(bodyBuffer.length),
+            'Connection': 'close'
           },
-          body: body,
+          body: bodyBuffer,
           timeout: 60000
         };
       } else {
+        // Convert to Buffer — same reason as above (prevents chunked encoding)
+        const bodyBuffer = Buffer.from(value, 'utf8');
         requestOptions = {
           method: 'PUT',
           headers: {
             'Authorization': `Bearer ${CF_API_TOKEN}`,
-            'Content-Type': 'text/html'
+            'Content-Type': 'text/plain',
+            'Content-Length': String(bodyBuffer.length),
+            'Connection': 'close'
           },
-          body: value,
+          body: bodyBuffer,
           timeout: 60000
         };
       }
@@ -151,6 +172,9 @@ function isErrorPage(html) {
     // Image 2: Service error
     "Service error",
     "Our listing service encountered an error",
+    // Image 3: Generic error page (Oops variant)
+    "Oops! Something went wrong",
+    "temporarily unavailable",
     // Next.js unhandled exception
     "Application error: a client-side exception has occurred",
     // Generic fallback
@@ -183,17 +207,41 @@ async function generatePageVariant(page, variantNumber, browser) {
     await browserPage.setViewport({ width: 1920, height: 1080 });
     
     console.log(`   🌐 Using Puppeteer...`);
-    
+
     const fetchStart = Date.now();
-    await browserPage.goto(url, { 
-      waitUntil: 'networkidle2',  // tolerates up to 2 in-flight requests (avoids timeout from analytics/polling)
-      timeout: 60000              // increased from 45s to 60s
-    });
-    
+
+    // Use 'load' instead of 'networkidle2'.
+    // ?shuffle_seed=N forces a dynamic RSC render on Vercel; analytics/polling scripts
+    // keep the network connection count above 2 indefinitely, causing networkidle2 to
+    // wait the full 60s and then timeout. 'load' fires as soon as the page and its
+    // static resources are ready — the 5s extra wait handles JS-driven rendering.
+    // Retry once on timeout: dynamic RSC renders can be slow on cold Vercel functions.
+    let html;
+    for (let attempt = 1; attempt <= 2; attempt++) {
+      try {
+        if (attempt > 1) {
+          console.log(`   🔁 Retry attempt ${attempt}...`);
+          await browserPage.goto('about:blank');
+          await new Promise(resolve => setTimeout(resolve, 3000));
+        }
+        await browserPage.goto(url, {
+          waitUntil: 'load',
+          timeout: 60000
+        });
+        break; // success — exit retry loop
+      } catch (err) {
+        if (attempt < 2 && err.message.includes('timeout')) {
+          console.warn(`   ⚠️  Navigation timeout on attempt ${attempt}, retrying...`);
+          continue;
+        }
+        throw err; // non-timeout error or last attempt — propagate
+      }
+    }
+
     // Wait for dynamic content to finish rendering
-    await new Promise(resolve => setTimeout(resolve, 3000)); // increased from 2s to 3s
-    
-    let html = await browserPage.content();
+    await new Promise(resolve => setTimeout(resolve, 5000));
+
+    html = await browserPage.content();
     await browserPage.close();
     
     const fetchDuration = Math.round((Date.now() - fetchStart) / 1000);
@@ -252,8 +300,7 @@ async function generatePageVariant(page, variantNumber, browser) {
     console.log(`   ⬆️  Uploading (${sizeKB}KB)...`);
     
     const uploadStart = Date.now();
-    const metadata = { path: page.path, source: 'priority-pages' };
-    const uploaded = await uploadToKV(kvKey, html, metadata);
+    const uploaded = await uploadToKV(kvKey, html);
     const uploadDuration = Math.round((Date.now() - uploadStart) / 1000);
     
     if (uploaded) {
@@ -449,11 +496,69 @@ async function generateStaticPages() {
     }
   }
   
+  // ============================================
+  // STORE CURRENT BUILD-ID IN KV — gated on a clean run
+  // ============================================
+  // The worker reads 'current-build-id' to detect when KV HTML is stale after a
+  // Vercel redeployment. It compares this value against the buildId embedded in the
+  // HTML (__NEXT_DATA__). A mismatch means Vercel has been redeployed since the last
+  // KV generation → worker bypasses KV and serves fresh HTML from Vercel instead.
+  // This prevents the "first filter apply fails after deploy" RSC navigation bug.
+  //
+  // When REQUIRE_FULL_SUCCESS is set, this write is the ONLY thing that switches
+  // the live site over to a new deployment's cache. If anything failed or came
+  // back as an error page, we deliberately skip this write — current-build-id
+  // stays at its old value, so the worker keeps serving the previous, still-correct
+  // cached HTML instead of falling through to a possibly-broken origin.
+  const successfulPages = results.pages.filter(p => p.status === 'success');
+  const totalVariantsRequested = pagesToGenerate.reduce((sum, page) => sum + page.variants, 0);
+  const cleanRun = results.failed === 0 && (results.skipped_error || 0) === 0 && results.success === totalVariantsRequested;
+  results.canaryFailed = REQUIRE_FULL_SUCCESS && !cleanRun;
+
+  if (results.canaryFailed) {
+    console.error('\n' + '█'.repeat(70));
+    console.error('🚫 CANARY FAILED — current-build-id will NOT be updated.');
+    console.error(`   Requested: ${totalVariantsRequested} variants | Success: ${results.success} | Failed: ${results.failed} | Error pages skipped: ${results.skipped_error || 0}`);
+    console.error('   The live site keeps serving the previous (last known-good) cache.');
+    console.error('   Fix the failure above, confirm the deploy is healthy, then re-run this workflow.');
+    console.error('█'.repeat(70));
+  } else if (successfulPages.length > 0) {
+    // Read back one of the successfully generated HTML pages to extract the buildId
+    try {
+      const sampleKey = successfulPages[0].slug;
+      const sampleUrl = `https://api.cloudflare.com/client/v4/accounts/${CF_ACCOUNT_ID}/storage/kv/namespaces/${CF_KV_NAMESPACE_ID}/values/${encodeURIComponent(sampleKey)}`;
+      const sampleRes = await fetch(sampleUrl, {
+        headers: { 'Authorization': `Bearer ${CF_API_TOKEN}` }
+      });
+      if (sampleRes.ok) {
+        const sampleHtml = await sampleRes.text();
+        // App Router embeds buildId in script src: /_next/static/{buildId}/_buildManifest.js
+        // Pages Router embeds it in __NEXT_DATA__: "buildId":"..."
+        const buildIdMatch =
+          sampleHtml.match(/\/_next\/static\/([^/]+)\/_buildManifest\.js/) ||
+          sampleHtml.match(/"buildId":"([^"]+)"/);
+        if (buildIdMatch) {
+          const buildId = buildIdMatch[1];
+          const stored = await uploadToKV('current-build-id', buildId);
+          if (stored) {
+            console.log(`\n✅ Stored current-build-id: ${buildId}`);
+          } else {
+            console.error('\n⚠️  Failed to store current-build-id in KV');
+          }
+        } else {
+          console.warn('\n⚠️  Could not extract buildId from generated HTML');
+        }
+      }
+    } catch (err) {
+      console.error(`\n⚠️  current-build-id update failed: ${err.message}`);
+    }
+  }
+
   const duration = Math.round((Date.now() - startTime) / 1000);
   const minutes = Math.floor(duration / 60);
   const seconds = duration % 60;
   const totalVariants = pagesToGenerate.reduce((sum, page) => sum + page.variants, 0);
-  
+
   console.log('\n' + '█'.repeat(70));
   console.log('📊 GENERATION COMPLETE');
   console.log('█'.repeat(70));
@@ -479,7 +584,7 @@ async function generateStaticPages() {
 if (require.main === module) {
   generateStaticPages()
     .then((results) => {
-      if (results.failed > 0) {
+      if (results.failed > 0 || results.canaryFailed) {
         process.exit(1);
       }
       process.exit(0);

@@ -1,4 +1,6 @@
-﻿ "use client";
+"use client";
+import "@fortawesome/fontawesome-free/css/fontawesome.min.css";
+import "@fortawesome/fontawesome-free/css/solid.min.css";
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -7,8 +9,8 @@ import "swiper/css";
 import "swiper/css/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import CampervanDetailModal from "./CaravanDetailModal";
-import "./product.css?=227";
+import CaravanDetailModal from "./CaravanDetailModal";
+import "./product.css?=226";
  
 import DOMPurify from "dompurify";
 import { type HomeBlogPost } from "@/api/home/api";
@@ -51,6 +53,8 @@ type ProductData = {
   images?: string[];
   main_image?: string;
   location?: string;
+  region?: { label?: string; value?: string; slug?: string };
+  suburb?: { label?: string; value?: string; slug?: string };
   regular_price?: string | number;
   sale_price?: string | number;
   price_difference?: string | number;
@@ -75,19 +79,23 @@ interface BlogPost extends HomeBlogPost {
   excerpt?: string;
   link?: string;
 }
+function ftToMeters(value: string): string | null {
+  const num = parseFloat(value);
+  if (isNaN(num)) return null;
+  return `(${(num * 0.3048).toFixed(1)}m)`;
+}
+
 export default function ClientLogger({
   data,
 }: {
   data: ProductDetailResponse;
 }) {
   // const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
-  console.log("datap", data);
   const router = useRouter();
  
 
   // const [activeImage, setActiveImage] = useState<string>("");
   const pd: ApiData = data?.data ?? {};
-  console.log("pd", pd);
   const productDetails: ProductData = pd.product_details ?? {};
   const blogPosts: BlogPost[] = Array.isArray(data?.data?.latest_blog_posts)
     ? data.data.latest_blog_posts!
@@ -100,7 +108,6 @@ export default function ClientLogger({
     ? data.data.related!
     : [];
 
-  console.log("releated", blogPosts);
   const loadedCount = useRef(0);
 
   // const handleImageLoad = () => {
@@ -110,8 +117,6 @@ export default function ClientLogger({
   // };
 
   const [showPopup, setShowPopup] = useState(false);
-
-  console.log("datapb", relatedProducts);
 
   const product: ProductData = productDetails;
   const isBrowser = typeof window !== "undefined";
@@ -227,7 +232,7 @@ export default function ClientLogger({
     return slug ? `/product/${slug}/` : "";
   };
   type LinkOut = { href: string; text: string };
-  type SpecItem = { label: string; value: string; url?: string };
+  type SpecItem = { label: string; value: string; url?: string; links?: LinkOut[] };
 
   // ---------- spec fields with API urls ----------
   const specFields: SpecItem[] = [
@@ -257,8 +262,32 @@ export default function ClientLogger({
     { label: "Ball Weight", value: getAttr("Ball Weight") },
     {
       label: "Location",
-      value: getAttr("Location"),
-      url: findAttr("Location")?.url, // e.g. "queensland-state"
+      value: [
+        productDetails.region?.value?.replace(/-/g, " "),
+        getAttr("Location"),
+      ].filter(Boolean).join(", "),
+      links: (() => {
+        const result: LinkOut[] = [];
+        const regionVal = productDetails.region?.value;
+        const regionSlug = productDetails.region?.slug;
+        const state = getAttr("Location");
+        const stateAttr = findAttr("Location");
+        const stateSlug = stateAttr?.url?.trim() || `${slugify(state)}-state`;
+        if (regionVal && regionSlug) {
+          result.push({
+            href: `/listings/${stateSlug}/${regionSlug}/`,
+            text: regionVal.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()),
+          });
+        }
+        if (state) {
+          result.push(
+            stateAttr?.url
+              ? linkFromApiUrl(stateAttr.url, state)
+              : { href: `/listings/${stateSlug}/`, text: state },
+          );
+        }
+        return result.length > 0 ? result : undefined;
+      })(),
     },
   ];
 
@@ -276,7 +305,7 @@ export default function ClientLogger({
     // ✅ Always force clean path for Year (ignore API URL)
     if (L === "year" || L === "years") {
       const s = toInt(v);
-      return s ? [{ href: `/listings/${s}-campervans-range/`, text: v }] : null;
+      return s ? [{ href: `/listings/${s}-caravans-range/`, text: v }] : null;
     }
 
     // ✅ Only use API URL for fields that are NOT year-related
@@ -287,15 +316,17 @@ export default function ClientLogger({
     // ---- fallback logic ----
     if (L === "category" || L === "type") {
       return v.split(",").map((c) => ({
-        href: `/listings/${slugify(c)}-category/`,
+        href: `/listings/${slugify(c.replace(/\s*caravan\s*/gi, " ").trim())}-category/`,
         text: c.trim(),
       }));
     }
 
     if (L === "make") return [{ href: `/listings/${slugify(v)}/`, text: v }];
 
-    if (L === "model")
-      return [{ href: `/listings/${makeValue}/${slugify(v)}/`, text: v }];
+    if (L === "model") {
+      const makeSlug = findAttr("Make")?.url?.trim().replace(/^\/+|\/+$/g, "") || slugify(makeValue);
+      return [{ href: `/listings/${makeSlug}/${slugify(v)}/`, text: v }];
+    }
 
     if (L === "location" || L === "state")
       return [{ href: `/listings/${slugify(v)}-state/`, text: v }];
@@ -386,8 +417,10 @@ export default function ClientLogger({
   };
 
 
-  const makeHref =
-    makeValue && makeValue.trim()
+  const makeAttrUrl = findAttr("Make")?.url?.trim().replace(/^\/+|\/+$/g, "");
+  const makeHref = makeAttrUrl
+    ? `/listings/${makeAttrUrl}/`
+    : makeValue?.trim()
       ? `/listings/${slugify(makeValue)}/`
       : "/listings/";
 
@@ -395,12 +428,9 @@ export default function ClientLogger({
     product.id ?? pd.id ?? product.name;
 
   const productSlug: string | undefined = product.slug ?? pd.slug;
-  console.log("product", data);
 
   const slug = productSlug || "";
   const sku = productDetails.sku;
-  console.log("slug1", productDetails);
-  console.log("rele", relatedProducts);
 
   // ---- gallery state ----
 
@@ -468,13 +498,13 @@ export default function ClientLogger({
  
 
   const postTrackEvent = async (product_id: number) => {
-  await fetch("/api/track-product", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ product_id }),
-  });
+  try {
+    await fetch("/api/track-product/", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ product_id }),
+    });
+  } catch {}
 };
  useEffect(() => {
   if (!productDetails?.id) return;
@@ -555,7 +585,7 @@ export default function ClientLogger({
 
   return (
     <>
-      <section className={`product campervan_dtt sku-${sku}`}>
+      <section className={`product caravan_dtt sku-${sku}`}>
         <div className="container">
           <div className="content">
             <div className="row justify-content-center">
@@ -578,7 +608,7 @@ export default function ClientLogger({
                       className="back_to_search back_to_search_btn"
                     >
                       <i className="bi bi-chevron-left"></i> Back to Similar
-                      Campervans
+                      Caravans
                     </a>
                   ))}
 
@@ -638,7 +668,7 @@ export default function ClientLogger({
 
                 </div>
 
-                <div className="campervan_slider_visible">
+                <div className="caravan_slider_visible">
                   <button
                     className="hover_link Click-here"
                     onClick={() => setShowModal(true)}
@@ -675,7 +705,7 @@ export default function ClientLogger({
                         </div>
                       ))}
                       <div>
-                        <span className="campervan__image_count">
+                        <span className="caravan__image_count">
                           {apiImages.length}
                         </span>
                       </div>
@@ -743,11 +773,15 @@ export default function ClientLogger({
                               {specFields
                                 .filter((f) => f.value)
                                 .map((f) => {
-                                  const links = linksForSpec(
-                                    f.label,
-                                    String(f.value),
-                                    f.url, // ✅ prefer API-provided url
-                                  );
+                                  const links =
+                                    f.links ??
+                                    linksForSpec(
+                                      f.label,
+                                      String(f.value),
+                                      f.url,
+                                    );
+                                  const isLength = f.label.toLowerCase() === "length";
+                                  const metersLabel = isLength ? ftToMeters(String(f.value)) : null;
                                   return (
                                     <li key={f.label}>
                                       <strong>{f.label}:</strong>{" "}
@@ -767,6 +801,7 @@ export default function ClientLogger({
                                             </span>
                                           ))
                                           : String(f.value)}
+                                        {metersLabel && <> {metersLabel}</>}
                                       </span>
                                     </li>
                                   );
@@ -798,7 +833,7 @@ export default function ClientLogger({
                           className="cravan_buyer"
                           onClick={() => setShowPopup(true)}
                         >
-                          Campervan Buyer Safety Checklist <i className="bi bi-info-circle-fill"></i>
+                          Caravan Buyer Safety Checklist <i className="bi bi-info-circle-fill"></i>
                         </button>
                   <p className="terms_text small">
                     By clicking 'Send Enquiry', you agree to Marketplace Network
@@ -886,7 +921,7 @@ export default function ClientLogger({
                           className="cravan_buyer"
                           onClick={() => setShowPopup(true)}
                         >
-                          Campervan Buyer Safety Checklist <i className="bi bi-info-circle-fill"></i>
+                          Caravan Buyer Safety Checklist <i className="bi bi-info-circle-fill"></i>
                         </button>
                       </div>
                     </div>
@@ -913,9 +948,9 @@ export default function ClientLogger({
                       </svg>
                     </button>
 
-                    <h2 className="title">Campervan Buyer Safety Checklist</h2>
+                    <h2 className="title">Caravan Buyer Safety Checklist</h2>
                     <p className="subtitle">
-                      Follow these steps to reduce the risk of scams when buying a campervan.
+                      Follow these steps to reduce the risk of scams when buying a caravan.
                     </p>
 
                     <div className="safety-wrapper">
@@ -945,7 +980,7 @@ export default function ClientLogger({
                           <li>
                             <span className="num">3</span>
                             <div>
-                              <h4>Inspect the campervan first</h4>
+                              <h4>Inspect the caravan first</h4>
                               <p>Inspect in person or arrange an inspection.</p>
                             </div>
                           </li>
@@ -978,7 +1013,7 @@ export default function ClientLogger({
 
               {/* Modal */}
               {showModal && (
-                <CampervanDetailModal
+                <CaravanDetailModal
                   isOpen={showModal}
                   onClose={() => setShowModal(false)}
                   images={apiImages}
@@ -1008,7 +1043,7 @@ export default function ClientLogger({
           <div className="container">
             <div className="re-title">
               <div className="tpof_tab">
-                <h3>Browse Similar Campervans</h3>
+                <h3>Browse Similar Caravans</h3>
               </div>
             </div>
             <div className="similar-products-three position-relative">
@@ -1053,7 +1088,7 @@ export default function ClientLogger({
                               <div className="product_de">
                                 <div className="info">
                                   <h6 className="category">
-                                    <i className="fa fa-map-marker-alt"></i>{" "}
+                                    <i className="fa-solid fa-location-dot"></i>{" "}
                                     <span>{post.location}</span>
                                   </h6>
                                   <h3 className="title">{post.title}</h3>

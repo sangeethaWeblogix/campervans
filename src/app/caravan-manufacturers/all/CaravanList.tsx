@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState } from "react";
 import Link from "next/link";
@@ -65,7 +65,7 @@ function FeatureCard({
   );
 }
 
-export default function CampervanManufacturers() {
+export default function CaravanManufacturers() {
   // const [manufacturers, setManufacturers] = useState<Manufacturer[]>([]);
 
   // useEffect(() => {
@@ -78,12 +78,12 @@ export default function CampervanManufacturers() {
 
   return (
     <>
-      {/* Everest Campervans Section */}
+      {/* Everest Caravans Section */}
       <section className="related-products section-padding pb-0">
         <div className="container">
           <div className="title mb-20">
             <div className="tpof_tab">
-              <h3>Everest Campervans</h3>
+              <h3>Everest Caravans</h3>
               <div className="viewall_bttn">
                 <Link href="https://admin.caravansforsale.com.au/caravan-manufacturers/everest-caravans/">
                   <i className="bi bi-chevron-right"></i>
@@ -109,7 +109,7 @@ export default function CampervanManufacturers() {
               <SwiperSlide>
                 <FeatureCard
                   image="https://admin.caravansforsale.com.au/wp-content/uploads/2023/08/1-13.png"
-                  alt="Falcon Campervan"
+                  alt="Falcon Caravan"
                   title="Falcon - FULL OFF ROAD"
                   subtitle="FULL OFF ROAD"
                   link="https://www.caravansforsale.com.au/range/falcon-everest-caravans/"
@@ -119,7 +119,7 @@ export default function CampervanManufacturers() {
               <SwiperSlide>
                 <FeatureCard
                   image="https://admin.caravansforsale.com.au/wp-content/uploads/2023/08/1-16.png"
-                  alt="Nitro Extreme Campervan"
+                  alt="Nitro Extreme Caravan"
                   title="Nitro Extreme - OFF ROAD"
                   subtitle="OFF ROAD"
                   link="https://www.caravansforsale.com.au/range/nitro-extreme-everest-caravans/"
@@ -128,7 +128,7 @@ export default function CampervanManufacturers() {
               <SwiperSlide>
                 <FeatureCard
                   image="https://admin.caravansforsale.com.au/wp-content/uploads/2023/08/1-17.png"
-                  alt="Calibra Campervan"
+                  alt="Calibra Caravan"
                   title="Calibra - FULL OFF ROAD"
                   subtitle="FULL OFF ROAD"
                   shortinfo="Traveling with three kids and need space for adventure? The 20.6F CALIBRA offers all the quality, style, and features of an Everest, with a full ensuite, spacious living area, and off-road capabilities. It's perfect for family getaways, so pack up and experience it—just be warned, the kids might not want to leave!"

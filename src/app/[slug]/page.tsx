@@ -1,35 +1,27 @@
-﻿ import DeatilsPage from "./details";
+import DeatilsPage from "./details";
+
+export const dynamic = "force-dynamic";
 
 import "./details.css";
 import { Card, CardContent, Typography, Button } from "@mui/material";
 import Link from "next/link";
 import TickIcon from "../../../public/images/tick.jpg";
 import Image from "next/image";
-import { redirect } from "next/navigation"; // ✅ Import notFound
+import { redirect, notFound } from "next/navigation";
 import Thankyou from './ThankYouClient '
 import { Metadata } from "next";
+import { fetchBlogDetail } from "./fetchBlogDetail";
 
- type RouteParams = { slug: string };
+type RouteParams = { slug: string };
 type PageProps = { params: Promise<RouteParams> };
 
-async function fetchBlogDetail(slug: string) {
-  try {
-    const res = await fetch(
-      `https://admin.caravansforsale.com.au/wp-json/cfs/v1/blog-detail-new/?slug=${encodeURIComponent(
-        slug
-      )}`,
-      { cache: "no-store", headers: { Accept: "application/json" } }
-    );
+// Slugs that browsers/crawlers request automatically — never real blog posts.
+// Bail out before touching the API to avoid noisy 404 log spam.
+const NON_BLOG_SLUG_PATTERN = /\.(png|jpg|jpeg|gif|ico|svg|xml|txt|json|webp|bmp|css|js|woff|woff2|ttf|eot|mov|mp4|avi|mkv|webm|wmv|flv|mp3|wav|pdf|zip)$/i;
+const NON_BLOG_EXACT = new Set(['wp-json', 'wp-admin', 'wp-login', 'wp-login.php', 'favicon.ico', 'robots.txt', 'sitemap.xml']);
 
-    if (!res.ok) {
-      return null; // ❌ Don't throw error, return null
-    }
-
-    return res.json();
-  } catch (error) {
-    console.error("Blog fetch error:", error);
-    return null; // ❌ Return null on fetch failure
-  }
+function isNonBlogSlug(slug: string): boolean {
+  return NON_BLOG_SLUG_PATTERN.test(slug) || NON_BLOG_EXACT.has(slug);
 }
 
 // ✅ SEO from product.seo (NO images)
@@ -39,6 +31,9 @@ export async function generateMetadata({
   params: Promise<RouteParams>;
 }): Promise<Metadata> {
   const { slug } = await params;
+  if (isNonBlogSlug(slug)) {
+    return { robots: "noindex, nofollow" };
+  }
   if (slug.startsWith("thank-you-")) {
     return {
       title: "Thank You",
@@ -60,16 +55,16 @@ export async function generateMetadata({
     seo.meta_title ||
     data?.title ||
     data?.name ||
-    "Product - Campervans for Sale";
+    "Product - Caravans for Sale";
 
   const description =
     seo.metadescription ||
     seo.meta_description ||
     data?.short_description ||
-    "View campervan details.";
+    "View caravan details.";
   const robots = "index, follow";
   const canonicalUrl = `https://www.caravansforsale.com.au/${slug}/`;
-
+  console.log("generateMetadata", { title, description, robots, canonicalUrl });
   return {
     title,
     description,
@@ -97,6 +92,10 @@ export async function generateMetadata({
 
 export default async function ProductDetailPage({ params }: PageProps) {
   const { slug } = await params;
+
+  if (isNonBlogSlug(slug)) {
+    notFound();
+  }
 
   if (slug.startsWith("thank-you-")) {
     return (
@@ -140,11 +139,11 @@ export default async function ProductDetailPage({ params }: PageProps) {
             </div>
             <Typography variant="h5" fontWeight="bold" gutterBottom>
               Thank you for submitting your information with{" "}
-              <span style={{ color: "#000" }}>campervansforsale.com.au</span>.
+              <span style={{ color: "#000" }}>caravansforsale.com.au</span>.
             </Typography>
 
             <Typography variant="body1" color="text.secondary" gutterBottom>
-              Your campervan dealer will contact you as soon as possible.
+              Your caravan dealer will contact you as soon as possible.
             </Typography>
 
             <Link href="/" style={{ textDecoration: "none" }}>
@@ -169,11 +168,11 @@ export default async function ProductDetailPage({ params }: PageProps) {
   }
   const data = await fetchBlogDetail(slug);
 
-    if (slug.startsWith("thank-you-")) {
-    return <Thankyou /> ;
+  if (slug.startsWith("thank-you-")) {
+    return <Thankyou />;
   }
-  if (!data) {
-    redirect("/404"); // ✅ Show Next.js 404 page
+  if (!data || !data?.data?.blog_detail) {
+    redirect("/404");
   }
 
   return (

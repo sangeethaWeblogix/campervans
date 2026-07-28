@@ -1,24 +1,18 @@
-﻿ // export const dynamic = "force-dynamic"
-;
-
+import ThemeRegistry from "../components/ThemeRegistry";
 import { Metadata } from "next";
 import "./details.css";
 import { ReactNode } from "react";
 import Thankyou from './ThankYouClient '
+import { fetchBlogDetail } from "./fetchBlogDetail";
 type RouteParams = { slug: string };
 
-async function fetchBlogDetail(slug: string) {
-  try {
-    const res = await fetch(
-      `https://admin.caravansforsale.com.au/wp-json/cfs/v1/blog-detail-new/?slug=${encodeURIComponent(slug)}`,
-      { cache: "no-store", headers: { Accept: "application/json" } }
-    );
+// Slugs that browsers/crawlers request automatically — never real blog posts.
+// Bail out before touching the API to avoid noisy 404 log spam.
+const NON_BLOG_SLUG_PATTERN = /\.(png|jpg|jpeg|gif|ico|svg|xml|txt|json|webp|bmp|css|js|woff|woff2|ttf|eot|mov|mp4|avi|mkv|webm|wmv|flv|mp3|wav|pdf|zip)$/i;
+const NON_BLOG_EXACT = new Set(['wp-json', 'wp-admin', 'wp-login', 'wp-login.php', 'favicon.ico', 'robots.txt', 'sitemap.xml']);
 
-    if (!res.ok) return null;
-    return res.json();
-  } catch {
-    return null;
-  }
+function isNonBlogSlug(slug: string): boolean {
+  return NON_BLOG_SLUG_PATTERN.test(slug) || NON_BLOG_EXACT.has(slug);
 }
 
 export async function generateMetadata({
@@ -27,6 +21,10 @@ export async function generateMetadata({
   params: Promise<RouteParams>;
 }): Promise<Metadata> {
   const { slug } = await params;
+
+  if (isNonBlogSlug(slug)) {
+    return { robots: "noindex, nofollow" };
+  }
 
     if (slug.startsWith("thank-you-")) {
     return {
@@ -38,11 +36,11 @@ export async function generateMetadata({
   const seo = data?.seo ?? {};
   const post = data?.data?.blog_detail || {};
 
-  const title = seo.metatitle || post.title || "Campervans for Sale Blog";
+  const title = seo.metatitle || post.title || "Caravans for Sale Blog";
   const description =
     seo.metadescription ||
     post.short_description ||
-    "Read more on Campervans for Sale.";
+    "Read more on Caravans for Sale.";
   const canonical = `https://www.caravansforsale.com.au/${slug}/`;
 
   return {
@@ -68,6 +66,12 @@ function safeJsonLdString(json: object) {
   return JSON.stringify(json, null, 2).replace(/</g, "\\u003c");
 }
 
+function safeIso(dateStr?: string) {
+  if (!dateStr) return new Date().toISOString();
+  const d = new Date(dateStr);
+  return isNaN(d.getTime()) ? new Date().toISOString() : d.toISOString();
+}
+
 
 export default async function Layout({
   children,
@@ -78,12 +82,18 @@ export default async function Layout({
 }) {
      const { slug } = await params;
 
+  /** 🛑 STOP BLOG FETCH FOR NON-BLOG SLUGS (favicons, crawler probes, etc.) **/
+  if (isNonBlogSlug(slug)) {
+    return <ThemeRegistry>{children}</ThemeRegistry>;
+  }
 
   /** 🛑 STOP BLOG FETCH FOR THANK-YOU PAGES **/
   if (slug.startsWith("thank-you-")) {
-    return <div>
-      <Thankyou  />
-    </div>;
+    return (
+      <ThemeRegistry>
+        <Thankyou />
+      </ThemeRegistry>
+    );
   }
 
   /** ✅ SAFE BLOG FETCH FOR NORMAL PAGES **/
@@ -91,54 +101,67 @@ export default async function Layout({
 
   const post = data?.data?.blog_detail ?? {};
   const seo = data?.seo ?? {};
+  const faqs: { heading: string; content: string }[] = data?.data?.blog_detail?.faq ?? [];
 
   const canonical = `https://www.caravansforsale.com.au/${slug}/`;
-  const title = seo.metatitle || post.title || "Campervans for Sale Blog";
+  const title = seo.metatitle || post.title || "Caravans for Sale Blog";
   const description =
     seo.metadescription ||
     post.short_description ||
-    "Read more on Campervans for Sale.";
+    "Read more on Caravans for Sale.";
 
   const bannerImage =
     post.banner_image ||
     post.image ||
     "https://www.caravansforsale.com.au/load.svg";
 
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    mainEntityOfPage: {
-      "@type": "WebPage",
-      "@id": canonical,
+  const schemas = [
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
+      headline: title,
+      description: description,
+      image: bannerImage,
+      author: { "@type": "Person", name: "Tom" },
+      publisher: { "@type": "Organization", name: "Caravans for Sale" },
+      datePublished: safeIso(post.date),
+      dateModified: safeIso(post.date),
     },
-    headline: title,
-    description: description,
-    image: bannerImage,
-    author: {
-      "@type": "Person",
-      name: "Tom",
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: "https://www.caravansforsale.com.au/" },
+        { "@type": "ListItem", position: 2, name: "Blog", item: "https://www.caravansforsale.com.au/blog/" },
+        { "@type": "ListItem", position: 3, name: title, item: canonical },
+      ],
     },
-    publisher: {
-      "@type": "Organization",
-      name: "Campervans for Sale",
-    },
-   datePublished: post.date
-      ? new Date(post.date).toISOString()
-      : new Date().toISOString(),
-    dateModified: post.date
-      ? new Date(post.date).toISOString()
-      : new Date().toISOString(),
-  };
+    ...(faqs.length > 0
+      ? [
+          {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faqs.map((faq) => ({
+              "@type": "Question",
+              name: faq.heading,
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: faq.content.replace(/<[^>]*>/g, "").trim(),
+              },
+            })),
+          },
+        ]
+      : []),
+  ];
 
   return (
-    <>
-      {/* JSON-LD FOR BLOG ONLY */}
-     <script
+    <ThemeRegistry>
+      <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: safeJsonLdString(jsonLd),
-        }}
+        dangerouslySetInnerHTML={{ __html: safeJsonLdString(schemas) }}
       />
- <div>{children}</div>    </>
+      <div>{children}</div>
+    </ThemeRegistry>
   );
 }

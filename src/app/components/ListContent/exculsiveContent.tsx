@@ -1,11 +1,10 @@
-﻿"use client";
+"use client";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Navigation, Pagination } from "swiper/modules";
- import Head from "next/head";
 import { useEffect, useRef, useState } from "react";
 import { toSlug } from "@/utils/seo/slug";
 import ImageWithSkeleton from "../ImageWithSkeleton";
@@ -24,6 +23,7 @@ interface Product {
   link: string;
   condition: string;
   location?: string;
+  region?: string;
   categories?: string[];
   people?: string;
   make?: string;
@@ -73,23 +73,31 @@ export interface Filters {
   region?: string;
   suburb?: string;
   pincode?: string;
+  radius_kms?: string | number;
   orderby?: string;
   slug?: string | undefined;
 }
 interface Props {
   data: Product[];
-  pageTitle: string; // Add pageTitle prop
-  metaTitle: string; // Add metaTitle prop
-  metaDescription: string; // Add metaDescription prop
-  isPremiumLoading: boolean; // Add isMainLoading prop
+  pageTitle: string;
+  isPremiumLoading: boolean;
+  currentFilters?: Filters;
+}
+
+function formatLengthWithMeters(length: string): string {
+  if (!length) return length;
+  const num = parseFloat(length);
+  if (isNaN(num)) return length;
+  const meters = (num * 0.3048).toFixed(1);
+  const ftLabel = /ft/i.test(length) ? length.trim() : `${num}ft`;
+  return `${ftLabel} (${meters}m)`;
 }
 
 export default function ExculisiveContent({
   data,
   pageTitle,
-  metaTitle,
-  metaDescription,
- }: Props) {
+  currentFilters = {},
+}: Props) {
   const [showInfo, setShowInfo] = useState(false);
   const [showContact, setShowContact] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
@@ -228,6 +236,11 @@ export default function ExculisiveContent({
     return img ? `${img}` : undefined;
   };
 
+  const getInitialSlides = (item: Product): string[] => {
+    if (!Array.isArray(item.image_format)) return [];
+    return item.image_format.slice(0, 2).filter(Boolean).map((img) => `${img}`);
+  };
+
   const getRemainingImages = (item: Product): string[] => {
     if (!Array.isArray(item.image_format)) return [];
 
@@ -255,19 +268,15 @@ export default function ExculisiveContent({
 
   
 
- const postTrackClick = async (product_id: number) => {
-  await fetch("/api/track-click", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      product_id,
-    }),
-  });
-};
+  // const postTrackClick = async (product_id: number) => {
+  //   await fetch("/api/track-click", {
+  //     method: "POST",
+  //     headers: { "Content-Type": "application/json" },
+  //     body: JSON.stringify({ product_id }),
+  //   });
+  // };
   const handleProductClick = (id: any) => {
-      postTrackClick(id); 
+    // postTrackClick(id);
     // Allow product page to show "Back to Search"
     sessionStorage.setItem("cameFromListings", "true");
   };
@@ -285,46 +294,50 @@ export default function ExculisiveContent({
     }
   }, []);
 
-   const postTrackEvent = async (product_id: number) => {
-  await fetch("/api/track", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          product_id,
-          
-        }),
-      });
-    };
+  // const postTrackEvent = async (product_id: number) => {
+  //   await fetch("/api/track", {
+  //     method: "POST",
+  //     headers: { "Content-Type": "application/json" },
+  //     body: JSON.stringify({ product_id }),
+  //   });
+  // };
 
+  // useEffect(() => {
+  //   const observer = new IntersectionObserver(
+  //     (entries) => {
+  //       entries.forEach((entry) => {
+  //         if (entry.isIntersecting) {
+  //           const id = Number(entry.target.getAttribute("data-product-id"));
+  //           if (id) postTrackEvent(id);
+  //           observer.unobserve(entry.target);
+  //         }
+  //       });
+  //     },
+  //     { threshold: 0.3 }
+  //   );
+  //   document.querySelectorAll(".product-card[data-product-id]").forEach((el) => observer.observe(el));
+  //   return () => observer.disconnect();
+  // }, [data]);
 
-  useEffect(() => {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const id = Number(
-            entry.target.getAttribute("data-product-id")
-          );
+  const AUS_ABBR: Record<string, string> = {
+    VICTORIA: "VIC",
+    "NEW SOUTH WALES": "NSW",
+    QUEENSLAND: "QLD",
+    "SOUTH AUSTRALIA": "SA",
+    "WESTERN AUSTRALIA": "WA",
+    TASMANIA: "TAS",
+    "NORTHERN TERRITORY": "NT",
+    "AUSTRALIAN CAPITAL TERRITORY": "ACT",
+  };
 
-          if (id) {
-            postTrackEvent(id); // ✅ only id
-          }
-
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.3 }
-  );
-
-  document
-    .querySelectorAll(".product-card[data-product-id]")
-    .forEach((el) => {
-      observer.observe(el);
-    });
-
-  return () => observer.disconnect();
-}, [data]);
+  const getLocationLabel = (item: Product): string | undefined => {
+    const stateAbbr = AUS_ABBR[(currentFilters.state ?? "").toUpperCase()] ?? (currentFilters.state ?? "").toUpperCase();
+    if (currentFilters.region) {
+      const regionName = (currentFilters.region as string).replace(/\b\w/g, (c) => c.toUpperCase());
+      return `${regionName} Region, ${stateAbbr}`;
+    }
+    return item.location;
+  };
 
   const activateSwiper = (item: Product) => {
     if (swiperActivated[item.id]) return;
@@ -337,26 +350,27 @@ export default function ExculisiveContent({
     loadRemaining(item);
   };
 
+  const splitCountAndTitle = (title: string) => {
+    const match = title.match(/^(\d+)\s+(.*)$/);
+    if (!match) return { count: null, text: title };
+    return { count: match[1], text: match[2] };
+  };
+
+  const { count, text } = splitCountAndTitle(pageTitle);
+
   return (
     <>
-      <Head>
-        <title>{metaTitle}</title> {/* Dynamically set title */}
-        <meta name="description" content={metaDescription} />
-        <meta property="og:type" content="website" />
-        <meta property="robot" content="index, follow" />
-        <meta property="og:title" content={metaTitle} />
-        <meta property="og:description" content={metaDescription} />
-        <meta name="twitter:title" content={metaTitle} />
-        <meta name="twitter:description" content={metaDescription} />
-      </Head>
 
       <div className="col-lg-9 ">
         <div className="top-filter mb-10">
           <div className="row align-items-center">
-            <div className="col-lg-12">
-              <h1 className="show_count text-center d-block mb-3">
-                <strong>{pageTitle}</strong>
-              </h1>
+            <div className="col-lg-12 col-md-12 col-sm-12 col-12 show_count_wrapper text-center">
+              {count !== null && (
+                <span className="show_count mb-2 d-inline">
+                  <strong>{count} </strong>
+                </span>
+              )}
+              <h1 className="show_count d-inline fw-bolder">{text}</h1>
             </div>
             <div className="row align-items-center">
               <div className="flex flex-col items-center justify-center text-center py-10 search-icon">
@@ -369,7 +383,7 @@ export default function ExculisiveContent({
              /> */}
                 <i className="bi bi-search" />
                 <h4 className="text-lg font-semibold text-gray-800">
-                  No campervans match your filters
+                  No caravans match your filters
                 </h4>
                 <p className="text-gray-500 mt-1 max-w-md">
                   Here are some Spotlight Vans that may interest you.
@@ -389,11 +403,10 @@ export default function ExculisiveContent({
                   const isPriority = index < 5;
                   const firstImage = getFirstImage(item);
                   const isActive = swiperActivated[item.id];
+                  const initialSlides = getInitialSlides(item);
                   const slides = isActive
                     ? (lazyImages[item.id] ?? [])
-                    : firstImage
-                      ? [firstImage, firstImage]
-                      : [];
+                    : initialSlides;
                   return (
                     <div className="col-lg-6 mb-0" key={index}>
                       <Link
@@ -414,7 +427,7 @@ export default function ExculisiveContent({
                               <ImageWithSkeleton
                                 src={firstImage}
                                 priority={isPriority}
-                                alt="Campervan"
+                                alt="Caravan"
                                 width={400}
                                 height={300}
                               />
@@ -443,6 +456,11 @@ export default function ExculisiveContent({
                                     activateSwiper(item);
                                   }
                                 }}
+                                onSlideChange={() => {
+                                  if (!swiperActivated[item.id]) {
+                                    activateSwiper(item);
+                                  }
+                                }}
                                 onNavigationNext={() => {
                                   if (!swiperActivated[item.id]) {
                                     activateSwiper(item);
@@ -460,7 +478,7 @@ export default function ExculisiveContent({
                                     <div className="thumb_img">
                                       <ImageWithSkeleton
                                         src={img}
-                                        alt={`Campervan ${i + 1}`}
+                                        alt={`Caravan ${i + 1}`}
                                         width={400}
                                         height={300}
                                       />
@@ -485,6 +503,12 @@ export default function ExculisiveContent({
                                   {item.name}
                                 </h3>
                               )}
+ {getLocationLabel(item) && (
+                                  <p className="listing_location">
+                                    <i className="fa-solid fa-location-dot"></i>{" "}
+                                    {getLocationLabel(item)}
+                                  </p>
+                                )}
                             </div>
 
                             {/* --- PRICE SECTION --- */}
@@ -552,19 +576,13 @@ export default function ExculisiveContent({
   
                             {/* --- DETAILS LIST --- */}
                             <ul className="vehicleDetailsWithIcons simple">
-                              {item.condition && (
-                                <li>
-                                  <span className="attribute3">
-                                    {item.condition}
-                                  </span>
-                                </li>
-                              )}
+                              
 
                               {item.categories &&
                                 item.categories.length > 0 && (
                                   <li className="attribute3_list">
                                     <span className="attribute3">
-                                      {item.categories.join(", ")}
+                                      {item.categories[0]}
                                     </span>
                                   </li>
                                 )}
@@ -572,7 +590,7 @@ export default function ExculisiveContent({
                               {item.length && (
                                 <li>
                                   <span className="attribute3">
-                                    {item.length}
+                                    {formatLengthWithMeters(item.length)}
                                   </span>
                                 </li>
                               )}
@@ -601,12 +619,7 @@ export default function ExculisiveContent({
                                     Condition {item.condition}
                                   </span>
                                 )}
-                                {item.location && (
-                                  <span>
-                                    <i className="fa fa-map-marker-alt"></i>{" "}
-                                    {item.location}
-                                  </span>
-                                )}
+                                
                                   {item.seller_type && (
                                     <span>
   <i className="fa-solid fa-circle-info"></i>{" "}
@@ -803,7 +816,7 @@ export default function ExculisiveContent({
                   </div>
 
                   <p className="terms_text">
-                    By clicking &lsquo;Send Enquiry&lsquo;, you agree to Campervan
+                    By clicking &lsquo;Send Enquiry&lsquo;, you agree to Caravan
                     Marketplace{" "}
                     <Link href="/privacy-collection-statement" target="_blank">
                       Collection Statement

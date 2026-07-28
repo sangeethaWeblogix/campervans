@@ -1,4 +1,4 @@
-﻿ "use client";
+ "use client";
 
 import { Card, CardContent, Typography, Button } from "@mui/material";
 import Image from "next/image";
@@ -48,11 +48,11 @@ export default function ThankYouClient() {
 
           <Typography variant="h5" fontWeight="bold" gutterBottom>
             Thank you for submitting your information with{" "}
-            <span style={{ color: "#000" }}>campervansforsale.com.au</span>.
+            <span style={{ color: "#000" }}>caravansforsale.com.au</span>.
           </Typography>
 
           <Typography variant="body1" color="text.secondary" gutterBottom>
-            Your campervan dealer will contact you as soon as possible.
+            Your caravan dealer will contact you as soon as possible.
           </Typography>
 
           <Link href="/" style={{ textDecoration: "none" }}>

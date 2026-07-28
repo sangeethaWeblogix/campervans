@@ -1,4 +1,4 @@
-﻿ import { Metadata } from "next";
+ import { Metadata } from "next";
 import { ReactNode } from "react";
 
 
@@ -22,9 +22,9 @@ import { ReactNode } from "react";
    
    openGraph: {
       url: "https://www.caravansforsale.com.au/privacy-policy/",
-     title: "Privacy Policy - campervansforsale.com.au - Campervan Marketplace",
+     title: "Privacy Policy - caravansforsale.com.au - Caravan Marketplace",
        description:
-     "Learn about Campervan Marketplace's privacy policy on data collection, usage, security measures, and your rights regarding your information.",
+     "Learn about Caravan Marketplace's privacy policy on data collection, usage, security measures, and your rights regarding your information.",
      
    },
  };

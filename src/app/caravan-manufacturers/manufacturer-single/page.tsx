@@ -1,4 +1,4 @@
-﻿// export const dynamic = "force-dynamic"
+// export const dynamic = "force-dynamic"
 ;
 
 import Header from "./Header";
@@ -8,9 +8,9 @@ import "./comman.css";
 import { Metadata } from "next";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const metaTitle = "Everest Campervans | Custom Built Full Off Road Campervans";
+  const metaTitle = "Everest Caravans | Custom Built Full Off Road Caravans";
   const metaDescription =
-    "Custom-built full off-road, extreme off road campervans @ Everest Campervans with a 10 year structural warranty. Explore rugged durability &amp; premium features.";
+    "Custom-built full off-road, extreme off road caravans @ Everest Caravans with a 10 year structural warranty. Explore rugged durability &amp; premium features.";
 
   const robots = "index, follow";
 

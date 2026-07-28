@@ -1,6 +1,6 @@
-﻿// utils/slugBuilter.ts
+ // utils/slugBuilter.ts
 import { toSlug } from "../../utils/seo/slug";
-import { Filters } from "../components/ListContent/Listings";
+import type { FilterState as Filters } from "@/app/listings/StateFilterBar";
 
 const conditionToSlug: Record<string, string> = {
   "near new": "near-new",
@@ -18,7 +18,10 @@ function modelSlug(model: string): string {
   return model
     .trim()
     .toLowerCase()
-    .replace(/\s+/g, "-"); // space → hyphen (keep +)
+    .replace(/\./g, "-")  // dots → hyphens (prevents Next.js treating as file extension)
+    .replace(/\s+/g, "-") // spaces → hyphens
+    .replace(/-+/g, "-")  // collapse multiple hyphens
+    .replace(/^-+|-+$/g, ""); // trim
 }
 export function buildSlugFromFilters(f: Filters): string {
   const segments: string[] = [];
@@ -46,7 +49,7 @@ export function buildSlugFromFilters(f: Filters): string {
   if (state) {
     segments.push(`${state}-state`);
 
-    // ✅ Region only if suburb is NOT selected
+    // Region is always included when present (page requires region when suburb is set)
     if (region) {
       segments.push(region.endsWith("-region") ? region : `${region}-region`);
     }
@@ -95,7 +98,11 @@ export function buildSlugFromFilters(f: Filters): string {
   
 
   if (fromSleep && toSleep) {
-    segments.push(`between-${fromSleep}-${toSleep}-people-sleeping-capacity`);
+    if (fromSleep === toSleep) {
+      segments.push(`${fromSleep}-people-sleeping-capacity`);
+    } else {
+      segments.push(`between-${fromSleep}-${toSleep}-people-sleeping-capacity`);
+    }
   } else if (fromSleep) {
     segments.push(`over-${fromSleep}-people-sleeping-capacity`);
   } else if (toSleep) {
@@ -107,16 +114,11 @@ export function buildSlugFromFilters(f: Filters): string {
 const toYear = asNum(f.acustom_toyears);
 
 if (fromYear !== undefined && toYear !== undefined) {
-  if (fromYear === toYear) {
-    segments.push(`${fromYear}-campervans-range`);
-  } else {
-    // two different years → ignore or skip adding year slug
-    // just don’t add anything or fallback
-  }
+  segments.push(`${fromYear}-${toYear}-caravans-range`);
 } else if (fromYear !== undefined) {
-  segments.push(`${fromYear}-campervans-range`);
+  segments.push(`year-from-${fromYear}-caravans-range`);
 } else if (toYear !== undefined) {
-  segments.push(`${toYear}-campervans-range`);
+  segments.push(`year-to-${toYear}-caravans-range`);
 }
   const query = new URLSearchParams();
 

@@ -1,7 +1,7 @@
-﻿'use client'
+'use client'
 
  
-export default function CampervanBuyingSafetyGuide() {
+export default function CaravanBuyingSafetyGuide() {
   return (
     <section className="services static_page section-padding pt-30 pb-30 style-1">
       <div className="container">
@@ -14,12 +14,12 @@ export default function CampervanBuyingSafetyGuide() {
               </h1>
 
               <p>
-                Buying a campervan is an exciting investment, whether you’re planning weekend trips or long-term travel.
+                Buying a caravan is an exciting investment, whether you’re planning weekend trips or long-term travel.
                 While most sellers are genuine, it is important to take precautions to ensure your purchase is safe and legitimate.
               </p>
 
               <p>
-                CampervansForSale.com.au connects buyers and sellers, but transactions take place directly between those parties.
+                CaravansForSale.com.au connects buyers and sellers, but transactions take place directly between those parties.
                 The following safety guidelines will help you make informed decisions and reduce the risk of scams.
               </p>
 
@@ -34,24 +34,24 @@ export default function CampervanBuyingSafetyGuide() {
               <ul>
                 <li>confirm the seller’s name and contact details</li>
                 <li>speak directly with the seller via phone where possible</li>
-                <li>ask additional questions about the campervan</li>
+                <li>ask additional questions about the caravan</li>
                 <li>be cautious if the seller refuses to provide basic information</li>
               </ul>
 
               <p>
-                Legitimate sellers should have no issue answering reasonable questions about the campervan.
+                Legitimate sellers should have no issue answering reasonable questions about the caravan.
               </p>
 
-              <h3>2. Inspect the Campervan Before Payment</h3>
+              <h3>2. Inspect the Caravan Before Payment</h3>
 
               <p>
-                Whenever possible, inspect the campervan in person before making any payment.
+                Whenever possible, inspect the caravan in person before making any payment.
               </p>
 
               <p>During an inspection, check:</p>
 
               <ul>
-                <li>structural condition of the campervan</li>
+                <li>structural condition of the caravan</li>
                 <li>signs of water damage or leaks</li>
                 <li>chassis condition</li>
                 <li>tyres and suspension</li>
@@ -60,35 +60,35 @@ export default function CampervanBuyingSafetyGuide() {
               </ul>
 
               <p>
-                If you are unable to inspect the campervan yourself, consider hiring an independent campervan inspector.
+                If you are unable to inspect the caravan yourself, consider hiring an independent caravan inspector.
               </p>
 
               <p>
-                Never send payment for a campervan that you have not verified.
+                Never send payment for a caravan that you have not verified.
               </p>
 
               <h3>3. Check the VIN or Chassis Number</h3>
 
               <p>
-                Every campervan should have a Vehicle Identification Number (VIN) or chassis number.
+                Every caravan should have a Vehicle Identification Number (VIN) or chassis number.
               </p>
 
               <p>Before buying:</p>
 
               <ul>
-                <li>confirm the VIN on the campervan matches the documentation</li>
+                <li>confirm the VIN on the caravan matches the documentation</li>
                 <li>ensure the VIN has not been altered or tampered with</li>
-                <li>verify the campervan registration details where applicable</li>
+                <li>verify the caravan registration details where applicable</li>
               </ul>
 
               <p>
-                Matching VIN numbers help confirm the campervan’s identity and ownership history.
+                Matching VIN numbers help confirm the caravan’s identity and ownership history.
               </p>
 
               <h3>4. Check for Finance Owing</h3>
 
               <p>
-                Before purchasing a campervan, check whether finance is still owing.
+                Before purchasing a caravan, check whether finance is still owing.
               </p>
 
               <p>
@@ -98,13 +98,13 @@ export default function CampervanBuyingSafetyGuide() {
               <p>A PPSR search can reveal whether:</p>
 
               <ul>
-                <li>finance is still owing on the campervan</li>
-                <li>another party has a financial interest in the campervan</li>
-                <li>the campervan has been reported stolen</li>
+                <li>finance is still owing on the caravan</li>
+                <li>another party has a financial interest in the caravan</li>
+                <li>the caravan has been reported stolen</li>
               </ul>
 
               <p>
-                Purchasing a campervan with outstanding finance could affect your ownership rights.
+                Purchasing a caravan with outstanding finance could affect your ownership rights.
               </p>
 
               <p>
@@ -114,7 +114,7 @@ export default function CampervanBuyingSafetyGuide() {
               <h3>5. Be Cautious of Prices That Are Too Good to Be True</h3>
 
               <p>
-                Scammers often advertise campervans at prices significantly below market value.
+                Scammers often advertise caravans at prices significantly below market value.
               </p>
 
               <p>Be cautious if:</p>
@@ -122,7 +122,7 @@ export default function CampervanBuyingSafetyGuide() {
               <ul>
                 <li>the price seems unusually low</li>
                 <li>the seller claims urgent circumstances for selling</li>
-                <li>the seller says the campervan is located overseas</li>
+                <li>the seller says the caravan is located overseas</li>
                 <li>the seller asks for immediate payment</li>
               </ul>
 
@@ -138,7 +138,7 @@ export default function CampervanBuyingSafetyGuide() {
 
               <ul>
                 <li>verified the seller</li>
-                <li>inspected the campervan</li>
+                <li>inspected the caravan</li>
                 <li>confirmed ownership documentation</li>
               </ul>
 
@@ -218,21 +218,21 @@ export default function CampervanBuyingSafetyGuide() {
               <p>You can contact our team at:</p>
 
               <p>
-                <a href="mailto:admin@campervansforsale.com.au">
-                  admin@campervansforsale.com.au
+                <a href="mailto:admin@caravansforsale.com.au">
+                  admin@caravansforsale.com.au
                 </a>
               </p>
 
               <h3>Important Disclaimer</h3>
 
               <p>
-                CampervansForSale.com.au is an online marketplace operated by Marketplace Network Pty Ltd.
+                CaravansForSale.com.au is an online marketplace operated by Marketplace Network Pty Ltd.
                 We connect buyers and sellers but do not participate in transactions between users.
               </p>
 
               <p>
                 Buyers are responsible for conducting their own inspections,
-                verification checks, and due diligence before purchasing any campervan.
+                verification checks, and due diligence before purchasing any caravan.
               </p>
 
             </div>

@@ -1,73 +1,99 @@
 /* ================================
-   Base shimmer animation
+   Shimmer animation
 ================================ */
-@keyframes skeleton-shimmer {
-  0% {
-    background-position: -500px 0;
-  }
-  100% {
-    background-position: 500px 0;
-  }
+@keyframes shimmer {
+  0%   { background-position: -600px 0; }
+  100% { background-position: 600px 0; }
 }
 
 /* ================================
    Base skeleton block
 ================================ */
 .skeleton {
-  position: relative;
-  overflow: hidden;
   background: linear-gradient(
     90deg,
-    #eeeeee 25%,
-    #f5f5f5 37%,
-    #eeeeee 63%
+    #ebebeb 25%,
+    #f5f5f5 50%,
+    #ebebeb 75%
   );
-  background-size: 400% 100%;
-  animation: skeleton-shimmer 1.4s ease infinite;
+  background-size: 600px 100%;
+  animation: shimmer 1.4s ease-in-out infinite;
   border-radius: 6px;
 }
 
 /* ================================
-   Common skeleton sizes
+   Card wrapper
 ================================ */
-.skeleton-image {
-  width: 100%;
-  height: 200px;
+.skeleton-card {
   border-radius: 10px;
-}
-
-.skeleton-title {
-  height: 22px;
-  width: 70%;
-  margin-bottom: 12px;
-}
-
-.skeleton-text {
-  height: 16px;
-  width: 100%;
-  margin-bottom: 8px;
-}
-
-.skeleton-text.short {
-  width: 60%;
-}
-
-.skeleton-text.medium {
-  width: 80%;
+  background: #fff;
+  overflow: hidden;
+  border: 1px solid #ebebeb;
 }
 
 /* ================================
-   Buttons / badges
+   Listing card skeleton
 ================================ */
-.skeleton-button {
-  height: 36px;
-  width: 45%;
-  border-radius: 8px;
+.skel-listing-img {
+  width: 100%;
+  height: 210px;
+  border-radius: 0;
 }
 
-.skeleton-badge {
+.skel-listing-body {
+  padding: 12px 14px 14px;
+}
+
+.skel-listing-title {
+  height: 16px;
+  width: 80%;
+  margin-bottom: 8px;
+}
+
+.skel-listing-loc {
+  height: 13px;
+  width: 50%;
+  margin-bottom: 10px;
+}
+
+.skel-listing-price {
+  height: 20px;
+  width: 34%;
+  margin-bottom: 0;
+}
+
+.skel-listing-tag {
   height: 22px;
-  width: 100px;
+  width: 60px;
+  border-radius: 4px;
+}
+
+.skel-listing-cond {
+  height: 13px;
+  width: 55%;
+}
+
+/* ================================
+   Sidebar (Spotlight Van) skeleton
+================================ */
+.skel-sidebar-img {
+  width: 100%;
+  height: 230px;
+  border-radius: 0;
+}
+
+.skel-sidebar-badge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 28px;
+  border-radius: 0;
+}
+
+.skel-sidebar-btn {
+  width: 100%;
+  height: 38px;
   border-radius: 6px;
 }
 
@@ -76,29 +102,23 @@
 ================================ */
 .skeleton-row {
   display: flex;
-  gap: 12px;
+  gap: 10px;
 }
 
-.skeleton-column {
-  display: flex;
-  flex-direction: column;
+.skeleton-button {
+  height: 36px;
+  width: 45%;
+  border-radius: 8px;
 }
 
-/* ================================
-   Card wrapper (optional)
-================================ */
-.skeleton-card {
-  border-radius: 12px;
-  background: #fff;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  overflow: hidden;
+.skel-page-title {
+  height: 28px;
+  width: 65%;
+  border-radius: 6px;
 }
 
-/* ================================
-   Spacing utilities
-================================ */
-.mt-1 { margin-top: 4px; }
-.mt-2 { margin-top: 8px; }
-.mt-3 { margin-top: 12px; }
-.mt-4 { margin-top: 16px; }
-.mt-5 { margin-top: 20px; }
+.skel-sort-select {
+  height: 38px;
+  width: 100%;
+  border-radius: 6px;
+}

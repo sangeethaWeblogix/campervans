@@ -1,6 +1,8 @@
-﻿"use client";
+"use client";
+import "@fortawesome/fontawesome-free/css/fontawesome.min.css";
+import "@fortawesome/fontawesome-free/css/solid.min.css";
 
-import { useState } from "react"; // ✅ missing import
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -9,7 +11,7 @@ import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 
-export default function EverestCampervans() {
+export default function EverestCaravans() {
   const [flippedCard, setFlippedCard] = useState<number | null>(null);
   return (
     <>
@@ -33,7 +35,7 @@ export default function EverestCampervans() {
                         <div className="box_mid">
                           <Image
                             src="https://admin.caravansforsale.com.au/wp-content/uploads/2023/08/1-13.png"
-                            alt="Falcon Campervan"
+                            alt="Falcon Caravan"
                             width={1000}
                             height={476}
                           />
@@ -78,7 +80,7 @@ export default function EverestCampervans() {
                         <div className="box_mid">
                           <Image
                             src="https://admin.caravansforsale.com.au/wp-content/uploads/2023/08/1-16.png"
-                            alt="Nitro Extreme Campervan"
+                            alt="Nitro Extreme Caravan"
                             width={1000}
                             height={476}
                           />
@@ -124,7 +126,7 @@ export default function EverestCampervans() {
         <div className="container">
           <div className="title">
             <div className="tpof_tab">
-              <h2>Recent Everest Campervans Listings</h2>
+              <h2>Recent Everest Caravans Listings</h2>
             </div>
           </div>
 
@@ -159,7 +161,7 @@ export default function EverestCampervans() {
                     <div className="product_de">
                       <div className="info">
                         <h6 className="category">
-                          <i className="fa fa-map-marker-alt"></i>
+                          <i className="fa-solid fa-location-dot"></i>
                           <span>Western Australia</span>
                         </h6>
                         <h3 className="title">
@@ -198,7 +200,7 @@ export default function EverestCampervans() {
                     <div className="product_de">
                       <div className="info">
                         <h6 className="category">
-                          <i className="fa fa-map-marker-alt"></i>
+                          <i className="fa-solid fa-location-dot"></i>
                           <span>Tasmania</span>
                         </h6>
                         <h3 className="title">

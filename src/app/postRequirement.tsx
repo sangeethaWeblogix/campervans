@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useState, useRef } from "react";
-import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import type { Swiper as SwiperType } from "swiper";
@@ -9,7 +8,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { fetchRequirements, Requirement } from "@/api/postRquirements/api";
-   import '../app/home/main.css'
+   import '../app/home-demo/main.css'
 
 interface Props {
   requirements: Requirement[];
@@ -89,20 +88,20 @@ useEffect(() => {
           <div className="col-lg-6">
             <div className="home-post_head">
               <h3>
-                <span>Find Your Ideal Campervan</span>
+                <span>Find Your Ideal Caravan</span>
                 <br />– Post Your Requirements
               </h3>
               <p>
                 Tell us what you&apos;re looking for and we&apos;ll match you
-                with the right campervan for sale, from trusted dealers at a
+                with the right caravan for sale, from trusted dealers at a
                 fair price. Make sure your budget and expectations are
                 realistic to help us deliver the best possible outcome. See
-                some examples of what other campervan buyers are looking for.
+                some examples of what other caravan buyers are looking for.
               </p>
               <div className="final_post_btn">
-                <Link href="/campervan-enquiry-form/" className="btn">
+                <a href="/caravan-enquiry-form/" className="btn">
                   Post Your Requirements
-                </Link>
+                </a>
               </div>
             </div>
           </div>
@@ -114,9 +113,9 @@ useEffect(() => {
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
             >
-              <h3>Recent Campervan Requests</h3>
+              <h3>Recent Caravan Requests</h3>
               <p className="sub-text">
-                See examples of what other campervan buyers are looking for.
+                See examples of what other caravan buyers are looking for.
               </p>
               <div className="top_cta bg-white">
                 <Swiper

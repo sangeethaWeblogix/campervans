@@ -1,49 +1,20 @@
-import { fetchListings } from "@/api/listings/api";
-import { parseSlugToFilters } from "@/app/components/urlBuilder";
+ import { parseSlugToFilters } from "@/app/components/urlBuilder";
 import type { Metadata } from "next";
+import extraIndexedData from "../../../cfs-paths/extra-indexed.json";
+import { INDEXABLE_URLS } from "./indexable-urls";
+import {
+  PRICE_BANDS_ORDERED,
+  ATM_BANDS_ORDERED,
+  SLEEP_BANDS_ORDERED,
+  LENGTH_BANDS_ORDERED,
+  ALLOWED_PRICE_BANDS,
+  ALLOWED_ATM_BANDS,
+  ALLOWED_SLEEP_BANDS,
+  ALLOWED_LENGTH_BANDS,
+} from "./band-utils";
+export { isAllowedSingleBand } from "./band-utils";
 
-// ─── Ordered allowed bands (low → high) ───
-
-const PRICE_BANDS_ORDERED = [
-  "under-20000",
-  "between-20000-30000",
-  "between-30000-40000",
-  "between-40000-50000",
-  "between-50000-70000",
-  "between-70000-100000",
-  "between-100000-150000",
-  "between-150000-200000",
-  "over-200000",
-];
-
-const ATM_BANDS_ORDERED = [
-  "under-1500-kg-atm",
-  "between-1500-kg-2500-kg-atm",
-  "between-2500-kg-3500-kg-atm",
-  "between-3500-kg-4500-kg-atm",
-  "over-4500-kg-atm",
-];
-
-const SLEEP_BANDS_ORDERED = [
-  "between-1-2-people-sleeping-capacity",
-  "between-3-4-people-sleeping-capacity",
-  "between-4-6-people-sleeping-capacity",
-  "over-6-people-sleeping-capacity",
-];
-
-const LENGTH_BANDS_ORDERED = [
-  "under-12-length-in-feet",
-  "between-12-14-length-in-feet",
-  "between-15-17-length-in-feet",
-  "between-18-20-length-in-feet",
-  "between-21-23-length-in-feet",
-  "over-24-length-in-feet",
-];
-
-const ALLOWED_PRICE_BANDS  = new Set(PRICE_BANDS_ORDERED);
-const ALLOWED_ATM_BANDS    = new Set(ATM_BANDS_ORDERED);
-const ALLOWED_SLEEP_BANDS  = new Set(SLEEP_BANDS_ORDERED);
-const ALLOWED_LENGTH_BANDS = new Set(LENGTH_BANDS_ORDERED);
+const EXTRA_INDEXED_PATHS = new Set<string>(extraIndexedData.paths);
 
 // ─── Extract all numbers from a slug ───
 function allNumbers(slug: string): number[] {
@@ -209,12 +180,9 @@ function getRobotsFromFilters(
   const noindex = { index: false };
   const index   = { index: true };
 
-  // ── Always noindex ──
-if (parsed.model && (parsed.state || parsed.category )) {
-  return noindex;
-}
-  if (parsed.suburb)           return noindex;
-  if (parsed.condition)        return noindex;
+  // ── Always noindex regardless of other filters ──
+  if (parsed.suburb)            return noindex;
+  if (parsed.condition)         return noindex;
   if (parsed.acustom_fromyears) return noindex;
   if (parsed.search ?? parsed.keyword) {
     const hasOtherFilters = !!(
@@ -227,37 +195,147 @@ if (parsed.model && (parsed.state || parsed.category )) {
     return hasOtherFilters ? noindex : index;
   }
 
-  // ── Resolve band ──
+  // ── Static whitelist: 406 extra indexed paths ──
+  const slugPath = slugSegments.join("/") + (slugSegments.length > 0 ? "/" : "");
+  if (EXTRA_INDEXED_PATHS.has(slugPath)) return index;
+
+  // ── Band pages (weight / price / sleep / length) ──
   const band = resolveBand(slugSegments, BASE_URL);
-
   if (band.hasBand) {
-    const hasOtherFilters = !!(parsed.state || parsed.make || parsed.category);
-
-    if (hasOtherFilters) {
-      // band + other filters → always noindex, no canonical override
-      return noindex;
-    }
-
-    // Single band only
-    if (band.allowed) {
-      // Allowed band alone → index ✅
-      return index;
-    } else {
-      // NOT allowed band alone → noindex + canonical to nearest lower allowed band
-      return { index: false, overrideCanonical: band.canonical };
-    }
+    const hasOtherFilters = !!(parsed.make || parsed.model || parsed.state || parsed.region || parsed.category);
+    // Single-filter allowed band → index
+    if (band.allowed && !hasOtherFilters) return index;
+    // Non-allowed band slug with no other filters → noindex but canonical → nearest allowed band
+    if (!band.allowed && !hasOtherFilters) return { index: false, overrideCanonical: band.canonical };
+    return noindex;
   }
 
-  if (parsed.category && parsed.make) return noindex;
+  // ── Non-band pages: explicit whitelist ──
+  const hasMake   = !!parsed.make;
+  const hasModel  = !!parsed.model;
+  const hasState  = !!parsed.state;
+  const hasRegion = !!parsed.region;
+  const hasCat    = !!parsed.category;
+  const dims      = [hasMake, hasModel, hasState, hasRegion, hasCat].filter(Boolean).length;
 
-  // ── No band filter — count remaining filters ──
-  let filterCount = 0;
-  if (parsed.state)    filterCount += 1;
-  if (parsed.category) filterCount += 1;
+  // Single filter → index
+  if (dims === 1) return index; // state | region | category | make (model alone not a real URL)
 
-  if (filterCount > 2) return noindex;
+  // Make + Model (specific model page) → index
+  if (dims === 2 && hasMake && hasModel) return index;
 
-  return index;
+  // Category + State → index
+  if (dims === 2 && hasCat && hasState && !hasRegion) return index;
+
+  // State + Region → index
+  if (dims === 2 && hasState && hasRegion && !hasCat) return index;
+
+  // Category + State + Region → index
+  if (dims === 3 && hasCat && hasState && hasRegion) return index;
+
+  // Everything else → noindex
+  return noindex;
+}
+
+// ─── Title generation from parsed filters (no API call needed) ───
+const STATE_NAMES: Record<string, string> = {
+  "victoria": "Victoria",
+  "new-south-wales": "New South Wales",
+  "queensland": "Queensland",
+  "south-australia": "South Australia",
+  "western-australia": "Western Australia",
+  "tasmania": "Tasmania",
+  "northern-territory": "Northern Territory",
+  "australian-capital-territory": "Australian Capital Territory",
+};
+
+function titleCase(s: string): string {
+  return s.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+}
+
+function fmtPrice(n: string): string {
+  return `$${parseInt(n, 10).toLocaleString("en-AU")}`;
+}
+
+function fmtKg(n: string): string {
+  return `${parseInt(n, 10).toLocaleString("en-AU")}kg`;
+}
+
+function getBandText(parsed: ReturnType<typeof parseSlugToFilters>): string {
+  // ATM (weight)
+  const minKg = parsed.minKg ? String(parsed.minKg) : null;
+  const maxKg = parsed.maxKg ? String(parsed.maxKg) : null;
+  let atmPart = "";
+  if (minKg && maxKg) atmPart = `${fmtKg(minKg)} - ${fmtKg(maxKg)} ATM`;
+  else if (maxKg)     atmPart = `Under ${fmtKg(maxKg)} ATM`;
+  else if (minKg)     atmPart = `Over ${fmtKg(minKg)} ATM`;
+
+  // Price
+  const from = parsed.from_price ? String(parsed.from_price) : null;
+  const to   = parsed.to_price   ? String(parsed.to_price)   : null;
+  let pricePart = "";
+  if (from && to) pricePart = `${fmtPrice(from)} - ${fmtPrice(to)}`;
+  else if (to)    pricePart = `Under ${fmtPrice(to)}`;
+  else if (from)  pricePart = `Over ${fmtPrice(from)}`;
+
+  // Sleep (berths)
+  const fromSleep = parsed.from_sleep ? String(parsed.from_sleep) : null;
+  const toSleep   = parsed.to_sleep   ? String(parsed.to_sleep)   : null;
+  let sleepPart = "";
+  if (fromSleep && toSleep) sleepPart = `Sleeping ${fromSleep}-${toSleep} Berths`;
+  else if (toSleep)         sleepPart = `Sleeping Up to ${toSleep} Berths`;
+  else if (fromSleep)       sleepPart = `Sleeping ${fromSleep}+ Berths`;
+
+  // Length (feet)
+  const fromLen = parsed.from_length ? String(parsed.from_length) : null;
+  const toLen   = parsed.to_length   ? String(parsed.to_length)   : null;
+  let lengthPart = "";
+  if (fromLen && toLen) lengthPart = `${fromLen}ft - ${toLen}ft`;
+  else if (toLen)       lengthPart = `Under ${toLen}ft`;
+  else if (fromLen)     lengthPart = `Over ${fromLen}ft`;
+
+  // Combine all parts — ATM before price, matching API seo_v2.h1 format
+  return [atmPart, pricePart, sleepPart, lengthPart].filter(Boolean).join(" ");
+}
+
+export function generateTitleFromFilters(
+  parsed: ReturnType<typeof parseSlugToFilters>
+): string {
+  // Build location suffix (shared)
+  const locationSuffix = parsed.state
+    ? (() => {
+        const sk = parsed.state.toLowerCase().replace(/\s+/g, "-");
+        const sn = STATE_NAMES[sk] ?? titleCase(parsed.state);
+        return parsed.region
+          ? ` in ${titleCase(parsed.region)}, ${sn}`
+          : ` in ${sn}, Australia`;
+      })()
+    : " in Australia";
+
+  // Keyword search: treat search term as the primary noun
+  if (parsed.search) {
+    const kw = titleCase(parsed.search);
+    const noun = /caravans?$/i.test(kw) ? kw : `${kw} Caravans`;
+    return `${noun} for Sale${locationSuffix}`;
+  }
+
+  const parts: string[] = [];
+
+  // Year prefix
+  if (parsed.acustom_fromyears) parts.push(String(parsed.acustom_fromyears));
+
+  if (parsed.condition === "New" || parsed.condition === "new") parts.push("New");
+  else if (parsed.condition === "Used" || parsed.condition === "used") parts.push("Used");
+
+  if (parsed.make) parts.push(titleCase(parsed.make));
+  if (parsed.model) parts.push(titleCase(parsed.model));
+  if (parsed.category) parts.push(titleCase(parsed.category));
+
+  const baseNoun = parts.length > 0 ? `${parts.join(" ")} Caravans` : "Caravans";
+  const band = getBandText(parsed);
+  const bandPart = band ? ` ${band}` : "";
+
+  return `${baseNoun} for Sale${bandPart}${locationSuffix}`;
 }
 
 export async function metaFromSlug(
@@ -267,31 +345,14 @@ export async function metaFromSlug(
   const BASE_URL = "https://www.caravansforsale.com.au";
 
   const parsed = parseSlugToFilters(filters, searchParams);
-  
+
   const slugPath = filters.length > 0 ? filters.join("/") : "";
   const canonicalUrl = `${BASE_URL}/listings/${slugPath ? slugPath + "/" : ""}`;
-  const robotsResult = getRobotsFromFilters(parsed, filters, BASE_URL);
-  const canonical = robotsResult.overrideCanonical ?? canonicalUrl;
-
-  // ── fetchListings — error வந்தாலும் robots return பண்ணு ──
-  let res: any = null;
-  try {
-    const page = parsed.page ? Number(parsed.page) : 1;
-    const finalFilters = { ...parsed, page };
-    res = await fetchListings(finalFilters);
-  } catch (e) {
-    console.error("❌ fetchListings error in metaFromSlug:", e);
-    // API fail ஆனாலும் robots tag கண்டிப்பா return ஆகும்
-    return {
-      title: { absolute: "Campervans for Sale in Australia - Find Exclusive Deals" },
-      robots: { index: robotsResult.index },
-      verification: { google: "6tT6MT6AJgGromLaqvdnyyDQouJXq0VHS-7HC194xEo" },
-      alternates: { canonical, languages: {}, media: {} },
-    };
-  }
+  const urlPath = `/listings/${slugPath ? slugPath + "/" : ""}`;
+  const robotsResult = { index: INDEXABLE_URLS.has(urlPath) };
 
   // ── suburb canonical fix ──
-  let finalCanonical = canonical;
+  let canonical = canonicalUrl;
   if (parsed.suburb) {
     const locationSegments = filters.filter(
       (seg) =>
@@ -299,53 +360,34 @@ export async function metaFromSlug(
         seg.endsWith("-region") ||
         seg.endsWith("-suburb")
     );
-    finalCanonical = `${BASE_URL}/listings/${locationSegments.join("/")}/`;
+    canonical = `${BASE_URL}/listings/${locationSegments.join("/")}/`;
   }
 
+  // ── keyword combination canonical fix ──
+  // For /listings/victoria-state/.../keyword-search/ → canonical = /listings/keyword-search/
+  const searchSeg = (parsed.search ?? parsed.keyword)
+    ? filters.find((seg) => seg.endsWith("-search"))
+    : null;
+  if (searchSeg && !robotsResult.index) {
+    canonical = `${BASE_URL}/listings/${searchSeg}/`;
+  }
 
-  // const page = parsed.page ? Number(parsed.page) : 1;
-  // const finalFilters = { ...parsed, page };
-
-  // const res = await fetchListings(finalFilters);
-
-  // // ─── Build canonical from slug + searchParams ───
-  // let canonicalUrl = "";
-
-  // if (parsed.suburb) {
-  //   const locationSegments = filters.filter(
-  //     (seg) =>
-  //       seg.endsWith("-state") ||
-  //       seg.endsWith("-region") ||
-  //       seg.endsWith("-suburb")
-  //   );
-  //   canonicalUrl = `${BASE_URL}/listings/${locationSegments.join("/")}/`;
-  // } else {
-  //   const slugPath = filters.length > 0 ? filters.join("/") : "";
-  //   canonicalUrl = `${BASE_URL}/listings/${slugPath ? slugPath + "/" : ""}`;
-  // }
-
-  // Append searchParams (except page=1)
-   const spEntries = Object.entries(searchParams).filter(([k, v]) => {
+  // Append searchParams (except page=1 and shuffle_seed)
+  const spEntries = Object.entries(searchParams).filter(([k, v]) => {
     if (k === "page" && String(v) === "1") return false;
-     if (k === "shuffle_seed") return false; // ← ADD THIS
+    if (k === "shuffle_seed") return false;
     return true;
   });
   if (spEntries.length > 0) {
     const qs = spEntries
       .map(([k, v]) => `${k}=${Array.isArray(v) ? v[0] : v}`)
       .join("&");
-    finalCanonical += `?${qs}`;
+    canonical += `?${qs}`;
   }
 
- 
-
-  const rawTitle =
-    res?.seo_v2?.meta_title?.trim() ||
-    "Campervans for Sale in Australia - Find Exclusive Deals";
-  const title = rawTitle.trim();
-  const description = res?.seo_v2?.meta_description?.trim();
-
-  const robots = { index: robotsResult.index };
+  const title = generateTitleFromFilters(parsed);
+  const description =
+    "Browse caravans for sale across Australia. Compare prices on off-road, hybrid, pop top, touring, luxury models with size, weight & sleeping capacity.";
 
   return {
     title: { absolute: title },
@@ -354,8 +396,20 @@ export async function metaFromSlug(
     verification: {
       google: "6tT6MT6AJgGromLaqvdnyyDQouJXq0VHS-7HC194xEo",
     },
-    alternates: { canonical: finalCanonical, languages: {}, media: {} },
-    openGraph: { title, description, url: canonical },
-    twitter: { title, description },
+    alternates: { canonical, languages: {}, media: {} },
+    openGraph: {
+      title,
+      description,
+      url: canonical,
+      images: [
+        {
+          url: "https://www.caravansforsale.com.au/images/cfs-logo.png",
+          width: 800,
+          height: 600,
+          alt: "Caravans for Sale Australia",
+        },
+      ],
+    },
+    twitter: { card: "summary_large_image", title, description },
   };
 }

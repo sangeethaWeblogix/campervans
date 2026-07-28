@@ -1,4 +1,6 @@
-﻿"use client";
+"use client";
+import "@fortawesome/fontawesome-free/css/fontawesome.min.css";
+import "@fortawesome/fontawesome-free/css/solid.min.css";
 import { useState } from "react";
 
 const DealerLandingPage = () => {
@@ -24,7 +26,7 @@ const DealerLandingPage = () => {
                 <h1>
                   Unlimited Listings. Zero Lead Fees. <br />
                   <span className="color-text">
-                    $199 per month{" "}
+                    $299 per month{" "}
                     <span style={{ fontSize: "20px" }}>(inc. GST)</span>
                   </span>{" "}
                   <span className="no-color-text">- Cancel anytime</span>
@@ -32,7 +34,7 @@ const DealerLandingPage = () => {
 
                 <p>
                   A dealer-first marketplace built to generate consistent
-                  enquiries from high-intent campervan buyers.
+                  enquiries from high-intent caravan buyers.
                 </p>
 
                 <a
@@ -57,13 +59,13 @@ const DealerLandingPage = () => {
                   <div className="feel_cfs">
                     <h2>
                       Lead Generation Machine{" "}
-                      <span>Built for Your Campervan Dealership</span>
+                      <span>Built for Your Caravan Dealership</span>
                     </h2>
 
                     <p className="mb-3">
                       Your stock deserves visibility without per-lead fees, CFS
                       connects your dealership with buyers actively searching
-                      for their next campervan—so your inventory gets seen by the
+                      for their next caravan—so your inventory gets seen by the
                       right audience.
                     </p>
 
@@ -77,17 +79,17 @@ const DealerLandingPage = () => {
                         <div className="row">
                           {[
                             {
-                              img: "/images/seo_keyword.svg?=2",
+                              img: "/images/seo_keyword.svg",
                               title: "Ranking for 300+ High-Intent Keywords",
-                              desc: "Get discovered by buyers actively searching for campervans.",
+                              desc: "Get discovered by buyers actively searching for caravans.",
                             },
                             {
-                              img: "/images/visiter.svg?=2",
+                              img: "/images/visiter.svg",
                               title: "1000's of Daily Visitors & Growing",
-                              desc: "Reach a highly engaged, campervan-buyer-specific audience every day",
+                              desc: "Reach a highly engaged, caravan-buyer-specific audience every day",
                             },
                             {
-                              img: "/images/inbox.svg?=2",
+                              img: "/images/inbox.svg",
                               title: "Daily Leads Delivered to Your Inbox",
                               desc: "Fresh, high-quality leads sent directly to you.",
                             },
@@ -154,7 +156,7 @@ const DealerLandingPage = () => {
             <div className="col-12">
               <div className="comparison">
                 <h2 className="text-center">
-                  <span>Why Campervan Dealers </span> Choose CFS
+                  <span>Why Caravan Dealers </span> Choose CFS
                 </h2>
 
                 <div className="table-responsive">
@@ -170,9 +172,9 @@ const DealerLandingPage = () => {
                       {[
                         "We list your entire stock automatically",
                         "Listings are updated automatically based on your website stock data",
-                        "Campervan buyer/seller-only audience",
-                        "Built for campervan dealers—not classified clutter",
-                        "Unlimited campervan listings",
+                        "Caravan buyer/seller-only audience",
+                        "Built for caravan dealers—not classified clutter",
+                        "Unlimited caravan listings",
                         "No per-lead fees",
                         "Best-value monthly subscription fees by a country mile",
                       ].map((text, i) => (
@@ -213,24 +215,24 @@ const DealerLandingPage = () => {
               </section>
             </div>
           </div>
-          {/* Reach Campervan Buyers Section */}
+          {/* Reach Caravan Buyers Section */}
           <div className="col-lg-12">
             <div className="heading-box">
-              <h2>Reach campervan buyers across Australia</h2>
+              <h2>Reach caravan buyers across Australia</h2>
             </div>
           </div>
 
           <div className="row">
             <div className="col-lg-7 images-box">
               <img
-                src="/images/your-campervan-desktop.jpg"
+                src="/images/your-caravan-desktop.jpg"
                 className="img-fluid d-none d-lg-block desktop-img"
-                alt="Campervan For Sale Desktop"
+                alt="Caravan For Sale Desktop"
               />
               <img
-                src="/images/your-campervan-mobile.png"
+                src="/images/your-caravan-mobile.png"
                 className="img-fluid d-block d-lg-none mobile-img"
-                alt="Campervan For Sale Mobile"
+                alt="Caravan For Sale Mobile"
               />
             </div>
 
@@ -240,7 +242,7 @@ const DealerLandingPage = () => {
                   <h2>Simple Pricing. No Surprises.</h2>
 
                   <div className="price">
-                    $199 Per Month{" "}
+                    $299 Per Month{" "}
                     <span style={{ fontSize: "20px" }}>(inc. GST)</span>
                   </div>
 
@@ -285,11 +287,11 @@ const DealerLandingPage = () => {
               <div className={`collapse ${activeFaq === 1 ? "show" : ""}`}>
                 <div className="card-body">
                   <p>
-                    The dealer subscription is $199 per month (including GST). This flat
-                    monthly fee allows your dealership to list unlimited campervans on
-                    CampervansForSale.com.au. There are no per-listing charges, and we never
+                    The dealer subscription is $299 per month (including GST). This flat
+                    monthly fee allows your dealership to list unlimited caravans on
+                    CaravansForSale.com.au. There are no per-listing charges, and we never
                     charge per lead or take success commissions – no matter how many
-                    inquiries or sales you get, $199/month covers it all.
+                    inquiries or sales you get, $299/month covers it all.
                   </p>
                 </div>
               </div>
@@ -303,7 +305,7 @@ const DealerLandingPage = () => {
                     className="btn btn-link btn-block text-left py-2"
                     onClick={() => toggleFaq(2)}
                   >
-                    How are my campervan listings added and kept up-to-date automatically?
+                    How are my caravan listings added and kept up-to-date automatically?
                     <span className="accordion-icon">
                       <i className={`fa-solid fa-angle-down ${activeFaq === 2 ? "d-none" : ""}`}></i>
                       <i className={`fa-solid fa-angle-up ${activeFaq === 2 ? "" : "d-none"}`}></i>
@@ -331,7 +333,7 @@ const DealerLandingPage = () => {
                     className="btn btn-link btn-block text-left py-2"
                     onClick={() => toggleFaq(3)}
                   >
-                    What kind of audience will my campervans reach?
+                    What kind of audience will my caravans reach?
                     <span className="accordion-icon">
                       <i className={`fa-solid fa-angle-down ${activeFaq === 3 ? "d-none" : ""}`}></i>
                       <i className={`fa-solid fa-angle-up ${activeFaq === 3 ? "" : "d-none"}`}></i>
@@ -343,7 +345,7 @@ const DealerLandingPage = () => {
               <div className={`collapse ${activeFaq === 3 ? "show" : ""}`}>
                 <div className="card-body">
                   <p>
-                    CampervansForSale.com.au is a campervan-only marketplace with a focused,
+                    CaravansForSale.com.au is a caravan-only marketplace with a focused,
                     nationwide audience of serious buyers.
                   </p>
                 </div>

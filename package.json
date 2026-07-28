@@ -4,9 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && node scripts/update-kv-build-id.js",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "warm": "node scripts/warm-cache.mjs https://www.caravansforsale.com.au",
+    "warm:staging": "node scripts/warm-cache.mjs"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -15,7 +17,6 @@
     "@fortawesome/fontawesome-free": "^6.7.2",
     "@heroicons/react": "^2.2.0",
     "@mui/material": "^7.1.2",
-    "@sentry/nextjs": "^10.38.0",
     "@vercel/blob": "^2.0.0",
     "bootstrap": "^5.3.7",
     "bootstrap-icons": "^1.13.1",
