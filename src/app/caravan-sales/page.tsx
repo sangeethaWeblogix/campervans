@@ -3,9 +3,9 @@ import Home from "./home";
 import "../globals.css";
  
 export const metadata: Metadata = {
-  title: "Caravan Sales Australia | New & Used Caravans for Sale",
+  title: "Campervan Sales Australia | New & Used Campervans for Sale",
   description:
-    "Find the best caravan sales across Australia. Browse thousands of new and used caravans from trusted dealers and private sellers. Compare prices, types, and locations to find your perfect caravan.",
+    "Find the best campervan sales across Australia. Browse thousands of new and used campervans from trusted dealers and private sellers. Compare prices, types, and locations to find your perfect campervan.",
 };
  import { fetchStateBasedCaravans } from "@/api/homeApi/state/api";
 import { fetchRequirements } from "@/api/postRquirements/api";
@@ -22,8 +22,8 @@ const schemaJsonLd = {
       "@type": "CollectionPage",
       "@id": CANONICAL,
       "url": CANONICAL,
-      "name": "Caravan Sales Australia | New & Used Caravans for Sale",
-      "description": "Find the best caravan sales across Australia. Browse thousands of new and used caravans from trusted dealers and private sellers.",
+      "name": "Campervan Sales Australia | New & Used Campervans for Sale",
+      "description": "Find the best campervan sales across Australia. Browse thousands of new and used campervans from trusted dealers and private sellers.",
       "inLanguage": "en-AU",
       "breadcrumb": { "@id": `${CANONICAL}#breadcrumb` },
       "isPartOf": { "@type": "WebSite", "url": "https://www.caravansforsale.com.au/" },
@@ -33,7 +33,7 @@ const schemaJsonLd = {
       "@id": `${CANONICAL}#breadcrumb`,
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home",          "item": "https://www.caravansforsale.com.au/" },
-        { "@type": "ListItem", "position": 2, "name": "Caravan Sales", "item": CANONICAL },
+        { "@type": "ListItem", "position": 2, "name": "Campervan Sales", "item": CANONICAL },
       ],
     },
   ],

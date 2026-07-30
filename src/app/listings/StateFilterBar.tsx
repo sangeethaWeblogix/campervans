@@ -112,7 +112,7 @@ export default function StateFilterBar({ currentFilters, onFilterChange, onClear
 
   // Live category counts — same /api/params-count/?group_by=category endpoint
   // production's Listings.tsx uses, scoped to every OTHER active filter (make,
-  // model, state, etc. — but not category itself) so the Caravan Type list only
+  // model, state, etc. — but not category itself) so the Campervan Type list only
   // shows types that actually have matching results under the current filters.
   useEffect(() => {
     const controller = new AbortController();
@@ -160,7 +160,7 @@ export default function StateFilterBar({ currentFilters, onFilterChange, onClear
     if (categoryCounts.length > 0) cachedCategoryCountsRef.current = categoryCounts;
   }, [categoryCounts]);
 
-  // Only show caravan types that actually have matching results under the
+  // Only show campervan types that actually have matching results under the
   // current filters — falls back to the full static list before the first
   // count response arrives (or if the API returned no breakdown at all).
   const visibleCategories = categoryCounts.length > 0
@@ -671,7 +671,7 @@ export default function StateFilterBar({ currentFilters, onFilterChange, onClear
               <div className="slider-wrapper">
                 <div className="filter-swiper">
                   <button className={`tag${currentFilters.category ? " active" : ""}`} onClick={handleTypeOpen}>
-                    Caravan Type
+                    Campervan Type
                     {currentFilters.category && <span className="active_filter"><i className="bi bi-circle-fill" /></span>}
                   </button>
 
@@ -822,9 +822,9 @@ export default function StateFilterBar({ currentFilters, onFilterChange, onClear
             <div className="filter-header"><h3>Filters</h3>{closeBtn}</div>
             <div className="filter-body">
 
-              {/* Caravan Type */}
+              {/* Campervan Type */}
               <div className="filter-item pt-0">
-                <h4>Caravan Type</h4>
+                <h4>Campervan Type</h4>
                 <ul className="loc-state-list">
                   {catLoading && categories.length === 0 ? (
                     <CategorySkeleton />
@@ -1178,11 +1178,11 @@ export default function StateFilterBar({ currentFilters, onFilterChange, onClear
         </div>
       )}
 
-      {/* ── Caravan Type Modal ── */}
+      {/* ── Campervan Type Modal ── */}
       {openModal === "type" && (
         <div className="filter-overlay">
           <div className="filter-modal">
-            <div className="filter-header"><h3>Caravan Type</h3>{closeBtn}</div>
+            <div className="filter-header"><h3>Campervan Type</h3>{closeBtn}</div>
             <div className="filter-body">
               <div className="filter-item pt-0">
                 <ul className="loc-state-list">
@@ -1309,7 +1309,7 @@ export default function StateFilterBar({ currentFilters, onFilterChange, onClear
                                   <div className="cfs-radius-tooltip" style={{ left:`calc(${pct}% + ${18 - 0.36*pct}px)` }}>{tempSuburbRadius}km</div>
                                   <div className="cfs-radius-track-wrap">
                                     <input type="range" className="cfs-radius-slider" min={0} max={RADIUS_OPTIONS.length-1} step={1} value={idx}
-                                      style={{ background:`linear-gradient(to right,#f37920 0%,#f37920 ${pct}%,#ddd ${pct}%,#ddd 100%)` }}
+                                      style={{ background:`linear-gradient(to right,#35356e 0%,#35356e ${pct}%,#ddd ${pct}%,#ddd 100%)` }}
                                       onChange={e => setTempSuburbRadius(RADIUS_OPTIONS[parseInt(e.target.value,10)])} aria-label="Search radius" />
                                     {RADIUS_OPTIONS.map((km,i) => {
                                       const tp = (i/(RADIUS_OPTIONS.length-1))*100;

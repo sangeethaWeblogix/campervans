@@ -121,7 +121,7 @@
 
 .sidebar-navigation ul li.sidenav-has-child:hover {
   background: transparent;
-  color: #f58333;
+  color: #3f3e82;
 
 }
 
@@ -143,7 +143,7 @@
 }
 
 .sidenav-back:hover {
-  color: #f58333;
+  color: #3f3e82;
 }
 
 .overlay {
@@ -178,7 +178,7 @@
 }
 
 .sidenav a:hover {
-  color: #f58333;
+  color: #3f3e82;
 }
 
 .menuIconToggle {
@@ -419,8 +419,8 @@ input[type="checkbox"]:checked ~ .menuIconToggle > .dia.p-2 {
   background-color: #fff;
 }
 .navbar.style-4.header-white .navbar-nav .nav-item.login .nav-link:hover {
-  background: #d96e1e;
-  border-color: #d96e1e;
+  background: #313064;
+  border-color: #313064;
   color: #fff;
 }
 .overlay {
@@ -461,12 +461,12 @@ input[type="checkbox"]:checked ~ .menuIconToggle > .dia.p-2 {
 }
 
 .dropdown-menu .dropdown-item:hover {
-  color: #f58333;
+  color: #3f3e82;
 }
 
 .navbar.style-4 .navbar-nav .nav-item:hover .nav-link,
 .navbar.style-4 .navbar-nav .nav-item .nav-link.active {
-  color: #f58333;
+  color: #3f3e82;
 }
 
 /* Desktop nav link underline hover effect */
@@ -480,7 +480,7 @@ input[type="checkbox"]:checked ~ .menuIconToggle > .dia.p-2 {
   left: 0;
   width: 0;
   height: 3px;
-  background-color: #f58333;
+  background-color: #3f3e82;
   transition: width 0.22s ease;
 }
 .navbar.style-4 .navbar-nav .nav-item:not(.login):hover .nav-link::after,
@@ -511,8 +511,8 @@ input[type="checkbox"]:checked ~ .menuIconToggle > .dia.p-2 {
 }
 
 .mobile_cta a.btn {
-  background-color: #ec7200;
-  border-color: #ec7200;
+  background-color: #27264f;
+  border-color: #27264f;
   display: inline-block;
   padding: 10px 10px;
   color: #fff;
@@ -535,7 +535,7 @@ input[type="checkbox"]:checked ~ .menuIconToggle > .dia.p-2 {
 
 .sidebar-navigation > ul > li > ul.open {
   background: #f7f7f7;
-  border-left: 3px solid #f58333;
+  border-left: 3px solid #3f3e82;
 }
 
 .sidebar-navigation > ul > li > ul > li:hover > a,
@@ -757,8 +757,8 @@ input[type="checkbox"]:checked ~ .menuIconToggle > .dia.p-2 {
 }
 
 .sidenav-close:hover {
-  color: #f58333;
-  background: rgba(245, 131, 51, 0.08);
+  color: #3f3e82;
+  background: rgba(63, 62, 130, 0.08);
 }
 
 .sidenav-scrollable {
@@ -788,7 +788,7 @@ input[type="checkbox"]:checked ~ .menuIconToggle > .dia.p-2 {
 }
 
 .sidenav .sidenav-cta-link:hover {
-  color: #f58333;
+  color: #3f3e82;
   background: #fff;
 }
 
@@ -802,7 +802,7 @@ input[type="checkbox"]:checked ~ .menuIconToggle > .dia.p-2 {
   font-size: 15px;
   font-weight: 700;
   color: #fff;
-  background: #f58333;
+  background: #3f3e82;
   border-radius: 8px;
   text-decoration: none;
   letter-spacing: 0.03em;
@@ -810,7 +810,7 @@ input[type="checkbox"]:checked ~ .menuIconToggle > .dia.p-2 {
 }
 
 .sidenav .sidenav-cta-login:hover {
-  background: #d96e1e;
+  background: #313064;
   color: #fff;
   transform: translateY(-1px);
 }
@@ -847,8 +847,8 @@ input[type="checkbox"]:checked ~ .menuIconToggle > .dia.p-2 {
 }
 
 .snav-direct-links a:hover {
-  color: #f58333;
-  background: #fff9f5;
+  color: #3f3e82;
+  background: #f6f6f9;
 }
 
 .snav-section {
@@ -857,7 +857,7 @@ input[type="checkbox"]:checked ~ .menuIconToggle > .dia.p-2 {
 }
 
 .snav-section-heading {
-    color: #ec7200;
+    color: #27264f;
     text-transform: uppercase;
     letter-spacing: .1em;
     padding: 14px 20px 6px;
@@ -875,8 +875,8 @@ input[type="checkbox"]:checked ~ .menuIconToggle > .dia.p-2 {
 }
 
 .snav-section-links a:hover {
-  color: #f58333;
-  background: #fff9f5;
+  color: #3f3e82;
+  background: #f6f6f9;
 }
 
 .snav-sub-heading {
@@ -899,7 +899,7 @@ input[type="checkbox"]:checked ~ .menuIconToggle > .dia.p-2 {
 }
 
 .sidenav-panel-main .sidebar-navigation > ul > li > a:hover {
-    color: #f58333;
+    color: #3f3e82;
     background: transparent;
     
 }
@@ -914,8 +914,8 @@ input[type="checkbox"]:checked ~ .menuIconToggle > .dia.p-2 {
 }
 
 .sidenav-panel-sub .sidebar-navigation > ul > li:nth-child(-n+3) > a:hover {
-  color: #f58333;
-  background: #fff9f5;
+  color: #3f3e82;
+  background: #f6f6f9;
 }
 
 /* ── Desktop Buy Now mega-menu (full-width) ── */
@@ -1010,19 +1010,19 @@ input[type="checkbox"]:checked ~ .menuIconToggle > .dia.p-2 {
 }
 
 .mega-col a:hover {
-  color: #f58333;
+  color: #3f3e82;
 }
 .mega-col a.mega-link-bold {
   font-weight: 600;
   color: #111;
 }
 .mega-col a.mega-link-bold:hover {
-  color: #f58333;
+  color: #3f3e82;
 }
 
 /* Sell My Caravan CTA button in desktop nav */
 .navbar.style-4 .navbar-nav .nav-item .nav-link.nav-sell-cta {
-  background: #f58333;
+  background: #3f3e82;
   color: #fff !important;
   border-radius: 6px;
   padding: 7px 14px !important;
@@ -1032,7 +1032,7 @@ input[type="checkbox"]:checked ~ .menuIconToggle > .dia.p-2 {
 }
 
 .navbar.style-4 .navbar-nav .nav-item .nav-link.nav-sell-cta:hover {
-  background: #d96e1e;
+  background: #313064;
   color: #fff !important;
 }
 
@@ -1109,7 +1109,7 @@ input[type="checkbox"]:checked ~ .menuIconToggle > .dia.p-2 {
 }
 
 .ham-item:hover {
-    color: #f58333;
+    color: #3f3e82;
 }
 
 /* ── Explore dropdown ── */
@@ -1149,7 +1149,7 @@ input[type="checkbox"]:checked ~ .menuIconToggle > .dia.p-2 {
   display: block;
 }
 .explore-item:hover {
-  color: #f58333;
+  color: #3f3e82;
 }
 
 /* ── Mobile sidebar Explore ── */
@@ -1168,11 +1168,11 @@ input[type="checkbox"]:checked ~ .menuIconToggle > .dia.p-2 {
   color: #000;
 }
 .sidenav-explore-btn:hover {
-  color: #f58333;
+  color: #3f3e82;
 }
 .sidenav-explore-sub {
   background: #fff;
-  border-left: 3px solid #f58333;
+  border-left: 3px solid #3f3e82;
   margin: 0 20px 8px 20px;
   border-radius: 6px;
 }
@@ -1186,6 +1186,6 @@ input[type="checkbox"]:checked ~ .menuIconToggle > .dia.p-2 {
   border-radius: 6px;
 }
 .sidenav-explore-sub a:hover {
-  color: #f58333;
-  background: #fff9f5;
+  color: #3f3e82;
+  background: #f6f6f9;
 }

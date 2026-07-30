@@ -39,7 +39,7 @@ export default function HomeFeatured() {
     return (
       <section className="hf-section">
         <div className="container">
-          <h2 className="hf-title" style={{ marginBottom: "20px" }}>Featured Caravan Sales</h2>
+          <h2 className="hf-title" style={{ marginBottom: "20px" }}>Featured Campervan Sales</h2>
           <div className="hf-grid">
             {[...Array(8)].map((_, i) => <div key={i} className="hf-skeleton-card" />)}
           </div>
@@ -53,7 +53,7 @@ export default function HomeFeatured() {
   return (
     <section className="hf-section">
       <div className="container">
-        <h2 className="hf-title" style={{ marginBottom: "20px" }}>Featured Caravan Sales</h2>
+        <h2 className="hf-title" style={{ marginBottom: "20px" }}>Featured Campervan Sales</h2>
 
         <div className="hf-grid">
           {items.slice(0, 8).map((item, idx) => {

@@ -77,7 +77,7 @@ export default function ContactSection() {
       next["you-postcode"] = "Postcode must be 4 digits.";
     }
 
-    // Caravan type
+    // Campervan type
     if (!formData["caravan-type"].trim()) {
       next["caravan-type"] = "Type is required.";
     }
@@ -173,7 +173,7 @@ export default function ContactSection() {
                   <form onSubmit={handleSubmit} className="form" method="post">
                     <div className="text-center header_form">
                       <h4>
-                        Exclusive Offers From Select Quality Caravan
+                        Exclusive Offers From Select Quality Campervan
                         Manufacturers
                       </h4>
                       <Image
@@ -189,7 +189,7 @@ export default function ContactSection() {
                     </div>
                     <p className="required_txt">
                       Fill out the form below, and we&apos;ll send you exclusive
-                      deals for the best caravans in the market.
+                      deals for the best campervans in the market.
                     </p>
                     <div className="row">
                       {/* Name */}
@@ -272,7 +272,7 @@ export default function ContactSection() {
                         </div>
                       </div>
 
-                      {/* Caravan Type */}
+                      {/* Campervan Type */}
                       <div className="col-lg-6">
                         <div className="form-group mb-20">
                           <select
@@ -283,7 +283,7 @@ export default function ContactSection() {
                             required
                           >
                             <option value="">
-                              What type of caravan are you looking for?
+                              What type of campervan are you looking for?
                             </option>
                             <option value="Off Road">Off Road</option>
                             <option value="Hybrid">Hybrid</option>
@@ -357,7 +357,7 @@ export default function ContactSection() {
                       </div>
                       <div className="col-lg-12">
                         <p className="terms_text">
-                          By clicking &apos;Submit&apos;, you agree to Caravan
+                          By clicking &apos;Submit&apos;, you agree to Campervan
                           Marketplace{" "}
                           <Link
                             href="/privacy-collection-statement/"

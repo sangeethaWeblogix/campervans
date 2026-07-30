@@ -36,21 +36,21 @@
  });
  
  const CARAVAN_TYPES = [
-   { label: "Off Road Caravans", img: "/images/off-road.webp", href: "/listings/off-road-category/" },
-   { label: "Family Caravans", img: "/images/family.webp", href: "/listings/family-caravans-category/" },
-   { label: "Pop Top Caravans", img: "/images/pop-top.webp", href: "/listings/pop-top-category/" },
-   { label: "Hybrid Caravans", img: "/images/hybrid.webp", href: "/listings/hybrid-caravans-category/" },
-   { label: "Luxury Caravans", img: "/images/luxury.webp", href: "/listings/luxury-caravans-category/" },
-   { label: "Couples Caravans", img: "/images/touring.webp", href: "/listings/couples-caravans-category/" },
-   { label: "Touring Caravans", img: "/images/touring.webp", href: "/listings/touring-caravans-category/" },
-   { label: "Bunk Caravans", img: "/images/family.webp", href: "/listings/bunk-caravans-category/" },
-   { label: "Small Caravans", img: "/images/pop-top.webp", href: "/listings/small-caravans-category/" },
-   { label: "Used Caravans", img: "/images/off-road.webp", href: "/listings/used-condition/" },
+   { label: "Off Road Campervans", img: "/images/off-road.webp", href: "/listings/off-road-category/" },
+   { label: "Family Campervans", img: "/images/family.webp", href: "/listings/family-caravans-category/" },
+   { label: "Pop Top Campervans", img: "/images/pop-top.webp", href: "/listings/pop-top-category/" },
+   { label: "Hybrid Campervans", img: "/images/hybrid.webp", href: "/listings/hybrid-caravans-category/" },
+   { label: "Luxury Campervans", img: "/images/luxury.webp", href: "/listings/luxury-caravans-category/" },
+   { label: "Couples Campervans", img: "/images/touring.webp", href: "/listings/couples-caravans-category/" },
+   { label: "Touring Campervans", img: "/images/touring.webp", href: "/listings/touring-caravans-category/" },
+   { label: "Bunk Campervans", img: "/images/family.webp", href: "/listings/bunk-caravans-category/" },
+   { label: "Small Campervans", img: "/images/pop-top.webp", href: "/listings/small-caravans-category/" },
+   { label: "Used Campervans", img: "/images/off-road.webp", href: "/listings/used-condition/" },
  ];
  
  const HOW_TO_STEPS = [
-   { num: 1, iconSet: "fa-regular", icon: "fa-file-lines",    title: "Create Your Listing",    desc: "Add your caravan details, specifications, price and contact information." },
-   { num: 2, iconSet: "fa-regular", icon: "fa-image",         title: "Upload Photos",          desc: "Add clear photos of the inside, outside and key features of your caravan." },
+   { num: 1, iconSet: "fa-regular", icon: "fa-file-lines",    title: "Create Your Listing",    desc: "Add your campervan details, specifications, price and contact information." },
+   { num: 2, iconSet: "fa-regular", icon: "fa-image",         title: "Upload Photos",          desc: "Add clear photos of the inside, outside and key features of your campervan." },
    { num: 3, iconSet: "fa-regular", icon: "fa-comment-dots",  title: "Receive Buyer Enquiries", desc: "Interested buyers contact you directly through your listing." },
    { num: 4, iconSet: "fa-regular", icon: "fa-handshake",     title: "Negotiate Directly",     desc: "Arrange inspections, answer questions and negotiate with buyers." },
    { num: 5, iconSet: "fa-regular", icon: "fa-circle-check",  title: "Complete The Sale",      desc: "Once sold, mark your listing as sold or remove it from the site." },
@@ -59,44 +59,44 @@
  
  const MAIN_FAQS = [
    {
-     q: "How do I sell my caravan online in Australia?",
-     a: <p>You can sell your caravan online by creating a private seller listing on CaravansForSale.com.au. Add your caravan details, upload clear photos, set your asking price and publish your ad so buyers across Australia can contact you directly.</p>,
+     q: "How do I sell my campervan online in Australia?",
+     a: <p>You can sell your campervan online by creating a private seller listing on CaravansForSale.com.au. Add your campervan details, upload clear photos, set your asking price and publish your ad so buyers across Australia can contact you directly.</p>,
    },
    {
-     q: "How much does it cost to list my caravan?",
-     a: <p>It costs $49 inc. GST to list your caravan on CaravansForSale.com.au. This is a one-time listing fee with no monthly subscription, no hidden charges and no commission when your caravan sells.</p>,
+     q: "How much does it cost to list my campervan?",
+     a: <p>It costs $49 inc. GST to list your campervan on CaravansForSale.com.au. This is a one-time listing fee with no monthly subscription, no hidden charges and no commission when your campervan sells.</p>,
    },
    {
-     q: "How long does my caravan listing stay live?",
-     a: <p>Your caravan listing stays live until sold. You do not need to keep paying monthly fees to keep your ad active. Once your caravan is sold, you can remove the listing from the website.</p>,
+     q: "How long does my campervan listing stay live?",
+     a: <p>Your campervan listing stays live until sold. You do not need to keep paying monthly fees to keep your ad active. Once your campervan is sold, you can remove the listing from the website.</p>,
    },
    {
-     q: "Can I edit my caravan listing after publishing?",
-     a: <p>Yes. After your listing is published, you can update your caravan details, change the asking price, add or replace photos and improve your description if needed.</p>,
+     q: "Can I edit my campervan listing after publishing?",
+     a: <p>Yes. After your listing is published, you can update your campervan details, change the asking price, add or replace photos and improve your description if needed.</p>,
    },
    {
      q: "How do buyers contact me?",
-     a: <p>Interested buyers can contact you directly through your caravan listing. This allows you to answer questions, arrange inspections, negotiate the price and manage the sale privately.</p>,
+     a: <p>Interested buyers can contact you directly through your campervan listing. This allows you to answer questions, arrange inspections, negotiate the price and manage the sale privately.</p>,
    },
    {
-     q: "What photos should I upload when selling my caravan?",
-     a: <p>Upload clear photos of the outside, inside, kitchen, beds, seating area, bathroom, tyres, drawbar and any included accessories. Good photos help buyers understand the condition of your caravan and can increase enquiries.</p>,
+     q: "What photos should I upload when selling my campervan?",
+     a: <p>Upload clear photos of the outside, inside, kitchen, beds, seating area, bathroom, tyres, drawbar and any included accessories. Good photos help buyers understand the condition of your campervan and can increase enquiries.</p>,
    },
    {
-     q: "How should I price my caravan?",
-     a: <p>Check similar caravans for sale before setting your price. Compare by make, model, year, condition, length, ATM, tare weight, sleeping capacity, features and location. A realistic asking price can help attract more genuine buyers.</p>,
+     q: "How should I price my campervan?",
+     a: <p>Check similar campervans for sale before setting your price. Compare by make, model, year, condition, length, ATM, tare weight, sleeping capacity, features and location. A realistic asking price can help attract more genuine buyers.</p>,
    },
    {
-     q: "Is it safe to sell my caravan privately online?",
+     q: "Is it safe to sell my campervan privately online?",
      a: <p>Yes, but you should take normal precautions. Speak with buyers directly, meet in a safe location, confirm payment has cleared before handover and complete any required transfer paperwork for your state or territory.</p>,
    },
    {
-     q: "Do I pay commission when my caravan sells?",
-     a: <p>No. CaravansForSale.com.au does not charge commission when your caravan sells. You pay the one-time listing fee and keep 100% of the agreed sale price.</p>,
+     q: "Do I pay commission when my campervan sells?",
+     a: <p>No. CaravansForSale.com.au does not charge commission when your campervan sells. You pay the one-time listing fee and keep 100% of the agreed sale price.</p>,
    },
    {
-     q: "Can I remove my listing after my caravan is sold?",
-     a: <p>Yes. Once your caravan has sold, you can remove your listing so buyers know it is no longer available.</p>,
+     q: "Can I remove my listing after my campervan is sold?",
+     a: <p>Yes. Once your campervan has sold, you can remove your listing so buyers know it is no longer available.</p>,
    },
  ];
  
@@ -110,10 +110,10 @@
        <section className="demo-hero">
          <div className="container">
            <h1 className="demo-hero__title">
-             Sell My Caravan Online in Australia
+             Sell My Campervan Online in Australia
            </h1>
            <p className="demo-hero__subtitle">
-             List your caravan for $49 until sold — no commissions, no subscriptions and direct buyer contact.
+             List your campervan for $49 until sold — no commissions, no subscriptions and direct buyer contact.
            </p>
            
  
@@ -127,10 +127,10 @@
                  <img src="/images/australia.png" alt="Australia" />
                </div>
                <div className="demo-price-card__header">
-               <h3>Looking to sell your caravan?</h3>
+               <h3>Looking to sell your campervan?</h3>
              </div>
                <p className="demo-price-card__desc">
-                 CaravansForSale.com.au helps private sellers advertise directly to genuine caravan buyers for a one-time $49 listing fee, with no commissions, no subscriptions and your ad live until sold.
+                 CaravansForSale.com.au helps private sellers advertise directly to genuine campervan buyers for a one-time $49 listing fee, with no commissions, no subscriptions and your ad live until sold.
                </p>
                
              </div>
@@ -166,7 +166,7 @@
  
            {/* CTA — inside wrapper so it attaches seamlessly to card bottom */}
            <a href="https://seller.caravansforsale.com.au/seller-signup/" className="demo-hero__cta">
-             List Your Caravan Now <i className="fa-solid fa-arrow-right" />
+             List Your Campervan Now <i className="fa-solid fa-arrow-right" />
            </a>
            </div>{/* end demo-price-wrapper */}
  
@@ -180,8 +180,8 @@
            <div className="demo-features-grid">
              {[
                { img: "/images/chat2.png", title: "Direct Buyer Contact", desc: "Connect directly with genuine buyers. No middleman." },
-               { img: "/images/calendar.png", title: "Live Until Sold", desc: "Your listing stays online and visible until your caravan is sold." },
-               { img: "/images/caravan.png", title: "Caravan-Only Marketplace", desc: "Reach a targeted audience actively looking to buy caravans." },
+               { img: "/images/calendar.png", title: "Live Until Sold", desc: "Your listing stays online and visible until your campervan is sold." },
+               { img: "/images/caravan.png", title: "Caravan-Only Marketplace", desc: "Reach a targeted audience actively looking to buy campervans." },
                { img: "/images/dollar.png", title: "Keep 100% of Your Sale", desc: "Pay only $49 Inc GST per listing. No commissions or hidden costs." },
              ].map((item, i) => (
                <div className="demo-feature-card" key={i}>
@@ -202,7 +202,7 @@
  
            {/* Heading */}
            <div className="demo-reach-heading">
-             <h3>Reach Caravan Buyers Across Australia, Including: </h3>
+             <h3>Reach Campervan Buyers Across Australia, Including: </h3>
              {/* <p>Your listing is seen by thousands of active buyers Australia-wide.</p> */}
            </div>
  
@@ -217,7 +217,7 @@
                <a
                  key={s.label}
                  href={s.href}
-                 title={`Sell my caravan in ${s.label}`}
+                 title={`Sell my campervan in ${s.label}`}
                  className="demo-state-item"
                >
                  <div className="demo-state-item__img">
@@ -239,7 +239,7 @@
 
                  <a
                    href={c.href}
-                   title={`Sell my caravan in ${c.label.trim()}`}
+                   title={`Sell my campervan in ${c.label.trim()}`}
                    className="demo-city-label"
                  >
                    {c.label}
@@ -255,8 +255,8 @@
            <div className="demo-reach-row">
            {/* Device image */}
            <div className="demo-reach-device">
-             <img src="/images/your-caravan-desktop-seller-2.jpg" className="img-fluid d-none d-lg-block" alt="Caravan For Sale Desktop" />
-             <img src="/images/your-caravan-mobile-2.jpg" className="img-fluid d-block d-lg-none" alt="Caravan For Sale Mobile" />
+             <img src="/images/your-caravan-desktop-seller-2.jpg" className="img-fluid d-none d-lg-block" alt="Campervan For Sale Desktop" />
+             <img src="/images/your-caravan-mobile-2.jpg" className="img-fluid d-block d-lg-none" alt="Campervan For Sale Mobile" />
            </div>
  
            {/* Pricing + FAQ card */}
@@ -272,7 +272,7 @@
                <p className="demo-reach-card__fee-label">One-Time Listing Fee</p>
                <ul className="demo-reach-card__list">
                  {[
-                   "1 Caravan listed until sold",
+                   "1 Campervan listed until sold",
                    "Edit your listing anytime",
                    "No expiration or monthly fees",
                  ].map((item) => (
@@ -283,7 +283,7 @@
                  ))}
                </ul>
                <a href="https://seller.caravansforsale.com.au/seller-signup/" className="demo-reach-card__cta">
-                 List My Caravan Now <i className="fa-solid fa-arrow-right" />
+                 List My Campervan Now <i className="fa-solid fa-arrow-right" />
                </a>
              </div>
  
@@ -335,7 +335,7 @@
                <ul className="demo-guide-card__list">
                  <li>Caravan-only marketplace, not a general classifieds page.</li>
                  <li>Buyers search by type, price, weight, sleeps and location.</li>
-                 <li>Your caravan is shown to people already looking to buy.</li>
+                 <li>Your campervan is shown to people already looking to buy.</li>
                  <li>Direct enquiries, no commission on the final sale.</li>
                </ul>
              </div>
@@ -355,10 +355,10 @@
              <div className="demo-guide-card">
                <div className="demo-guide-card__header">
                  <span className="demo-guide-card__num">3</span>
-                 <h3>How to price your caravan</h3>
+                 <h3>How to price your campervan</h3>
                </div>
                <ul className="demo-guide-card__list">
-                 <li>Check similar caravans before setting your asking price.</li>
+                 <li>Check similar campervans before setting your asking price.</li>
                  <li>Compare make, year, condition, length, features and location.</li>
                  <li>Leave room for negotiation while staying competitive.</li>
                </ul>
@@ -386,7 +386,7 @@
            <div className="demo-faq-head">
              <span className="demo-faq-head__tag">FAQ</span>
              <h2>Frequently Asked Questions</h2>
-             <p>Everything you need to know about selling your caravan on CaravansForSale.com.au</p>
+             <p>Everything you need to know about selling your campervan on CaravansForSale.com.au</p>
            </div>
            <div className="demo-faq-list">
              {MAIN_FAQS.map((faq, i) => (
@@ -414,10 +414,10 @@
  
      
  
-       {/* ── Caravan types ── */}
+       {/* ── Campervan types ── */}
        <section className="demo-types-section">
          <div className="container">
-           <h2 className="demo-section-title">Sell Any Type of Caravan</h2>
+           <h2 className="demo-section-title">Sell Any Type of Campervan</h2>
            <div className="demo-types-grid">
              {CARAVAN_TYPES.map((t) => (
                <div key={t.label} className="demo-type-item">
@@ -436,15 +436,15 @@
          <div className="container">
            <div className="row align-items-center g-4">
              <div className="col-md-6">
-               <img src="/images/your-caravan-desktop-seller-2.jpg" className="img-fluid demo-why-img" alt="Caravan buyers" />
+               <img src="/images/your-caravan-desktop-seller-2.jpg" className="img-fluid demo-why-img" alt="Campervan buyers" />
              </div>
              <div className="col-md-6">
-               <h2>Why Thousands of Caravan Buyers Visit CaravansForSale Every Month</h2>
+               <h2>Why Thousands of Campervan Buyers Visit CaravansForSale Every Month</h2>
                <p>
-                 CaravansForSale.com.au is Australia's dedicated caravan marketplace, built exclusively
-                 for caravan buyers and sellers. We attract thousands of genuine buyers every day who
-                 are actively searching for road caravans, family caravans, pop-top caravans, luxury
-                 caravans and more.
+                 CaravansForSale.com.au is Australia's dedicated campervan marketplace, built exclusively
+                 for campervan buyers and sellers. We attract thousands of genuine buyers every day who
+                 are actively searching for road campervans, family campervans, pop-top campervans, luxury
+                 campervans and more.
                </p>
                <div className="demo-check-grid demo-check-grid--2col mt-3">
                  {[
@@ -467,8 +467,8 @@
        <section className="demo-steps-section">
          <div className="container">
            
-           <h2 className="demo-steps-title">How To Sell Your Caravan Online</h2>
-           <p className="demo-steps-subtitle">List your caravan in minutes and connect with serious buyers Australia-wide.</p>
+           <h2 className="demo-steps-title">How To Sell Your Campervan Online</h2>
+           <p className="demo-steps-subtitle">List your campervan in minutes and connect with serious buyers Australia-wide.</p>
  
            {/* Steps: each column has number circle + icon + content; connectors between columns */}
            <div className="demo-steps-wrapper">
@@ -499,11 +499,11 @@
        <section className="demo-cta-strip">
          <div className="container text-center">
            <p>
-             Start selling your caravan today for just{" "}
+             Start selling your campervan today for just{" "}
              <strong>$49 (Inc. GST)</strong> — Live until sold!
            </p>
            <a href="https://seller.caravansforsale.com.au/seller-signup/" className="btn white_btn">
-             List Your Caravan Now
+             List Your Campervan Now
            </a>
          </div>
        </section>

@@ -5,9 +5,9 @@ import './category-take-over.css'
 
 /* ── Meta Title & Description ── */
 export const metadata: Metadata = {
-  title: 'Luxury Caravan Category Sponsorship | Australia-Wide Exposure',
+  title: 'Luxury Campervan Category Sponsorship | Australia-Wide Exposure',
   description:
-    "Exclusive Off Road Caravan Listing Page Sponsorship for luxury caravan advertisers. Limited to just 1 advertiser per month — maximum exposure, retargeting included, and 100% share of voice in the luxury caravan category.",
+    "Exclusive Off Road Campervan Listing Page Sponsorship for luxury campervan advertisers. Limited to just 1 advertiser per month — maximum exposure, retargeting included, and 100% share of voice in the luxury campervan category.",
 }
 
 export default function OffRoadCategoryTakeOver() {
@@ -19,15 +19,15 @@ export default function OffRoadCategoryTakeOver() {
         <div className="container py-5 px-lg-5">
           <div className="col-lg-8">
             <h1 className="display-4 font-black mb-3 text-uppercase tracking-tight">
-              DOMINATE THE LUXURY <br className="d-none d-md-block" /> CARAVAN MARKET
+              DOMINATE THE LUXURY <br className="d-none d-md-block" /> CAMPERVAN MARKET
             </h1>
             {/* <p className="h4 fw-medium mb-5">
-              Exclusive Off Road Caravan Listing Page Sponsorship for <span className="fw-bold">Advertisers</span> —{' '}
+              Exclusive Off Road Campervan Listing Page Sponsorship for <span className="fw-bold">Advertisers</span> —{' '}
               <br className="d-none d-md-block" />
               Limited to Just 1 Spot Per Month
             </p> */}
              <p className="h4 fw-medium mb-5">
-              Exclusive Off Road Caravan Listing Page Sponsorship for <span className="fw-bold">Advertisers</span> —{' '}
+              Exclusive Off Road Campervan Listing Page Sponsorship for <span className="fw-bold">Advertisers</span> —{' '}
              
               Limited to Just 1 Spot Per Month
             </p>
@@ -47,7 +47,7 @@ export default function OffRoadCategoryTakeOver() {
       {/* BEGIN: ValuePropSection */}
       <section className="py-5 features-overview" data-purpose="features-overview" style={{ background: '#f1f1f1' }}>
         <div className="container">
-          <h2 className="h3 font-black text-center mb-5">WHY INVEST IN LUXURY CARAVAN CATEGORY SPONSORSHIP?</h2>
+          <h2 className="h3 font-black text-center mb-5">WHY INVEST IN LUXURY CAMPERVAN CATEGORY SPONSORSHIP?</h2>
           <div className="takeover_box">
             <div className="row g-0 max-width-6xl mx-auto">
 
@@ -56,7 +56,7 @@ export default function OffRoadCategoryTakeOver() {
                   <Image src="/images/hometk_visible.png" alt="Maximum Exposure" width={72} height={72} />
                 </div>
                 <h3 className="fw-bold text-uppercase mb-3">MAXIMUM EXPOSURE</h3>
-                <p>Be one of only two brands shown to highly interested luxury caravan buyers.</p>
+                <p>Be one of only two brands shown to highly interested luxury campervan buyers.</p>
               </div>
 
               <div className="col-md-3 p-4 text-center border-end border-light feature-card" data-purpose="feature-card">
@@ -72,7 +72,7 @@ export default function OffRoadCategoryTakeOver() {
                   <Image src="/images/hometk_target.png" alt="High Buyer Intent" width={72} height={72} />
                 </div>
                 <h3 className="fw-bold text-uppercase mb-3">HIGH BUYER INTENT</h3>
-                <p>Reach thousands of serious luxury caravan enthusiasts searching for their next model.</p>
+                <p>Reach thousands of serious luxury campervan enthusiasts searching for their next model.</p>
               </div>
 
               <div className="col-md-3 p-4 text-center feature-card" data-purpose="feature-card">
@@ -149,10 +149,10 @@ export default function OffRoadCategoryTakeOver() {
         <div className="container py-5">
           <div className="text-center mb-5">
             <h2 className="h3 font-black text-navy mb-2 text-uppercase">
-              THE ULTIMATE LUXURY CARAVAN MARKETING PACKAGE
+              THE ULTIMATE LUXURY CAMPERVAN MARKETING PACKAGE
             </h2>
             <p className="h5 text-dark fw-medium">
-              A complete lead generation solution for your caravan brand
+              A complete lead generation solution for your campervan brand
             </p>
           </div>
           <div className="row g-4 justify-content-center">
@@ -167,7 +167,7 @@ export default function OffRoadCategoryTakeOver() {
                     PREMIUM CATEGORY SPONSORSHIP
                   </h4>
                   <p className="small fw-medium m-0 lh-base">
-                    Your brand in the top-of page position for luxury caravans.
+                    Your brand in the top-of page position for luxury campervans.
                   </p>
                 </div>
               </div>
@@ -199,7 +199,7 @@ export default function OffRoadCategoryTakeOver() {
                     EXCLUSIVE SHARE OF VOICE
                   </h4>
                   <p className="small fw-medium m-0 lh-base">
-                    Limited to just 2 advertisers per category. You get 100% share of voice in luxury Caravans.
+                    Limited to just 2 advertisers per category. You get 100% share of voice in luxury Campervans.
                   </p>
                 </div>
               </div>
@@ -215,7 +215,7 @@ export default function OffRoadCategoryTakeOver() {
                     AGGRESSIVE TARGETING
                   </h4>
                   <p className="small fw-medium m-0 lh-base">
-                    We target users actively searching for luxury caravans.
+                    We target users actively searching for luxury campervans.
                   </p>
                 </div>
               </div>

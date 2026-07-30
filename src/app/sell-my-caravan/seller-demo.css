@@ -32,12 +32,12 @@
   display: block;
   width: 64px;
   height: 2px;
-  background: #f58333;
+  background: #3f3e82;
   border-radius: 2px;
 }
 
 .demo-hero__divider-icon {
-  color: #f58333;
+  color: #3f3e82;
   font-size: 22px;
 }
 
@@ -101,7 +101,7 @@
 .demo-price-card__aus-circle img {
   width: 100%;
   height: auto;
-  filter: invert(55%) sepia(80%) saturate(700%) hue-rotate(340deg) brightness(95%);
+  filter: brightness(0) saturate(100%) invert(12%) sepia(43%) saturate(892%) hue-rotate(202deg) brightness(185%) contrast(93%);
 }
 
 .demo-price-card__desc {
@@ -135,7 +135,7 @@
   width: 9px;
   height: 9px;
   border-radius: 50%;
-  background: #e8740c;
+  background: #2b2b5a;
 }
 
 .demo-price-card__trust {
@@ -188,7 +188,7 @@
 }
 
 .demo-price-card__price-box {
-  background: #f58333;
+  background: #3f3e82;
   border-radius: 20px;
   padding: 28px 40px 24px;
   color: #fff;
@@ -252,12 +252,12 @@
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: #fff5ee;
-  border: 1px solid #ffd9b8;
+  background: #efeff5;
+  border: 1px solid #c0c0d6;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #f58333;
+  color: #3f3e82;
   font-size: 18px;
   flex-shrink: 0;
 }
@@ -275,7 +275,7 @@
   justify-content: center;
   gap: 14px;
   width: 100%;
-  background: #f58333;
+  background: #3f3e82;
   color: #fff;
   font-size: 18px;
   font-weight: 700;
@@ -286,7 +286,7 @@
 }
 
 .demo-hero__cta:hover {
-  background: #e07020;
+  background: #323268;
   color: #fff;
   text-decoration: none;
 }
@@ -323,12 +323,12 @@
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: #fff5ee;
-  border: 1px solid #ffd9b8;
+  background: #efeff5;
+  border: 1px solid #c0c0d6;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #f58333;
+  color: #3f3e82;
   font-size: 20px;
   flex-shrink: 0;
 }
@@ -340,7 +340,7 @@
 .demo-trust-bar__icon--aus img {
   width: 100%;
   height: auto;
-  filter: invert(55%) sepia(80%) saturate(700%) hue-rotate(340deg) brightness(95%);
+  filter: brightness(0) saturate(100%) invert(12%) sepia(43%) saturate(892%) hue-rotate(202deg) brightness(185%) contrast(93%);
 }
 
 .demo-trust-bar__text {
@@ -447,7 +447,7 @@
   width: 200px;
   height: 200px;
   border-radius: 50%;
-  background: #fff2ea;
+  background: #ebebf2;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -458,7 +458,7 @@
   width: 100%;
   height: auto;
   display: block;
-  filter: invert(55%) sepia(80%) saturate(700%) hue-rotate(340deg) brightness(95%);
+  filter: brightness(0) saturate(100%) invert(12%) sepia(43%) saturate(892%) hue-rotate(202deg) brightness(185%) contrast(93%);
 }
 
 .demo-aus-card__divider {
@@ -521,7 +521,7 @@
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background: #f58333;
+  background: #3f3e82;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -543,7 +543,7 @@
   width: 100%;
   max-width: 420px;
   margin: 0 auto;
-  background: #f58333;
+  background: #3f3e82;
   color: #fff;
   font-size: 16px;
   font-weight: 600;
@@ -554,7 +554,7 @@
 }
 
 .demo-aus-card__btn:hover {
-  background: #e07020;
+  background: #323268;
   color: #fff;
   text-decoration: none;
 }
@@ -623,7 +623,7 @@
 .demo-feature-card__icon img {
   width: 100%;
   height: auto;
-  filter: invert(55%) sepia(80%) saturate(700%) hue-rotate(340deg) brightness(95%);
+  filter: brightness(0) saturate(100%) invert(12%) sepia(43%) saturate(892%) hue-rotate(202deg) brightness(185%) contrast(93%);
 }
 
 .demo-feature-card__title {
@@ -677,7 +677,7 @@
 }
 
 .demo-check-item i {
-  color: #f58333;
+  color: #3f3e82;
 }
 
 /* ── Reach section ── */
@@ -749,7 +749,7 @@
 
 .demo-reach-card__badge {
   display: inline-block;
-  background: #f58333;
+  background: #3f3e82;
   color: #fff;
   font-size: 12px;
   font-weight: 700;
@@ -771,21 +771,21 @@
 .demo-reach-card__dollar {
   font-size: 36px;
   font-weight: 800;
-  color: #f58333;
+  color: #3f3e82;
   line-height: 1.2;
 }
 
 .demo-reach-card__amount {
   font-size: 72px;
   font-weight: 800;
-  color: #f58333;
+  color: #3f3e82;
   line-height: 1;
 }
 
 .demo-reach-card__gst {
   font-size: 18px;
   font-weight: 600;
-  color: #f58333;
+  color: #3f3e82;
   margin-bottom: 8px;
   padding-bottom: 2px;
 }
@@ -815,7 +815,7 @@
 }
 
 .demo-reach-card__list li i {
-  color: #f58333;
+  color: #3f3e82;
   font-size: 17px;
   flex-shrink: 0;
 }
@@ -825,7 +825,7 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
-  background: #f58333;
+  background: #3f3e82;
   color: #fff;
   font-size: 16px;
   font-weight: 700;
@@ -837,7 +837,7 @@
 }
 
 .demo-reach-card__cta:hover {
-  background: #e07020;
+  background: #323268;
   color: #fff;
   text-decoration: none;
 }
@@ -873,12 +873,12 @@
   width: 52px;
   height: 52px;
   border-radius: 50%;
-  background: #fff5ee;
-  border: 1px solid #ffd9b8;
+  background: #efeff5;
+  border: 1px solid #c0c0d6;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #f58333;
+  color: #3f3e82;
   font-size: 20px;
   flex-shrink: 0;
   margin-top: 2px;
@@ -909,7 +909,7 @@
 }
 
 .demo-reach-faq__body ul li i {
-  color: #f58333;
+  color: #3f3e82;
   font-size: 15px;
   flex-shrink: 0;
 }
@@ -942,12 +942,12 @@
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: #fff5ee;
-  border: 1px solid #ffd9b8;
+  background: #efeff5;
+  border: 1px solid #c0c0d6;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #f58333;
+  color: #3f3e82;
   font-size: 18px;
   flex-shrink: 0;
 }
@@ -995,8 +995,8 @@
 .demo-guide-card__num {
   width: 36px;
   height: 36px;
-  background: #fff0e0;
-  color: #e8740c;
+  background: #e5e5ee;
+  color: #2b2b5a;
   font-size: 16px;
   font-weight: 800;
   border-radius: 50%;
@@ -1039,7 +1039,7 @@
   width: 9px;
   height: 9px;
   border-radius: 50%;
-  background: #e8740c;
+  background: #2b2b5a;
 }
 
 @media (max-width: 991px) {
@@ -1075,14 +1075,14 @@
 
 .demo-faq-head__tag {
   display: inline-block;
-  background: #fff5ee;
-  color: #f58333;
+  background: #efeff5;
+  color: #3f3e82;
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.1em;
   padding: 5px 16px;
   border-radius: 999px;
-  border: 1px solid #ffd9b8;
+  border: 1px solid #c0c0d6;
   margin-bottom: 14px;
 }
 
@@ -1116,8 +1116,8 @@
 }
 
 .demo-faq-item--open {
-  border-color: #f58333;
-  box-shadow: 0 4px 20px rgba(245,131,51,.12);
+  border-color: #3f3e82;
+  box-shadow: 0 4px 20px rgba(63, 62, 130,.12);
 }
 
 .demo-faq-item__q {
@@ -1137,7 +1137,7 @@
     display: flex;
 }
 .demo-faq-item--open .demo-faq-item__q {
-  color: #f58333;
+  color: #3f3e82;
 }
 
 .demo-faq-item__q-text {
@@ -1163,8 +1163,8 @@
 }
 
 .demo-faq-item--open .demo-faq-item__icon {
-  background: #fff5ee;
-  color: #f58333;
+  background: #efeff5;
+  color: #3f3e82;
 }
 
 .demo-faq-item__a {
@@ -1261,7 +1261,7 @@
   display: block;
   width: 60px;
   height: 3px;
-  background: #f58333;
+  background: #3f3e82;
   border-radius: 2px;
   margin: 12px auto 32px;
 } */
@@ -1292,8 +1292,8 @@
 }
 
 .demo-state-item:hover {
-  border-color: #f58333;
-  box-shadow: 0 4px 18px rgba(245,131,51,.15);
+  border-color: #3f3e82;
+  box-shadow: 0 4px 18px rgba(63, 62, 130,.15);
   text-decoration: none;
   color: #1a1a1a;
 }
@@ -1309,7 +1309,7 @@
   height: 60px;
   max-width: 100%;
   width: auto;
-  filter: invert(55%) sepia(80%) saturate(700%) hue-rotate(340deg) brightness(95%);
+  filter: brightness(0) saturate(100%) invert(12%) sepia(43%) saturate(892%) hue-rotate(202deg) brightness(185%) contrast(93%);
 }
 
 /* Reset browser default h3 styling so SEO tags don't break the design */
@@ -1353,9 +1353,9 @@
 }
 
 .demo-city-item:hover {
-  border-color: #f58333;
-  box-shadow: 0 2px 12px rgba(245,131,51,.15);
-  color: #f58333;
+  border-color: #3f3e82;
+  box-shadow: 0 2px 12px rgba(63, 62, 130,.15);
+  color: #3f3e82;
   text-decoration: none;
 }
 
@@ -1371,7 +1371,7 @@
 .demo-city-icon img {
   width: 28px;
   height: auto;
-  filter: invert(55%) sepia(80%) saturate(700%) hue-rotate(340deg) brightness(95%);
+  filter: brightness(0) saturate(100%) invert(12%) sepia(43%) saturate(892%) hue-rotate(202deg) brightness(185%) contrast(93%);
 }
 
 .demo-city-label {
@@ -1415,9 +1415,9 @@
 }
 
 .demo-type-item:hover {
-  border-color: #f58333;
-  box-shadow: 0 4px 18px rgba(245,131,51,.15);
-  color: #f58333;
+  border-color: #3f3e82;
+  box-shadow: 0 4px 18px rgba(63, 62, 130,.15);
+  color: #3f3e82;
   text-decoration: none;
 }
 
@@ -1449,7 +1449,7 @@
   transform: translateX(-50%);
   width: 32px;
   height: 3px;
-  background: #f58333;
+  background: #3f3e82;
   border-radius: 2px;
 } */
 
@@ -1493,7 +1493,7 @@
   display: block;
   width: 48px;
   height: 2px;
-  background: #f58333;
+  background: #3f3e82;
   border-radius: 2px;
 }
 
@@ -1501,7 +1501,7 @@
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.12em;
-  color: #f58333;
+  color: #3f3e82;
   text-transform: uppercase;
 }
 
@@ -1541,7 +1541,7 @@
 .demo-steps-connector {
   flex: 0 0 80px;
   height: 1.5px;
-  background: #f58333;
+  background: #3f3e82;
   margin-top: 20px; /* half of circle height (52px / 2) */
   position: relative;
   flex-shrink: 1;
@@ -1557,12 +1557,12 @@
   height: 0;
   border-top: 5px solid transparent;
   border-bottom: 5px solid transparent;
-  border-left: 8px solid #f58333;
+  border-left: 8px solid #3f3e82;
 }
 
 .demo-step-num {
     color: #fff;
-    background: #f58333;
+    background: #3f3e82;
     border: none;
     border-radius: 50%;
     flex-shrink: 0;
@@ -1580,7 +1580,7 @@
 .demo-step-num:before {
     content: "";
     z-index: 0;
-    box-shadow: 0px 0px 0px 1px #f58333;
+    box-shadow: 0px 0px 0px 1px #3f3e82;
     border-radius: 50%;
     width: 51px;
     height: 51px;
@@ -1588,7 +1588,7 @@
 }
 
 .demo-step-icon-circle {
-    color: #f58333;
+    color: #3f3e82;
     background: #ffffff;
     box-shadow: 0px 0px 8px rgb(0 0 0 / 12%);
     border: none;
@@ -1641,7 +1641,7 @@
 
 .demo-steps-trust-item i {
   font-size: 22px;
-  color: #f58333;
+  color: #3f3e82;
   flex-shrink: 0;
 }
 
@@ -1656,7 +1656,7 @@
 .demo-steps-trust-aus img {
   width: 100%;
   height: auto;
-  filter: invert(55%) sepia(80%) saturate(700%) hue-rotate(340deg) brightness(95%);
+  filter: brightness(0) saturate(100%) invert(12%) sepia(43%) saturate(892%) hue-rotate(202deg) brightness(185%) contrast(93%);
 }
 
 .demo-steps-trust-sep {
@@ -1703,7 +1703,7 @@
 }
 
 .demo-faq2-list li a:hover {
-  color: #f58333;
+  color: #3f3e82;
 }
 
 .demo-faq2-bottom {
@@ -1724,7 +1724,7 @@
 }
 
 .demo-faq2-chip:hover {
-  background: #f58333;
+  background: #3f3e82;
   color: #fff;
   text-decoration: none;
 }
@@ -1749,9 +1749,9 @@
 }
 
 .white_btn {
-    border: 1px solid #f58333;
+    border: 1px solid #3f3e82;
     color: #fff;
-    background-color: #f58333;
+    background-color: #3f3e82;
     z-index: 1;
     border-radius: 6px;
     padding: 15px 65px;

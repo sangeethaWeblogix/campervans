@@ -5,42 +5,42 @@ const TYPES = [
   {
     slug: "off-road-category",
     category: "off-road",
-    label: "Off Road Caravans for Sale",
+    label: "Off Road Campervans for Sale",
     image: "/images/off-road.webp",
     desc: "Built tough for Australia's rougher tracks.",
   },
   {
     slug: "luxury-category",
     category: "luxury",
-    label: "Luxury Caravans for Sale",
+    label: "Luxury Campervans for Sale",
     image: "/images/luxury.webp",
     desc: "Premium comfort, high-end interiors and full-size features.",
   },
   {
     slug: "hybrid-category",
     category: "hybrid",
-    label: "Hybrid Caravans for Sale",
+    label: "Hybrid Campervans for Sale",
     image: "/images/hybrid.webp",
     desc: "The balance of easy towing, compact size and outdoor living.",
   },
   {
     slug: "pop-top-category",
     category: "pop-top",
-    label: "Pop Top Caravans for Sale",
+    label: "Pop Top Campervans for Sale",
     image: "/images/pop-top.webp",
     desc: "Easy to store, simple to tow and practical for getaways.",
   },
   {
     slug: "touring-category",
     category: "touring",
-    label: "Touring Caravans for Sale",
+    label: "Touring Campervans for Sale",
     image: "/images/touring.webp",
     desc: "Comfortable, reliable and ideal for long-distance trips.",
   },
   {
     slug: "family-category",
     category: "family",
-    label: "Family Caravans for Sale",
+    label: "Family Campervans for Sale",
     image: "/images/family.webp",
     desc: "Spacious layouts designed for the whole family.",
   },
@@ -55,7 +55,7 @@ export default function HomeTypeSection({ typeCounts }: Props) {
     <section className="htype-section">
       <div className="container">
         <div className="htype-header">
-          <h2 className="htype-title">Browse Caravans for Sale by Type</h2>
+          <h2 className="htype-title">Browse Campervans for Sale by Type</h2>
         </div>
 
         <div className="htype-grid">

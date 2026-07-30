@@ -22,7 +22,7 @@
 .viewall_bttn a {
     font-size: 26px;
     font-weight: 600;
-    color: #f58333;
+    color: #3f3e82;
     text-transform: uppercase;
     display: inline-block;
     padding: 0px 0px;
@@ -210,7 +210,7 @@
 
 .box2 {
     text-align: left;
-    background-color: #f58333;
+    background-color: #3f3e82;
     -webkit-clip-path: polygon(0 0%, 7% 0, 70% 0, 80% 0%, 70% 100%, 0 100%);
 }
 
@@ -241,7 +241,7 @@
     border: 2px solid;
     padding: 12px 70px !important;
     box-shadow: none;
-    background: #f58333 !important;
+    background: #3f3e82 !important;
     color: #fff;
 }
 
@@ -309,7 +309,7 @@
 }
 
 .back_bottom a.button:hover {
-    background: #f58333;
+    background: #3f3e82;
     color: #fff;
 
 }
@@ -350,15 +350,15 @@
 
 @media (hover: hover) {
     .pagination\:number a:hover {
-        background: #f58333;
+        background: #3f3e82;
     }
 }
 
 .pagination\:number a:active {
-    background: #f58333;
+    background: #3f3e82;
 }
 
 .pagination\:active a {
-    background: #f58333;
+    background: #3f3e82;
     position: relative;
 }

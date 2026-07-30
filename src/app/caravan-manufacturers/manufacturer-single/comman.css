@@ -148,7 +148,7 @@
   font-style: normal;
   vertical-align: -12px;
   margin: 0px 20px;
-  color: #f58333;
+  color: #3f3e82;
   font-size: 38px;
 }
 
@@ -168,7 +168,7 @@
 }
 
 .sc_recent_news_style_news-announce .post_item.post_size_big .post_title span {
-  color: #f58333;
+  color: #3f3e82;
 }
 
 .post_featured.hover_simple .icons {
@@ -341,11 +341,11 @@
   background: #fff;
 }
 .border-blue4 {
-  border-color: #f58333 !important;
+  border-color: #3f3e82 !important;
 }
 
 .btn.hover-blue4:hover {
-  background: #f58333;
+  background: #3f3e82;
   border-color: #0000 !important;
 }
 
@@ -421,7 +421,7 @@ h2.divide-orange {
 }
 
 main .manufacture_content_area h3 a {
-  color: #bb4a03;
+  color: #1d1d3c;
 }
 
 main .manufacture_content_area h3 {
@@ -429,7 +429,7 @@ main .manufacture_content_area h3 {
 }
 .key_features {
   padding: 20px;
-  border: 3px solid #bb4a03;
+  border: 3px solid #1d1d3c;
   border-radius: 10px;
   background-color: #ffffff;
   margin-bottom: 15px;
@@ -456,7 +456,7 @@ main .manufacture_content_area h3 {
   font-weight: 900;
   position: absolute;
   left: 0;
-  color: #bb4a03;
+  color: #1d1d3c;
 }
 
 .key_features ul {
@@ -599,7 +599,7 @@ main .section-head a {
   opacity: 1;
 }
 .white_section h4 {
-  color: #f58333;
+  color: #3f3e82;
   margin-bottom: 10px;
   font-weight: 600;
 }
@@ -788,7 +788,7 @@ main .section-head a {
 
 .box2 {
   text-align: left;
-  background-color: #f58333;
+  background-color: #3f3e82;
   -webkit-clip-path: polygon(0 0%, 7% 0, 70% 0, 80% 0%, 70% 100%, 0 100%);
 }
 
@@ -819,7 +819,7 @@ main .section-head a {
   border: 2px solid;
   padding: 12px 70px !important;
   box-shadow: none;
-  background: #f58333 !important;
+  background: #3f3e82 !important;
   color: #fff;
 }
 
@@ -886,7 +886,7 @@ main .section-head a {
 }
 
 .back_bottom a.button:hover {
-  background: #f58333;
+  background: #3f3e82;
   color: #fff;
 }
 
@@ -1003,6 +1003,6 @@ a.quick_lnk {
 
 .product-page .product-card:hover .btn {
     color: #fff !important;
-    background-color: #ec7200;
-    border-color: #ec7200;
+    background-color: #27264f;
+    border-color: #27264f;
 }

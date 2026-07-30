@@ -47,7 +47,7 @@ export default function HomeLatestBlogs() {
       <div className="container">
         <div className="title">
           <div className="tpof_tab">
-            <h2 className="hd-section-title">Latest Caravans for Sale Blogs & Advice</h2>
+            <h2 className="hd-section-title">Latest Campervans for Sale Blogs & Advice</h2>
             <div className="viewall_bttn">
               <a href="/blog/">
                 <i className="bi bi-chevron-right" />

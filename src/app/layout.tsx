@@ -72,13 +72,13 @@ import fetchListingsForHead, { buildListingsJsonLd, buildBreadcrumbs } from "@/u
     // Static pages whose metadata ends up after </head> due to streaming — inject directly
     const STATIC_META: Record<string, { title: string; description: string; canonical: string }> = {
       "/caravan-manufacturers/": {
-        title: "Top 10 Caravan Manufacturers in Australia: Best Brands of 2024",
-        description: "See how top Australian caravan manufacturers excel with the best in innovative designs, quality construction, cost efficiency, and expert craftsmanship.",
+        title: "Top 10 Campervan Manufacturers in Australia: Best Brands of 2024",
+        description: "See how top Australian campervan manufacturers excel with the best in innovative designs, quality construction, cost efficiency, and expert craftsmanship.",
         canonical: "https://www.caravansforsale.com.au/caravan-manufacturers/",
       },
       "/off-road-caravans-manufacturers/": {
-        title: "Top Off-Road Caravan Manufacturers in Australia: Best Brands 2024",
-        description: "Discover Australia's leading off-road caravan manufacturers. Compare top brands known for rugged build quality, innovative design, and outback-ready performance.",
+        title: "Top Off-Road Campervan Manufacturers in Australia: Best Brands 2024",
+        description: "Discover Australia's leading off-road campervan manufacturers. Compare top brands known for rugged build quality, innovative design, and outback-ready performance.",
         canonical: "https://www.caravansforsale.com.au/off-road-caravans-manufacturers/",
       },
     };
@@ -119,7 +119,7 @@ import fetchListingsForHead, { buildListingsJsonLd, buildBreadcrumbs } from "@/u
       if (xRobots === "noindex") {
         slugRobots = "noindex";
         slugCanonical = `https://www.caravansforsale.com.au/listings/${slugParts.join("/")}/`;
-        slugDescription = "Browse caravans for sale across Australia. Compare prices on off-road, hybrid, pop top, touring, luxury models with size, weight & sleeping capacity.";
+        slugDescription = "Browse campervans for sale across Australia. Compare prices on off-road, hybrid, pop top, touring, luxury models with size, weight & sleeping capacity.";
       } else {
         // try {
           // All SEO from metaFromSlug — pure computation, no API call
@@ -133,7 +133,7 @@ import fetchListingsForHead, { buildListingsJsonLd, buildBreadcrumbs } from "@/u
           if (meta.title && typeof meta.title === "object" && "absolute" in meta.title) {
             slugTitle = (meta.title as { absolute: string }).absolute;
           }
-          slugDescription = "Browse caravans for sale across Australia. Compare prices on off-road, hybrid, pop top, touring, luxury models with size, weight & sleeping capacity.";
+          slugDescription = "Browse campervans for sale across Australia. Compare prices on off-road, hybrid, pop top, touring, luxury models with size, weight & sleeping capacity.";
         // } catch {
         //   const parts = slugParts
         //     .map((p: string) =>
@@ -143,10 +143,10 @@ import fetchListingsForHead, { buildListingsJsonLd, buildBreadcrumbs } from "@/u
         //     )
         //     .filter(Boolean);
         //   slugTitle = parts.length
-        //     ? `${parts.join(" ")} Caravans for Sale in Australia`
-        //     : "Caravans for Sale in Australia";
+        //     ? `${parts.join(" ")} Campervans for Sale in Australia`
+        //     : "Campervans for Sale in Australia";
         //   slugCanonical = `https://www.caravansforsale.com.au/listings/${slugParts.join("/")}/`;
-        //   slugDescription = "Browse caravans for sale across Australia. Compare prices on off-road, hybrid, pop top, touring, luxury models with size, weight & sleeping capacity.";
+        //   slugDescription = "Browse campervans for sale across Australia. Compare prices on off-road, hybrid, pop top, touring, luxury models with size, weight & sleeping capacity.";
         //   slugRobots = "index, follow";
         // }
       }
@@ -198,8 +198,8 @@ import fetchListingsForHead, { buildListingsJsonLd, buildBreadcrumbs } from "@/u
                       "@type": "WebSite",
                       "@id": "https://www.caravansforsale.com.au/#website",
                       "url": "https://www.caravansforsale.com.au/",
-                      "name": "Caravans For Sale",
-                      "alternateName": "Caravans For Sale by Marketplace Network",
+                      "name": "Campervans For Sale",
+                      "alternateName": "Campervans For Sale by Marketplace Network",
                     },
                     {
                       "@type": "Organization",
@@ -211,7 +211,7 @@ import fetchListingsForHead, { buildListingsJsonLd, buildBreadcrumbs } from "@/u
                       "logo": {
                         "@type": "ImageObject",
                         "url": "https://www.caravansforsale.com.au/images/cfs-logo-black.svg",
-                        "caption": "Caravans For Sale by Marketplace Network",
+                        "caption": "Campervans For Sale by Marketplace Network",
                       },
                       "contactPoint": {
                         "@type": "ContactPoint",
@@ -225,10 +225,10 @@ import fetchListingsForHead, { buildListingsJsonLd, buildBreadcrumbs } from "@/u
                       "@type": "ContactPage",
                       "@id": "https://www.caravansforsale.com.au/contact/#webpage",
                       "url": "https://www.caravansforsale.com.au/contact/",
-                      "name": "Contact Us | Get in Touch with Caravans For Sale",
+                      "name": "Contact Us | Get in Touch with Campervans For Sale",
                       "isPartOf": { "@id": "https://www.caravansforsale.com.au/#website" },
                       "about": { "@id": "https://www.caravansforsale.com.au/#organization" },
-                      "description": "Have a question about buying, selling, or dealer advertising solutions? Fill out our online contact form to get in touch with the Caravans For Sale customer support team.",
+                      "description": "Have a question about buying, selling, or dealer advertising solutions? Fill out our online contact form to get in touch with the Campervans For Sale customer support team.",
                       "breadcrumb": { "@id": "https://www.caravansforsale.com.au/contact/#breadcrumb" },
                     },
                     {

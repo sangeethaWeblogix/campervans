@@ -387,7 +387,7 @@ export async function metaFromSlug(
 
   const title = generateTitleFromFilters(parsed);
   const description =
-    "Browse caravans for sale across Australia. Compare prices on off-road, hybrid, pop top, touring, luxury models with size, weight & sleeping capacity.";
+    "Browse campervans for sale across Australia. Compare prices on off-road, hybrid, pop top, touring, luxury models with size, weight & sleeping capacity.";
 
   return {
     title: { absolute: title },
@@ -406,7 +406,7 @@ export async function metaFromSlug(
           url: "https://www.caravansforsale.com.au/images/cfs-logo.png",
           width: 800,
           height: 600,
-          alt: "Caravans for Sale Australia",
+          alt: "Campervans for Sale Australia",
         },
       ],
     },

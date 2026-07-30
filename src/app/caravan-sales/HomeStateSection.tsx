@@ -79,9 +79,9 @@ export default function HomeStateSection({ stateBands, title = "Browse Caravans 
                           <h3>{item.state}</h3>
                           <div className="info">
                             <div className="quick_linkss">
-                              <p>{item.display_text.replace("caravan listings", "caravan listings")}</p>
+                              <p>{item.display_text.replace("caravan listings", "campervan listings")}</p>
                               <a className="view_all" href={`/listings${item.permalink}/`}>
-                                View All Caravans for Sale in  {meta.code}{" "}
+                                View All Campervans for Sale in  {meta.code}{" "}
                                 <i className="bi bi-chevron-right" />
                               </a>
                             </div>

@@ -135,7 +135,7 @@ const BREADCRUMB_PRIORITY: Array<{
   },
 ];
 
-/** Home > Caravans for Sale > up to 3 active filters — always rendered in
+/** Home > Campervans for Sale > up to 3 active filters — always rendered in
  * BREADCRUMB_PRIORITY order (Location, Type, Make, Price, Weight, Sleeps,
  * Size, Year, Condition) so the trail reads the same regardless of which
  * filters the visitor picked or in what order. Each crumb links straight to

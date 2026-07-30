@@ -35,7 +35,7 @@ export default function HomeStateSection({ stateBands }: Props) {
         <div className="row">
           <div className="col">
             <div className="section-head mb-4">
-              <h2 className="hd-section-title">Browse Caravans for Sale in Australia by State</h2>
+              <h2 className="hd-section-title">Browse Campervans for Sale in Australia by State</h2>
             </div>
           </div>
         </div>
@@ -80,7 +80,7 @@ export default function HomeStateSection({ stateBands }: Props) {
                             <div className="quick_linkss">
                               <p>{item.display_text}</p>
                               <a className="view_all" href={`/listings${item.permalink}/`}>
-                                View All Caravans for Sale in {meta.code}{" "}
+                                View All Campervans for Sale in {meta.code}{" "}
                                 <i className="bi bi-chevron-right" />
                               </a>
                             </div>

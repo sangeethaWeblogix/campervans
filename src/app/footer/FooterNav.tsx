@@ -156,7 +156,7 @@ export default function FooterNav() {
           {/* Header */}
           <div className="sell-panel__header">
             <a href="/sell-my-caravan/" className="sell-panel__main-link">
-              Sell My Caravan
+              Sell My Campervan
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="13"
@@ -203,13 +203,13 @@ export default function FooterNav() {
                   href={`/sell-my-caravan/${s.stateSlug}/`}
                   className="sell-panel__state-title"
                 >
-                  Sell My Caravan in {s.state}
+                  Sell My Campervan in {s.state}
                 </a>
                 <ul className="sell-panel__region-list">
                   {s.regions.map((r) => (
                     <li key={r.pageSlug}>
                       <a href={`/sell-my-caravan/${s.stateSlug}/${r.pageSlug}/`}>
-                        Sell My Caravan in {r.label}
+                        Sell My Campervan in {r.label}
                       </a>
                     </li>
                   ))}

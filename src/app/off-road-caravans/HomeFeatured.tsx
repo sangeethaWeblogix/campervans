@@ -39,7 +39,7 @@ export default function HomeFeatured() {
     return (
       <section className="hf-section">
         <div className="container">
-          <h2 className="hf-title" style={{ marginBottom: "20px" }}>Featured Off Road Caravan Listings</h2>
+          <h2 className="hf-title" style={{ marginBottom: "20px" }}>Featured Off Road Campervan Listings</h2>
           <div className="hf-grid">
             {[...Array(8)].map((_, i) => <div key={i} className="hf-skeleton-card" />)}
           </div>
@@ -53,14 +53,14 @@ export default function HomeFeatured() {
   return (
     <section className="hf-section">
       <div className="container">
-        <h2 className="hf-title" style={{ marginBottom: "20px" }}>Featured Off Road Caravan Listings</h2>
+        <h2 className="hf-title" style={{ marginBottom: "20px" }}>Featured Off Road Campervan Listings</h2>
 
         <div className="hf-grid">
           {items.slice(0, 8).map((item, idx) => {
             const isNew = item.condition?.toLowerCase() === "new";
             const price = item.sale_price || item.regular_price || "POA";
             const image = item.image_format?.[0] ?? null;
-            const type = (item.categories?.[0] ?? "").replace(/-/g, " ").replace(/\b\w/g, c => c.toUpperCase()) + " Caravan";
+            const type = (item.categories?.[0] ?? "").replace(/-/g, " ").replace(/\b\w/g, c => c.toUpperCase()) + " Campervan";
 
             return (
               <Link key={item.id ?? idx} href={`/product/${item.slug}/`} className="hf-card">

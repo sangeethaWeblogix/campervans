@@ -3,9 +3,9 @@ import Home from "./home";
 import "../globals.css";
  
 export const metadata: Metadata = {
-  title: "Off Road Caravans Australia | New & Used Off Road Caravans for Sale",
+  title: "Off Road Campervans Australia | New & Used Off Road Campervans for Sale",
   description:
-    "Discover Australia's largest collection of off road caravans. Compare full off road, semi off road and hybrid caravans, browse live listings, reviews and expert buying guides.",
+    "Discover Australia's largest collection of off road campervans. Compare full off road, semi off road and hybrid campervans, browse live listings, reviews and expert buying guides.",
 };
  import { fetchStateBasedCaravans } from "@/api/homeApi/state/api";
 import { fetchRequirements } from "@/api/postRquirements/api";
@@ -120,8 +120,8 @@ const schemaJsonLd = {
       "@type": "CollectionPage",
       "@id": CANONICAL,
       "url": CANONICAL,
-      "name": "Off Road Caravans Australia | New & Used Off Road Caravans for Sale",
-      "description": "Discover Australia's largest collection of off road caravans. Compare full off road, semi off road and hybrid caravans, browse live listings, read expert reviews and explore detailed buying guides.",
+      "name": "Off Road Campervans Australia | New & Used Off Road Campervans for Sale",
+      "description": "Discover Australia's largest collection of off road campervans. Compare full off road, semi off road and hybrid campervans, browse live listings, read expert reviews and explore detailed buying guides.",
       "inLanguage": "en-AU",
       "breadcrumb": { "@id": `${CANONICAL}#breadcrumb` },
       "isPartOf": { "@type": "WebSite", "url": "https://www.caravansforsale.com.au/" },
@@ -131,7 +131,7 @@ const schemaJsonLd = {
       "@id": `${CANONICAL}#breadcrumb`,
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home",             "item": "https://www.caravansforsale.com.au/" },
-        { "@type": "ListItem", "position": 2, "name": "Off Road Caravans", "item": CANONICAL },
+        { "@type": "ListItem", "position": 2, "name": "Off Road Campervans", "item": CANONICAL },
       ],
     },
     {
@@ -139,33 +139,33 @@ const schemaJsonLd = {
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "What is an off road caravan?",
-          "acceptedAnswer": { "@type": "Answer", "text": "An off road caravan is a caravan built to handle rough, unsealed tracks and remote terrain. They typically feature heavy-duty chassis, independent suspension, reinforced bodywork, larger water and battery capacity, and off-road tyres to handle Australia's outback and bush conditions." },
+          "name": "What is an off road campervan?",
+          "acceptedAnswer": { "@type": "Answer", "text": "An off road campervan is a campervan built to handle rough, unsealed tracks and remote terrain. They typically feature heavy-duty chassis, independent suspension, reinforced bodywork, larger water and battery capacity, and off-road tyres to handle Australia's outback and bush conditions." },
         },
         {
           "@type": "Question",
-          "name": "What is the difference between semi off road and full off road caravans?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Semi off road caravans are built for light unsealed roads and easy bush tracks, with upgraded suspension and stronger construction. Full off road caravans are engineered for extreme terrain — think river crossings, rocky tracks and remote touring — with independent suspension, heavy-duty chassis and full off-grid capability." },
+          "name": "What is the difference between semi off road and full off road campervans?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Semi off road campervans are built for light unsealed roads and easy bush tracks, with upgraded suspension and stronger construction. Full off road campervans are engineered for extreme terrain — think river crossings, rocky tracks and remote touring — with independent suspension, heavy-duty chassis and full off-grid capability." },
         },
         {
           "@type": "Question",
-          "name": "Can off road caravans go off grid?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Most off road caravans come with or can be fitted with solar panels, lithium batteries, large fresh water tanks and composting or cassette toilets, allowing extended stays in remote areas without external power or water hookups." },
+          "name": "Can off road campervans go off grid?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Most off road campervans come with or can be fitted with solar panels, lithium batteries, large fresh water tanks and composting or cassette toilets, allowing extended stays in remote areas without external power or water hookups." },
         },
         {
           "@type": "Question",
-          "name": "Do I need a special vehicle to tow an off road caravan?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Off road caravans are heavier and wider than standard caravans. You'll need a high-capacity 4WD with a tow bar rated to the caravan's ATM. Always check the caravan's ATM and the tow vehicle's GVM and tow rating before purchasing." },
+          "name": "Do I need a special vehicle to tow an off road campervan?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Off road campervans are heavier and wider than standard campervans. You'll need a high-capacity 4WD with a tow bar rated to the campervan's ATM. Always check the campervan's ATM and the tow vehicle's GVM and tow rating before purchasing." },
         },
         {
           "@type": "Question",
-          "name": "Are off road caravans suitable for families?",
+          "name": "Are off road campervans suitable for families?",
           "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. Many off road models come in family-friendly layouts with bunk beds, multiple sleeping berths, full kitchens and ensuites. Brands like Jayco, New Age and Trakmaster offer popular family off road models across a range of budgets." },
         },
         {
           "@type": "Question",
-          "name": "What is the average price of an off road caravan in Australia?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Off road caravan prices in Australia typically range from around $40,000 for entry-level semi off road models to over $150,000 for premium full off road expedition caravans. The most popular mid-range models sit between $60,000 and $100,000." },
+          "name": "What is the average price of an off road campervan in Australia?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Off road campervan prices in Australia typically range from around $40,000 for entry-level semi off road models to over $150,000 for premium full off road expedition campervans. The most popular mid-range models sit between $60,000 and $100,000." },
         },
       ],
     },

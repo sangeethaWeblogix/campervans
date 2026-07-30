@@ -56,14 +56,14 @@ const BROWSE_TABS: BrowseTab[] = [
     viewAll: { text: "View all locations", href: "/listings/" },
     links: [],
     states: [
-      { text: "Caravans for Sale in Victoria",          href: "/listings/victoria-state/" },
-      { text: "Caravans for Sale in New South Wales",   href: "/listings/new-south-wales-state/" },
-      { text: "Caravans for Sale in Queensland",        href: "/listings/queensland-state/" },
-      { text: "Caravans for Sale in South Australia",   href: "/listings/south-australia-state/" },
-      { text: "Caravans for Sale in Western Australia", href: "/listings/western-australia-state/" },
-      { text: "Caravans for Sale in Tasmania",          href: "/listings/tasmania-state/" },
-      { text: "Caravans for Sale in ACT",               href: "/listings/australian-capital-territory-state/" },
-      { text: "Caravans for Sale in Northern Territory",href: "/listings/northern-territory-state/" },
+      { text: "Campervans for Sale in Victoria",          href: "/listings/victoria-state/" },
+      { text: "Campervans for Sale in New South Wales",   href: "/listings/new-south-wales-state/" },
+      { text: "Campervans for Sale in Queensland",        href: "/listings/queensland-state/" },
+      { text: "Campervans for Sale in South Australia",   href: "/listings/south-australia-state/" },
+      { text: "Campervans for Sale in Western Australia", href: "/listings/western-australia-state/" },
+      { text: "Campervans for Sale in Tasmania",          href: "/listings/tasmania-state/" },
+      { text: "Campervans for Sale in ACT",               href: "/listings/australian-capital-territory-state/" },
+      { text: "Campervans for Sale in Northern Territory",href: "/listings/northern-territory-state/" },
     ],
     regions: [
       { text: "Melbourne",     href: "/listings/victoria-state/melbourne-region/" },
@@ -113,10 +113,10 @@ const BROWSE_TABS: BrowseTab[] = [
   {
     label: "Condition",
     icon: "bi-patch-check",
-    viewAll: { text: "Browse all caravans", href: "/listings/" },
+    viewAll: { text: "Browse all campervans", href: "/listings/" },
     links: [
-      { text: "New Caravans for Sale", href: "/listings/new-condition/" },
-      { text: "Used Caravans for Sale", href: "/listings/used-condition/" },
+      { text: "New Campervans for Sale", href: "/listings/new-condition/" },
+      { text: "Used Campervans for Sale", href: "/listings/used-condition/" },
     ],
   },
   {
@@ -502,15 +502,15 @@ export default function BlogDetailsPage({
                   <img src="/images/category.svg" alt="" width={32} height={32} className="blog-browse-cta__icon-img" />
                   <div>
                     <h3 className="blog-browse-cta__heading">
-                      {catLabel ? `Ready to Browse ${catLabel} Caravans?` : "Ready to Browse Caravans?"}
+                      {catLabel ? `Ready to Browse ${catLabel} Campervans?` : "Ready to Browse Campervans?"}
                     </h3>
                     <p className="blog-browse-cta__desc">
-                      {catLabel ? `Explore hundreds of ${catLabel.toLowerCase()} caravans for sale across Australia.` : "Explore thousands of caravans for sale across Australia."}
+                      {catLabel ? `Explore hundreds of ${catLabel.toLowerCase()} campervans for sale across Australia.` : "Explore thousands of campervans for sale across Australia."}
                     </p>
                   </div>
                 </div>
                 <a href={catLink} className="blog-browse-cta__btn">
-                  {catLabel ? `Browse ${catLabel} Caravans` : "Browse Caravans"} <i className="bi bi-arrow-right" />
+                  {catLabel ? `Browse ${catLabel} Campervans` : "Browse Campervans"} <i className="bi bi-arrow-right" />
                 </a>
               </div>
 
@@ -609,16 +609,16 @@ export default function BlogDetailsPage({
               )}
               <div className="blog-sidebar-sticky">
                 <div className="blog-sidebar-cta">
-                  <h3 className="blog-sidebar-cta__heading">Ready to Find Your Next Caravan?</h3>
-                  <p className="blog-sidebar-cta__desc">Browse thousands of new and used caravans from trusted dealers and private sellers across Australia.</p>
+                  <h3 className="blog-sidebar-cta__heading">Ready to Find Your Next Campervan?</h3>
+                  <p className="blog-sidebar-cta__desc">Browse thousands of new and used campervans from trusted dealers and private sellers across Australia.</p>
                   <a href="/listings/" className="blog-sidebar-cta__btn">
-                    Search Caravans Now <i className="bi bi-arrow-right" />
+                    Search Campervans Now <i className="bi bi-arrow-right" />
                   </a>
                 </div>
                 <div className="blog-sidebar-cta blog-sidebar-cta--sell">
-                  <h3 className="blog-sidebar-cta__heading">Sell Your Caravan Faster with Australia's Growing Caravan Marketplace</h3>
+                  <h3 className="blog-sidebar-cta__heading">Sell Your Campervan Faster with Australia's Growing Campervan Marketplace</h3>
                   <a href="/sell-my-caravan/" className="blog-sidebar-cta__btn">
-                    List Your Caravan Now <i className="bi bi-arrow-right" />
+                    List Your Campervan Now <i className="bi bi-arrow-right" />
                   </a>
                 </div>
               </div>
@@ -633,21 +633,21 @@ export default function BlogDetailsPage({
       {cats.length > 0 && (
         <section className="bds-cat-loc">
           <div className="container">
-            <h2 className="bds-cat-title">Find {catLabel} Caravans by Popular Location</h2>
+            <h2 className="bds-cat-title">Find {catLabel} Campervans by Popular Location</h2>
             <div className="bds-cat-loc__major">
               {CAT_MAJOR_CITIES.map((city) => (
                 <a key={city.name} href={`${catLink}${city.state}/${city.region}/`} className="bds-cat-city-card">
                   <div className="bds-cat-city-img-wrap">
                     <img src={city.img} alt={city.name} className="bds-cat-city-img" loading="lazy" />
                   </div>
-                  <span className="bds-cat-city-name">{catLabel} Caravans in {city.name} <i className="bi bi-chevron-right bds-cat-city-arrow" /></span>
+                  <span className="bds-cat-city-name">{catLabel} Campervans in {city.name} <i className="bi bi-chevron-right bds-cat-city-arrow" /></span>
                 </a>
               ))}
             </div>
             <div className="bds-cat-loc__minor">
               {CAT_MINOR_CITIES.map((city) => (
                 <a key={city.name} href={`${catLink}${city.state}/${city.region ? city.region + "/" : ""}`} className="bds-cat-minor-pill">
-                  {catLabel} Caravans in {city.name}
+                  {catLabel} Campervans in {city.name}
                 </a>
               ))}
             </div>
@@ -659,12 +659,12 @@ export default function BlogDetailsPage({
       {cats.length > 0 && (
         <section className="bds-cat-state">
           <div className="container">
-            <h2 className="bds-cat-title">Find {catLabel} Caravans by State</h2>
+            <h2 className="bds-cat-title">Find {catLabel} Campervans by State</h2>
             <div className="bds-cat-state__grid">
               {CAT_STATES.map((s) => (
                 <a key={s.name} href={`${catLink}${s.slug}/`} className="bds-cat-state-card">
                   <img src={s.img} alt={s.name} className="bds-cat-state-img" loading="lazy" />
-                  <span className="bds-cat-state-name">{catLabel} Caravans in {s.name}</span>
+                  <span className="bds-cat-state-name">{catLabel} Campervans in {s.name}</span>
                 </a>
               ))}
             </div>
@@ -678,15 +678,15 @@ export default function BlogDetailsPage({
       {/* ── Buy or Sell CTA ── */}
       <section className="bds-cta-section">
         <div className="bds-cta-card">
-          <h2 className="bds-cta-title">Ready to Buy or Sell a Caravan?</h2>
+          <h2 className="bds-cta-title">Ready to Buy or Sell a Campervan?</h2>
           <p className="bds-cta-body">
             <strong>Looking to buy?</strong> Browse{" "}
-            <a href="/" className="bds-cta-link">caravans for sale</a>{" "}
-            from dealers and private sellers across Australia, with listings available by make, model, price, location and caravan type.
+            <a href="/" className="bds-cta-link">campervans for sale</a>{" "}
+            from dealers and private sellers across Australia, with listings available by make, model, price, location and campervan type.
           </p>
           <p className="bds-cta-body">
-            <strong>Looking to sell?</strong> If you&apos;re upgrading to a newer caravan or no longer need your current one,{" "}
-            <a href="/sell-my-caravan/" className="bds-cta-link">sell your caravan</a>{" "}
+            <strong>Looking to sell?</strong> If you&apos;re upgrading to a newer campervan or no longer need your current one,{" "}
+            <a href="/sell-my-caravan/" className="bds-cta-link">sell your campervan</a>{" "}
             by creating a listing on CaravansForSale.com.au. Your advertisement stays online until it&apos;s sold for a one-time fee of $49.
           </p>
         </div>

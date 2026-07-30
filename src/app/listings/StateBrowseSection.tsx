@@ -227,7 +227,7 @@ export default function StateBrowseSection({ state, region, category, initialDat
 
           <div className="lsd-browse__row1">
             <div className="lsd-browse__panel">
-              <h3 className="lsd-browse__panel-title">{`Browse ${label} Caravans by State`}</h3>
+              <h3 className="lsd-browse__panel-title">{`Browse ${label} Campervans by State`}</h3>
               <div className="lsd-browse__pills">
                 {statePanel.map((s) => (
                   <a key={s.text} href={s.href} className="lsd-browse__pill">{s.text}</a>
@@ -238,7 +238,7 @@ export default function StateBrowseSection({ state, region, category, initialDat
             <div className="lsd-browse__divider-v" />
 
             <div className="lsd-browse__panel">
-              <h3 className="lsd-browse__panel-title">{`Browse ${label} Caravans by Popular Region`}</h3>
+              <h3 className="lsd-browse__panel-title">{`Browse ${label} Campervans by Popular Region`}</h3>
               <div className="lsd-browse__pills">
                 {regionPanel.map((r) => (
                   <a key={r.text} href={r.href} className="lsd-browse__pill">{r.text}</a>
@@ -251,7 +251,7 @@ export default function StateBrowseSection({ state, region, category, initialDat
             <div className="lsd-browse__filter-col">
               <div className="lsd-browse__filter-head">
                 <Image src="/images/category.svg" alt="Popular Make" width={20} height={20} unoptimized />
-                <span className="lsd-browse__filter-title">{`Browse ${label} Caravans by Popular Manufacturers`}</span>
+                <span className="lsd-browse__filter-title">{`Browse ${label} Campervans by Popular Manufacturers`}</span>
               </div>
               <div className={`lsd-browse__pills${makePanel.length > 12 ? " lsd-browse__pills--scroll" : ""}`}>
                 {makeCounts === null ? pillSkeleton() : makePanel.map((l) => (
@@ -262,7 +262,7 @@ export default function StateBrowseSection({ state, region, category, initialDat
             <div className="lsd-browse__filter-col">
               <div className="lsd-browse__filter-head">
                 <Image src="/images/Budget.png" alt="Price" width={20} height={20} unoptimized />
-                <span className="lsd-browse__filter-title">{`Browse ${label} Caravans by Price`}</span>
+                <span className="lsd-browse__filter-title">{`Browse ${label} Campervans by Price`}</span>
               </div>
               <div className="lsd-browse__filter-links">
                 {pricePanel.map((l) => (
@@ -299,9 +299,9 @@ export default function StateBrowseSection({ state, region, category, initialDat
       });
 
     const panels = [
-      { icon: "/images/Budget.png",   title: `Browse Caravans by Price in ${regionName}`,            links: bandPanel(basePath, PRICE_BANDS, priceCounts) },
-      { icon: "/images/ATM.png",      title: `Browse Caravans by Weight (ATM) in ${regionName}`,      links: bandPanel(basePath, ATM_BANDS, atmCounts) },
-      { icon: "/images/Sleeping.png", title: `Browse Caravans by Sleeping Capacity in ${regionName}`, links: bandPanel(basePath, SLEEP_BANDS, sleepCounts) },
+      { icon: "/images/Budget.png",   title: `Browse Campervans by Price in ${regionName}`,            links: bandPanel(basePath, PRICE_BANDS, priceCounts) },
+      { icon: "/images/ATM.png",      title: `Browse Campervans by Weight (ATM) in ${regionName}`,      links: bandPanel(basePath, ATM_BANDS, atmCounts) },
+      { icon: "/images/Sleeping.png", title: `Browse Campervans by Sleeping Capacity in ${regionName}`, links: bandPanel(basePath, SLEEP_BANDS, sleepCounts) },
     ];
 
     return (
@@ -310,7 +310,7 @@ export default function StateBrowseSection({ state, region, category, initialDat
 
           <div className="lsd-browse__row1">
             <div className="lsd-browse__panel">
-              <h3 className="lsd-browse__panel-title">{`Browse Caravans by Popular Manufacturers in ${regionName}`}</h3>
+              <h3 className="lsd-browse__panel-title">{`Browse Campervans by Popular Manufacturers in ${regionName}`}</h3>
               <div className="lsd-browse__pills">
                 {makeCounts === null ? pillSkeleton() : makePanel.map((m) => (
                   <a key={m.text} href={m.href} className="lsd-browse__pill">{m.text}</a>
@@ -321,7 +321,7 @@ export default function StateBrowseSection({ state, region, category, initialDat
             <div className="lsd-browse__divider-v" />
 
             <div className="lsd-browse__panel">
-              <h3 className="lsd-browse__panel-title">{`Browse Caravans by Type in ${regionName}`}</h3>
+              <h3 className="lsd-browse__panel-title">{`Browse Campervans by Type in ${regionName}`}</h3>
               <div className="lsd-browse__pills">
                 {categoryPanel.map((c) => (
                   <a key={c.text} href={c.href} className="lsd-browse__pill">{c.text}</a>
@@ -352,10 +352,10 @@ export default function StateBrowseSection({ state, region, category, initialDat
       .map((m) => ({ text: m.name, href: `/listings/${m.slug}/${category}-category/${stateSlug}-state/` }));
 
     const panels = [
-      { icon: "/images/Budget.png",   title: `Browse ${label} Caravans by Price in ${stateName}`,            links: bandPanel(basePath, PRICE_BANDS, priceCounts) },
-      { icon: "/images/ATM.png",      title: `Browse ${label} Caravans by Weight (ATM) in ${stateName}`,      links: bandPanel(basePath, ATM_BANDS, atmCounts) },
-      { icon: "/images/Length.png",   title: `Browse ${label} Caravans by Size (Length) in ${stateName}`,     links: bandPanel(basePath, LENGTH_BANDS, lengthCounts) },
-      { icon: "/images/Sleeping.png", title: `Browse ${label} Caravans by Sleeping Capacity in ${stateName}`, links: bandPanel(basePath, SLEEP_BANDS, sleepCounts) },
+      { icon: "/images/Budget.png",   title: `Browse ${label} Campervans by Price in ${stateName}`,            links: bandPanel(basePath, PRICE_BANDS, priceCounts) },
+      { icon: "/images/ATM.png",      title: `Browse ${label} Campervans by Weight (ATM) in ${stateName}`,      links: bandPanel(basePath, ATM_BANDS, atmCounts) },
+      { icon: "/images/Length.png",   title: `Browse ${label} Campervans by Size (Length) in ${stateName}`,     links: bandPanel(basePath, LENGTH_BANDS, lengthCounts) },
+      { icon: "/images/Sleeping.png", title: `Browse ${label} Campervans by Sleeping Capacity in ${stateName}`, links: bandPanel(basePath, SLEEP_BANDS, sleepCounts) },
     ];
 
     return (
@@ -364,7 +364,7 @@ export default function StateBrowseSection({ state, region, category, initialDat
 
           <div className="lsd-browse__row1">
             <div className="lsd-browse__panel">
-              <h3 className="lsd-browse__panel-title">{`Browse ${label} Caravans by Region in ${stateName}`}</h3>
+              <h3 className="lsd-browse__panel-title">{`Browse ${label} Campervans by Region in ${stateName}`}</h3>
               <div className="lsd-browse__pills">
                 {regionCounts === null ? pillSkeleton() : regionPanel.map((r) => (
                   <a key={r.text} href={r.href} className="lsd-browse__pill">{r.text}</a>
@@ -375,7 +375,7 @@ export default function StateBrowseSection({ state, region, category, initialDat
             <div className="lsd-browse__divider-v" />
 
             <div className="lsd-browse__panel">
-              <h3 className="lsd-browse__panel-title">{`Browse ${label} Caravans by Popular Manufacturers in ${stateName}`}</h3>
+              <h3 className="lsd-browse__panel-title">{`Browse ${label} Campervans by Popular Manufacturers in ${stateName}`}</h3>
               <div className={`lsd-browse__pills${makePanel.length > 12 ? " lsd-browse__pills--scroll" : ""}`}>
                 {makeCounts === null ? pillSkeleton() : makePanel.map((m) => (
                   <a key={m.text} href={m.href} className="lsd-browse__pill">{m.text}</a>
@@ -403,17 +403,17 @@ export default function StateBrowseSection({ state, region, category, initialDat
       .map((m) => ({ text: m.name, href: `/listings/${m.slug}/${category}-category/${stateSlug}-state/${regionSlug}-region/` }));
 
     const panels = [
-      { icon: "/images/Budget.png",   title: `Browse ${label} Caravans by Price in ${regionName}`,            links: bandPanel(basePath, PRICE_BANDS, priceCounts) },
-      { icon: "/images/ATM.png",      title: `Browse ${label} Caravans by Weight (ATM) in ${regionName}`,      links: bandPanel(basePath, ATM_BANDS, atmCounts) },
-      { icon: "/images/Length.png",   title: `Browse ${label} Caravans by Size (Length) in ${regionName}`,     links: bandPanel(basePath, LENGTH_BANDS, lengthCounts) },
-      { icon: "/images/Sleeping.png", title: `Browse ${label} Caravans by Sleeping Capacity in ${regionName}`, links: bandPanel(basePath, SLEEP_BANDS, sleepCounts) },
+      { icon: "/images/Budget.png",   title: `Browse ${label} Campervans by Price in ${regionName}`,            links: bandPanel(basePath, PRICE_BANDS, priceCounts) },
+      { icon: "/images/ATM.png",      title: `Browse ${label} Campervans by Weight (ATM) in ${regionName}`,      links: bandPanel(basePath, ATM_BANDS, atmCounts) },
+      { icon: "/images/Length.png",   title: `Browse ${label} Campervans by Size (Length) in ${regionName}`,     links: bandPanel(basePath, LENGTH_BANDS, lengthCounts) },
+      { icon: "/images/Sleeping.png", title: `Browse ${label} Campervans by Sleeping Capacity in ${regionName}`, links: bandPanel(basePath, SLEEP_BANDS, sleepCounts) },
     ];
 
     return (
       <section className="lsd-browse">
         <div className="container">
 
-          <h3 className="lsd-browse__panel-title">{`Browse ${label} Caravans by Popular Manufacturers in ${regionName}`}</h3>
+          <h3 className="lsd-browse__panel-title">{`Browse ${label} Campervans by Popular Manufacturers in ${regionName}`}</h3>
           <div className="lsd-browse__pills" style={{ marginBottom: 20 }}>
             {makeCounts === null ? pillSkeleton() : makePanel.map((m) => (
               <a key={m.text} href={m.href} className="lsd-browse__pill">{m.text}</a>
@@ -431,8 +431,8 @@ export default function StateBrowseSection({ state, region, category, initialDat
   const types   = hasState ? buildTypesForState(state!) : TYPES_NO_STATE;
   const filters = hasState ? buildFiltersForState(state!) : FILTERS_NO_STATE;
 
-  const leftTitle  = hasState ? `Browse Caravans by Region in ${stateLabel(state!)}` : "Browse Caravans by State";
-  const rightTitle = hasState ? `Browse Caravans by Type in ${stateLabel(state!)}`   : "Browse Caravans by Type";
+  const leftTitle  = hasState ? `Browse Campervans by Region in ${stateLabel(state!)}` : "Browse Campervans by State";
+  const rightTitle = hasState ? `Browse Campervans by Type in ${stateLabel(state!)}`   : "Browse Campervans by Type";
 
   return (
     <section className="lsd-browse">

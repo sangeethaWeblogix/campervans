@@ -11,11 +11,11 @@ export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: {
-    default: "Caravans For Sale – New & Used Caravan Marketplace in Australia",
+    default: "Campervans For Sale – New & Used Campervan Marketplace in Australia",
     template: "%s ",
   },
   description:
-    "Browse caravans for sale across Australia. Compare prices on off-road, hybrid, pop top, touring, luxury models with size, weight & sleeping capacity.",
+    "Browse campervans for sale across Australia. Compare prices on off-road, hybrid, pop top, touring, luxury models with size, weight & sleeping capacity.",
   icons: { icon: "/favicon.ico" },
   robots: "index, follow",
   verification: {
@@ -25,24 +25,24 @@ export const metadata: Metadata = {
     canonical: "https://www.caravansforsale.com.au",
   },
   openGraph: {
-    title: "Caravans For Sale – New & Used Caravan Marketplace in Australia",
-    description: "Browse caravans for sale across Australia. Compare prices on off-road, hybrid, pop top, touring, luxury models with size, weight & sleeping capacity.",
+    title: "Campervans For Sale – New & Used Campervan Marketplace in Australia",
+    description: "Browse campervans for sale across Australia. Compare prices on off-road, hybrid, pop top, touring, luxury models with size, weight & sleeping capacity.",
     url: "https://www.caravansforsale.com.au",
-    siteName: "Caravans for Sale",
+    siteName: "Campervans for Sale",
     images: [
       {
         url: "https://www.caravansforsale.com.au/images/cfs-logo.png",
         width: 800,
         height: 600,
-        alt: "Caravans for Sale Australia",
+        alt: "Campervans for Sale Australia",
       },
     ],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Caravans For Sale – New & Used Caravan Marketplace in Australia",
-    description: "Browse caravans for sale across Australia. Compare prices on off-road, hybrid, pop top, touring, luxury models with size, weight & sleeping capacity.",
+    title: "Campervans For Sale – New & Used Campervan Marketplace in Australia",
+    description: "Browse campervans for sale across Australia. Compare prices on off-road, hybrid, pop top, touring, luxury models with size, weight & sleeping capacity.",
   },
 };
 
@@ -55,8 +55,8 @@ const homeJsonLd = {
       "@type": "WebSite",
       "@id": `${BASE_URL}/#website`,
       "url": BASE_URL,
-      "name": "Caravans For Sale",
-      "description": "Australia's Marketplace for New & Used Caravans",
+      "name": "Campervans For Sale",
+      "description": "Australia's Marketplace for New & Used Campervans",
       "inLanguage": "en-AU",
       "potentialAction": {
         "@type": "SearchAction",
@@ -70,7 +70,7 @@ const homeJsonLd = {
     {
       "@type": "Organization",
       "@id": `${BASE_URL}/#organization`,
-      "name": "Caravans For Sale",
+      "name": "Campervans For Sale",
       "url": BASE_URL,
       "logo": {
         "@type": "ImageObject",

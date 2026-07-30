@@ -8,12 +8,12 @@ import HomeLocationSection from "./HomeLocationSection";
 import "./main.css";
 
 const OR_FAQ = [
-  { q: "What is an off road caravan?", a: "An off road caravan is a caravan built to handle rough, unsealed tracks and remote terrain. They typically feature heavy-duty chassis, independent suspension, reinforced bodywork, larger water and battery capacity, and off-road tyres to handle Australia's outback and bush conditions." },
-  { q: "What is the difference between semi off road and full off road caravans?", a: "Semi off road caravans are built for light unsealed roads and easy bush tracks, with upgraded suspension and stronger construction. Full off road caravans are engineered for extreme terrain — think river crossings, rocky tracks and remote touring — with independent suspension, heavy-duty chassis and full off-grid capability." },
-  { q: "Can off road caravans go off grid?", a: "Yes. Most off road caravans come with or can be fitted with solar panels, lithium batteries, large fresh water tanks and composting or cassette toilets, allowing extended stays in remote areas without external power or water hookups." },
-  { q: "Do I need a special vehicle to tow an off road caravan?", a: "Yes. Off road caravans are heavier and wider than standard caravans. You'll need a high-capacity 4WD with a tow bar rated to the caravan's ATM. Always check the caravan's ATM and the tow vehicle's GVM and tow rating before purchasing." },
-  { q: "Are off road caravans suitable for families?", a: "Absolutely. Many off road models come in family-friendly layouts with bunk beds, multiple sleeping berths, full kitchens and ensuites. Brands like Jayco, New Age and Trakmaster offer popular family off road models across a range of budgets." },
-  { q: "What is the average price of an off road caravan in Australia?", a: "Off road caravan prices in Australia typically range from around $40,000 for entry-level semi off road models to over $150,000 for premium full off road expedition caravans. The most popular mid-range models sit between $60,000 and $100,000." },
+  { q: "What is an off road campervan?", a: "An off road campervan is a campervan built to handle rough, unsealed tracks and remote terrain. They typically feature heavy-duty chassis, independent suspension, reinforced bodywork, larger water and battery capacity, and off-road tyres to handle Australia's outback and bush conditions." },
+  { q: "What is the difference between semi off road and full off road campervans?", a: "Semi off road campervans are built for light unsealed roads and easy bush tracks, with upgraded suspension and stronger construction. Full off road campervans are engineered for extreme terrain — think river crossings, rocky tracks and remote touring — with independent suspension, heavy-duty chassis and full off-grid capability." },
+  { q: "Can off road campervans go off grid?", a: "Yes. Most off road campervans come with or can be fitted with solar panels, lithium batteries, large fresh water tanks and composting or cassette toilets, allowing extended stays in remote areas without external power or water hookups." },
+  { q: "Do I need a special vehicle to tow an off road campervan?", a: "Yes. Off road campervans are heavier and wider than standard campervans. You'll need a high-capacity 4WD with a tow bar rated to the campervan's ATM. Always check the campervan's ATM and the tow vehicle's GVM and tow rating before purchasing." },
+  { q: "Are off road campervans suitable for families?", a: "Absolutely. Many off road models come in family-friendly layouts with bunk beds, multiple sleeping berths, full kitchens and ensuites. Brands like Jayco, New Age and Trakmaster offer popular family off road models across a range of budgets." },
+  { q: "What is the average price of an off road campervan in Australia?", a: "Off road campervan prices in Australia typically range from around $40,000 for entry-level semi off road models to over $150,000 for premium full off road expedition campervans. The most popular mid-range models sit between $60,000 and $100,000." },
 ];
 
 function FaqItem({ q, a }: { q: string; a: string }) {
@@ -106,7 +106,7 @@ const SEARCH_FILTERS = [
       { text: "Under $100,000",        href: "/listings/?max_price=100000&category=off-road" },
       { text: "Over $100,000",         href: "/listings/?min_price=100000&category=off-road" },
       { text: "Second Hand Off Road",  href: "/listings/?condition=used&category=off-road" },
-      { text: "New Off Road Caravans", href: "/listings/?condition=new&category=off-road" },
+      { text: "New Off Road Campervans", href: "/listings/?condition=new&category=off-road" },
     ],
   },
   {
@@ -156,7 +156,7 @@ export default function OffRoadCaravansPage({ stateBands, offRoadBlogs, offRoadP
       <section className="hd-banner">
         <div className="container">
           <h1 className="hd-banner__title">
-            Off Road Caravans <span className="hd-banner__title--orange">Australia</span>
+            Off Road Campervans <span className="hd-banner__title--orange">Australia</span>
           </h1>
           <div className="hd-banner__divider">
             <span className="hd-banner__divider-line" />
@@ -164,7 +164,7 @@ export default function OffRoadCaravansPage({ stateBands, offRoadBlogs, offRoadP
             <span className="hd-banner__divider-line" />
           </div>
           <p className="hd-banner__subtitle">
-            Discover Australia’s largest collection of off road caravans. Compare full off road, semi off road and hybrid caravans, browse live listings, read expert reviews and explore detailed buying guides to find the right caravan for your next adventure.
+            Discover Australia’s largest collection of off road campervans. Compare full off road, semi off road and hybrid campervans, browse live listings, read expert reviews and explore detailed buying guides to find the right campervan for your next adventure.
           </p>
           <div className="hd-banner__trust">
             <div className="hd-banner__trust-item">
@@ -173,7 +173,7 @@ export default function OffRoadCaravansPage({ stateBands, offRoadBlogs, offRoadP
               </div>
               <div className="hd-banner__trust-text">
                 <strong>Thousands of Listings</strong>
-                <span>New &amp; used off road caravans across Australia</span>
+                <span>New &amp; used off road campervans across Australia</span>
               </div>
             </div>
             <div className="hd-banner__trust-item">
@@ -182,7 +182,7 @@ export default function OffRoadCaravansPage({ stateBands, offRoadBlogs, offRoadP
               </div>
               <div className="hd-banner__trust-text">
                 <strong>Australia Wide</strong>
-                <span>Find off road caravans from every state &amp; territory</span>
+                <span>Find off road campervans from every state &amp; territory</span>
               </div>
             </div>
             <div className="hd-banner__trust-item">
@@ -199,7 +199,7 @@ export default function OffRoadCaravansPage({ stateBands, offRoadBlogs, offRoadP
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
             </svg>
-            Explore Off Road Caravans
+            Explore Off Road Campervans
           </a>
           <div className="hd-banner__bottom">
             <div className="hd-banner__bottom-item">
@@ -216,7 +216,7 @@ export default function OffRoadCaravansPage({ stateBands, offRoadBlogs, offRoadP
             </div>
             <div className="hd-banner__bottom-item">
               <img src="/images/icon4.png" alt="" className="hd-banner__bottom-icon" />
-              <div><strong>Coast to Country</strong><span>Caravans Australia wide</span></div>
+              <div><strong>Coast to Country</strong><span>Campervans Australia wide</span></div>
             </div>
           </div>
         </div>
@@ -226,7 +226,7 @@ export default function OffRoadCaravansPage({ stateBands, offRoadBlogs, offRoadP
       <HomeFeatured />
 
       {/* ── Browse by State ── */}
-      <HomeStateSection stateBands={stateBands} title="Browse Off Road Caravans by State" />
+      <HomeStateSection stateBands={stateBands} title="Browse Off Road Campervans by State" />
 
       {/* ── Location + Search Your Way ── */}
       <HomeLocationSection />
@@ -235,18 +235,18 @@ export default function OffRoadCaravansPage({ stateBands, offRoadBlogs, offRoadP
       <section className="or-snapshot">
         <div className="container">
           <div className="or-snapshot__card">
-            <h2 className="or-snapshot__title">Off Road Caravan Market Snapshot</h2>
+            <h2 className="or-snapshot__title">Off Road Campervan Market Snapshot</h2>
             <div className="or-snapshot__row">
               <div className="or-snapshot__item">
                 <img src="/images/caravan_black.png" alt="" className="or-snapshot__icon" />
                 <div className="or-snapshot__value">{offRoadCount.toLocaleString()}</div>
-                <div className="or-snapshot__label">Off Road Caravans<br />For Sale Now</div>
+                <div className="or-snapshot__label">Off Road Campervans<br />For Sale Now</div>
               </div>
               <div className="or-snapshot__divider" />
               <div className="or-snapshot__item">
                 <img src="/images/dollar_au.png" alt="" className="or-snapshot__icon or-snapshot__icon--sm" />
                 <div className="or-snapshot__value">{offRoadPriceMin && offRoadPriceMax ? `$${offRoadPriceMin.toLocaleString()} – $${offRoadPriceMax.toLocaleString()}` : "–"}</div>
-                <div className="or-snapshot__label">Off Road Caravan<br />Price Range</div>
+                <div className="or-snapshot__label">Off Road Campervan<br />Price Range</div>
               </div>
               <div className="or-snapshot__divider" />
               <div className="or-snapshot__item">
@@ -325,11 +325,11 @@ export default function OffRoadCaravansPage({ stateBands, offRoadBlogs, offRoadP
         </section>
       )}
 
-      {/* ── Latest Off Road Caravan Articles ── */}
+      {/* ── Latest Off Road Campervan Articles ── */}
       {offRoadBlogs.length > 0 && (
         <section className="or-latest-section">
           <div className="container">
-            <h2 className="or-section-title">Latest Off Road Caravan Articles</h2>
+            <h2 className="or-section-title">Latest Off Road Campervan Articles</h2>
             <div className="or-latest-wrap">
               <button className="or-latest-arrow or-latest-arrow--prev" onClick={() => scrollCarousel(-1)} aria-label="Previous"><i className="bi bi-chevron-left" /></button>
               <div className="or-latest-carousel" ref={carouselRef}>
@@ -356,15 +356,15 @@ export default function OffRoadCaravansPage({ stateBands, offRoadBlogs, offRoadP
         <div className="container">
           <div className="or-cta-inner or-cta-inner--sell">
             <div className="or-cta-sell-left">
-              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#f47920" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#35356e" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/>
               </svg>
               <div>
-                <strong className="or-cta-sell-title">Looking to Sell Your Off Road Caravan?</strong>
+                <strong className="or-cta-sell-title">Looking to Sell Your Off Road Campervan?</strong>
                 <span className="or-cta-sell-sub">Reach thousands of serious buyers across Australia.</span>
               </div>
             </div>
-            <a href="/sell-my-caravan/" className="or-btn or-btn--outline">Sell My Caravan</a>
+            <a href="/sell-my-caravan/" className="or-btn or-btn--outline">Sell My Campervan</a>
           </div>
         </div>
       </section>

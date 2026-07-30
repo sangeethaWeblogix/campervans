@@ -5,9 +5,9 @@ import './home-page-take-over.css'
 
 /* ── Meta Title & Description ── */
 export const metadata: Metadata = {
-  title: 'Home Page Takeover Advertising | #1 Caravan Brand Exposure Australia-Wide',
+  title: 'Home Page Takeover Advertising | #1 Campervan Brand Exposure Australia-Wide',
   description:
-    "Dominate Australia's leading caravan marketplace with our exclusive Home Page Takeover. Limited to 1 advertiser per month — maximum visibility, retargeting included, and 100% share of voice for your caravan brand.",
+    "Dominate Australia's leading campervan marketplace with our exclusive Home Page Takeover. Limited to 1 advertiser per month — maximum visibility, retargeting included, and 100% share of voice for your campervan brand.",
 }
 
 export default function HomePageTakeOver() {
@@ -19,10 +19,10 @@ export default function HomePageTakeOver() {
         <div className="container py-5 px-lg-5">
           <div className="col-lg-8">
             {/* <h1 className="display-4 font-black mb-3 text-uppercase tracking-tight">
-              Become the #1 Caravan <br className="d-none d-md-block" /> Brand Australia-Wide
+              Become the #1 Campervan <br className="d-none d-md-block" /> Brand Australia-Wide
             </h1> */}
             <h1 className="display-4 font-black mb-3 text-uppercase tracking-tight">
-             Get your Brand Across 1000's of Caravan Buyers Daily  
+             Get your Brand Across 1000's of Campervan Buyers Daily  
             </h1>
             <p className="h4 fw-medium mb-5">
               Exclusive Home Page Takeover for <span className="fw-bold">Advertisers</span> —{' '}
@@ -70,7 +70,7 @@ export default function HomePageTakeOver() {
                   <Image src="/images/hometk_target.png" alt="High-Intent Audience" width={72} height={72} />
                 </div>
                 <h3 className="fw-bold text-uppercase mb-3">High-Intent Audience</h3>
-                <p>Reach thousands of serious caravan buyers actively searching.</p>
+                <p>Reach thousands of serious campervan buyers actively searching.</p>
               </div>
 
               <div className="col-md-3 p-4 text-center feature-card" data-purpose="feature-card">
@@ -147,10 +147,10 @@ export default function HomePageTakeOver() {
         <div className="container py-5">
           <div className="text-center mb-5">
             <h2 className="h3 font-black text-navy mb-2 text-uppercase">
-              The Ultimate Caravan Marketing Package
+              The Ultimate Campervan Marketing Package
             </h2>
             <p className="h5 text-dark fw-medium">
-              A complete lead generation solution for your caravan brand
+              A complete lead generation solution for your campervan brand
             </p>
           </div>
           <div className="row g-4 justify-content-center">
@@ -213,7 +213,7 @@ export default function HomePageTakeOver() {
                     Australia-Wide Exposure
                   </h4>
                   <p className="small fw-medium m-0 lh-base">
-                    Reach serious caravan buyers from all over Australia.
+                    Reach serious campervan buyers from all over Australia.
                   </p>
                 </div>
               </div>

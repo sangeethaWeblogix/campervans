@@ -81,9 +81,9 @@ export default function HomeLocationSection() {
 
         <div className="hloc-header">
           <h2 className="hloc-title">
-            Find Off Road Caravans by <span className="hloc-title-accent">Popular Location</span>
+            Find Off Road Campervans by <span className="hloc-title-accent">Popular Location</span>
           </h2>
-          <p className="hloc-subtitle">Browse off road caravans near you by major Australian cities.</p>
+          <p className="hloc-subtitle">Browse off road campervans near you by major Australian cities.</p>
           
         </div>
 
@@ -123,7 +123,7 @@ export default function HomeLocationSection() {
         <div className="hloc-filters">
           <div className="hloc-header hloc-filter-row pb-2 mb-2">
   <h2 className="hloc-title">
-           Search Off Road Caravans <span className="hloc-title-accent">Your Way</span>
+           Search Off Road Campervans <span className="hloc-title-accent">Your Way</span>
           </h2>
    
         </div>

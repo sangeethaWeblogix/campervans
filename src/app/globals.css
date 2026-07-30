@@ -98,7 +98,7 @@ img {
 
 .btn:hover,
 .btn:focus {
-  background: #ec7200;
+  background: #27264f;
   border-color: transparent !important;
   color: #fff;
 }
@@ -434,7 +434,7 @@ small {
   margin-top: 0px;
   font-size: 20px;
   font-weight: bold;
-  color: #ec7200;
+  color: #27264f;
 }
 
 .product-page .product-card .price ins {
@@ -527,8 +527,8 @@ small {
 }
 
 .checkbox-wrapper input[type="checkbox"]:checked {
-  background-color: #f58333;
-  border-color: #f58333;
+  background-color: #3f3e82;
+  border-color: #3f3e82;
 }
 
 .checkbox-wrapper input[type="checkbox"]:checked::after {

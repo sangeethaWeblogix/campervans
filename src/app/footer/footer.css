@@ -301,7 +301,7 @@ footer.style-8 .content .logo-social .socials a:hover {
   transition: color 0.2s;
 }
 .sell-panel__main-link:hover {
-  color: #ec7200 !important;
+  color: #27264f !important;
 }
 .sell-panel__close {
   background: none;
@@ -354,11 +354,11 @@ footer.style-8 .content .logo-social .socials a:hover {
   text-decoration: none;
   padding-bottom: 8px;
   margin-bottom: 10px;
-  border-bottom: 2px solid #ec7200;
+  border-bottom: 2px solid #27264f;
   transition: color 0.2s;
 }
 .sell-panel__state-title:hover {
-  color: #ec7200 !important;
+  color: #27264f !important;
 }
 
 /* ── Region list ─────────────────────────────────────── */
@@ -379,5 +379,5 @@ footer.style-8 .content .logo-social .socials a:hover {
   line-height: 1.4;
 }
 .sell-panel__region-list li a:hover {
-  color: #ec7200;
+  color: #27264f;
 }

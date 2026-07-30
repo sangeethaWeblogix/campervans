@@ -52,7 +52,7 @@ export default function ThankYouClient() {
           </Typography>
 
           <Typography variant="body1" color="text.secondary" gutterBottom>
-            Your caravan dealer will contact you as soon as possible.
+            Your campervan dealer will contact you as soon as possible.
           </Typography>
 
           <Link href="/" style={{ textDecoration: "none" }}>
@@ -62,7 +62,7 @@ export default function ThankYouClient() {
                 mt: 3,
                 backgroundColor: "orange",
                 color: "white",
-                "&:hover": { backgroundColor: "#ec7200" },
+                "&:hover": { backgroundColor: "#27264f" },
               }}
             >
               Go Back
