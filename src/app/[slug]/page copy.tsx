@@ -154,7 +154,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
                   backgroundColor: "orange", // Set background to orange
                   color: "white", // Make text white
                   "&:hover": {
-                    backgroundColor: "#27264f", // Darker orange on hover
+                    backgroundColor: "#3f3e82", // Darker orange on hover
                   },
                 }}
               >

@@ -98,7 +98,7 @@ img {
 
 .btn:hover,
 .btn:focus {
-  background: #27264f;
+  background: #3f3e82;
   border-color: transparent !important;
   color: #fff;
 }
@@ -434,7 +434,7 @@ small {
   margin-top: 0px;
   font-size: 20px;
   font-weight: bold;
-  color: #27264f;
+  color: #3f3e82;
 }
 
 .product-page .product-card .price ins {

@@ -139,13 +139,11 @@ export default function HomeLocationSection() {
                 <span className="hloc-filter-text">{f.label}</span>
               </div>
               <div className="hloc-filter-chips">
-                <h3>
                 {f.items.map((item,) => (
 
                   <a key={item.text} href={item.href} className="hloc-chip">
                    {item.text}</a>
                 ))}
-                </h3>
               </div>
             </div>
           ))}

@@ -421,7 +421,7 @@ h2.divide-orange {
 }
 
 main .manufacture_content_area h3 a {
-  color: #1d1d3c;
+  color: #3f3e82;
 }
 
 main .manufacture_content_area h3 {
@@ -429,7 +429,7 @@ main .manufacture_content_area h3 {
 }
 .key_features {
   padding: 20px;
-  border: 3px solid #1d1d3c;
+  border: 3px solid #3f3e82;
   border-radius: 10px;
   background-color: #ffffff;
   margin-bottom: 15px;
@@ -456,7 +456,7 @@ main .manufacture_content_area h3 {
   font-weight: 900;
   position: absolute;
   left: 0;
-  color: #1d1d3c;
+  color: #3f3e82;
 }
 
 .key_features ul {
@@ -1003,6 +1003,6 @@ a.quick_lnk {
 
 .product-page .product-card:hover .btn {
     color: #fff !important;
-    background-color: #27264f;
-    border-color: #27264f;
+    background-color: #3f3e82;
+    border-color: #3f3e82;
 }

@@ -22,7 +22,7 @@
   gap: 0;
 }
 .pdd-breadcrumb a { color: #666; text-decoration: none; }
-.pdd-breadcrumb a:hover { color: #27264f; text-decoration: underline; }
+.pdd-breadcrumb a:hover { color: #3f3e82; text-decoration: underline; }
 .pdd-breadcrumb__sep { margin: 0 5px; color: #aaa; }
 
 /* ── Title ── */
@@ -221,14 +221,14 @@
   cursor: pointer;
   transition: border-color 0.15s;
 }
-.pdd-tour-btn:hover { border-color: #27264f; color: #27264f; }
+.pdd-tour-btn:hover { border-color: #3f3e82; color: #3f3e82; }
 .pdd-tour-btn svg { flex-shrink: 0; }
 
 /* ── Sections ── */
 .pdd-section { margin-bottom: 40px; }
 .pdd-section__title {
     color: #000000;
-    /* border-bottom: 2px solid #27264f; */
+    /* border-bottom: 2px solid #3f3e82; */
     margin: 0 0 14px;
     padding-bottom: 0px;
     font-size: 18px;
@@ -281,7 +281,7 @@
 }
 .pdd-btn-contact-inline {
   display: inline-block;
-  background: #27264f;
+  background: #3f3e82;
   color: #fff;
   border: none;
   border-radius: 8px;
@@ -293,7 +293,7 @@
   margin-bottom: 28px;
   transition: background 0.15s;
 }
-.pdd-btn-contact-inline:hover { background: #222247; }
+.pdd-btn-contact-inline:hover { background: #3f3e82; }
 
 /* ── Details Table ── */
 .pdd-details-grid {
@@ -441,7 +441,7 @@
 .pdd-enquire-heading {
   display: block;
   width: 100%;
-  background: #27264f;
+  background: #3f3e82;
   color: #fff;
   border-radius: 6px;
   padding: 14px 20px;
@@ -465,7 +465,7 @@
   outline: none;
   transition: border-color 0.15s;
 }
-.pdd-form input:focus { border-color: #27264f; }
+.pdd-form input:focus { border-color: #3f3e82; }
 .pdd-form__err { font-size: 12px; color: #bc0505; margin-top: 2px; }
 .pdd-form__msg {
   border: 1px solid #d0d5dd;
@@ -477,9 +477,9 @@
   font-family: inherit;
   transition: border-color 0.15s;
 }
-.pdd-form__msg:focus { border-color: #27264f; }
+.pdd-form__msg:focus { border-color: #3f3e82; }
 .pdd-btn-send {
-  background: #27264f;
+  background: #3f3e82;
   color: #fff;
   border: none;
   border-radius: 6px;
@@ -491,14 +491,14 @@
   transition: background 0.15s;
 }
 .pdd-btn-send:disabled { opacity: 0.65; cursor: not-allowed; }
-.pdd-btn-send:hover:not(:disabled) { background: #222247; }
+.pdd-btn-send:hover:not(:disabled) { background: #3f3e82; }
 .pdd-form__legal {
   font-size: 11px;
   color: #999;
   line-height: 1.5;
   margin: 0;
 }
-.pdd-form__legal a { color: #27264f; text-decoration: none; }
+.pdd-form__legal a { color: #3f3e82; text-decoration: none; }
 
 /* Checklist button */
 .pdd-sidebar__checklist-row { padding: 0 16px 14px; }
@@ -605,7 +605,7 @@
   margin: 0 0 18px;
   display: inline-block;
   padding-bottom: 6px;
-  border-bottom: 2.5px solid #27264f;
+  border-bottom: 2.5px solid #3f3e82;
 }
 
 /* Item row: icon-circle + num-circle + text */
@@ -633,7 +633,7 @@
   height: 32px;
   border-radius: 50%;
   background: #ebebf2;
-  color: #27264f;
+  color: #3f3e82;
   font-size: 15px;
   font-weight: 700;
   display: flex;
@@ -662,7 +662,7 @@
   align-items: center;
   gap: 12px;
   font-size: 14px;
-  color: #16152c;
+  color: #3f3e82;
   font-weight: 500;
   line-height: 1.4;
 }
@@ -672,7 +672,7 @@
 .pdd-btn-enquire {
   display: block;
   width: 100%;
-  background: #27264f;
+  background: #3f3e82;
   color: #fff;
   border: none;
   border-radius: 6px;
@@ -684,7 +684,7 @@
   cursor: pointer;
   transition: background 0.15s;
 }
-.pdd-btn-enquire:hover { background: #222247; }
+.pdd-btn-enquire:hover { background: #3f3e82; }
 
 /* Thinking of selling — below the sidebar card */
 .pdd-sidebar__sell {
@@ -707,7 +707,7 @@
 }
 .pdd-btn-sell {
     color: #fff;
-    background: #27264f;
+    background: #3f3e82;
     border-radius: 6px;
     padding: 10px 20px;
     font-size: 14px;
@@ -717,7 +717,7 @@
     display: inline-block;
     margin-top: 130px;
 }
-.pdd-btn-sell:hover { background: #222247; color: #fff; }
+.pdd-btn-sell:hover { background: #3f3e82; color: #fff; }
 
 /* ── Full-width Banner ── */
 .pdd-banner {
@@ -743,7 +743,7 @@
 .pdd-banner__main {
   font-size: 22px;
   font-weight: 800;
-  color: #27264f;
+  color: #3f3e82;
   letter-spacing: 0.5px;
   text-transform: uppercase;
   margin: 0 0 14px;
@@ -771,7 +771,7 @@
   flex-shrink: 0;
 }
 .pdd-banner__cta {
-  background: #27264f;
+  background: #3f3e82;
   color: #fff;
   text-decoration: none;
   border-radius: 6px;
@@ -783,7 +783,7 @@
   flex-shrink: 0;
   transition: background 0.15s;
 }
-.pdd-banner__cta:hover { background: #222247; color: #fff; }
+.pdd-banner__cta:hover { background: #3f3e82; color: #fff; }
 
 /* ── Similar Caravans ── */
 .pdd-similar {
@@ -973,7 +973,7 @@
 .pdd-search-link:hover { background: #fafafa; border-color: #ddd; }
 .pdd-search-link--active {
   background: #ebebf2;
-  color: #27264f;
+  color: #3f3e82;
   border-color: #bebdd5;
 }
 .pdd-search-link--active:hover { background: #d3d3e2; }
@@ -1045,7 +1045,7 @@
     box-shadow: 0 -2px 12px rgba(0,0,0,0.08);
   }
   .pdd-mobile-bottom-bar__cta {
-    background: #27264f;
+    background: #3f3e82;
     color: #fff;
     border: none;
     border-radius: 10px;
@@ -1079,7 +1079,7 @@
     margin: 0;
   }
   .pdd-mobile-bottom-bar__terms a {
-    color: #27264f;
+    color: #3f3e82;
     text-decoration: none;
   }
   .pdd-page { padding-bottom: 40px; }

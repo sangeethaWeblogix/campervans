@@ -118,7 +118,6 @@ export default function HomeFeatured({ seed }: Props) {
               const isNew = item.condition?.toLowerCase() === "new";
               const price = item.sale_price || item.regular_price || "POA";
               const image = item.image_format?.[0] ?? null;
-              const type = (item.categories?.[0] ?? "").replace(/-/g, " ").replace(/\b\w/g, c => c.toUpperCase());
               const location = getLocationLabel(item);
 
               return (
@@ -131,8 +130,6 @@ export default function HomeFeatured({ seed }: Props) {
                       ) : (
                         <div className="hf-card__img-placeholder" />
                       )}
-                      {/* Category pill at bottom of image */}
-                      {type && <div className="hf-card__dealer-tag">{type}</div>}
                     </div>
 
                     {/* Body */}

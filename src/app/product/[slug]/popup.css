@@ -279,7 +279,7 @@
   cursor: pointer;
   transition: background 0.2s;
 }
-.cfs-modal-submit:hover { background: #303064; }
+.cfs-modal-submit:hover { background: #3f3e82; }
 .cfs-modal-submit:disabled { background: #ccc; cursor: not-allowed; }
 
 /* ── Mobile expand button (hidden on desktop) ───────────────────────── */

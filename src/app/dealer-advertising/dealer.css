@@ -18,7 +18,7 @@
   line-height: 60px;
 }
 .banner_section .banner_text h1 .color-text {
-  color: #313065;
+  color: #3f3e82;
   font-size: 37px;
   font-weight: 700;
 }
@@ -51,14 +51,14 @@
     top: 0;
     width: 0%;
     height: 100%;
-    background-color: #24244b;
+    background-color: #3f3e82;
     border-radius: 50px;
     transition: .6s all;
     z-index: -1;
 }
 .white_btn:hover {
     color: #ffffff;
-    background-color: #24244b;
+    background-color: #3f3e82;
 }
 .row_am {
   padding: 50px 0;
@@ -90,7 +90,7 @@
   width: 100%;
   height: 100%;
   background: transparent
-    linear-gradient(98deg, #313065 0, #ffd119 53%, #0dcea6 100%) 0 0 no-repeat
+    linear-gradient(98deg, #3f3e82 0, #ffd119 53%, #0dcea6 100%) 0 0 no-repeat
     padding-box;
   position: absolute;
   left: 0;
@@ -156,7 +156,7 @@
   margin-bottom: 15px;
 }
 .free_app_section .special_txt i {
-  color: #313065;
+  color: #3f3e82;
   font-size: 6px;
 }
 

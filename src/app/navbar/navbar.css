@@ -419,8 +419,8 @@ input[type="checkbox"]:checked ~ .menuIconToggle > .dia.p-2 {
   background-color: #fff;
 }
 .navbar.style-4.header-white .navbar-nav .nav-item.login .nav-link:hover {
-  background: #313064;
-  border-color: #313064;
+  background: #3f3e82;
+  border-color: #3f3e82;
   color: #fff;
 }
 .overlay {
@@ -511,8 +511,8 @@ input[type="checkbox"]:checked ~ .menuIconToggle > .dia.p-2 {
 }
 
 .mobile_cta a.btn {
-  background-color: #27264f;
-  border-color: #27264f;
+  background-color: #3f3e82;
+  border-color: #3f3e82;
   display: inline-block;
   padding: 10px 10px;
   color: #fff;
@@ -810,7 +810,7 @@ input[type="checkbox"]:checked ~ .menuIconToggle > .dia.p-2 {
 }
 
 .sidenav .sidenav-cta-login:hover {
-  background: #313064;
+  background: #3f3e82;
   color: #fff;
   transform: translateY(-1px);
 }
@@ -857,7 +857,7 @@ input[type="checkbox"]:checked ~ .menuIconToggle > .dia.p-2 {
 }
 
 .snav-section-heading {
-    color: #27264f;
+    color: #3f3e82;
     text-transform: uppercase;
     letter-spacing: .1em;
     padding: 14px 20px 6px;
@@ -1032,7 +1032,7 @@ input[type="checkbox"]:checked ~ .menuIconToggle > .dia.p-2 {
 }
 
 .navbar.style-4 .navbar-nav .nav-item .nav-link.nav-sell-cta:hover {
-  background: #313064;
+  background: #3f3e82;
   color: #fff !important;
 }
 

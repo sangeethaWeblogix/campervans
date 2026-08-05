@@ -36,10 +36,10 @@ export default function HomeBuyerGuide() {
               </h2>
               
               <p className="hbg-body">
-                CaravansForSale.com.au helps Australian buyers compare a wide range of campervans for sale in one convenient place. Browse affordable used campervans, premium new models and options designed for touring, family holidays or off-road adventures. Compare important features such as layout, ATM, tare weight, sleeping capacity, length, suspension, condition, service history and towing requirements to narrow down your choices before contacting a seller or visiting a dealership. Our easy-to-use platform makes researching and comparing campervans simple.
+                CampervansForSale.com.au helps Australian buyers compare a wide range of campervans for sale in one convenient place. Browse affordable used campervans, premium new models and options designed for every kind of adventure. Compare important features such as layout, ATM, tare weight, sleeping capacity, length, suspension, condition, service history and towing requirements to narrow down your choices before contacting a seller or visiting a dealership. Our easy-to-use platform makes researching and comparing campervans simple.
               </p>
               <p className="hbg-body">
-                Explore popular campervan types including off-road, hybrid, pop top, touring and luxury campervans, while also comparing trusted campervan brands and reputable dealers across Australia. Check whether dealers offer warranty support, finance options, trade-ins, after-sales service and detailed vehicle information before making your decision. Use our buyers guide and convenient search filters to browse listings by state, location, budget, size, weight and berth, helping you find the right campervan for your lifestyle and travel plans.
+                Explore a wide range of campervans while comparing trusted campervan brands and reputable dealers across Australia. Check whether dealers offer warranty support, finance options, trade-ins, after-sales service and detailed vehicle information before making your decision. Use our buyers guide and convenient search filters to browse listings by state, location, budget, size, weight and berth, helping you find the right campervan for your lifestyle and travel plans.
               </p>
               
             </div>
@@ -66,7 +66,7 @@ export default function HomeBuyerGuide() {
             <p className="hbg-sell-body">
               If you&apos;re upgrading or no longer need your current campervan,{" "}
               <a href="/sell-my-caravan/" className="hbg-sell-link">sell your campervan</a>{" "}
-              by creating a listing on CaravansForSale.com.au and connect with active buyers across Australia. Your advertisement stays online until it&apos;s sold for a one-time fee of $49.
+              by creating a listing on CampervansForSale.com.au and connect with active buyers across Australia. Your advertisement stays online until it&apos;s sold for a one-time fee of $49.
             </p>
 
 
@@ -78,7 +78,7 @@ export default function HomeBuyerGuide() {
       <section className="hbg-why-section">
         <div className="container">
           <h2 className="hbg-why-title">
-            Why Australians Use <span className="hbg-why-accent">CaravansForSale.com.au</span>
+            Why Australians Use <span className="hbg-why-accent">CampervansForSale.com.au</span>
           </h2>
           
 
@@ -105,9 +105,9 @@ export default function HomeBuyerGuide() {
 
               <div className="hbg-why-card">
                 <div className="hbg-why-icon">
-                  <Image src="/images/category.svg" alt="Caravan-Specific Marketplace" width={34} height={34} />
+                  <Image src="/images/category.svg" alt="Campervan-Specific Marketplace" width={34} height={34} />
                 </div>
-                <h3 className="hbg-why-card-title">Caravan-Specific Marketplace</h3>
+                <h3 className="hbg-why-card-title">Campervan-Specific Marketplace</h3>
                 <div className="hbg-why-card-sep" />
                 <p className="hbg-why-card-desc">A focused marketplace dedicated to campervans and campervan buyers.</p>
               </div>

@@ -7,7 +7,6 @@ import { type HomeBlogPost } from "@/api/home/api";
 import { type TypeCounts } from "@/api/homeApi/typeCounts/api";
 import HomeFeatured from "./HomeFeatured";
 import HomeStateSection from "./HomeStateSection";
-import HomeTypeSection from "./HomeTypeSection";
 import HomeLocationSection from "./HomeLocationSection";
 import HomeBuyerGuide from "./HomeBuyerGuide";
 import HomeListingSlider from "./HomeListingSlider";
@@ -174,7 +173,7 @@ const handleBannerClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>) =
             <span className="hd-banner__divider-line" />
           </div>
           <p className="hd-banner__subtitle">
-            Browse thousands of new and used campervans for sale across Australia from trusted dealers and private sellers. Compare off-road, family, touring, luxury and pop-top campervans to find the right van for your next adventure.
+            Browse thousands of new and used campervans for sale across Australia from trusted dealers and private sellers. Find the right van for your next adventure.
           </p>
           <div className="hd-banner__trust">
             <div className="hd-banner__trust-item">
@@ -263,11 +262,11 @@ const handleBannerClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>) =
               </picture>
             </a>
           ) : (
-            <a href="https://www.aussiefivestarcaravans.com.au/" target="_blank" rel="noopener noreferrer" className="hd-banner-ad__inner">
+            <a href="/listings/" target="_blank" rel="noopener noreferrer" className="hd-banner-ad__inner">
               <span className="hd-banner-ad__label">Advertisement</span>
               <picture>
-                <source media="(max-width: 767px)" srcSet="/images/aussiefivestar-1157x598.jpg" />
-                <img src="/images/aussiefivestar-2000x517.jpg" alt="Aussie Fivestar Campervans" className="hd-banner-ad__img" />
+                <source media="(max-width: 767px)" srcSet="/images/1157x598-cvs.jpg" />
+                <img src="/images/2000x517-cvs.jpg?=1" alt="Campervans for Sale Australia" className="hd-banner-ad__img" />
               </picture>
             </a>
           )}
@@ -290,7 +289,7 @@ const handleBannerClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>) =
             <div className="sell-content">
               <h3>List Your Campervan For Sale Today</h3>
               <p className="subtitle">Reach thousands of campervan buyers daily.</p>
-              <p className="desc">List your campervan on CaravansForSale.com.au — Australia&apos;s trusted marketplace to buy and sell campervans.</p>
+              <p className="desc">List your campervan on CampervansForSale.com.au — Australia&apos;s trusted marketplace to buy and sell campervans.</p>
               <div className="btns_two">
                 <a href="/dealer-advertising/" className="btn primary-btn">Dealer Sign Up</a>
                 <a href="/sell-my-caravan/" className="btn secondary-btn">Private Seller - Click Here</a>
@@ -318,9 +317,6 @@ const handleBannerClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>) =
           <PostRequirement requirements={requirements} />
         </div>
       </div>
-
-      {/* ── Browse by Type ── */}
-      <HomeTypeSection typeCounts={typeCounts} />
 
       {/* ── Find by Location ── */}
       <HomeLocationSection />

@@ -49,7 +49,7 @@
 }
 
 .all-news.blog-listing .btn:hover {
-  background: #27264f;
+  background: #3f3e82;
 }
 .card {
   margin-bottom: 30px;
@@ -86,11 +86,11 @@
   transition: all 0.18s ease;
 }
 .blg-pagination__num:hover {
-  color: #282853;
+  color: #3f3e82;
   background: #ededf3;
 }
 .blg-pagination__num--active {
-  background: #282853;
+  background: #3f3e82;
   color: #fff;
   font-weight: 700;
   pointer-events: none;
@@ -119,8 +119,8 @@
   transition: all 0.18s ease;
 }
 .blg-pagination__arrow:hover {
-  border-color: #282853;
-  color: #282853;
+  border-color: #3f3e82;
+  color: #3f3e82;
 }
 .blg-pagination__arrow--disabled {
   color: #ccc;
@@ -261,6 +261,6 @@
   z-index: 1;
 }
 .blog-sidebar-cta__btn:hover {
-  background: #313065;
+  background: #3f3e82;
   color: #fff;
 }

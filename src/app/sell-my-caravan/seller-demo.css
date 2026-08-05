@@ -135,7 +135,7 @@
   width: 9px;
   height: 9px;
   border-radius: 50%;
-  background: #2b2b5a;
+  background: #3f3e82;
 }
 
 .demo-price-card__trust {
@@ -286,7 +286,7 @@
 }
 
 .demo-hero__cta:hover {
-  background: #323268;
+  background: #3f3e82;
   color: #fff;
   text-decoration: none;
 }
@@ -554,7 +554,7 @@
 }
 
 .demo-aus-card__btn:hover {
-  background: #323268;
+  background: #3f3e82;
   color: #fff;
   text-decoration: none;
 }
@@ -837,7 +837,7 @@
 }
 
 .demo-reach-card__cta:hover {
-  background: #323268;
+  background: #3f3e82;
   color: #fff;
   text-decoration: none;
 }
@@ -996,7 +996,7 @@
   width: 36px;
   height: 36px;
   background: #e5e5ee;
-  color: #2b2b5a;
+  color: #3f3e82;
   font-size: 16px;
   font-weight: 800;
   border-radius: 50%;
@@ -1039,7 +1039,7 @@
   width: 9px;
   height: 9px;
   border-radius: 50%;
-  background: #2b2b5a;
+  background: #3f3e82;
 }
 
 @media (max-width: 991px) {

@@ -180,7 +180,7 @@
   border: 0;
 }
 .contactSeller__container .price_section .price-shape span {
-  color: #27264f !important;
+  color: #3f3e82 !important;
   font-size: 30px;
   font-weight: 700;
 }
@@ -195,8 +195,8 @@
 .contact_dealer button {
   border-radius: 30px;
   display: inline-block;
-  background-color: #27264f;
-  border: 1px solid #27264f;
+  background-color: #3f3e82;
+  border: 1px solid #3f3e82;
   color: #fff;
   text-align: center;
   padding: 15px 50px;
@@ -271,8 +271,8 @@
 }
 
 .product-page .product-details .nav-pills .nav-link.active {
-  color: #27264f;
-  border-color: #27264f;
+  color: #3f3e82;
+  border-color: #3f3e82;
 }
 .product-page .product-details .additional-info ul {
   border: 1px solid #0002;
@@ -510,8 +510,8 @@
     color: #fff;
     text-transform: capitalize;
     letter-spacing: 0;
-    background: #27264f;
-    border: 1px solid #27264f;
+    background: #3f3e82;
+    border: 1px solid #3f3e82;
     border-radius: 20px;
     width: 100%;
     margin-top: 0;
@@ -527,7 +527,7 @@
 }
 
 .terms_text a {
-  color: #27264f;
+  color: #3f3e82;
 }
 
 .related-products h3 {
@@ -611,7 +611,7 @@
 }
 
 .checklist li .btn-secondary {
-    color: #292854;
+    color: #3f3e82;
     background: #ebebf2;
     border-radius: 20px;
     padding: 5px 15px;
@@ -641,7 +641,7 @@
 
 .num{
   background:#d6d6e5;
-  color:#292854;
+  color:#3f3e82;
   width:34px;
   height:34px;
   border-radius:50%;
@@ -699,7 +699,7 @@
 
 .btn-secondary{
   background:#ebebf2;
-  color:#292854;
+  color:#3f3e82;
   padding:8px 14px;
   border-radius:20px;
   text-decoration:none;
@@ -720,8 +720,8 @@
 }
 
 .btn-primary{
-  background:#27264f;
-  border-color: #27264f;
+  background:#3f3e82;
+  border-color: #3f3e82;
   color:#fff;
   padding:14px 65px;
   border-radius:30px;
@@ -1048,7 +1048,7 @@
   }
 
   .current-price {
-    color: #27264f;
+    color: #3f3e82;
     font-size: 25px;
     font-weight: bold;
   }

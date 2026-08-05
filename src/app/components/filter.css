@@ -52,7 +52,7 @@
   height: 18px;
   border-radius: 50%;
   background: #fff;
-  border: 2px solid #35356e;
+  border: 2px solid #3f3e82;
   box-shadow: 0 1px 4px rgba(0,0,0,0.2);
   cursor: pointer;
 }
@@ -61,7 +61,7 @@
   height: 18px;
   border-radius: 50%;
   background: #fff;
-  border: 2px solid #35356e;
+  border: 2px solid #3f3e82;
   box-shadow: 0 1px 4px rgba(0,0,0,0.2);
   cursor: pointer;
 }
@@ -84,8 +84,8 @@
     transform: translate(-50%, -50%);
 }
 .cfs-radius-tick.active {
-    border-color: #35356e;
-    background: #35356e;
+    border-color: #3f3e82;
+    background: #3f3e82;
 }
 .cfs-radius-tick.current {
     opacity: 0;
@@ -128,7 +128,7 @@
 .filter-modal .location-suggestions .suggestion-item:hover,
 .filter-modal .location-suggestions .suggestion-item.selected {
   background: #f3f3f7;
-  color: #27264f;
+  color: #3f3e82;
 }
 .filter-modal .location-suggestions .suggestion-skeleton {
   padding: 11px 16px;
@@ -146,7 +146,7 @@
 }
 .filter-modal .location-suggestions li:hover {
   background: #f3f3f7;
-  color: #27264f;
+  color: #3f3e82;
 }
 /* For selected filter chip */
 /* Selected filter pill */
@@ -219,13 +219,13 @@
 
 .suggestion-item:hover {
   background-color: #ffffff;
-  color: #27264f; /* hover color */
+  color: #3f3e82; /* hover color */
 }
 
 .suggestion-item.selected {
   background-color: #ffffff; /* your selected bg color */
   font-weight: 500;
-  color: #27264f;
+  color: #3f3e82;
 }
 
 
@@ -304,8 +304,8 @@ input.loc-search-input:focus {
   background: #fff;
 }
 .loc-checkbox.checked {
-  border-color: #27264f;
-  background: #27264f;
+  border-color: #3f3e82;
+  background: #3f3e82;
 }
 
 .loc-state-name {
@@ -338,12 +338,12 @@ input.loc-search-input:focus {
   padding: 0;
   color: #555;
 }
-.loc-arrow-btn:hover { border-color: #27264f; color: #27264f; }
+.loc-arrow-btn:hover { border-color: #3f3e82; color: #3f3e82; }
 .loc-arrow-btn svg { display: block; }
 
 .search-bar button.loc-region-pill,
 .loc-region-pill {
-  background: #27264f;
+  background: #3f3e82;
   color: #fff;
   border: none;
   border-radius: 20px;
@@ -358,12 +358,12 @@ input.loc-search-input:focus {
   align-items: center;
   gap: 4px;
 }
-.loc-region-pill:hover { background: #232349; }
+.loc-region-pill:hover { background: #3f3e82; }
 
 .search-bar button.loc-back-btn {
   background: none;
   border: none;
-  color: #27264f;
+  color: #3f3e82;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
@@ -372,7 +372,7 @@ input.loc-search-input:focus {
   align-items: center;
   gap: 4px;
 }
-.search-bar button.loc-back-btn:hover { color: #232349; }
+.search-bar button.loc-back-btn:hover { color: #3f3e82; }
 
 .loc-region-heading {
   font-size: 15px;
@@ -423,9 +423,9 @@ input.loc-search-input:focus {
   transition: all 0.2s ease;
 }
 .cfs-links-link:hover {
-  background: #35356e;
+  background: #3f3e82;
   color: #fff;
-  border-color: #35356e;
+  border-color: #3f3e82;
 }
 .cfs-links-loading {
   text-align: center;

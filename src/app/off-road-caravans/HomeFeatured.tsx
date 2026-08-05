@@ -60,7 +60,6 @@ export default function HomeFeatured() {
             const isNew = item.condition?.toLowerCase() === "new";
             const price = item.sale_price || item.regular_price || "POA";
             const image = item.image_format?.[0] ?? null;
-            const type = (item.categories?.[0] ?? "").replace(/-/g, " ").replace(/\b\w/g, c => c.toUpperCase()) + " Campervan";
 
             return (
               <Link key={item.id ?? idx} href={`/product/${item.slug}/`} className="hf-card">
@@ -70,7 +69,6 @@ export default function HomeFeatured() {
                   ) : (
                     <div className="hf-card__img-placeholder" />
                   )}
-                  {type && <div className="hf-card__dealer-tag">{type}</div>}
                 </div>
                 <div className="hf-card__body">
                   <h3 className="hf-card__title">{item.name}</h3>

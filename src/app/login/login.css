@@ -1,6 +1,6 @@
 
 :root {
-  --primary-color: #27264f;
+  --primary-color: #3f3e82;
   --secondary-color: #000000;
   --success-color: #22c55e;
   --error-color: #ef4444;
@@ -183,7 +183,7 @@
 .submit-btn {
   width: 100%;
   padding: 14px;
-  background: #27264f;
+  background: #3f3e82;
   color: white;
   border: none;
   border-radius: 8px;

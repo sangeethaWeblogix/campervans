@@ -685,15 +685,15 @@ h1.page-title {
   padding-bottom: 25px;
 }
 .cfs-modal-content .cfs-modal-footer .cfs-btn {
-  background: #27264f;
+  background: #3f3e82;
   width: 300px;
-  border-color: #27264f;
+  border-color: #3f3e82;
   color: #fff;
 }
 
 .cfs-modal-content .cfs-modal-footer .cfs-btn:hover,
 .cfs-modal-content .cfs-modal-footer .cfs-btn:focus {
-  background: #2d2d5e;
+  background: #3f3e82;
   color: #ffffff;
 }
 /* The Close Button */
@@ -1140,7 +1140,7 @@ input[type="number"]::-webkit-outer-spin-button {
 .listing-bottom .quick_links_tabs h2 {
   font-size: 20px;
   font-weight: 600;
-  color: #1a1a2e;
+  color: #3f3e82;
   position: relative;
   padding-bottom: 10px;
   display: inline-block;
@@ -1153,7 +1153,7 @@ input[type="number"]::-webkit-outer-spin-button {
   left: 0;
   width: 36px;
   height: 3px;
-  background: #3e3d81;
+  background: #3f3e82;
   border-radius: 2px;
 }
 
@@ -1168,14 +1168,14 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .listing-bottom .custom-card:hover h4 {
-  color: #3e3d81;
+  color: #3f3e82;
   border-bottom: none;
 }
 
 .listing-bottom .custom-card-title {
   font-size: 15px;
   font-weight: 500;
-  color: #1a1a2e;
+  color: #3f3e82;
   display: block;
 }
 
@@ -1211,7 +1211,7 @@ input[type="number"]::-webkit-outer-spin-button {
   margin: 0;
 }
 .lsd-sell-cta__link {
-  color: #282853;
+  color: #3f3e82;
   font-weight: 600;
   text-decoration: none;
 }

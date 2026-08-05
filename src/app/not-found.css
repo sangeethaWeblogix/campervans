@@ -89,20 +89,20 @@
 
 .btn-primary {
   color: #fff;
-  background: #27264f;
-  border: 1px solid #27264f;
+  background: #3f3e82;
+  border: 1px solid #3f3e82;
 }
 
 .btn-outline {
   background: #ffffff;
-  color: #27264f;
-  border: 2px solid #27264f;
+  color: #3f3e82;
+  border: 2px solid #3f3e82;
 }
 
 .btn-primary:hover,
 .btn-outline:hover {
-  background: #242349;
-  border-color: #242349;
+  background: #3f3e82;
+  border-color: #3f3e82;
   color: #fff;
 }
 
@@ -289,13 +289,13 @@
   margin: 0;
   padding: 12px 16px 8px;
   font-size: 14px;
-  color: #27264f;
+  color: #3f3e82;
   border-bottom: none;
 }
 
 .search-container .suggestions h4 svg {
   width: 20px;
-  fill: #27264f;
+  fill: #3f3e82;
   margin-right: 5px;
 }
 

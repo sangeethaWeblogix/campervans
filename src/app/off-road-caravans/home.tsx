@@ -356,7 +356,7 @@ export default function OffRoadCaravansPage({ stateBands, offRoadBlogs, offRoadP
         <div className="container">
           <div className="or-cta-inner or-cta-inner--sell">
             <div className="or-cta-sell-left">
-              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#35356e" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#3f3e82" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/>
               </svg>
               <div>

@@ -163,7 +163,7 @@
 }
 
 .popular-searches li:hover {
-  color: #27264f;
+  color: #3f3e82;
 }
 
 .popular-searches li:before {
@@ -177,7 +177,7 @@
 }
 
 .active_filter {
-  color: #27264f;
+  color: #3f3e82;
   font-size: 10px !important;
   position: relative;
   margin-left: 4px;
@@ -204,7 +204,7 @@
   color: #ffffff;
   width: 25px;
   height: 25px;
-  background: #27264f;
+  background: #3f3e82;
   border-radius: 50px;
   display: inline-block;
   text-align: center;
@@ -406,7 +406,7 @@ border-bottom: none;
 }
 
 .filter-footer .search {
-  background: #27264f;
+  background: #3f3e82;
   color: #fff;
   padding: 10px 20px;
   border-radius: 6px;
@@ -556,7 +556,7 @@ border-bottom: none;
 }
 
 .search-bar button.chip-clear-all:hover {
-  color: #2e2d5f;
+  color: #3f3e82;
 }
 
 .chip-clear-all:disabled {

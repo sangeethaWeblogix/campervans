@@ -238,8 +238,8 @@ h1.page-title {
 }
 
 .product-page .other_items .product-card .btn.btn-primary {
-  background-color: #27264f;
-  border-color: #27264f;
+  background-color: #3f3e82;
+  border-color: #3f3e82;
   color: #ffffff;
       border-radius: 6px;
 }
@@ -709,7 +709,7 @@ height: auto;
 }
 
 .filter_sticky .clear_btn {
-  color: #27264f;
+  color: #3f3e82;
   cursor: pointer;
   font-size: 13px;
   font-weight: 500;
