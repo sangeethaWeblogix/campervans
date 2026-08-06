@@ -1746,6 +1746,21 @@
 .demo-cta-strip .white_btn {
   font-size: 16px;
   padding: 14px 36px;
+  display: inline-block;
+  margin-bottom: 16px;
+}
+
+.demo-cta-strip__alt-link {
+  margin-top: 8px;
+}
+
+.demo-cta-strip__alt-link a {
+  color: #1153a6;
+  font-weight: 500;
+}
+
+.demo-cta-strip__alt-link a:hover {
+  text-decoration: underline;
 }
 
 .white_btn {

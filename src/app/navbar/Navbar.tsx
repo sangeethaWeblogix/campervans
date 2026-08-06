@@ -106,6 +106,7 @@ export default function Navbar() {
                 </li>
 
                 {/* ── Explore dropdown ── */}
+                {/*
                 <li className="nav-item explore-nav-item" ref={exploreRef}>
                   <button
                     className="nav-link explore-nav-btn"
@@ -122,6 +123,7 @@ export default function Navbar() {
                     </div>
                   )}
                 </li>
+                */}
 
                 <li className="nav-item">
                   <a className="nav-link" href="/sell-my-caravan/">Sell My Campervan</a>
@@ -211,6 +213,7 @@ export default function Navbar() {
                 <ul>
                   <li><a href="/" onClick={closeNav}>Home</a></li>
                   <li><a href="/listings/" onClick={closeNav}>Buy</a></li>
+                  {/*
                   <li className="sidenav-explore-item">
                     <button
                       className="sidenav-explore-btn"
@@ -224,6 +227,7 @@ export default function Navbar() {
                       </div>
                     )}
                   </li>
+                  */}
                   <li><a href="/blog/" onClick={closeNav}>Blog</a></li>
                   <li><a href="/about-us/" onClick={closeNav}>About</a></li>
                   <li><a href="/contact/" onClick={closeNav}>Contact</a></li>

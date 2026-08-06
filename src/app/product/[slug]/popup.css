@@ -136,15 +136,56 @@
   color: #ffffff;
 }
 
-/* Image counter */
-.cfs-modal-counter {
+/* Bottom bar: image counter + zoom controls */
+.cfs-modal-bottombar {
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: 8px 24px;
-  color: #ffffff;
-  font-size: 13px;
-  text-align: left;
   background: #000000;
   border-top: 1px solid #181818;
+}
+
+.cfs-modal-counter {
+  color: #ffffff;
+  font-size: 13px;
+}
+
+.cfs-zoom-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
+}
+
+.cfs-zoom-btn {
+  background: #181818;
+  color: #ffffff;
+  border: 1px solid #2a2a2a;
+  border-radius: 4px;
+  height: 28px;
+  min-width: 28px;
+  padding: 0 10px;
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.cfs-zoom-btn:hover:not(:disabled) {
+  background: #2a2a2a;
+}
+
+.cfs-zoom-btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.cfs-zoom-btn.cfs-zoom-reset {
+  min-width: unset;
+  font-size: 12px;
+  font-weight: 500;
 }
 
 /* ── Right: form panel ───────────────────────────────────────────────── */
@@ -360,13 +401,18 @@
   font-size: 22px;
   font-weight: 700;
 }
-.cfs-fs-counter {
+.cfs-fs-bottombar {
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: 10px 16px;
+  background: #000;
+}
+
+.cfs-fs-counter {
   color: #ccc;
   font-size: 14px;
-  text-align: left;
-  background: #000;
 }
 
 /* ── Responsive ─────────────────────────────────────────────────────── */

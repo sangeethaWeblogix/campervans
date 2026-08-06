@@ -711,7 +711,7 @@ const priceUpperIdx = !isPOA ? PRICE_STEPS.findIndex(s => s >= displayPrice) : -
                           ? <Image src={imgUrl} alt={rName} fill style={{ objectFit: "cover" }} unoptimized />
                           : <div className="pdd-similar__img-placeholder" />
                         }
-                        {rCat && <span className="pdd-similar__cat-chip">{rCat}</span>}
+                        {/* {rCat && <span className="pdd-similar__cat-chip">{rCat}</span>} */}
                       </div>
                       <div className="pdd-similar__body">
                         <p className="pdd-similar__name">{rName}</p>
@@ -764,7 +764,7 @@ const priceUpperIdx = !isPOA ? PRICE_STEPS.findIndex(s => s >= displayPrice) : -
                         ? <Image src={imgUrl} alt={rName} fill style={{ objectFit: "cover" }} unoptimized />
                         : <div className="pdd-similar__img-placeholder" />
                       }
-                      {rCat && <span className="pdd-similar__cat-chip">{rCat}</span>}
+                      {/* {rCat && <span className="pdd-similar__cat-chip">{rCat}</span>} */}
                     </div>
                     <div className="pdd-similar__body">
                       <p className="pdd-similar__name">{rName}</p>
