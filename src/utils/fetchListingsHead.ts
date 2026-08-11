@@ -38,7 +38,7 @@ type ApiResponse = {
   emp_exclusive_products?: Item[];
 };
 
-const BASE_URL = "https://www.caravansforsale.com.au";
+const BASE_URL = "https://campervans.vercel.app";
 const API_BASE = process.env.NEXT_PUBLIC_CFS_API_BASE;
 const API_KEY = process.env.CFS_API_KEY;
 
@@ -232,7 +232,7 @@ export function buildListingsJsonLd(
     ...(response.data?.products || []),
     ...(response.data?.emp_exclusive_products || []),
   ];
-const weburl = "https://www.caravansforsale.com.au"
+const weburl = "https://campervans.vercel.app"
 
   const footerDescription = response?.seo_v2?.footer_description
     ? stripHtml(response.seo_v2.footer_description)

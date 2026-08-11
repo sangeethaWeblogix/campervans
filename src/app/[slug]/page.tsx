@@ -43,7 +43,7 @@ export async function generateMetadata({
         google: "6tT6MT6AJgGromLaqvdnyyDQouJXq0VHS-7HC194xEo", // ✅ Google site verification
       },
       alternates: {
-        canonical: `https://www.caravansforsale.com.au/${slug}/`,
+        canonical: `https://campervans.vercel.app/${slug}/`,
       },
     };
   }
@@ -63,7 +63,7 @@ export async function generateMetadata({
     data?.short_description ||
     "View campervan details.";
   const robots = "index, follow";
-  const canonicalUrl = `https://www.caravansforsale.com.au/${slug}/`;
+  const canonicalUrl = `https://campervans.vercel.app/${slug}/`;
   console.log("generateMetadata", { title, description, robots, canonicalUrl });
   return {
     title,

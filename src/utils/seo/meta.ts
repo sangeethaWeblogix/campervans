@@ -342,7 +342,7 @@ export async function metaFromSlug(
   filters: string[] = [],
   searchParams: Record<string, string | string[] | undefined> = {}
 ): Promise<Metadata> {
-  const BASE_URL = "https://www.caravansforsale.com.au";
+  const BASE_URL = "https://campervans.vercel.app";
 
   const parsed = parseSlugToFilters(filters, searchParams);
 
@@ -403,7 +403,7 @@ export async function metaFromSlug(
       url: canonical,
       images: [
         {
-          url: "https://www.caravansforsale.com.au/images/cfs-logo.png",
+          url: "https://campervans.vercel.app/images/cfs-logo.png",
           width: 800,
           height: 600,
           alt: "Campervans for Sale Australia",

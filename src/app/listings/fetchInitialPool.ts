@@ -18,7 +18,7 @@ import type { FilterState } from "./StateFilterBar";
 const CF_ACCOUNT_ID   = process.env.CF_ACCOUNT_ID;
 const CF_NAMESPACE_ID = process.env.CF_KV_NAMESPACE_ID;
 const CF_API_TOKEN    = process.env.CF_API_TOKEN;
-const APP_URL         = process.env.NEXT_PUBLIC_APP_URL || "https://www.caravansforsale.com.au";
+const APP_URL         = process.env.NEXT_PUBLIC_APP_URL || "https://campervans.vercel.app";
 // Direct WP API — used when seed > 0 to bypass Cloudflare's pool cache (which strips seed).
 const WP_API_BASE     = process.env.NEXT_PUBLIC_CFS_API_BASE;
 const WP_API_KEY      = process.env.CFS_API_KEY;

@@ -4,7 +4,7 @@ export const runtime = "nodejs";
 export const revalidate = 3600;
 
 const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://www.caravansforsale.com.au";
+  process.env.NEXT_PUBLIC_SITE_URL || "https://campervans.vercel.app";
 
 const CONSUMER_KEY = "ck_73393ca56ac29867aa71c9beeba4714a49c4116b";
 const CONSUMER_SECRET = "cs_b554ee636b76bf9968bbe181695a6fb2b4b180b1";

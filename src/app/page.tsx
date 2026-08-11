@@ -22,16 +22,16 @@ export const metadata: Metadata = {
     google: "6tT6MT6AJgGromLaqvdnyyDQouJXq0VHS-7HC194xEo",
   },
   alternates: {
-    canonical: "https://www.caravansforsale.com.au",
+    canonical: "https://campervans.vercel.app",
   },
   openGraph: {
     title: "Campervans For Sale – New & Used Campervan Marketplace in Australia",
     description: "Browse campervans for sale across Australia. Compare prices on off-road, hybrid, pop top, touring, luxury models with size, weight & sleeping capacity.",
-    url: "https://www.caravansforsale.com.au",
+    url: "https://campervans.vercel.app",
     siteName: "Campervans for Sale",
     images: [
       {
-        url: "https://www.caravansforsale.com.au/images/cfs-logo.png",
+        url: "https://campervans.vercel.app/images/cfs-logo.png",
         width: 800,
         height: 600,
         alt: "Campervans for Sale Australia",
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   },
 };
 
-const BASE_URL = "https://www.caravansforsale.com.au";
+const BASE_URL = "https://campervans.vercel.app";
 
 const homeJsonLd = {
   "@context": "https://schema.org",

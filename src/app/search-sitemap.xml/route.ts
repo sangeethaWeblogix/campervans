@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
  const API_KEY = process.env.CFS_API_KEY; // ✅ Add at top of file
 
 const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://www.caravansforsale.com.au";
+  process.env.NEXT_PUBLIC_SITE_URL || "https://campervans.vercel.app";
 
  export async function GET() {
   try {

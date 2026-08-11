@@ -13,7 +13,7 @@ import { fetchHomePage } from "@/api/home/api";
 
 export const revalidate = 86400;
 
-const CANONICAL = "https://www.caravansforsale.com.au/caravan-sales/";
+const CANONICAL = "https://campervans.vercel.app/caravan-sales/";
 
 const schemaJsonLd = {
   "@context": "https://schema.org",
@@ -26,13 +26,13 @@ const schemaJsonLd = {
       "description": "Find the best campervan sales across Australia. Browse thousands of new and used campervans from trusted dealers and private sellers.",
       "inLanguage": "en-AU",
       "breadcrumb": { "@id": `${CANONICAL}#breadcrumb` },
-      "isPartOf": { "@type": "WebSite", "url": "https://www.caravansforsale.com.au/" },
+      "isPartOf": { "@type": "WebSite", "url": "https://campervans.vercel.app/" },
     },
     {
       "@type": "BreadcrumbList",
       "@id": `${CANONICAL}#breadcrumb`,
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home",          "item": "https://www.caravansforsale.com.au/" },
+        { "@type": "ListItem", "position": 1, "name": "Home",          "item": "https://campervans.vercel.app/" },
         { "@type": "ListItem", "position": 2, "name": "Campervan Sales", "item": CANONICAL },
       ],
     },

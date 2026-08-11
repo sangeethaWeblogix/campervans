@@ -1,7 +1,7 @@
 import SellerDemo from "./seller-demo";
 import "./seller-demo.css";
 
-const BASE_URL = "https://www.caravansforsale.com.au";
+const BASE_URL = "https://campervans.vercel.app";
 
 const sellPageJsonLd = {
   "@context": "https://schema.org",

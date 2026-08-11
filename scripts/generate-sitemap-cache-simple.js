@@ -58,7 +58,7 @@ async function fetchWithTimeout(url, options = {}, timeoutMs = 30000) {
 }
 
 // Environment variables
-const PRODUCTION_DOMAIN  = process.env.PRODUCTION_DOMAIN || 'https://www.caravansforsale.com.au';
+const PRODUCTION_DOMAIN  = process.env.PRODUCTION_DOMAIN || 'https://campervans.vercel.app';
 const VERCEL_BASE_URL    = process.env.VERCEL_BASE_URL || PRODUCTION_DOMAIN; // Prefer Vercel direct to bypass CF Worker
 const CF_ACCOUNT_ID      = process.env.CF_ACCOUNT_ID;
 const CF_KV_NAMESPACE_ID = process.env.CF_KV_NAMESPACE_ID;

@@ -30,7 +30,7 @@ const path  = require('path');
 const WP_API_BASE       = process.env.WP_API_BASE       || 'https://admin.caravansforsale.com.au/wp-json/cfs/v1/sitemap';
 const WP_STATIC_BASE    = process.env.WP_STATIC_BASE    || '';  // e.g. https://admin.caravansforsale.com.au/wp-content/uploads/cfs-paths
 const WP_API_KEY        = process.env.WP_API_KEY        || '';
-const PRODUCTION_DOMAIN = process.env.PRODUCTION_DOMAIN || 'https://www.caravansforsale.com.au';
+const PRODUCTION_DOMAIN = process.env.PRODUCTION_DOMAIN || 'https://campervans.vercel.app';
 const TARGET_SITEMAP    = process.env.TARGET_SITEMAP;
 const OUTPUT_DIR        = process.env.PATHS_OUTPUT_DIR  || '/tmp';
 

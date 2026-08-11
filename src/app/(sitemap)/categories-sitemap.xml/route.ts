@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ||
-  "https://www.caravansforsale.com.au/listings/";
+  "https://campervans.vercel.app/listings/";
   const API_KEY = process.env.CFS_API_KEY; // ✅ Added
 
 

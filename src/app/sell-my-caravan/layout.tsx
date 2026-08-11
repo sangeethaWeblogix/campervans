@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     "Sell your campervan online across Australia for just $49. List until sold, edit anytime, pay no commission and connect directly with genuine campervan buyers.",
   robots: "index, follow",
   alternates: {
-    canonical: "https://www.caravansforsale.com.au/sell-my-caravan/",
+    canonical: "https://campervans.vercel.app/sell-my-caravan/",
   },
 };
 

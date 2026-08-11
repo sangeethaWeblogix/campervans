@@ -23,7 +23,7 @@ const path = require("path");
 
 const filePath = path.join(process.cwd(), "src/app/url.csv");
 const outPath = path.join(process.cwd(), "cfs-paths/indexable-urls.json");
-const BASE = "https://www.caravansforsale.com.au";
+const BASE = "https://campervans.vercel.app";
 
 const content = fs.readFileSync(filePath, "utf-8");
 const set = new Set();

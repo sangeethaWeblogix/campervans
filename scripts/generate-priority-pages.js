@@ -17,7 +17,7 @@ const puppeteer = require('puppeteer');
 const fetch = require('node-fetch');
 
 const VERCEL_BASE_URL = process.env.VERCEL_BASE_URL || 'https://caravansforsale-main-live.vercel.app';
-const PRODUCTION_DOMAIN = process.env.PRODUCTION_DOMAIN || 'https://www.caravansforsale.com.au';
+const PRODUCTION_DOMAIN = process.env.PRODUCTION_DOMAIN || 'https://campervans.vercel.app';
 const CF_ACCOUNT_ID = process.env.CF_ACCOUNT_ID;
 const CF_KV_NAMESPACE_ID = process.env.CF_KV_NAMESPACE_ID;
 const CF_API_TOKEN = process.env.CF_API_TOKEN;

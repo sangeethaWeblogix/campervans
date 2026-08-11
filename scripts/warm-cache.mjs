@@ -2,7 +2,7 @@
 // Usage:
 //   node scripts/warm-cache.mjs                          (uses production URL)
 //   node scripts/warm-cache.mjs https://staging.vercel.app
-//   node scripts/warm-cache.mjs https://www.caravansforsale.com.au 5   (concurrency 5)
+//   node scripts/warm-cache.mjs https://campervans.vercel.app 5   (concurrency 5)
 
 import fs from "fs";
 import path from "path";
@@ -10,11 +10,11 @@ import { fileURLToPath } from "url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-const BASE_URL = (process.argv[2] || "https://www.caravansforsale.com.au").replace(/\/$/, "");
+const BASE_URL = (process.argv[2] || "https://campervans.vercel.app").replace(/\/$/, "");
 const CONCURRENCY = parseInt(process.argv[3] || "8", 10);
 const TIMEOUT_MS = 35_000;
 const CSV_PATH = path.join(__dirname, "../src/app/url.csv");
-const SITE_BASE = "https://www.caravansforsale.com.au";
+const SITE_BASE = "https://campervans.vercel.app";
 
 // ── Read all URLs from url.csv ────────────────────────────────────────────────
 const content = fs.readFileSync(CSV_PATH, "utf-8");

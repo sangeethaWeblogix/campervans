@@ -91,7 +91,7 @@ const loading = !data || !blogPosts || blogPosts.length === 0 && data.totalPages
               <div className="author-info">
                 <p>
                   Tom is a passionate campervan enthusiast and content writer at{" "}
-                  <Link href="https://www.caravansforsale.com.au/">
+                  <Link href="https://campervans.vercel.app/">
                     CaravansForSale.com.au
                   </Link>{" "}
                   — Australia’s trusted destination for buying, selling, and

@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 
 export async function GET() {
   const siteUrl =
-    process.env.NEXT_PUBLIC_SITE_URL || "https://www.caravansforsale.com.au";
+    process.env.NEXT_PUBLIC_SITE_URL || "https://campervans.vercel.app";
 
   const sitemaps = [
     "general-sitemap.xml",

@@ -52,7 +52,7 @@ const VERCEL_BASE_URL = process.env.VERCEL_BASE_URL || 'https://caravansforsale-
 const CF_ACCOUNT_ID      = process.env.CF_ACCOUNT_ID;
 const CF_KV_NAMESPACE_ID = process.env.CF_KV_NAMESPACE_ID;
 const CF_API_TOKEN       = process.env.CF_API_TOKEN;
-const SITE_BASE          = 'https://www.caravansforsale.com.au';
+const SITE_BASE          = 'https://campervans.vercel.app';
 
 const HTML_VARIANTS      = 7;
 const HTML_CONCURRENCY   = 6;
