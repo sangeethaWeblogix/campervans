@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Campervan Sales Australia | New & Used Campervans for Sale",
   description:
     "Find the best campervan sales across Australia. Browse thousands of new and used campervans from trusted dealers and private sellers. Compare prices, types, and locations to find your perfect campervan.",
+  robots: "noindex, nofollow",
 };
  import { fetchStateBasedCaravans } from "@/api/homeApi/state/api";
 import { fetchRequirements } from "@/api/postRquirements/api";
@@ -13,7 +14,7 @@ import { fetchHomePage } from "@/api/home/api";
 
 export const revalidate = 86400;
 
-const CANONICAL = "https://campervans.vercel.app/caravan-sales/";
+const CANONICAL = "https://campervans.vercel.app/campervan-sales/";
 
 const schemaJsonLd = {
   "@context": "https://schema.org",

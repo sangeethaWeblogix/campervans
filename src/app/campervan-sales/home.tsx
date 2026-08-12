@@ -1,14 +1,13 @@
 "use client";
 
-import dynamic from "next/dynamic";
+// import dynamic from "next/dynamic";
 import HomeFeatured from "./HomeFeatured";
-import HomeTypeSection from "./HomeTypeSection";
 import HomeStateSection from "./HomeStateSection";
 import HomeLocationSection from "./HomeLocationSection";
 import HomeBuyerGuide from "./HomeBuyerGuide";
 import "./main.css";
 
-const BlogSection = dynamic(() => import("../blogSection"), { ssr: false });
+// const BlogSection = dynamic(() => import("../blogSection"), { ssr: false });
 
 
 interface Item {
@@ -32,22 +31,22 @@ interface Props {
 }
 
 const CITY_LINKS = [
-  { text: "Adelaide",       href: "/listings/south-australia-state/adelaide-region/?category=off-road" },
-  { text: "Brisbane",       href: "/listings/queensland-state/brisbane-region/?category=off-road" },
-  { text: "Gold Coast",     href: "/listings/queensland-state/gold-coast-region/?category=off-road" },
-  { text: "Melbourne",      href: "/listings/victoria-state/melbourne-region/?category=off-road" },
-  { text: "Perth",          href: "/listings/western-australia-state/perth-region/?category=off-road" },
-  { text: "Sydney",         href: "/listings/new-south-wales-state/sydney-region/?category=off-road" },
-  { text: "Cairns",         href: "/listings/queensland-state/cairns-region/?category=off-road" },
-  { text: "Canberra",       href: "/listings/australian-capital-territory-state/?category=off-road" },
-  { text: "Darwin",         href: "/listings/northern-territory-state/?category=off-road" },
-  { text: "Geelong",        href: "/listings/victoria-state/geelong-region/?category=off-road" },
-  { text: "Hobart",         href: "/listings/tasmania-state/hobart-region/?category=off-road" },
-  { text: "Newcastle",      href: "/listings/new-south-wales-state/newcastle-region/?category=off-road" },
-  { text: "Sunshine Coast", href: "/listings/queensland-state/sunshine-coast-region/?category=off-road" },
-  { text: "Townsville",     href: "/listings/queensland-state/townsville-region/?category=off-road" },
-  { text: "Wollongong",     href: "/listings/new-south-wales-state/illawarra-region/?category=off-road" },
-  { text: "Ballarat",       href: "/listings/victoria-state/ballarat-region/?category=off-road" },
+  { text: "Adelaide",       href: "/listings/south-australia-state/adelaide-region/" },
+  { text: "Brisbane",       href: "/listings/queensland-state/brisbane-region/" },
+  { text: "Gold Coast",     href: "/listings/queensland-state/gold-coast-region/" },
+  { text: "Melbourne",      href: "/listings/victoria-state/melbourne-region/" },
+  { text: "Perth",          href: "/listings/western-australia-state/perth-region/" },
+  { text: "Sydney",         href: "/listings/new-south-wales-state/sydney-region/" },
+  { text: "Cairns",         href: "/listings/queensland-state/cairns-region/" },
+  { text: "Canberra",       href: "/listings/australian-capital-territory-state/" },
+  { text: "Darwin",         href: "/listings/northern-territory-state/" },
+  { text: "Geelong",        href: "/listings/victoria-state/geelong-region/" },
+  { text: "Hobart",         href: "/listings/tasmania-state/hobart-region/" },
+  { text: "Newcastle",      href: "/listings/new-south-wales-state/newcastle-region/" },
+  { text: "Sunshine Coast", href: "/listings/queensland-state/sunshine-coast-region/" },
+  { text: "Townsville",     href: "/listings/queensland-state/townsville-region/" },
+  { text: "Wollongong",     href: "/listings/new-south-wales-state/illawarra-region/" },
+  { text: "Ballarat",       href: "/listings/victoria-state/ballarat-region/" },
 ];
 
 const SEARCH_FILTERS = [
@@ -55,34 +54,34 @@ const SEARCH_FILTERS = [
     label: "By Budget",
     icon: "$",
     links: [
-      { text: "Under $50,000",         href: "/listings/?max_price=50000&category=off-road" },
-      { text: "Under $80,000",         href: "/listings/?max_price=80000&category=off-road" },
-      { text: "Under $100,000",        href: "/listings/?max_price=100000&category=off-road" },
-      { text: "Over $100,000",         href: "/listings/?min_price=100000&category=off-road" },
-      { text: "Second Hand Off Road",  href: "/listings/?condition=used&category=off-road" },
-      { text: "New Off Road Campervans", href: "/listings/?condition=new&category=off-road" },
+      { text: "Under $50,000",         href: "/listings/?max_price=50000" },
+      { text: "Under $80,000",         href: "/listings/?max_price=80000" },
+      { text: "Under $100,000",        href: "/listings/?max_price=100000" },
+      { text: "Over $100,000",         href: "/listings/?min_price=100000" },
+      { text: "Second Hand Off Road",  href: "/listings/?condition=used" },
+      { text: "New Off Road Campervans", href: "/listings/?condition=new" },
     ],
   },
   {
     label: "By Weight (ATM)",
     icon: "⚖",
     links: [
-      { text: "Under 1500kg", href: "/listings/?max_atm=1500&category=off-road" },
-      { text: "Under 2000kg", href: "/listings/?max_atm=2000&category=off-road" },
-      { text: "Under 2500kg", href: "/listings/?max_atm=2500&category=off-road" },
-      { text: "Under 3000kg", href: "/listings/?max_atm=3000&category=off-road" },
-      { text: "Over 3000kg",  href: "/listings/?min_atm=3000&category=off-road" },
+      { text: "Under 1500kg", href: "/listings/?max_atm=1500" },
+      { text: "Under 2000kg", href: "/listings/?max_atm=2000" },
+      { text: "Under 2500kg", href: "/listings/?max_atm=2500" },
+      { text: "Under 3000kg", href: "/listings/?max_atm=3000" },
+      { text: "Over 3000kg",  href: "/listings/?min_atm=3000" },
     ],
   },
   {
     label: "By Size (Length)",
     icon: "↔",
     links: [
-      { text: "14ft",        href: "/listings/?length=14&category=off-road" },
-      { text: "16ft",        href: "/listings/?length=16&category=off-road" },
-      { text: "18ft 6",      href: "/listings/?length=18&category=off-road" },
-      { text: "19ft",        href: "/listings/?length=19&category=off-road" },
-      { text: "Single Axle", href: "/listings/?axle=single&category=off-road" },
+      { text: "14ft",        href: "/listings/?length=14" },
+      { text: "16ft",        href: "/listings/?length=16" },
+      { text: "18ft 6",      href: "/listings/?length=18" },
+      { text: "19ft",        href: "/listings/?length=19" },
+      { text: "Single Axle", href: "/listings/?axle=single" },
     ],
   },
   {
@@ -91,9 +90,9 @@ const SEARCH_FILTERS = [
     links: [
       { text: "Pop Top",     href: "/listings/pop-top-caravans/" },
       { text: "Lightweight", href: "/listings/lightweight-caravans/" },
-      { text: "Off Grid",    href: "/listings/?feature=off-grid&category=off-road" },
-      { text: "With Ensuite",href: "/listings/?feature=ensuite&category=off-road" },
-      { text: "Aluminium",   href: "/listings/?feature=aluminium&category=off-road" },
+      { text: "Off Grid",    href: "/listings/?feature=off-grid" },
+      { text: "With Ensuite",href: "/listings/?feature=ensuite" },
+      { text: "Aluminium",   href: "/listings/?feature=aluminium" },
     ],
   },
 ];
@@ -179,15 +178,11 @@ export default function OffRoadCaravansPage({ stateBands }: Props) {
       {/* ── Location + Search Your Way ── */}
       <HomeLocationSection />
 
-      {/* ── Browse by Type ── */}
-      <HomeTypeSection />
-
       {/* ── Buyer Guide + Why Australians ── */}
       <HomeBuyerGuide />
 
       {/* ── Latest Blogs ── */}
-      <BlogSection />
-
+      {/* <BlogSection /> */}
 
     </div>
   );

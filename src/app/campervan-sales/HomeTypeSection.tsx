@@ -2,42 +2,42 @@ import Image from "next/image";
 
 const TYPES = [
   {
-    slug: "off-road-category",
+    slug: "off-road",
     label: "Off Road Campervans for Sale",
     image: "/images/off-road.webp",
     desc: "Built tough for Australia's rougher tracks.",
     count: "1,245",
   },
   {
-    slug: "luxury-category",
+    slug: "luxury",
     label: "Luxury Campervans for Sale",
     image: "/images/luxury.webp",
     desc: "Premium comfort, high-end interiors and full-size features.",
     count: "982",
   },
   {
-    slug: "hybrid-category",
+    slug: "hybrid",
     label: "Hybrid Campervans for Sale",
     image: "/images/hybrid.webp",
     desc: "The balance of easy towing, compact size and outdoor living.",
     count: "673",
   },
   {
-    slug: "pop-top-category",
+    slug: "pop-top",
     label: "Pop Top Campervans for Sale",
     image: "/images/pop-top.webp",
     desc: "Easy to store, simple to tow and practical for getaways.",
     count: "1,112",
   },
   {
-    slug: "touring-category",
+    slug: "touring",
     label: "Touring Campervans for Sale",
     image: "/images/touring.webp",
     desc: "Comfortable, reliable and ideal for long-distance trips.",
     count: "1,984",
   },
   {
-    slug: "family-category",
+    slug: "family",
     label: "Family Campervans for Sale",
     image: "/images/family.webp",
     desc: "Spacious layouts designed for the whole family.",

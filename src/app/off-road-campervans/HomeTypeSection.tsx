@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const TYPES = [
   {
-    slug: "off-road-category",
+    slug: "",
     label: "Off Road Campervans for Sale",
     image: "/images/off-road.webp",
     desc: "Built tough for Australia's rougher tracks.",

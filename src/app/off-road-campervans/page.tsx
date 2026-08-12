@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Off Road Campervans Australia | New & Used Off Road Campervans for Sale",
   description:
     "Discover Australia's largest collection of off road campervans. Compare full off road, semi off road and hybrid campervans, browse live listings, reviews and expert buying guides.",
+  robots: "noindex, nofollow",
 };
  import { fetchStateBasedCaravans } from "@/api/homeApi/state/api";
 import { fetchRequirements } from "@/api/postRquirements/api";
@@ -111,7 +112,7 @@ async function fetchOffRoadModelBlogs(seed: number): Promise<any[]> {
 
 export const revalidate = 86400;
 
-const CANONICAL = "https://campervans.vercel.app/off-road-caravans/";
+const CANONICAL = "https://campervans.vercel.app/off-road-campervans/";
 
 const schemaJsonLd = {
   "@context": "https://schema.org",
