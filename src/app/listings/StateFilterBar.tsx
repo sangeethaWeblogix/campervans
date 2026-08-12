@@ -581,6 +581,7 @@ export default function StateFilterBar({ currentFilters, onFilterChange, onClear
       setTempSuburbInput(""); setTempSuburbSuggestion(null);
     }
     setSuburbLocationSuggestions([]); setShowSuburbSuggestions(false);
+    setTempSuburbRadius(currentFilters.radius_kms ? Number(currentFilters.radius_kms) : RADIUS_OPTIONS[0]);
     const matchedState = states.find(s => s.name?.toLowerCase() === (currentFilters.state ?? "").toLowerCase() || s.value?.toLowerCase() === (currentFilters.state ?? "").toLowerCase());
     setTempState(matchedState?.name ?? currentFilters.state ?? null);
     const matchedRegion = matchedState?.regions?.find(r => r.name?.toLowerCase() === (currentFilters.region ?? "").toLowerCase() || r.value?.toLowerCase() === (currentFilters.region ?? "").toLowerCase());
@@ -592,13 +593,29 @@ export default function StateFilterBar({ currentFilters, onFilterChange, onClear
     let pincodeValue: string | undefined;
     let stateOverride: string | undefined;
     let regionOverride: string | undefined;
+    let radiusOverride: number | undefined;
     if (tempSuburbSuggestion) {
+      // Suburb + pincode are combined into one segment, e.g. "campbellfield-3061-suburb",
+      // not a separate 4-digit-only segment — must split on that pattern, same as the
+      // Location modal's search handler.
       const parts = tempSuburbSuggestion.uri.split("/").filter(Boolean);
-      const suburbPart = parts.find((p: string) => p.endsWith("-suburb"));
-      suburbName  = suburbPart?.replace(/-suburb$/, "").replace(/-/g, " ");
-      pincodeValue = parts.find((p: string) => /^\d{4}$/.test(p));
-      stateOverride  = parts[0]?.replace(/-state$/, "").replace(/-/g, " ");
-      regionOverride = parts[1]?.replace(/-region$/, "").replace(/-/g, " ");
+      const stateSlug  = parts[0] || "";
+      const regionSlug = parts[1] || "";
+      const suburbSlug = parts[2] || "";
+      let pincode = parts[3] || "";
+      const state  = stateSlug.replace(/-state$/, "").replace(/-/g, " ").trim();
+      const region = regionSlug.replace(/-region$/, "").replace(/-/g, " ").trim();
+      const spMatch = suburbSlug.match(/^([a-z0-9-]+)-(\d{4})-suburb$/i);
+      let suburb: string;
+      if (spMatch) { suburb = spMatch[1].replace(/-/g, " ").trim(); if (!pincode) pincode = spMatch[2]; }
+      else { suburb = suburbSlug.replace(/-suburb$/, "").replace(/-/g, " ").trim(); }
+      if (!/^\d{4}$/.test(pincode)) { const m = tempSuburbSuggestion.address.match(/\b\d{4}\b/); if (m) pincode = m[0]; }
+      suburbName    = suburb;
+      pincodeValue  = pincode || undefined;
+      stateOverride = state;
+      const validRegion = getValidRegionName(state, region, states);
+      regionOverride = validRegion || region;
+      radiusOverride = tempSuburbRadius;
     }
     const updates: Partial<FilterState> = {
       category:          tempCategory ?? undefined,
@@ -613,8 +630,9 @@ export default function StateFilterBar({ currentFilters, onFilterChange, onClear
       model:             tempModel ?? undefined,
       state:             (stateOverride ?? tempState)?.toLowerCase() ?? undefined,
       region:            (regionOverride ?? tempRegion)?.toLowerCase() ?? undefined,
-      suburb:            suburbName ?? undefined,
+      suburb:            suburbName?.toLowerCase() ?? undefined,
       pincode:           pincodeValue ?? undefined,
+      radius_kms:        radiusOverride ?? undefined,
       acustom_fromyears: tempYearFrom ?? undefined,
       acustom_toyears:   tempYearTo ?? undefined,
       from_length:       tempLengthFrom ?? undefined,
@@ -873,17 +891,17 @@ export default function StateFilterBar({ currentFilters, onFilterChange, onClear
                 </div>
               </div>
 
-              {/* Suburb / Postcode */}
+              {/* Suburb / Postcode — same design as the Location modal */}
               <div className="filter-item">
                 <h4>Suburb/Postcode</h4>
-                <div style={{ position:"relative" }}>
-                  <div className="loc-search-wrap">
+                <div className="loc-search-wrap">
+                  <div style={{ position:"relative" }}>
                     <i className="bi bi-search loc-search-icon" />
                     <input
-                      className="loc-search-input"
+                      type="text" className="loc-search-input" autoComplete="off"
                       placeholder="Search suburb, postcode, state, region"
-                      value={tempSuburbSuggestion && !tempSuburbInput ? tempSuburbSuggestion.short_address : formatted(tempSuburbInput)}
-                      onFocus={() => { if (!tempSuburbSuggestion) setShowSuburbSuggestions(true); }}
+                      value={formatted(tempSuburbInput)}
+                      onFocus={() => setShowSuburbSuggestions(true)}
                       onChange={e => {
                         setShowSuburbSuggestions(true);
                         setTempSuburbSuggestion(null);
@@ -909,11 +927,6 @@ export default function StateFilterBar({ currentFilters, onFilterChange, onClear
                       }}
                       onBlur={() => setTimeout(() => setShowSuburbSuggestions(false), 150)}
                     />
-                    {tempSuburbSuggestion && (
-                      <button type="button"
-                        style={{ position:"absolute", right:12, top:"50%", transform:"translateY(-50%)", background:"none", border:"none", cursor:"pointer", color:"#888", fontSize:20, lineHeight:1 }}
-                        onMouseDown={e => { e.preventDefault(); setTempSuburbSuggestion(null); setTempSuburbInput(""); }}>×</button>
-                    )}
                   </div>
                   {showSuburbSuggestions && suburbLocLoading && tempSuburbInput && (
                     <ul className="location-suggestions">
@@ -921,7 +934,7 @@ export default function StateFilterBar({ currentFilters, onFilterChange, onClear
                     </ul>
                   )}
                   {showSuburbSuggestions && !suburbLocLoading && tempSuburbInput && suburbLocationSuggestions.length === 0 && (
-                    <p style={{ fontSize:13, color:"#888", margin:0, paddingLeft:4 }}>No results found</p>
+                    <p className="suggestions-no-results" style={{ paddingLeft:12 }}>No results found</p>
                   )}
                   {showSuburbSuggestions && !suburbLocLoading && suburbLocationSuggestions.length > 0 && (
                     <ul className="location-suggestions">
@@ -940,6 +953,42 @@ export default function StateFilterBar({ currentFilters, onFilterChange, onClear
                     </ul>
                   )}
                 </div>
+
+                {/* Selected suburb chip + radius */}
+                {tempSuburbSuggestion && !tempSuburbInput && (
+                  <div style={{ marginTop:12 }}>
+                    <div className="filter-chip">
+                      <span>{tempSuburbSuggestion.address}</span>
+                      <button type="button" className="filter-chip-close" onMouseDown={e => { e.preventDefault(); setTempSuburbSuggestion(null); setTempSuburbInput(""); }} aria-label="Remove location">×</button>
+                    </div>
+                    {tempSuburbSuggestion.uri.split("/").filter(Boolean).length >= 3 && (
+                      <div style={{ marginTop:14 }}>
+                        <div className="cfs-radius-label">Search surrounding area</div>
+                        <div className="cfs-radius-wrap">
+                          {(() => {
+                            const idx = Math.max(0, RADIUS_OPTIONS.indexOf(tempSuburbRadius as (typeof RADIUS_OPTIONS)[number]));
+                            const pct = (idx / (RADIUS_OPTIONS.length - 1)) * 100;
+                            return (
+                              <>
+                                <div className="cfs-radius-tooltip" style={{ left:`calc(${pct}% + ${18 - 0.36*pct}px)` }}>{tempSuburbRadius}km</div>
+                                <div className="cfs-radius-track-wrap">
+                                  <input type="range" className="cfs-radius-slider" min={0} max={RADIUS_OPTIONS.length-1} step={1} value={idx}
+                                    style={{ background:`linear-gradient(to right,#3f3e82 0%,#3f3e82 ${pct}%,#ddd ${pct}%,#ddd 100%)` }}
+                                    onChange={e => setTempSuburbRadius(RADIUS_OPTIONS[parseInt(e.target.value,10)])} aria-label="Search radius" />
+                                  {RADIUS_OPTIONS.map((km,i) => {
+                                    const tp = (i/(RADIUS_OPTIONS.length-1))*100;
+                                    return <span key={i} className={`cfs-radius-tick${i<idx?" active":i===idx?" current":""}`} style={{ left:`calc(${tp}% + ${9-0.18*tp}px)` }} title={`${km}km`} />;
+                                  })}
+                                </div>
+                                <div className="cfs-radius-range"><span>{RADIUS_OPTIONS[0]}km</span><span>{RADIUS_OPTIONS[RADIUS_OPTIONS.length-1].toLocaleString()}km</span></div>
+                              </>
+                            );
+                          })()}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                )}
               </div>
 
               {/* Condition */}

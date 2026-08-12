@@ -117,7 +117,7 @@ export default function Navbar() {
                   </button>
                   {exploreOpen && (
                     <div className="explore-dropdown">
-                      <a href="/off-road-caravans/" className="explore-item" onClick={() => setExploreOpen(false)}>
+                      <a href="/off-road-campervans/" className="explore-item" onClick={() => setExploreOpen(false)}>
                         Off Road Campervans
                       </a>
                     </div>
@@ -223,7 +223,7 @@ export default function Navbar() {
                     </button>
                     {mobileExploreOpen && (
                       <div className="sidenav-explore-sub">
-                        <a href="/off-road-caravans/" onClick={closeNav}>Off Road Campervans</a>
+                        <a href="/off-road-campervans/" onClick={closeNav}>Off Road Campervans</a>
                       </div>
                     )}
                   </li>

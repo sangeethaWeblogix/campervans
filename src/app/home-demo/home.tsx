@@ -265,8 +265,8 @@ const handleBannerClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>) =
             <a href="/listings/" target="_blank" rel="noopener noreferrer" className="hd-banner-ad__inner">
               <span className="hd-banner-ad__label">Advertisement</span>
               <picture>
-                <source media="(max-width: 767px)" srcSet="/images/1157x598-cvs.jpg" />
-                <img src="/images/2000x517-cvs.jpg?=1" alt="Campervans for Sale Australia" className="hd-banner-ad__img" />
+                <source media="(max-width: 767px)" srcSet="/images/1157x598-cvs.jpg?=1" />
+                <img src="/images/2000x517-cvs.jpg?=2" alt="Campervans for Sale Australia" className="hd-banner-ad__img" />
               </picture>
             </a>
           )}

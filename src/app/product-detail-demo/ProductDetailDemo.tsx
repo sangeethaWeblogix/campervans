@@ -663,7 +663,7 @@ const priceUpperIdx = !isPOA ? PRICE_STEPS.findIndex(s => s >= displayPrice) : -
               </h2>
               <p className="lsd-offroad-extra__body">
                 Browse live campervan listings from across the country, then compare{" "}
-                <a href="https://campervans.vercel.app/off-road-caravans/">off road campervans in Australia</a>{" "}
+                <a href="https://campervans.vercel.app/off-road-campervans/">off road campervans in Australia</a>{" "}
                 using search filters by price, location, weight, length and sleeping capacity while exploring manufacturer and model reviews.
               </p>
             
