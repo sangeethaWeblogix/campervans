@@ -1,5 +1,5 @@
 .header_form {
-  background: #333;
+  background: #000000;
   margin: -30px -55px 40px;
   padding: 35px;
 }
@@ -36,7 +36,7 @@
   color: #fff;
   font-size: 30px;
   font-weight: 700;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
 }
 
 .required_txt {
@@ -112,11 +112,12 @@ p.terms_text {
 }
 
 .contact.style-6 .btn {
-  padding: 15px 15px;
-  font-size: 20px;
-  display: block;
-  width: 100%;
-  border-radius: 4px;
+    border-radius: 4px;
+    width: 100%;
+    padding: 15px;
+    font-size: 20px;
+    display: block;
+    background: #3f3e82;
 }
 .bg-blue4 {
   background-color: #000000;
@@ -151,7 +152,7 @@ p.terms_text {
     font-weight: 700;
   }
   .header_form {
-    background: #333;
+    background: #000000;
     margin: -25px;
     margin-bottom: 20px;
     padding: 20px;

@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 
 import React, { useState } from "react";
 
@@ -11,7 +10,6 @@ type FormState = {
   "your-phone": string;
   "you-postcode": string; // keep as-is since your CF7 works with this key
   "your-message": string;
-  "caravan-type": "";
   condition: "";
   budget: "";
 };
@@ -25,7 +23,6 @@ export default function ContactSection() {
     "your-phone": "",
     "you-postcode": "",
     "your-message": "",
-    "caravan-type": "",
     condition: "",
     budget: "",
   });
@@ -77,11 +74,6 @@ export default function ContactSection() {
       next["you-postcode"] = "Postcode must be 4 digits.";
     }
 
-    // Campervan type
-    if (!formData["caravan-type"].trim()) {
-      next["caravan-type"] = "Type is required.";
-    }
-
     // Condition
     if (!formData["condition"].trim()) {
       next["condition"] = "Condition is required.";
@@ -112,16 +104,15 @@ export default function ContactSection() {
       setLoading(true);
 
       const form = new FormData();
-      form.append("_wpcf7", "3290");
+      form.append("_wpcf7", "29");
       form.append("_wpcf7_version", "5.9.3");
       form.append("_wpcf7_locale", "en_US");
-      form.append("_wpcf7_unit_tag", "wpcf7-f3290-p45-o1");
+      form.append("_wpcf7_unit_tag", "wpcf7-f29-p45-o1");
       form.append("_wpcf7_container_post", "45");
       form.append("your-name", formData["your-name"]);
       form.append("your-email", formData["your-email"]);
       form.append("your-phone", formData["your-phone"]);
       form.append("you-postcode", formData["you-postcode"]);
-      form.append("caravan-type", formData["caravan-type"]);
       form.append("condition", formData.condition);
       form.append("budget", formData.budget);
       form.append("your-message", formData["your-message"]);
@@ -130,7 +121,7 @@ export default function ContactSection() {
       );
 
       const res = await fetch(
-        "https://admin.caravansforsale.com.au/wp-json/contact-form-7/v1/contact-forms/155838/feedback",
+        "https://admin.campervanforsale.com.au/wp-json/contact-form-7/v1/contact-forms/29/feedback",
         { method: "POST", body: form }
       );
 
@@ -145,7 +136,6 @@ export default function ContactSection() {
           "your-phone": "",
           "you-postcode": "",
           "your-message": "",
-          "caravan-type": "",
           condition: "",
           budget: "",
         });
@@ -176,16 +166,6 @@ export default function ContactSection() {
                         Exclusive Offers From Select Quality Campervan
                         Manufacturers
                       </h4>
-                      <Image
-                        className="hidden-xs"
-                        src="/images/Blog_bottom_banner.webp"
-                        alt=""
-                        unoptimized
-                        width={0}
-                        height={0}
-                        sizes="100vw"
-                        style={{ width: "auto", height: "auto" }}
-                      />
                     </div>
                     <p className="required_txt">
                       Fill out the form below, and we&apos;ll send you exclusive
@@ -272,34 +252,6 @@ export default function ContactSection() {
                         </div>
                       </div>
 
-                      {/* Campervan Type */}
-                      <div className="col-lg-6">
-                        <div className="form-group mb-20">
-                          <select
-                            name="caravan-type"
-                            className="form-control"
-                            value={formData["caravan-type"]}
-                            onChange={handleChange}
-                            required
-                          >
-                            <option value="">
-                              What type of campervan are you looking for?
-                            </option>
-                            <option value="Off Road">Off Road</option>
-                            <option value="Hybrid">Hybrid</option>
-                            <option value="Pop Top">Pop Top</option>
-                            <option value="Luxury">Luxury</option>
-                            <option value="Family">Family</option>
-                            <option value="Touring">Touring</option>
-                          </select>
-                          {errors["caravan-type"] && (
-                            <small className="text-danger">
-                              {errors["caravan-type"]}
-                            </small>
-                          )}
-                        </div>
-                      </div>
-
                       {/* Condition */}
                       <div className="col-lg-6">
                         <div className="form-group mb-20">
@@ -312,7 +264,6 @@ export default function ContactSection() {
                           >
                             <option value="">Select Condition</option>
                             <option value="New">New</option>
-                            <option value="Near New">Near New</option>
                             <option value="Used">Used</option>
                           </select>
                           {errors.condition && (
@@ -324,7 +275,7 @@ export default function ContactSection() {
                       </div>
 
                       {/* Budget */}
-                      <div className="col-lg-12">
+                      <div className="col-lg-6">
                         <div className="form-group mb-20">
                           <input
                             type="text"

@@ -69,10 +69,10 @@ export default function ContactSection() {
       setLoading(true);
 
       const form = new FormData();
-      form.append("_wpcf7", "3290");
+      form.append("_wpcf7", "12");
       form.append("_wpcf7_version", "5.9.3");
       form.append("_wpcf7_locale", "en_US");
-      form.append("_wpcf7_unit_tag", "wpcf7-f3290-p45-o1");
+      form.append("_wpcf7_unit_tag", "wpcf7-f12-p45-o1");
       form.append("_wpcf7_container_post", "45");
 
       Object.entries(formData).forEach(([key, value]) =>
@@ -80,7 +80,7 @@ export default function ContactSection() {
       );
 
       const res = await fetch(
-        "https://admin.caravansforsale.com.au/wp-json/contact-form-7/v1/contact-forms/3290/feedback",
+        "https://admin.campervanforsale.com.au/wp-json/contact-form-7/v1/contact-forms/12/feedback",
         { method: "POST", body: form }
       );
 
