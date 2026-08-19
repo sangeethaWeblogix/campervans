@@ -1,7 +1,7 @@
 
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import Link from "next/link";
 import StateHero from "./StateHero";
@@ -29,36 +29,11 @@ const readPage = (id: string): number | null => {
   return match ? parseInt(match[1], 10) : null;
 };
 
-const SEED_MAX = 15;
-
-// ── Seeded shuffle ────────────────────────────────────────────────────────────
-// Mulberry32 PRNG — deterministic, fast, well-distributed.
-// Used to shuffle the pool in the live-fetch path so that even when the
-// pool-listings KV cache serves identical JSON for every seed (the cache key
-// strips `seed`), each refresh still displays a different product order.
-function mulberry32(seed: number) {
-  return () => {
-    seed += 0x6D2B79F5;
-    let t = seed ^ (seed >>> 15);
-    t = Math.imul(t, 1 | seed);
-    t ^= t + Math.imul(t ^ (t >>> 7), 61 | t);
-    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
-  };
-}
-function seededShuffle<T>(arr: T[], seed: number): T[] {
-  if (arr.length <= 1) return arr;
-  const out = [...arr];
-  const rand = mulberry32(seed);
-  for (let i = out.length - 1; i > 0; i--) {
-    const j = Math.floor(rand() * (i + 1));
-    [out[i], out[j]] = [out[j], out[i]];
-  }
-  return out;
-}
-// ─────────────────────────────────────────────────────────────────────────────
+// Fixed seed value passed to the pool-listings API — no per-request shuffling.
+const POOL_SEED = 1;
 
 /** Full pool data fetched server-side in page.tsx and passed as a prop so the
- *  SSR / KV-cached HTML contains real product listings from the first byte. */
+ *  SSR HTML contains real product listings from the first byte. */
 export type InitialPool = {
   seo: SeoV2 | null;
   featured: Listing[];
@@ -95,7 +70,6 @@ export default function StateHome({ initialFilters, browseData, initialPool, ini
   const [seo, setSeo] = useState<SeoV2 | null>(initialPool?.seo ?? initialSeo ?? null);
   const [newSeo, setNewSeo] = useState<SeoV2 | null>(null);
   const [usedSeo, setUsedSeo] = useState<SeoV2 | null>(null);
-  const [seed, setSeed] = useState(1);
   const [pool, setPool] = useState<{ featured: Listing[]; new: Listing[]; used: Listing[] }>(
     initialPool
       ? { featured: initialPool.featured, new: initialPool.new, used: initialPool.used }
@@ -108,43 +82,10 @@ export default function StateHome({ initialFilters, browseData, initialPool, ini
   // three sections, non-indexed pages get one combined grid.
   const [isIndexed, setIsIndexed] = useState(initialPool?.isIndexed ?? serverIsIndexed ?? true);
 
-  // Tracks whether we already consumed window.__INITIAL_POOL__ (injected by
-  // the cache generator into pre-rendered HTML). Once consumed we let the
-  // normal fetch path take over so filter-changes and page-turns fetch live.
-  const initialPoolConsumed = useRef(false);
-  // Tracks whether the server-fetched initialPool prop has been "consumed"
-  // (i.e., the first pool useEffect run has been skipped). After that, normal
-  // live fetches run on filter/seed changes.
-  //
-  // For non-indexed pages (serverIsIndexed === false) we start as already-consumed
-  // even when initialPool is non-null. This means the pool effect never skips and
-  // always fires a live fetch with the fresh random seed picked on every mount —
-  // giving different products on each refresh. The SSR initialPool still provides
-  // a fallback render while the fetch is in flight, preventing the blank-page
-  // problem that occurs when initialPool is null and the API is slow or errors.
-  const initialPropConsumed = useRef(initialPool == null || serverIsIndexed === false);
-  // Snapshot of the most-recently-consumed preload data, keyed by poolApiUrl.
-  // Used to re-bucket without a live fetch when only `isIndexed` changes (e.g.
-  // the async /api/indexed-url/ check resolves to a different value than the
-  // preload's is_indexed). Cleared whenever poolApiUrl changes (filter change).
-  const preloadSnapshotRef = useRef<{
-    poolApiUrl: string;
-    products: Listing[];
-    premiumsRaw: Listing[];
-    exclusivesRaw: Listing[];
-    empExclusivesRaw: Listing[];
-    seoData: unknown;
-    totalPages: number;
-    isIndexed: boolean;  // is_indexed value from the preload — authoritative source
-  } | null>(null);
-  // Set to true synchronously in the mount effect when window.__INITIAL_POOL__
-  // is detected. This lets the /api/indexed-url/ callback (which can fire as a
-  // microtask from browser-cached responses, BEFORE the pool effect macro task
-  // runs and saves the snapshot) suppress setIsIndexed calls that would corrupt
-  // the layout before the preload is even consumed. Cleared when the pool effect
-  // first runs (at which point preloadSnapshotRef takes over as the guard).
-  const preloadReadRef = useRef(false);
-  console.log("seoo89", seo)
+  // Skip the very first pool-effect run when the server already provided
+  // initialPool — data is already in state, no re-fetch needed. After that,
+  // normal live fetches run on filter/page changes.
+  const initialPropConsumed = useRef(initialPool == null);
 
   // ── Top banner ad (impression + click tracking) ── commented out: banner API call disabled on listing page
   // const { matchedBanners } = useBanners();
@@ -217,82 +158,6 @@ export default function StateHome({ initialFilters, browseData, initialPool, ini
         setPage(saved);
       }
     }
-
-    // Seed priority (highest → lowest):
-    //   1. window.__SHUFFLE_SEED__  — injected by Cloudflare Worker into pre-rendered HTML
-    //   2. ?shuffle_seed=N URL param — used by generate-priority-pages.js to produce variants
-    //   3. random — fresh seed on every page mount so non-indexed (live API) pages
-    //      show different products on each refresh. sessionStorage is intentionally
-    //      NOT used here: persisting the seed across reloads caused the same variant
-    //      slot to be hit every time, making products appear frozen.
-    try {
-      const workerSeed = (window as unknown as Record<string, unknown>)["__SHUFFLE_SEED__"];
-      const urlSeed = new URLSearchParams(window.location.search).get("shuffle_seed");
-      if (typeof workerSeed === "number" && workerSeed >= 1) {
-        setSeed(workerSeed);
-      } else if (urlSeed && /^\d+$/.test(urlSeed)) {
-        const n = parseInt(urlSeed, 10);
-        if (n >= 1) setSeed(n);
-      } else {
-        setSeed(Math.floor(Math.random() * SEED_MAX) + 1);
-      }
-    } catch {
-      setSeed(Math.floor(Math.random() * SEED_MAX) + 1);
-    }
-
-    // For KV-cached pages (no SSR initialPool prop), read is_indexed from the
-    // preload object embedded by the cache generator. Batching setIsIndexed here
-    // with setReady means the pool effect fires once with the correct isIndexed
-    // value, preventing the secondary pool re-fetch that occurs when the async
-    // /api/indexed-url/ check resolves to a different value than the default.
-    //
-    // Resilience: if served from Vercel (BYPASS-NO-CACHE) rather than KV, neither
-    // __SHUFFLE_SEED__ nor __INITIAL_POOL__ are injected. In that case the pool
-    // effect's "skip first run" guard (initialPropConsumed) prevents the random
-    // seed from taking effect, so products appear frozen. Force the guard to true
-    // now so the pool effect always makes a live fetch with the fresh random seed.
-    try {
-      const win = window as unknown as Record<string, unknown>;
-      const hasWorkerSeed = typeof win["__SHUFFLE_SEED__"] === "number";
-      const hasInitialPool = !!(win["__INITIAL_POOL__"] as { url?: string } | undefined)?.url;
-      if (!hasWorkerSeed && !hasInitialPool && initialPool != null) {
-        // SSR bypass path: initialPool was provided by Vercel but no KV preload
-        // exists — skip the "consume initialPool" guard so the live fetch fires.
-        initialPropConsumed.current = true;
-      }
-    } catch {
-      // ignore
-    }
-
-    try {
-      const win = window as unknown as Record<string, unknown>;
-      const preload = win.__INITIAL_POOL__ as { url?: string; is_indexed?: boolean; json?: unknown } | undefined;
-      if (preload?.url) {
-        // Raise the sentinel SYNCHRONOUSLY whenever __INITIAL_POOL__ exists —
-        // regardless of whether is_indexed is present (pool_test doesn't return
-        // is_indexed at the top level, so that check was always false before).
-        // The pool effect will either consume the preload (URL match) or fall
-        // through to a live fetch. Either way, /api/indexed-url/ must not fire
-        // setIsIndexed until after that first pool-effect run completes.
-        preloadReadRef.current = true;
-        if (typeof preload.is_indexed === "boolean") {
-          setIsIndexed(preload.is_indexed);
-        }
-        // The cache warmer fetches fresh pool data at warm-time and embeds it as
-        // __INITIAL_POOL__, but the pool effect's URL-match check (which includes
-        // the shuffle seed) never fires for KV-cached pages because the client
-        // always generates a new random seed. As a result, the stale seo_v2 baked
-        // into the SSR HTML (from when the KV cache was generated) was used
-        // permanently — showing an out-of-date listing count on every page load.
-        // seo_v2 (heading, count, description) is seed-agnostic, so update it here
-        // unconditionally from the fresh preload data without needing a URL match.
-        const freshSeo = (preload.json as any)?.data?.seo_v2 ?? (preload.json as any)?.seo_v2;
-        if (freshSeo) setSeo(freshSeo);
-      }
-    } catch {
-      // ignore — isIndexed will be corrected by the async /api/indexed-url/ check
-    }
-
     setReady(true);
   }, []);
 
@@ -313,8 +178,6 @@ export default function StateHome({ initialFilters, browseData, initialPool, ini
     return () => window.removeEventListener("popstate", handlePopState);
   }, []);
 
-  console.log("[StateHome] page:", page, "seed:", seed);
-
   const handleTotalPages = (n: number) => setMaxPages(prev => Math.max(prev, n));
 
   useEffect(() => {
@@ -322,149 +185,24 @@ export default function StateHome({ initialFilters, browseData, initialPool, ini
     const canonicalPath = buildListingsSlug(filters);
     fetch(`/api/indexed-url/?path=${encodeURIComponent(canonicalPath)}`)
       .then((r) => (r.ok ? r.json() : null))
-      .then((json) => {
-        // Suppress if either:
-        //  (a) preloadSnapshotRef is set — snapshot already consumed, authoritative
-        //  (b) preloadReadRef is set — preload detected on mount but pool effect
-        //      macro task hasn't run yet; this covers cached-response microtasks
-        //      that fire before the pool effect saves the snapshot
-        if (preloadSnapshotRef.current !== null || preloadReadRef.current) return;
-        setIsIndexed(json?.indexed ?? false);
-      })
-      .catch(() => {
-        if (preloadSnapshotRef.current !== null || preloadReadRef.current) return;
-        setIsIndexed(false);
-      });
+      .then((json) => setIsIndexed(json?.indexed ?? false))
+      .catch(() => setIsIndexed(false));
   }, [filters, page]);
 
   // Page 1 uses ONE shared pool call, split by slot_bucket into
   // Featured/New/Used — instead of 3 separate condition-locked API calls.
-  const poolApiUrl = buildApiUrl("/api/pool-listings/?per_page=21", filters, seed);
+  const poolApiUrl = buildApiUrl("/api/pool-listings/?per_page=21", filters, POOL_SEED);
 
   useEffect(() => {
-    // Wait for the real session seed to load (see the mount effect above) —
-    // firing this with the seed=1 placeholder first, then again once the
-    // real seed lands, hits the backend's randomized featured pick twice
-    // with two different seeds, so the grid visibly swaps its items right
-    // after the first paint.
     if (!ready || page !== 1) return;
     // Skip the very first effect run when the server already provided
     // initialPool — data is already in state, no re-fetch needed.
-    // Subsequent runs (filter/seed changes) proceed normally.
+    // Subsequent runs (filter changes) proceed normally.
     if (!initialPropConsumed.current) {
       initialPropConsumed.current = true;
       return;
     }
-    // `isIndexed` starts as the `true` default and flips to its real value
-    // once the async /api/indexed-url/ check resolves — since this effect
-    // depends on `isIndexed`, it fires once with that stale default and
-    // again with the real value. The two requests race with no cancellation,
-    // so if the stale-`isIndexed` response happens to land last, it overwrites
-    // the correct one with a near-empty result (that branch's slot_bucket
-    // filtering finds nothing, since this endpoint never sends slot_bucket).
-    // `cancelled` lets a newer run of this effect discard an in-flight older
-    // one's result instead of letting it win the race.
     const requestUrl = `${poolApiUrl}&page=${page}`;
-    const absoluteUrl = new URL(requestUrl, window.location.origin).toString();
-
-    // ── Pre-loaded pool data (injected by cache generator into HTML) ──────────
-    // Check preload FIRST — before setSeo(null) — so we never produce an
-    // intermediate render with seo=null when data is already in memory.
-    // Processing synchronously means React batches all setState calls into a
-    // single render: seo, pool, and poolLoading all update together, so the
-    // "Featured Campervans…" heading is present from the very first client paint.
-    const win = window as unknown as Record<string, unknown>;
-    const preload = win.__INITIAL_POOL__ as { url: string; json: unknown } | undefined;
-    if (preload && !initialPoolConsumed.current && preload.url === requestUrl) {
-      initialPoolConsumed.current = true;
-      win.__INITIAL_POOL__ = undefined;
-      console.log("[StateHome] using pre-loaded pool data:", requestUrl);
-
-      const json = preload.json as Record<string, unknown>;
-      const seoData = (json as any)?.data?.seo_v2 ?? (json as any)?.seo_v2;
-      if (seoData) setSeo(seoData);
-
-      const products: Listing[] = (json as any)?.data?.products ?? (json as any)?.products ?? [];
-      const premiumsRaw: Listing[] = (json as any)?.data?.premium_products ?? (json as any)?.premium_products ?? [];
-      const exclusivesRaw: Listing[] = (json as any)?.data?.exclusive_products ?? (json as any)?.exclusive_products ?? [];
-      const empExclusivesRaw: Listing[] = (json as any)?.data?.emp_exclusive_products ?? (json as any)?.emp_exclusive_products ?? [];
-      const totalCount: number = (json as any)?.data?.counts?.total_count ?? (json as any)?.counts?.total_count ?? products.length;
-
-      if (totalCount === 0 && empExclusivesRaw.length > 0) {
-        const empItems = empExclusivesRaw.map((p) => ({ ...p, is_exclusive: true }));
-        setPool({ featured: empItems, new: [], used: [] });
-      } else if (isIndexed) {
-        const featuredSource = products.filter((p) => p.slot_bucket === "featured");
-        const featuredItems = buildFeaturedOrder(featuredSource, premiumsRaw, exclusivesRaw);
-        const featuredIds = new Set(featuredItems.map((p) => p.id));
-        const newItems = products.filter((p) => p.slot_bucket === "new" && !p.is_premium && !p.is_exclusive && !featuredIds.has(p.id));
-        const usedItems = products.filter((p) => p.slot_bucket === "used" && !p.is_premium && !p.is_exclusive && !featuredIds.has(p.id));
-        setPool({ featured: featuredItems, new: newItems, used: usedItems });
-      } else {
-        const combined = buildFeaturedOrder(products, premiumsRaw, exclusivesRaw);
-        setPool({ featured: combined, new: [], used: [] });
-      }
-
-      const totalPages = (json as any)?.pagination?.total_pages ?? 1;
-      handleTotalPages(totalPages);
-      setPoolLoading(false);
-
-      // Save a snapshot so that if isIndexed changes later (e.g. /api/indexed-url/
-      // returns a different value than the embedded is_indexed), the pool effect
-      // can re-bucket from this data instead of making a live fetch that would
-      // overwrite the correct preload content.
-      preloadSnapshotRef.current = {
-        poolApiUrl,
-        products,
-        premiumsRaw,
-        exclusivesRaw,
-        empExclusivesRaw,
-        seoData: seoData ?? null,
-        totalPages,
-        isIndexed,  // record the is_indexed value used when consuming the preload
-      };
-
-      return;  // no async work, no cleanup needed
-    }
-    // ─────────────────────────────────────────────────────────────────────────
-
-    // If only isIndexed changed (same filter context / poolApiUrl) and we have
-    // a preload snapshot, re-bucket from it instead of making a live request.
-    // This prevents the async /api/indexed-url/ check from overwriting correct
-    // preload data when it disagrees with the embedded is_indexed value.
-    if (preloadSnapshotRef.current && preloadSnapshotRef.current.poolApiUrl === poolApiUrl) {
-      const snap = preloadSnapshotRef.current;
-      if (snap.seoData) setSeo(snap.seoData as Parameters<typeof setSeo>[0]);
-      const { products, premiumsRaw, exclusivesRaw, empExclusivesRaw } = snap;
-      // Use snap.isIndexed (the is_indexed embedded in the preload), NOT the
-      // current isIndexed state — which may have been overridden by the async
-      // /api/indexed-url/ check. The preload value is authoritative.
-      const snapIsIndexed = snap.isIndexed;
-      if (empExclusivesRaw.length > 0 && products.length === 0) {
-        setPool({ featured: empExclusivesRaw.map((p) => ({ ...p, is_exclusive: true })), new: [], used: [] });
-      } else if (snapIsIndexed) {
-        const featuredSource = products.filter((p) => p.slot_bucket === "featured");
-        const featuredItems = buildFeaturedOrder(featuredSource, premiumsRaw, exclusivesRaw);
-        const featuredIds = new Set(featuredItems.map((p) => p.id));
-        const newItems = products.filter((p) => p.slot_bucket === "new" && !p.is_premium && !p.is_exclusive && !featuredIds.has(p.id));
-        const usedItems = products.filter((p) => p.slot_bucket === "used" && !p.is_premium && !p.is_exclusive && !featuredIds.has(p.id));
-        setPool({ featured: featuredItems, new: newItems, used: usedItems });
-      } else {
-        setPool({ featured: buildFeaturedOrder(products, premiumsRaw, exclusivesRaw), new: [], used: [] });
-      }
-      handleTotalPages(snap.totalPages);
-      // Also restore isIndexed state to the preload's value in case the async
-      // check overrode it. This prevents the isIndexed state from drifting and
-      // causing further re-renders with the wrong layout.
-      if (isIndexed !== snapIsIndexed) setIsIndexed(snapIsIndexed);
-      return;
-    }
-
-    // Filter changed (or no snapshot) — clear the snapshot and do a live fetch.
-    // Also clear preloadReadRef so subsequent /api/indexed-url/ callbacks (for
-    // the new filter context) can update isIndexed normally.
-    preloadSnapshotRef.current = null;
-    preloadReadRef.current = false;
 
     let cancelled = false;
     setPoolLoading(true);
@@ -473,12 +211,10 @@ export default function StateHome({ initialFilters, browseData, initialPool, ini
     // on screen (e.g. Victoria's copy lingering after switching to NSW).
     setSeo(null);
 
-    console.log("[StateHome] shared pool API:", absoluteUrl);
     fetch(requestUrl, { cache: "no-store" })
       .then((r) => (r.ok ? r.json() : null))
       .then((json) => {
         if (cancelled) return;
-        console.log("[StateHome] shared pool API response:", json);
 
         // seo_v2 is set first, independently of the product-pool bucketing
         // below, so a bad product shape can never suppress the title/description.
@@ -490,7 +226,7 @@ export default function StateHome({ initialFilters, browseData, initialPool, ini
         const exclusivesRaw: Listing[] = json?.data?.exclusive_products ?? json?.exclusive_products ?? [];
         const empExclusivesRaw: Listing[] = json?.data?.emp_exclusive_products ?? json?.emp_exclusive_products ?? [];
         const totalCount: number = json?.data?.counts?.total_count ?? json?.counts?.total_count ?? products.length;
-        console.log("shared  premium:", premiumsRaw);
+
         if (totalCount === 0 && empExclusivesRaw.length > 0) {
           // No products at all — fall back to the emp_exclusive_products pool
           // so the page isn't empty, all shown with the Spotlight Van design.
@@ -498,33 +234,17 @@ export default function StateHome({ initialFilters, browseData, initialPool, ini
           setPool({ featured: empItems, new: [], used: [] });
         } else if (isIndexed) {
           // Indexed pages split by slot_bucket into Featured/New/Used.
-          // seededShuffle reorders each bucket using the client's random seed so
-          // different products appear on each refresh even when the pool-listings
-          // KV cache serves the same JSON for every seed value.
-          const featuredSource = seededShuffle(
-            products.filter((p) => p.slot_bucket === "featured"),
-            seed
-          );
+          const featuredSource = products.filter((p) => p.slot_bucket === "featured");
           const featuredItems = buildFeaturedOrder(featuredSource, premiumsRaw, exclusivesRaw);
           const featuredIds = new Set(featuredItems.map((p) => p.id));
 
-          const newItems = seededShuffle(
-            products.filter((p) => p.slot_bucket === "new" && !p.is_premium && !p.is_exclusive && !featuredIds.has(p.id)),
-            seed + 1000
-          );
-          const usedItems = seededShuffle(
-            products.filter((p) => p.slot_bucket === "used" && !p.is_premium && !p.is_exclusive && !featuredIds.has(p.id)),
-            seed + 2000
-          );
+          const newItems = products.filter((p) => p.slot_bucket === "new" && !p.is_premium && !p.is_exclusive && !featuredIds.has(p.id));
+          const usedItems = products.filter((p) => p.slot_bucket === "used" && !p.is_premium && !p.is_exclusive && !featuredIds.has(p.id));
 
           setPool({ featured: featuredItems, new: newItems, used: usedItems });
         } else {
           // Non-indexed pages get one combined grid instead of a split.
-          const combined = buildFeaturedOrder(
-            seededShuffle(products, seed),
-            premiumsRaw,
-            exclusivesRaw
-          );
+          const combined = buildFeaturedOrder(products, premiumsRaw, exclusivesRaw);
           setPool({ featured: combined, new: [], used: [] });
         }
 
@@ -541,27 +261,6 @@ export default function StateHome({ initialFilters, browseData, initialPool, ini
     return () => { cancelled = true; };
   }, [poolApiUrl, page, isIndexed, ready]);
 
-  // Pre-warm the next page's pool-listings response in the background so the
-  // Cloudflare Worker serves it from KV before the user clicks "Next".
-  // - No `cache: "no-store"` here — this is a warm call, not a live fetch.
-  //   The Cloudflare Worker always intercepts /api/pool-listings/ and checks
-  //   the json:pool: KV key first regardless of request cache headers.
-  // - De-duped by poolApiUrl + page so a filter change always re-prefetches
-  //   the correct next page for the new filter context.
-  const prefetchedPoolKeyRef = useRef<string>("");
-  useEffect(() => {
-    // Skip pre-warm for non-indexed pages: page=2+ requests are never in KV
-    // (worker keeps `page` in its cache key; warmer only warms page=1), so
-    // every pre-warm call hits WordPress directly. Rapid refreshes on non-indexed
-    // URLs pile up WordPress hits → SiteGround rate-limiting → 502.
-    if (!ready || page >= maxPages || !isIndexed) return;
-    const nextPage = page + 1;
-    const key = `${poolApiUrl}::page=${nextPage}`;
-    if (prefetchedPoolKeyRef.current === key) return;
-    prefetchedPoolKeyRef.current = key;
-    fetch(`${poolApiUrl}&page=${nextPage}`).catch(() => { });
-  }, [poolApiUrl, page, maxPages, ready, isIndexed]);
-
   // New/Used grid headings need their own condition-locked seo_v2 (the shared
   // pool call above is unlocked, so its seo_v2 only covers the page overall).
   // Featured reuses that page-level seo since there's no dedicated "featured"
@@ -573,8 +272,8 @@ export default function StateHome({ initialFilters, browseData, initialPool, ini
       setUsedSeo(null);
       return;
     }
-    const newUrl = `${buildApiUrl("/api/pool-listings/?per_page=1", filters, seed, "New")}&page=1`;
-    const usedUrl = `${buildApiUrl("/api/pool-listings/?per_page=1", filters, seed, "Used")}&page=1`;
+    const newUrl = `${buildApiUrl("/api/pool-listings/?per_page=1", filters, POOL_SEED, "New")}&page=1`;
+    const usedUrl = `${buildApiUrl("/api/pool-listings/?per_page=1", filters, POOL_SEED, "Used")}&page=1`;
 
     fetch(newUrl, { cache: "no-store" })
       .then((r) => (r.ok ? r.json() : null))
@@ -585,7 +284,7 @@ export default function StateHome({ initialFilters, browseData, initialPool, ini
       .then((r) => (r.ok ? r.json() : null))
       .then((json) => setUsedSeo(json?.data?.seo_v2 ?? json?.seo_v2 ?? null))
       .catch(() => setUsedSeo(null));
-  }, [filters, seed, page, isIndexed]);
+  }, [filters, page, isIndexed]);
 
   const pushFiltersToUrl = (f: FilterState) => {
     window.history.pushState({}, "", buildListingsSlug(f));
@@ -667,8 +366,7 @@ export default function StateHome({ initialFilters, browseData, initialPool, ini
   );
 
   if (!ready) {
-    // Full server-fetched pool: render real products so KV-cached HTML is
-    // fully populated. This is the primary path for cache-generated variants.
+    // Full server-fetched pool: render real products so SSR HTML is fully populated.
     if (initialPool) {
       const ip = initialPool;
       return (
@@ -744,7 +442,7 @@ export default function StateHome({ initialFilters, browseData, initialPool, ini
           <StateContent footerDescription={ip.seo?.footer_description} faq={ip.seo?.faq} />
           {filters.category === 'off-road' && (
             <section className="lsd-offroad-extra"><div className="container">
-              <h2 className="lsd-offroad-extra__title">{seed % 2 === 0 ? "Find Your Ideal Off Road Campervan" : "Search and Compare Off Road Campervans"}</h2>
+              <h2 className="lsd-offroad-extra__title">Find Your Ideal Off Road Campervan</h2>
               <p className="lsd-offroad-extra__body">Browse live campervan listings from across the country, then compare <a href="https://campervans.vercel.app/off-road-campervans/">off road campervans in Australia</a> using search filters by price, location, weight, length and sleeping capacity while exploring manufacturer and model reviews.</p>
             </div></section>
           )}
@@ -811,7 +509,6 @@ export default function StateHome({ initialFilters, browseData, initialPool, ini
   }
 
   if (page === 1) {
-    console.log("seooo", seo?.h1)
     return (
       <div className="lsd-page">
         {/* Non-indexed pages skip the full hero banner (image + description),
@@ -889,7 +586,7 @@ export default function StateHome({ initialFilters, browseData, initialPool, ini
         <StateContent footerDescription={seo?.footer_description} faq={seo?.faq} />
         {filters.category === 'off-road' && (
           <section className="lsd-offroad-extra"><div className="container">
-            <h2 className="lsd-offroad-extra__title">{seed % 2 === 0 ? "Find Your Ideal Off Road Campervan" : "Search and Compare Off Road Campervans"}</h2>
+            <h2 className="lsd-offroad-extra__title">Find Your Ideal Off Road Campervan</h2>
             <p className="lsd-offroad-extra__body">Browse live campervan listings from across the country, then compare <a href="https://campervans.vercel.app/off-road-campervans/">off road campervans in Australia</a> using search filters by price, location, weight, length and sleeping capacity while exploring manufacturer and model reviews.</p>
           </div></section>
         )}
@@ -910,7 +607,7 @@ export default function StateHome({ initialFilters, browseData, initialPool, ini
   }
 
   // page > 1 — single combined grid, StateListingGrid self-fetches via apiUrl
-  const allUrl = buildApiUrl("/api/pool-listings/?per_page=21", filters, seed);
+  const allUrl = buildApiUrl("/api/pool-listings/?per_page=21", filters, POOL_SEED);
 
   return (
     <div className="lsd-page">
@@ -953,7 +650,7 @@ export default function StateHome({ initialFilters, browseData, initialPool, ini
       <StateContent footerDescription={seo?.footer_description} faq={seo?.faq} />
       {filters.category === 'off-road' && (
         <section className="lsd-offroad-extra"><div className="container">
-          <h2 className="lsd-offroad-extra__title">{seed % 2 === 0 ? "Find Your Ideal Off Road Campervan" : "Search and Compare Off Road Campervans"}</h2>
+          <h2 className="lsd-offroad-extra__title">Find Your Ideal Off Road Campervan</h2>
           <p className="lsd-offroad-extra__body">Browse live campervan listings from across the country, then compare <a href="https://campervans.vercel.app/off-road-campervans/">off road campervans in Australia</a> using search filters by price, location, weight, length and sleeping capacity while exploring manufacturer and model reviews.</p>
         </div></section>
       )}

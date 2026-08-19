@@ -56,7 +56,7 @@ export default async function GonePage() {
 
       const [browseData, initialPool] = await Promise.all([
         fetchBrowseSectionData(initialFilters, isIndexed),
-        fetchInitialPool(initialFilters, isIndexed, 0),
+        fetchInitialPool(initialFilters, isIndexed),
       ]);
 
       const hasListings =

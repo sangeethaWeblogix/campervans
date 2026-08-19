@@ -1,5 +1,3 @@
-import { fetchParamsCountFromKV } from "@/lib/paramsCountKv";
-
 const API_BASE = process.env.NEXT_PUBLIC_CFS_API_BASE;
 const API_KEY  = process.env.CFS_API_KEY;
 
@@ -23,17 +21,11 @@ export const fetchMakeDetails = async () => {
 };
 
 // ---------------------------------------------------------------------------
-// fetchModelCounts — KV first (params-count:group_by=model&make={slug})
-// Pre-warmed for every indexed make by cfs-params-cache-warmer.php.
+// fetchModelCounts — WP params_count, with a 1h Next.js fetch cache.
 // ---------------------------------------------------------------------------
 export const fetchModelCounts = async (
   make: string
 ): Promise<{ name: string; slug: string; count: number }[]> => {
-  // 1. KV lookup (pre-warmed key: params-count:group_by=model&make={slug})
-  const kvResult = await fetchParamsCountFromKV({ group_by: "model", make });
-  if (kvResult) return kvResult.data as { name: string; slug: string; count: number }[];
-
-  // 2. KV miss — fall back to WP with a 1h Next.js fetch cache
   const controller = new AbortController();
   const timeoutId = setTimeout(() => controller.abort(), 8000);
   try {
@@ -66,18 +58,11 @@ function dedupBySlug<T extends { slug: string }>(arr: T[]): T[] {
 }
 
 // ---------------------------------------------------------------------------
-// fetchMakeCounts — KV first (params-count:group_by=make)
-// Pre-warmed as a global combo by cfs-params-cache-warmer.php.
+// fetchMakeCounts — WP params_count, deduped by slug.
 // ---------------------------------------------------------------------------
 export const fetchMakeCounts = async (): Promise<
   { name: string; slug: string; count: number }[]
 > => {
-  // 1. KV lookup
-  const kvResult = await fetchParamsCountFromKV({ group_by: "make" });
-  if (kvResult)
-    return dedupBySlug(kvResult.data as { name: string; slug: string; count: number }[]);
-
-  // 2. KV miss — WP fallback
   try {
     const res = await fetch(`${API_BASE}/params_count?group_by=make`, {
       headers: wpHeaders(),
@@ -92,21 +77,11 @@ export const fetchMakeCounts = async (): Promise<
 };
 
 // ---------------------------------------------------------------------------
-// fetchCategoryCounts — KV first (params-count:group_by=category)
-// Pre-warmed as a global combo by cfs-params-cache-warmer.php.
+// fetchCategoryCounts — WP params_count, strips the "-category" slug suffix.
 // ---------------------------------------------------------------------------
 export const fetchCategoryCounts = async (): Promise<
   { name: string; slug: string; count: number }[]
 > => {
-  // 1. KV lookup
-  const kvResult = await fetchParamsCountFromKV({ group_by: "category" });
-  if (kvResult) {
-    return (kvResult.data as { name: string; slug: string; count: number }[]).map(
-      (c) => ({ ...c, slug: c.slug.replace(/-category$/, "") })
-    );
-  }
-
-  // 2. KV miss — WP fallback
   try {
     const res = await fetch(`${API_BASE}/params_count?group_by=category`, {
       headers: wpHeaders(),

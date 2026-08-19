@@ -4,11 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && node scripts/update-kv-build-id.js",
+    "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "warm": "node scripts/warm-cache.mjs https://campervans.vercel.app",
-    "warm:staging": "node scripts/warm-cache.mjs"
+    "lint": "next lint"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
