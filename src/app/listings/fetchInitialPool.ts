@@ -7,7 +7,7 @@
  * contains real product listings from the first byte.
  */
 
-import { Listing, SeoV2, buildFeaturedOrder } from "./listingShared";
+import { Listing, SeoV2, buildFeaturedOrder, dedupeById } from "./listingShared";
 import type { InitialPool } from "./home";
 import type { FilterState } from "./StateFilterBar";
 
@@ -44,7 +44,7 @@ function buildApiParams(filters: FilterState): URLSearchParams {
 /** Parse a raw pool_test JSON response into the InitialPool shape. */
 function parsePoolJson(json: any, isIndexed: boolean): InitialPool | null {
   const seo: SeoV2 | null = json?.data?.seo_v2 ?? json?.seo_v2 ?? null;
-  const products: Listing[]         = json?.data?.products         ?? json?.products         ?? [];
+  const products: Listing[]         = dedupeById(json?.data?.products ?? json?.products ?? []);
   const premiumsRaw: Listing[]      = json?.data?.premium_products  ?? json?.premium_products  ?? [];
   const exclusivesRaw: Listing[]    = json?.data?.exclusive_products ?? json?.exclusive_products ?? [];
   const empExclusivesRaw: Listing[] = json?.data?.emp_exclusive_products ?? json?.emp_exclusive_products ?? [];

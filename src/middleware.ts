@@ -36,7 +36,7 @@ const VALID_AU_STATES = new Set([
   'nsw', 'vic', 'qld', 'sa', 'wa', 'tas', 'nt', 'act',
 ]);
 
-const API_WP = 'https://admin.caravansforsale.com.au/wp-json/cfs/v1';
+const API_WP = 'https://admin.campervanforsale.com.au/wp-json/cvs/v1';
 
 
 
@@ -338,7 +338,7 @@ export async function middleware(request: NextRequest) {
         if (!cached.exists) return render410(request);
       } else {
         try {
-          const API_BASE = process.env.NEXT_PUBLIC_CFS_API_BASE || 'https://admin.caravansforsale.com.au/wp-json/cfs/v1';
+          const API_BASE = process.env.NEXT_PUBLIC_CFS_API_BASE || 'https://admin.campervanforsale.com.au/wp-json/cvs/v1';
           const controller = new AbortController();
           const timeoutId = setTimeout(() => controller.abort(), 5000);
           const apiRes = await fetch(
@@ -353,22 +353,25 @@ export async function middleware(request: NextRequest) {
           );
           clearTimeout(timeoutId);
           if (!apiRes.ok) {
-            productCache.set(cacheKey, { exists: false, expires: Date.now() + CACHE_TTL });
-            return render410(request);
-          }
-          const rawText = await apiRes.text();
-          const isChallenge = rawText.includes('sgcaptcha') || rawText.includes('well-known') || !rawText.includes('{"');
-          if (isChallenge) {
-            // WP origin bot-challenge (HTML page returned with 200 OK) — not a real
-            // "product missing" signal, don't cache/410 off it; let the page component handle it.
+            // A non-2xx here (500, or a transient "no route found" from the WP
+            // origin) is NOT proof the product doesn't exist — it's backend
+            // flakiness. Don't cache/410 off it; let the page component's own
+            // fetch retry live instead of locking in a false 410 for CACHE_TTL.
           } else {
-            const jsonIdx = rawText.indexOf('{"');
-            const data = JSON.parse(jsonIdx >= 0 ? rawText.substring(jsonIdx) : rawText);
-            if (!data || Object.keys(data).length === 0) {
-              productCache.set(cacheKey, { exists: false, expires: Date.now() + CACHE_TTL });
-              return render410(request);
+            const rawText = await apiRes.text();
+            const isChallenge = rawText.includes('sgcaptcha') || rawText.includes('well-known') || !rawText.includes('{"');
+            if (isChallenge) {
+              // WP origin bot-challenge (HTML page returned with 200 OK) — not a real
+              // "product missing" signal, don't cache/410 off it; let the page component handle it.
+            } else {
+              const jsonIdx = rawText.indexOf('{"');
+              const data = JSON.parse(jsonIdx >= 0 ? rawText.substring(jsonIdx) : rawText);
+              if (!data || Object.keys(data).length === 0) {
+                productCache.set(cacheKey, { exists: false, expires: Date.now() + CACHE_TTL });
+                return render410(request);
+              }
+              productCache.set(cacheKey, { exists: true, expires: Date.now() + CACHE_TTL });
             }
-            productCache.set(cacheKey, { exists: true, expires: Date.now() + CACHE_TTL });
           }
         } catch (error: any) {
           if (error?.name !== 'AbortError') {

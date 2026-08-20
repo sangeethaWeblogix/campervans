@@ -6,6 +6,9 @@ const API_KEY = process.env.CFS_API_KEY;
 
 async function fetchFromWP(searchParams: URLSearchParams): Promise<NextResponse> {
   const paramsStr = searchParams.toString();
+  // NOTE: params_count doesn't exist yet on the new campervanforsale backend
+  // (checked both cfs/v1 and cvs/v1 — neither has it registered). Pointing at
+  // the old domain until the backend team migrates/recreates this route.
   const url = `https://admin.caravansforsale.com.au/wp-json/cfs/v1/params_count?${paramsStr}`;
 
   try {

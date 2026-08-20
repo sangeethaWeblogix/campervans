@@ -15,6 +15,9 @@ export async function POST(req: Request) {
   console.log("IPUA:", user_agent);
     // 🔥 Your existing API call (move here)
     await fetch(
+      // NOTE: update-impressions isn't registered yet on the new campervanforsale
+      // backend (checked cfs/v1 and cvs/v1) — pointing at the old domain until
+      // the backend team migrates this route.
       "https://admin.caravansforsale.com.au/wp-json/cfs/v1/update-impressions",
       {
         method: "POST",

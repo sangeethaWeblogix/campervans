@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { useEnquiryForm } from "@/app/components/ListContent/enquiryform";
-import { Listing, SeoV2, buildFeaturedOrder } from "./listingShared";
+import { Listing, SeoV2, buildFeaturedOrder, dedupeById } from "./listingShared";
 
 export type { Listing, SeoV2 };
 export { buildFeaturedOrder };
@@ -476,7 +476,7 @@ export default function StateListingGrid({ title, viewAllHref, apiUrl, items: ex
 
         // pool_test returns products/premium_products/exclusive_products at the
         // top level; new_optimize_code nests them under `data` — support both shapes.
-        const products: Listing[]      = json?.data?.products ?? json?.products ?? [];
+        const products: Listing[]      = dedupeById(json?.data?.products ?? json?.products ?? []);
         const premiumsRaw: Listing[]   = json?.data?.premium_products ?? json?.premium_products ?? [];
         const exclusivesRaw: Listing[] = json?.data?.exclusive_products ?? json?.exclusive_products ?? [];
         const empExclusivesRaw: Listing[] = json?.data?.emp_exclusive_products ?? json?.emp_exclusive_products ?? [];

@@ -122,7 +122,7 @@ const handleBannerClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>) =
     user_agent: navigator.userAgent,
     ip_address: clientIp,   // 👈 fix: hardcoded "" -> state value
   });
-  const trackUrl = `${process.env.NEXT_PUBLIC_CF7_BASE || "https://admin.caravansforsale.com.au"}/wp-json/ads-manager/v1/banners/track`;
+  const trackUrl = `${process.env.NEXT_PUBLIC_CF7_BASE || "https://admin.campervanforsale.com.au"}/wp-json/ads-manager/v1/banners/track`;
   fetch(trackUrl, { method: "POST", headers: { "Content-Type": "application/json" }, body, keepalive: true })
     .catch((err) => console.error("[home] banner click tracking failed:", err));
 

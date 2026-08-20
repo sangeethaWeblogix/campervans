@@ -10,7 +10,7 @@ const nextConfig: NextConfig = {
     domains: [
       "media.caravansforsale.com.au",
       "www.caravansforsale.com.au",
-      "admin.caravansforsale.com.au",
+      "admin.campervanforsale.com.au",
       "caravansforsale.b-cdn.net",
       "wb79vudhmjvv4ng6.public.blob.vercel-storage.com",
       "caravansforsale.imagestack.net",

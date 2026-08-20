@@ -16,7 +16,7 @@ const auth = Buffer.from(
 ).toString("base64");
 
   const res = await fetch(
-    `https://www.admin.caravansforsale.com.au/wp-json/wc/v3/products?per_page=100&page=${page}&_fields=slug`,
+    `https://www.admin.campervanforsale.com.au/wp-json/wc/v3/products?per_page=100&page=${page}&_fields=slug`,
     {
       headers: {
         Authorization: `Basic ${auth}`,

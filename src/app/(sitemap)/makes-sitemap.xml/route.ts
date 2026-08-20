@@ -9,7 +9,7 @@
  export async function GET() {
    try {
      const res = await fetch(
-       "https://admin.caravansforsale.com.au/wp-json/cfs/v1/sitemap/makes",
+       "https://admin.campervanforsale.com.au/wp-json/cfs/v1/sitemap/makes",
         {
         headers: {
           Accept: "application/json",

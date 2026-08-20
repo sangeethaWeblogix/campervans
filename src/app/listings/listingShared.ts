@@ -33,6 +33,19 @@ export type SeoV2 = {
   faq?: string;
 };
 
+/** Drops repeat `id`s, keeping the first occurrence — a defensive guard against
+ * duplicate rows the backend occasionally returns (e.g. an un-deduped SQL join),
+ * which would otherwise render the same product card twice and break React's
+ * key uniqueness. */
+export function dedupeById<T extends { id: number }>(items: T[]): T[] {
+  const seen = new Set<number>();
+  return items.filter((p) => {
+    if (seen.has(p.id)) return false;
+    seen.add(p.id);
+    return true;
+  });
+}
+
 /** Featured-tab ordering: slots 1 & 2 are regular featured vans, slot 3 is the
  * exclusive spotlight van, slots 4 & 5 are premium vans, then the rest of the
  * pool fills in after. Shared by the internal fetch path and any caller doing

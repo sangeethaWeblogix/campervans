@@ -98,27 +98,44 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
+const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+// The WP origin intermittently returns a transient failure (500, or a
+// spurious "no route found" 404) for a request that succeeds again moments
+// later — retry a couple of times before giving up, so a brief backend
+// hiccup doesn't 410 a page that's actually fine.
+const RETRY_DELAYS_MS = [300, 700];
+
 const fetchProductDetail = cache(async (slug: string) => {
   const API_BASE = process.env.NEXT_PUBLIC_CFS_API_BASE!;
   const API_KEY = process.env.CFS_API_KEY;
-  try {
-    const res = await fetch(
-      `${API_BASE}/product-detail-new/?slug=${encodeURIComponent(slug)}`,
-      {
-        cache: "no-store",
-        headers: {
-          Accept: "application/json",
-          ...(API_KEY && { "X-API-Key": API_KEY }),
-        },
-      }
-    );
-    if (!res.ok) return null;
-    const raw = await res.text();
-    const idx = raw.indexOf('{"');
-    return JSON.parse(idx >= 0 ? raw.substring(idx) : raw);
-  } catch {
-    return null;
+  const url = `${API_BASE}/product-detail-new/?slug=${encodeURIComponent(slug)}`;
+
+  let lastStatus = 0;
+  for (let attempt = 0; attempt <= RETRY_DELAYS_MS.length; attempt++) {
+    const res = await fetch(url, {
+      cache: "no-store",
+      headers: {
+        Accept: "application/json",
+        ...(API_KEY && { "X-API-Key": API_KEY }),
+      },
+    });
+    if (res.ok) {
+      const raw = await res.text();
+      const idx = raw.indexOf('{"');
+      return JSON.parse(idx >= 0 ? raw.substring(idx) : raw);
+    }
+    lastStatus = res.status;
+    if (attempt < RETRY_DELAYS_MS.length) {
+      console.warn(`[fetchProductDetail] HTTP ${res.status} (attempt ${attempt + 1}), retrying: ${slug}`);
+      await sleep(RETRY_DELAYS_MS[attempt]);
+    }
   }
+  // A non-2xx here (500, or a transient "no route found" from the WP origin)
+  // is NOT proof the product doesn't exist — it's backend flakiness. Throw
+  // instead of returning null, so the nearest error boundary (error.tsx,
+  // "Something went wrong — Try Again") handles it instead of the page
+  // permanently 410'ing on a product that's actually fine.
+  throw new Error(`product-detail-new fetch failed: HTTP ${lastStatus}`);
 });
 
 
@@ -126,7 +143,7 @@ async function fetchSimilarProducts(productId: string | number, seed: number) {
   const API_KEY = process.env.CFS_API_KEY;
   try {
     const res = await fetch(
-      `https://admin.caravansforsale.com.au/wp-json/cfs/v1/similar_products?product_id=${productId}&seed=${seed}`,
+      `https://admin.campervanforsale.com.au/wp-json/cvs/v1/similar_products?product_id=${productId}&seed=${seed}`,
       {
         cache: "no-store",
         headers: {

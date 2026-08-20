@@ -7,6 +7,7 @@ import Link from "next/link";
 import StateHero from "./StateHero";
 import StateFilterBar, { FilterState } from "./StateFilterBar";
 import StateListingGrid, { SeoV2, Listing, buildFeaturedOrder } from "./StateListingGrid";
+import { dedupeById } from "./listingShared";
 import StateBrowseSection from "./StateBrowseSection";
 import type { BrowseSectionData } from "./browseSectionShared";
 import StateContent from "./StateContent";
@@ -221,7 +222,7 @@ export default function StateHome({ initialFilters, browseData, initialPool, ini
         const seoData = json?.data?.seo_v2 ?? json?.seo_v2;
         if (seoData) setSeo(seoData);
 
-        const products: Listing[] = json?.data?.products ?? json?.products ?? [];
+        const products: Listing[] = dedupeById(json?.data?.products ?? json?.products ?? []);
         const premiumsRaw: Listing[] = json?.data?.premium_products ?? json?.premium_products ?? [];
         const exclusivesRaw: Listing[] = json?.data?.exclusive_products ?? json?.exclusive_products ?? [];
         const empExclusivesRaw: Listing[] = json?.data?.emp_exclusive_products ?? json?.emp_exclusive_products ?? [];
