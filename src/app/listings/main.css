@@ -689,6 +689,12 @@ input.loc-search-input:focus { box-shadow: 0 0 0 1.5px #7e7e7e !important; }
   align-items: start;
 }
 
+/* Single-panel variant — one panel only (e.g. Type panel removed), no
+   divider column so the remaining panel doesn't sit stranded in 1/3 width. */
+.lsd-browse__row1--single {
+  grid-template-columns: 1fr;
+}
+
 .lsd-browse__divider-v {
   width: 1px;
   background: #e8ecf0;

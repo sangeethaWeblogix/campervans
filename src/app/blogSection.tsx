@@ -41,6 +41,7 @@ export default function HomeLatestBlogs() {
   };
   const loading = !loaded;
 
+  if (loaded && posts.length === 0) return null;
 
   return (
     <section className="related-products latest_blog section-padding blog style-8">

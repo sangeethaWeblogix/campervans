@@ -157,6 +157,8 @@ export function categoryLabel(category: string): string {
   return CATEGORY_LABELS[category] ?? category.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
 }
 
+export const CATEGORY_SLUGS = Object.keys(CATEGORY_LABELS);
+
 // State pills stay useful on a category page too — just carry the category
 // filter along so picking a state narrows within that category.
 export function buildStatesForCategory(category: string) {

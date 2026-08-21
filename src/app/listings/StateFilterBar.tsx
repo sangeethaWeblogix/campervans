@@ -431,7 +431,17 @@ export default function StateFilterBar({ currentFilters, onFilterChange, onClear
     ? states.filter(s => stateCounts.some(sc => sc.slug === s.value && sc.count > 0))
     : states;
 
-  const makeSource  = makeCounts.length > 0 ? makeCounts : makes.map(m => ({ name: m.name, slug: m.slug, count: 0 }));
+  // makeCounts comes from /api/params-count/ which (until the backend team
+  // migrates it) still queries the OLD caravansforsale catalog — it returns
+  // hundreds of old caravan brands that don't exist in this site's actual
+  // campervan make list. Only trust it for counts, keyed off the real make
+  // list from /api/make-details/ (the new campervan backend) so old-brand
+  // names can never leak into the modal.
+  const makeSource = makes.map(m => ({
+    name: m.name,
+    slug: m.slug,
+    count: makeCounts.find(mc => mc.slug === m.slug)?.count ?? 0,
+  }));
   const filteredMakes = makeSearch
     ? (() => {
         const q = makeSearch.toLowerCase();
@@ -1172,7 +1182,7 @@ export default function StateFilterBar({ currentFilters, onFilterChange, onClear
                 </div>
               </div>
 
-              {/* Keyword */}
+              {/* Keyword — cmd pannirukku, tempervery ah disable pannirukkom
               <div className="filter-item">
                 <h4>Search by Keyword</h4>
                 <div style={{ position:"relative" }}>
@@ -1220,6 +1230,7 @@ export default function StateFilterBar({ currentFilters, onFilterChange, onClear
                   )}
                 </div>
               </div>
+              */}
 
             </div>
             <div className="filter-footer">

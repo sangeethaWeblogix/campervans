@@ -35,16 +35,57 @@ async function fetchGroupCounts(groupBy: string, scope: Record<string, string>):
   }
 }
 
-async function fetchBandCount(scope: Record<string, string>, query: string): Promise<number> {
+// params_count's "make"/"category" grouping still queries the OLD
+// caravansforsale catalog (see /api/params-count/route.ts) — old caravan
+// brand names for make, and category counts that reflect the old (much
+// larger) caravan inventory rather than this site's real campervan stock.
+// /api/pool-listings/ is the one endpoint confirmed to reflect the real
+// campervan catalog, so counts for a known, fixed set of {slug, name}
+// values (real makes from /api/make-details/, or the 6 known categories)
+// are computed with one per_page=1 pool-listings call per value instead.
+async function fetchPoolCount(scope: Record<string, string>, extra: Record<string, string>): Promise<number> {
   try {
-    const qs = new URLSearchParams({ per_page: "1", ...scope });
-    const res = await fetch(`/api/pool-listings/?${qs.toString()}&${query}`, { cache: "no-store" });
+    const qs = new URLSearchParams({ per_page: "1", ...scope, ...extra });
+    const res = await fetch(`/api/pool-listings/?${qs.toString()}`, { cache: "no-store" });
     if (!res.ok) return 0;
     const json = await res.json();
     return json?.data?.pagination?.total_products ?? json?.pagination?.total_products ?? 0;
   } catch {
     return 0;
   }
+}
+
+async function fetchCountsViaPool(
+  scope: Record<string, string>,
+  key: string,
+  items: { slug: string; name: string }[]
+): Promise<CountItem[]> {
+  const counts = await Promise.all(items.map((it) => fetchPoolCount(scope, { [key]: it.slug })));
+  return items.map((it, i) => ({ name: it.name, slug: it.slug, count: counts[i] }));
+}
+
+let knownMakesPromise: Promise<{ slug: string; name: string }[]> | null = null;
+function getKnownMakes(): Promise<{ slug: string; name: string }[]> {
+  if (!knownMakesPromise) {
+    knownMakesPromise = fetch("/api/make-details/")
+      .then((r) => (r.ok ? r.json() : null))
+      .then((json) =>
+        (json?.data?.make_options ?? []).map((m: { slug: string; name: string }) => ({ slug: m.slug, name: m.name }))
+      )
+      .catch(() => []);
+  }
+  return knownMakesPromise;
+}
+
+async function fetchMakeCounts(scope: Record<string, string>): Promise<CountItem[]> {
+  const makes = await getKnownMakes();
+  return fetchCountsViaPool(scope, "make", makes);
+}
+
+async function fetchBandCount(scope: Record<string, string>, query: string): Promise<number> {
+  const bandParams: Record<string, string> = {};
+  new URLSearchParams(query).forEach((v, k) => { bandParams[k] = v; });
+  return fetchPoolCount(scope, bandParams);
 }
 
 async function fetchAllBandCounts(scope: Record<string, string>) {
@@ -84,7 +125,6 @@ export default function StateBrowseSection({ state, region, category, initialDat
   const [makeCounts,     setMakeCounts]     = useState<CountItem[] | null>(initialData?.makeCounts ?? null);
   const [stateCounts,    setStateCounts]    = useState<CountItem[] | null>(initialData?.stateCounts ?? null);
   const [regionCounts,   setRegionCounts]   = useState<CountItem[] | null>(initialData?.regionCounts ?? null);
-  const [categoryCounts, setCategoryCounts] = useState<CountItem[] | null>(initialData?.categoryCounts ?? null);
   const [priceCounts,    setPriceCounts]    = useState<number[] | null>(initialData?.priceCounts ?? null);
   const [atmCounts,      setAtmCounts]      = useState<number[] | null>(initialData?.atmCounts ?? null);
   const [lengthCounts,   setLengthCounts]   = useState<number[] | null>(initialData?.lengthCounts ?? null);
@@ -105,7 +145,7 @@ export default function StateBrowseSection({ state, region, category, initialDat
     if (!categoryOnly || (initialData && isInitialFilters)) return;
     let cancelled = false;
     const scope = { category: category! };
-    fetchGroupCounts("make", scope).then((d) => { if (!cancelled) setMakeCounts(d); });
+    fetchMakeCounts(scope).then((d) => { if (!cancelled) setMakeCounts(d); });
     fetchGroupCounts("state", scope).then((d) => { if (!cancelled) setStateCounts(d); });
     fetchGroupCounts("region", scope).then((d) => { if (!cancelled) setRegionCounts(d); });
     Promise.all(PRICE_BANDS.map((b) => fetchBandCount(scope, b.query)))
@@ -119,8 +159,7 @@ export default function StateBrowseSection({ state, region, category, initialDat
     if (!stateRegionMode || (initialData && isInitialFilters)) return;
     let cancelled = false;
     const scope = { state: state!, region: region! };
-    fetchGroupCounts("make", scope).then((d) => { if (!cancelled) setMakeCounts(d); });
-    fetchGroupCounts("category", scope).then((d) => { if (!cancelled) setCategoryCounts(d); });
+    fetchMakeCounts(scope).then((d) => { if (!cancelled) setMakeCounts(d); });
     Promise.all(PRICE_BANDS.map((b) => fetchBandCount(scope, b.query)))
       .then((counts) => { if (!cancelled) setPriceCounts(counts); });
     Promise.all(GVM_BANDS.map((b) => fetchBandCount(scope, b.query)))
@@ -137,7 +176,7 @@ export default function StateBrowseSection({ state, region, category, initialDat
     let cancelled = false;
     const scope = { category: category!, state: state! };
     fetchGroupCounts("region", scope).then((d) => { if (!cancelled) setRegionCounts(d); });
-    fetchGroupCounts("make", scope).then((d) => { if (!cancelled) setMakeCounts(d); });
+    fetchMakeCounts(scope).then((d) => { if (!cancelled) setMakeCounts(d); });
     fetchAllBandCounts(scope).then(({ price, atm, length, sleep }) => {
       if (cancelled) return;
       setPriceCounts(price); setAtmCounts(atm); setLengthCounts(length); setSleepCounts(sleep);
@@ -151,7 +190,7 @@ export default function StateBrowseSection({ state, region, category, initialDat
     if (!categoryStateRegionMode || (initialData && isInitialFilters)) return;
     let cancelled = false;
     const scope = { category: category!, state: state!, region: region! };
-    fetchGroupCounts("make", scope).then((d) => { if (!cancelled) setMakeCounts(d); });
+    fetchMakeCounts(scope).then((d) => { if (!cancelled) setMakeCounts(d); });
     fetchAllBandCounts(scope).then(({ price, atm, length, sleep }) => {
       if (cancelled) return;
       setPriceCounts(price); setAtmCounts(atm); setLengthCounts(length); setSleepCounts(sleep);
@@ -287,16 +326,19 @@ export default function StateBrowseSection({ state, region, category, initialDat
       .filter((m) => m.count > 0)
       .map((m) => ({ text: m.name, href: `/listings/${m.slug}/${stateSlug}-state/${regionSlug}-region/` }));
 
-    const categoryPanel = TYPES_NO_STATE
-      .filter((t) => {
-        if (categoryCounts === null) return true;
-        const slug = t.href.match(/\/listings\/([a-z-]+)-category\//)?.[1] ?? "";
-        return (categoryCounts.find((cc) => cc.slug === slug)?.count ?? 0) > 0;
-      })
-      .map((t) => {
-        const slug = t.href.match(/\/listings\/([a-z-]+)-category\//)?.[1] ?? "";
-        return { text: t.label, href: `/listings/${slug}-category/${stateSlug}-state/${regionSlug}-region/` };
-      });
+    // "Browse Campervans by Type" — cmd pannirukku, category feature site-la
+    // remove pannitom (every product currently has category="uncategorized"
+    // on the new backend, so there's no real data to power this panel).
+    // const categoryPanel = TYPES_NO_STATE
+    //   .filter((t) => {
+    //     if (categoryCounts === null) return true;
+    //     const slug = t.href.match(/\/listings\/([a-z-]+)-category\//)?.[1] ?? "";
+    //     return (categoryCounts.find((cc) => cc.slug === slug)?.count ?? 0) > 0;
+    //   })
+    //   .map((t) => {
+    //     const slug = t.href.match(/\/listings\/([a-z-]+)-category\//)?.[1] ?? "";
+    //     return { text: t.label, href: `/listings/${slug}-category/${stateSlug}-state/${regionSlug}-region/` };
+    //   });
 
     const panels = [
       { icon: "/images/Budget.png",   title: `Browse Campervans by Price in ${regionName}`,            links: bandPanel(basePath, PRICE_BANDS, priceCounts) },
@@ -308,7 +350,7 @@ export default function StateBrowseSection({ state, region, category, initialDat
       <section className="lsd-browse">
         <div className="container">
 
-          <div className="lsd-browse__row1">
+          <div className="lsd-browse__row1 lsd-browse__row1--single">
             <div className="lsd-browse__panel">
               <h3 className="lsd-browse__panel-title">{`Browse Campervans by Popular Manufacturers in ${regionName}`}</h3>
               <div className="lsd-browse__pills">
@@ -318,6 +360,7 @@ export default function StateBrowseSection({ state, region, category, initialDat
               </div>
             </div>
 
+            {/*
             <div className="lsd-browse__divider-v" />
 
             <div className="lsd-browse__panel">
@@ -328,6 +371,7 @@ export default function StateBrowseSection({ state, region, category, initialDat
                 ))}
               </div>
             </div>
+            */}
           </div>
 
           {renderFilterCols(panels, "lsd-browse__row2--three")}
