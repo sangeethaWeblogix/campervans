@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     siteName: "Campervans for Sale",
     images: [
       {
-        url: "https://campervans.vercel.app/images/cfs-logo.png",
+        url: "https://campervans.vercel.app/images/camper_logo.png",
         width: 800,
         height: 600,
         alt: "Campervans for Sale Australia",

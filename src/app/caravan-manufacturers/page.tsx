@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     url: "https://campervans.vercel.app/caravan-manufacturers/",
     images: [
       {
-        url: "https://campervans.vercel.app/images/cfs-logo.png",
+        url: "https://campervans.vercel.app/images/camper_logo.png",
         width: 800,
         height: 600,
         alt: "Caravan Manufacturers Australia",

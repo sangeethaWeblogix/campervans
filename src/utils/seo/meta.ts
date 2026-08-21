@@ -315,7 +315,7 @@ export function generateTitleFromFilters(
   // Keyword search: treat search term as the primary noun
   if (parsed.search) {
     const kw = titleCase(parsed.search);
-    const noun = /caravans?$/i.test(kw) ? kw : `${kw} Caravans`;
+    const noun = /campervans?$/i.test(kw) ? kw : `${kw} Campervans`;
     return `${noun} for Sale${locationSuffix}`;
   }
 
@@ -331,7 +331,7 @@ export function generateTitleFromFilters(
   if (parsed.model) parts.push(titleCase(parsed.model));
   if (parsed.category) parts.push(titleCase(parsed.category));
 
-  const baseNoun = parts.length > 0 ? `${parts.join(" ")} Caravans` : "Caravans";
+  const baseNoun = parts.length > 0 ? `${parts.join(" ")} Campervans` : "Campervans";
   const band = getBandText(parsed);
   const bandPart = band ? ` ${band}` : "";
 
@@ -403,7 +403,7 @@ export async function metaFromSlug(
       url: canonical,
       images: [
         {
-          url: "https://campervans.vercel.app/images/cfs-logo.png",
+          url: "https://campervans.vercel.app/images/camper_logo.png",
           width: 800,
           height: 600,
           alt: "Campervans for Sale Australia",
