@@ -27,11 +27,27 @@ export async function fetchRequirements(): Promise<Requirement[]> {
       next: { revalidate: 86400 },
       headers: {
         Accept: "application/json",
+        // Without a browser-like UA, SiteGround's WAF bot-challenge blocks
+        // this request from Vercel's server IP (confirmed on other WP routes
+        // in this app) — matches the header pool-listings/route.ts already
+        // sends, which is why that endpoint works fine from production.
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36",
         ...(API_KEY && { "X-API-Key": API_KEY }),
       },
     });
-    if (!res.ok) return [];
-    const json: ListResp = await res.json();
+    if (!res.ok) {
+      console.error(`[cara_req] WP API HTTP ${res.status}`);
+      return [];
+    }
+    const raw = await res.text();
+    if (raw.includes("sgcaptcha") || raw.trimStart().startsWith("<html")) {
+      const blockedIp = raw.match(/ipc:([0-9.]+):/)?.[1] ?? "unknown";
+      console.error(
+        `[cara_req] BOT CHALLENGE blocked request | server_ip="${blockedIp}" | This is your Vercel server IP — whitelist it in SiteGround.`
+      );
+      return [];
+    }
+    const json: ListResp = JSON.parse(raw);
     return Array.isArray(json?.data) ? json.data : [];
   } catch {
     return [];
