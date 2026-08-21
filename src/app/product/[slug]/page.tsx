@@ -108,10 +108,15 @@ const RETRY_DELAYS_MS = [300, 700];
 const fetchProductDetail = cache(async (slug: string) => {
   const API_BASE = process.env.NEXT_PUBLIC_CFS_API_BASE!;
   const API_KEY = process.env.CFS_API_KEY;
-  const url = `${API_BASE}/product-detail-new/?slug=${encodeURIComponent(slug)}`;
+  const baseUrl = `${API_BASE}/product-detail-new/?slug=${encodeURIComponent(slug)}`;
 
   let lastStatus = 0;
   for (let attempt = 0; attempt <= RETRY_DELAYS_MS.length; attempt++) {
+    // Cache-buster: the WP origin's reverse-proxy cache has been observed
+    // caching non-2xx responses, keeping a transient error stuck for every
+    // identical request until the cache entry expires. A unique param per
+    // attempt forces a cache MISS so retries actually reach the real origin.
+    const url = `${baseUrl}&_cb=${Date.now()}-${attempt}`;
     const res = await fetch(url, {
       cache: "no-store",
       headers: {

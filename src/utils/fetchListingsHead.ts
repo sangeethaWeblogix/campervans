@@ -91,9 +91,13 @@ async function fetchPoolListingsForHead(
   const cached = headPoolCache.get(url);
   if (cached && cached.expires > Date.now()) return cached.data;
 
+  // Cache-buster on the outgoing fetch only (not on the headPoolCache key
+  // above) — defeats the WP origin's reverse-proxy caching of non-2xx
+  // responses, see fetchPoolTest comment in /api/pool-listings/route.ts.
+  const fetchUrl = `${url}&_cb=${Date.now()}`;
   let res: Response;
   try {
-    res = await fetch(url, {
+    res = await fetch(fetchUrl, {
       headers: {
         Accept: "application/json",
         ...(API_KEY && { "X-API-Key": API_KEY }),

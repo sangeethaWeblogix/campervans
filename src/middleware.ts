@@ -145,7 +145,9 @@ async function refreshSeoCache(cacheKey: string, url: URL, request: NextRequest)
     const slugParts = url.pathname.replace("/listings", "").split("/").filter(Boolean);
     const filters = parseSlugToFilters(slugParts, Object.fromEntries(url.searchParams));
     const apiParams = buildApiParams(filters);
-    const apiUrl = `${API_WP}/pool_test?${apiParams.toString()}&engine=typesense`;
+    // Cache-buster: defeat the WP origin's reverse-proxy caching of non-2xx
+    // responses (see fetchPoolTest comment in /api/pool-listings/route.ts).
+    const apiUrl = `${API_WP}/pool_test?${apiParams.toString()}&engine=typesense&_cb=${Date.now()}`;
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), 10000);
     const apiRes = await fetch(apiUrl, {
@@ -341,8 +343,11 @@ export async function middleware(request: NextRequest) {
           const API_BASE = process.env.NEXT_PUBLIC_CFS_API_BASE || 'https://admin.campervanforsale.com.au/wp-json/cvs/v1';
           const controller = new AbortController();
           const timeoutId = setTimeout(() => controller.abort(), 5000);
+          // Cache-buster: the WP origin's reverse-proxy cache has been observed
+          // caching non-2xx responses, keeping a transient error stuck until
+          // the cache entry expires. A unique param forces a cache MISS.
           const apiRes = await fetch(
-            `${API_BASE}/product-detail-new/?slug=${encodeURIComponent(slug)}`,
+            `${API_BASE}/product-detail-new/?slug=${encodeURIComponent(slug)}&_cb=${Date.now()}`,
             {
               headers: {
                 'User-Agent': SERVER_UA,
@@ -444,7 +449,9 @@ export async function middleware(request: NextRequest) {
         // Build API params using the same mapping as fetchListings (api/listings/api.ts).
         // Raw filter keys (minKg, maxKg, sleeps) must be converted to API names (from_atm, to_atm, sleep).
         const apiParams = buildApiParams(filters);
-        const apiUrl = `${API_WP}/pool_test?${apiParams.toString()}&engine=typesense`;
+        // Cache-buster: defeat the WP origin's reverse-proxy caching of
+        // non-2xx responses (see fetchPoolTest comment in /api/pool-listings/route.ts).
+        const apiUrl = `${API_WP}/pool_test?${apiParams.toString()}&engine=typesense&_cb=${Date.now()}`;
 
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), 5000);

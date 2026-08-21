@@ -56,7 +56,7 @@ export async function GET(request: NextRequest) {
   const params = searchParams.toString();
 
   // Forward all params directly to WP pool_test (SQL engine, no typesense).
-  const url = `${API_BASE}/pool_test?${params}`;
+  const baseUrl = `${API_BASE}/pool_test?${params}`;
 
   const t0 = Date.now();
   let attempt = 0;
@@ -64,6 +64,17 @@ export async function GET(request: NextRequest) {
   while (true) {
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), 30000);
+
+    // The WP origin's nginx reverse-proxy cache has been observed caching
+    // non-2xx responses keyed by the full request URL — once a transient
+    // error gets cached, every identical request keeps getting served that
+    // stale error until the cache entry expires, regardless of whether the
+    // origin has long since recovered. Appending a unique cache-buster per
+    // attempt guarantees a cache MISS every time, so we always hit the real
+    // origin instead of a possibly-poisoned cache entry. This is a frontend
+    // workaround for a backend cache bug — remove once the WP hosting team
+    // fixes their reverse-proxy config to never cache non-2xx responses.
+    const url = `${baseUrl}&_cb=${Date.now()}-${attempt}`;
 
     try {
       const { res, data, raw, botChallenge } = await fetchPoolTest(url, controller.signal);
