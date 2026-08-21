@@ -292,7 +292,7 @@ const handleBannerClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>) =
               <p className="desc">List your campervan on CampervansForSale.com.au — Australia&apos;s trusted marketplace to buy and sell campervans.</p>
               <div className="btns_two">
                 <a href="/dealer-advertising/" className="btn primary-btn">Dealer Sign Up</a>
-                <a href="/sell-my-caravan/" className="btn secondary-btn">Private Seller - Click Here</a>
+                <a href="/sell-my-campervan/" className="btn secondary-btn">Private Seller - Click Here</a>
               </div>
             </div>
           </div>

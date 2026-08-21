@@ -19,7 +19,7 @@ export default function CaravanBuyingSafetyGuide() {
               </p>
 
               <p>
-                CaravansForSale.com.au connects buyers and sellers, but transactions take place directly between those parties.
+                CampervanForSale.com.au connects buyers and sellers, but transactions take place directly between those parties.
                 The following safety guidelines will help you make informed decisions and reduce the risk of scams.
               </p>
 
@@ -226,7 +226,7 @@ export default function CaravanBuyingSafetyGuide() {
               <h3>Important Disclaimer</h3>
 
               <p>
-                CaravansForSale.com.au is an online marketplace operated by Marketplace Network Pty Ltd.
+                CampervanForSale.com.au is an online marketplace operated by Marketplace Network Pty Ltd.
                 We connect buyers and sellers but do not participate in transactions between users.
               </p>
 

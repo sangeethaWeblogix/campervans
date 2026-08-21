@@ -11,7 +11,7 @@ const OR_FAQ = [
   { q: "What is an off road campervan?", a: "An off road campervan is a campervan built to handle rough, unsealed tracks and remote terrain. They typically feature heavy-duty chassis, independent suspension, reinforced bodywork, larger water and battery capacity, and off-road tyres to handle Australia's outback and bush conditions." },
   { q: "What is the difference between semi off road and full off road campervans?", a: "Semi off road campervans are built for light unsealed roads and easy bush tracks, with upgraded suspension and stronger construction. Full off road campervans are engineered for extreme terrain — think river crossings, rocky tracks and remote touring — with independent suspension, heavy-duty chassis and full off-grid capability." },
   { q: "Can off road campervans go off grid?", a: "Yes. Most off road campervans come with or can be fitted with solar panels, lithium batteries, large fresh water tanks and composting or cassette toilets, allowing extended stays in remote areas without external power or water hookups." },
-  { q: "Do I need a special vehicle to tow an off road campervan?", a: "Yes. Off road campervans are heavier and wider than standard campervans. You'll need a high-capacity 4WD with a tow bar rated to the campervan's ATM. Always check the campervan's ATM and the tow vehicle's GVM and tow rating before purchasing." },
+  { q: "Do I need a special vehicle to tow an off road campervan?", a: "Yes. Off road campervans are heavier and wider than standard campervans. You'll need a high-capacity 4WD with a tow bar rated to the campervan's GVM. Always check the campervan's GVM and the tow vehicle's GVM and tow rating before purchasing." },
   { q: "Are off road campervans suitable for families?", a: "Absolutely. Many off road models come in family-friendly layouts with bunk beds, multiple sleeping berths, full kitchens and ensuites. Brands like Jayco, New Age and Trakmaster offer popular family off road models across a range of budgets." },
   { q: "What is the average price of an off road campervan in Australia?", a: "Off road campervan prices in Australia typically range from around $40,000 for entry-level semi off road models to over $150,000 for premium full off road expedition campervans. The most popular mid-range models sit between $60,000 and $100,000." },
 ];
@@ -110,7 +110,7 @@ const SEARCH_FILTERS = [
     ],
   },
   {
-    label: "By Weight (ATM)",
+    label: "By Weight (GVM)",
     icon: "⚖",
     links: [
       { text: "Under 1500kg", href: "/listings/?max_atm=1500" },
@@ -364,7 +364,7 @@ export default function OffRoadCaravansPage({ stateBands, offRoadBlogs, offRoadP
                 <span className="or-cta-sell-sub">Reach thousands of serious buyers across Australia.</span>
               </div>
             </div>
-            <a href="/sell-my-caravan/" className="or-btn or-btn--outline">Sell My Campervan</a>
+            <a href="/sell-my-campervan/" className="or-btn or-btn--outline">Sell My Campervan</a>
           </div>
         </div>
       </section>

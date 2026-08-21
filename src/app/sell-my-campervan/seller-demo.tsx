@@ -6,12 +6,12 @@
  import { getRegionBySlug } from "../sell-my-caravan-region/regions-data";
 
  const STATE_LINKS = [
-   { label: "Victoria",              img: "/images/vic_map.svg", href: "/sell-my-caravan/victoria/" },
-   { label: "New South Wales",       img: "/images/nsw_map.svg", href: "/sell-my-caravan/new-south-wales/" },
-   { label: "Queensland",            img: "/images/qld_map.svg", href: "/sell-my-caravan/queensland/" },
-   { label: "Western Australia",     img: "/images/wa_map.svg",  href: "/sell-my-caravan/western-australia/" },
-   { label: "South Australia",       img: "/images/sa_map.svg",  href: "/sell-my-caravan/south-australia/" },
-   { label: "Tasmania",              img: "/images/tas_map.svg", href: "/sell-my-caravan/tasmania/" },
+   { label: "Victoria",              img: "/images/vic_map.svg", href: "/sell-my-campervan/victoria/" },
+   { label: "New South Wales",       img: "/images/nsw_map.svg", href: "/sell-my-campervan/new-south-wales/" },
+   { label: "Queensland",            img: "/images/qld_map.svg", href: "/sell-my-campervan/queensland/" },
+   { label: "Western Australia",     img: "/images/wa_map.svg",  href: "/sell-my-campervan/western-australia/" },
+   { label: "South Australia",       img: "/images/sa_map.svg",  href: "/sell-my-campervan/south-australia/" },
+   { label: "Tasmania",              img: "/images/tas_map.svg", href: "/sell-my-campervan/tasmania/" },
  ];
 
  const CITY_SLUGS = [
@@ -31,7 +31,7 @@
    const region = getRegionBySlug(regionSlug);
    return {
      label,
-     href: region ? `/sell-my-caravan/${region.state.slug}/${region.pageSlug}/` : "/sell-my-caravan/",
+     href: region ? `/sell-my-campervan/${region.state.slug}/${region.pageSlug}/` : "/sell-my-campervan/",
    };
  });
  
@@ -47,11 +47,11 @@
  const MAIN_FAQS = [
    {
      q: "How do I sell my campervan online in Australia?",
-     a: <p>You can sell your campervan online by creating a private seller listing on CaravansForSale.com.au. Add your campervan details, upload clear photos, set your asking price and publish your ad so buyers across Australia can contact you directly.</p>,
+     a: <p>You can sell your campervan online by creating a private seller listing on CampervanForSale.com.au. Add your campervan details, upload clear photos, set your asking price and publish your ad so buyers across Australia can contact you directly.</p>,
    },
    {
      q: "How much does it cost to list my campervan?",
-     a: <p>It costs $49 inc. GST to list your campervan on CaravansForSale.com.au. This is a one-time listing fee with no monthly subscription, no hidden charges and no commission when your campervan sells.</p>,
+     a: <p>It costs $49 inc. GST to list your campervan on CampervanForSale.com.au. This is a one-time listing fee with no monthly subscription, no hidden charges and no commission when your campervan sells.</p>,
    },
    {
      q: "How long does my campervan listing stay live?",
@@ -71,7 +71,7 @@
    },
    {
      q: "How should I price my campervan?",
-     a: <p>Check similar campervans for sale before setting your price. Compare by make, model, year, condition, length, ATM, tare weight, sleeping capacity, features and location. A realistic asking price can help attract more genuine buyers.</p>,
+     a: <p>Check similar campervans for sale before setting your price. Compare by make, model, year, condition, length, GVM, tare weight, sleeping capacity, features and location. A realistic asking price can help attract more genuine buyers.</p>,
    },
    {
      q: "Is it safe to sell my campervan privately online?",
@@ -79,7 +79,7 @@
    },
    {
      q: "Do I pay commission when my campervan sells?",
-     a: <p>No. CaravansForSale.com.au does not charge commission when your campervan sells. You pay the one-time listing fee and keep 100% of the agreed sale price.</p>,
+     a: <p>No. CampervanForSale.com.au does not charge commission when your campervan sells. You pay the one-time listing fee and keep 100% of the agreed sale price.</p>,
    },
    {
      q: "Can I remove my listing after my campervan is sold?",
@@ -117,7 +117,7 @@
                <h3>Looking to sell your campervan?</h3>
              </div>
                <p className="demo-price-card__desc">
-                 CaravansForSale.com.au helps private sellers advertise directly to genuine campervan buyers for a one-time $49 listing fee, with no commissions, no subscriptions and your ad live until sold.
+                 CampervanForSale.com.au helps private sellers advertise directly to genuine campervan buyers for a one-time $49 listing fee, with no commissions, no subscriptions and your ad live until sold.
                </p>
                
              </div>
@@ -317,7 +317,7 @@
              <div className="demo-guide-card">
                <div className="demo-guide-card__header">
                  <span className="demo-guide-card__num">1</span>
-                 <h3>Why sell on CaravansForSale.com.au?</h3>
+                 <h3>Why sell on CampervanForSale.com.au?</h3>
                </div>
                <ul className="demo-guide-card__list">
                  <li>Caravan-only marketplace, not a general classifieds page.</li>
@@ -334,7 +334,7 @@
                </div>
                <ul className="demo-guide-card__list">
                  <li>Photos: exterior, interior, beds, kitchen, tyres and accessories.</li>
-                 <li>Details: make, model, year, ATM, tare, length and sleeps.</li>
+                 <li>Details: make, model, year, GVM, tare, length and sleeps.</li>
                  <li>Condition, rego, service history, upgrades and asking price.</li>
                </ul>
              </div>
@@ -373,7 +373,7 @@
            <div className="demo-faq-head">
              <span className="demo-faq-head__tag">FAQ</span>
              <h2>Frequently Asked Questions</h2>
-             <p>Everything you need to know about selling your campervan on CaravansForSale.com.au</p>
+             <p>Everything you need to know about selling your campervan on CampervanForSale.com.au</p>
            </div>
            <div className="demo-faq-list">
              {MAIN_FAQS.map((faq, i) => (
@@ -411,7 +411,7 @@
              <div className="col-md-6">
                <h2>Why Thousands of Campervan Buyers Visit CaravansForSale Every Month</h2>
                <p>
-                 CaravansForSale.com.au is Australia's dedicated campervan marketplace, built exclusively
+                 CampervanForSale.com.au is Australia's dedicated campervan marketplace, built exclusively
                  for campervan buyers and sellers. We attract thousands of genuine buyers every day who
                  are actively searching for road campervans, family campervans, pop-top campervans, luxury
                  campervans and more.

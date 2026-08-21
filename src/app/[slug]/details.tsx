@@ -124,11 +124,11 @@ const BROWSE_TABS: BrowseTab[] = [
     icon: "bi-speedometer2",
     viewAll: { text: "Browse by weight", href: "/listings/" },
     links: [
-      { text: "Under 1500kg", href: "/listings/under-1500-kg-atm/" },
-      { text: "Under 2000kg", href: "/listings/under-2000-kg-atm/" },
-      { text: "Under 2500kg", href: "/listings/under-2500-kg-atm/" },
-      { text: "Under 3000kg", href: "/listings/under-3000-kg-atm/" },
-      { text: "Over 3000kg",  href: "/listings/over-3000-kg-atm/" },
+      { text: "Under 1500kg", href: "/listings/under-1500-kg-gvm/" },
+      { text: "Under 2000kg", href: "/listings/under-2000-kg-gvm/" },
+      { text: "Under 2500kg", href: "/listings/under-2500-kg-gvm/" },
+      { text: "Under 3000kg", href: "/listings/under-3000-kg-gvm/" },
+      { text: "Over 3000kg",  href: "/listings/over-3000-kg-gvm/" },
     ],
   },
   {
@@ -617,7 +617,7 @@ export default function BlogDetailsPage({
                 </div>
                 <div className="blog-sidebar-cta blog-sidebar-cta--sell">
                   <h3 className="blog-sidebar-cta__heading">Sell Your Campervan Faster with Australia's Growing Campervan Marketplace</h3>
-                  <a href="/sell-my-caravan/" className="blog-sidebar-cta__btn">
+                  <a href="/sell-my-campervan/" className="blog-sidebar-cta__btn">
                     List Your Campervan Now <i className="bi bi-arrow-right" />
                   </a>
                 </div>
@@ -686,8 +686,8 @@ export default function BlogDetailsPage({
           </p>
           <p className="bds-cta-body">
             <strong>Looking to sell?</strong> If you&apos;re upgrading to a newer campervan or no longer need your current one,{" "}
-            <a href="/sell-my-caravan/" className="bds-cta-link">sell your campervan</a>{" "}
-            by creating a listing on CaravansForSale.com.au. Your advertisement stays online until it&apos;s sold for a one-time fee of $49.
+            <a href="/sell-my-campervan/" className="bds-cta-link">sell your campervan</a>{" "}
+            by creating a listing on CampervanForSale.com.au. Your advertisement stays online until it&apos;s sold for a one-time fee of $49.
           </p>
         </div>
       </section>

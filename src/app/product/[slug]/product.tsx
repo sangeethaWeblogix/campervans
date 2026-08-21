@@ -255,7 +255,7 @@ export default function ClientLogger({
       url: findAttr("Length")?.url ?? findAttr("length")?.url, // ✅ API url (e.g. "under-16-length-in-feet")
     },
     { label: "Sleep", value: getAttr("sleeps"), url: findAttr("sleeps")?.url },
-    { label: "ATM", value: getAttr("ATM"), url: findAttr("ATM")?.url }, // ✅ API url (e.g. "under-2000-kg-atm")
+    { label: "GVM", value: getAttr("GVM"), url: findAttr("GVM")?.url }, // ✅ API url (e.g. "under-2000-kg-gvm")
     { label: "Tare Mass", value: getAttr("Tare Mass") },
     { label: "Axle Configuration", value: getAttr("Axle Configuration") },
 
@@ -347,7 +347,7 @@ export default function ClientLogger({
 
     if (L === "atm") {
       const s = toInt(v);
-      return s ? [{ href: `/listings/under-${s}-kg-atm/`, text: v }] : null;
+      return s ? [{ href: `/listings/under-${s}-kg-gvm/`, text: v }] : null;
     }
 
     if (L === "condition" || L === "conditions") {

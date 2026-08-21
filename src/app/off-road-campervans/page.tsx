@@ -156,7 +156,7 @@ const schemaJsonLd = {
         {
           "@type": "Question",
           "name": "Do I need a special vehicle to tow an off road campervan?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Off road campervans are heavier and wider than standard campervans. You'll need a high-capacity 4WD with a tow bar rated to the campervan's ATM. Always check the campervan's ATM and the tow vehicle's GVM and tow rating before purchasing." },
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Off road campervans are heavier and wider than standard campervans. You'll need a high-capacity 4WD with a tow bar rated to the campervan's GVM. Always check the campervan's GVM and the tow vehicle's GVM and tow rating before purchasing." },
         },
         {
           "@type": "Question",

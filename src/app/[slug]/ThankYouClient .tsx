@@ -1,9 +1,7 @@
  "use client";
 
 import { Card, CardContent, Typography, Button } from "@mui/material";
-import Image from "next/image";
 import Link from "next/link";
-import TickIcon from "../../../public/images/tick.jpg";
 
 export default function ThankYouClient() {
   return (
@@ -31,24 +29,26 @@ export default function ThankYouClient() {
               height: 80,
               margin: "0 auto 20px",
               borderRadius: "50%",
-              backgroundColor: "#22c55e",
+              backgroundColor: "#3f3e82",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
             }}
           >
-            <Image
-              src={TickIcon}
-              alt="Success"
-              width={40}
-              height={40}
-              style={{ objectFit: "contain" }}
-            />
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path
+                d="M5 13l4 4L19 7"
+                stroke="#fff"
+                strokeWidth="3"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
           </div>
 
           <Typography variant="h5" fontWeight="bold" gutterBottom>
             Thank you for submitting your information with{" "}
-            <span style={{ color: "#000" }}>caravansforsale.com.au</span>.
+            <span style={{ color: "#000" }}>campervanforsale.com.au</span>.
           </Typography>
 
           <Typography variant="body1" color="text.secondary" gutterBottom>
@@ -60,9 +60,9 @@ export default function ThankYouClient() {
               variant="contained"
               sx={{
                 mt: 3,
-                backgroundColor: "orange",
+                backgroundColor: "#3f3e82",
                 color: "white",
-                "&:hover": { backgroundColor: "#3f3e82" },
+                "&:hover": { backgroundColor: "#2f2e63" },
               }}
             >
               Go Back

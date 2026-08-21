@@ -53,13 +53,13 @@ export const FILTERS_NO_STATE = [
     ],
   },
   {
-    icon: "/images/ATM.png", title: "By Weight (ATM)",
+    icon: "/images/GVM.png", title: "By Weight (GVM)",
     links: [
-      { text: "Under 1500kg", href: "/listings/under-1500-kg-atm/" },
-      { text: "Under 2000kg", href: "/listings/under-2000-kg-atm/" },
-      { text: "Under 2500kg", href: "/listings/under-2500-kg-atm/" },
-      { text: "Under 3000kg", href: "/listings/under-3000-kg-atm/" },
-      { text: "Over 3000kg",  href: "/listings/over-3000-kg-atm/" },
+      { text: "Under 1500kg", href: "/listings/under-1500-kg-gvm/" },
+      { text: "Under 2000kg", href: "/listings/under-2000-kg-gvm/" },
+      { text: "Under 2500kg", href: "/listings/under-2500-kg-gvm/" },
+      { text: "Under 3000kg", href: "/listings/under-3000-kg-gvm/" },
+      { text: "Over 3000kg",  href: "/listings/over-3000-kg-gvm/" },
     ],
   },
   {
@@ -106,7 +106,7 @@ export const POPULAR_REGION_PATHS = [
   { name: "Ballarat",       path: "victoria-state/ballarat-region/" },
 ];
 
-// Price/ATM/length/sleep band definitions doubling as the query params used
+// Price/GVM/length/sleep band definitions doubling as the query params used
 // to look up each band's own count (no bucketed group_by exists on the
 // backend for numeric fields, so counts come from pool-listings'
 // total_products for each band individually).
@@ -120,12 +120,12 @@ export const PRICE_BANDS = [
   { text: "Over $100,000",      href: "/listings/over-100000/",          query: "from_price=100000" },
 ];
 
-export const ATM_BANDS = [
-  { text: "Under 1500kg", href: "/listings/under-1500-kg-atm/", query: "to_atm=1500" },
-  { text: "Under 2000kg", href: "/listings/under-2000-kg-atm/", query: "to_atm=2000" },
-  { text: "Under 2500kg", href: "/listings/under-2500-kg-atm/", query: "to_atm=2500" },
-  { text: "Under 3000kg", href: "/listings/under-3000-kg-atm/", query: "to_atm=3000" },
-  { text: "Over 3000kg",  href: "/listings/over-3000-kg-atm/",  query: "from_atm=3000" },
+export const GVM_BANDS = [
+  { text: "Under 1500kg", href: "/listings/under-1500-kg-gvm/", query: "to_atm=1500" },
+  { text: "Under 2000kg", href: "/listings/under-2000-kg-gvm/", query: "to_atm=2000" },
+  { text: "Under 2500kg", href: "/listings/under-2500-kg-gvm/", query: "to_atm=2500" },
+  { text: "Under 3000kg", href: "/listings/under-3000-kg-gvm/", query: "to_atm=3000" },
+  { text: "Over 3000kg",  href: "/listings/over-3000-kg-gvm/",  query: "from_atm=3000" },
 ];
 
 export const LENGTH_BANDS = [
@@ -196,7 +196,7 @@ export function buildTypesForState(state: string) {
   }));
 }
 
-// Budget/ATM/length/sleep pills on a state page reuse the no-state slugs,
+// Budget/GVM/length/sleep pills on a state page reuse the no-state slugs,
 // just prefixed with the state segment (state before these, per
 // buildSlugFromFilters' segment order).
 export function buildFiltersForState(state: string) {

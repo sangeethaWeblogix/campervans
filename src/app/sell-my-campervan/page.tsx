@@ -8,8 +8,8 @@ const sellPageJsonLd = {
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": `${BASE_URL}/sell-my-caravan/#webpage`,
-      "url": `${BASE_URL}/sell-my-caravan/`,
+      "@id": `${BASE_URL}/sell-my-campervan/#webpage`,
+      "url": `${BASE_URL}/sell-my-campervan/`,
       "name": "Sell My Campervan Online Australia | List Until Sold for $49",
       "description":
         "Sell your campervan online across Australia for just $49. List until sold, edit anytime, pay no commission and connect directly with genuine campervan buyers.",
@@ -18,11 +18,11 @@ const sellPageJsonLd = {
     },
     {
       "@type": "Service",
-      "@id": `${BASE_URL}/sell-my-caravan/#service`,
+      "@id": `${BASE_URL}/sell-my-campervan/#service`,
       "name": "Private Campervan Listing Service",
-      "url": `${BASE_URL}/sell-my-caravan/`,
+      "url": `${BASE_URL}/sell-my-campervan/`,
       "description":
-        "List your campervan for sale on CaravansForSale.com.au for a one-time $49 fee. No commissions, no subscriptions, live until sold.",
+        "List your campervan for sale on CampervanForSale.com.au for a one-time $49 fee. No commissions, no subscriptions, live until sold.",
       "provider": {
         "@type": "Organization",
         "name": "Campervans For Sale",
@@ -41,14 +41,14 @@ const sellPageJsonLd = {
     },
     {
       "@type": "FAQPage",
-      "@id": `${BASE_URL}/sell-my-caravan/#faqpage`,
+      "@id": `${BASE_URL}/sell-my-campervan/#faqpage`,
       "mainEntity": [
         {
           "@type": "Question",
           "name": "How do I sell my campervan online in Australia?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "You can sell your campervan online by creating a private seller listing on CaravansForSale.com.au. Add your campervan details, upload clear photos, set your asking price and publish your ad so buyers across Australia can contact you directly.",
+            "text": "You can sell your campervan online by creating a private seller listing on CampervanForSale.com.au. Add your campervan details, upload clear photos, set your asking price and publish your ad so buyers across Australia can contact you directly.",
           },
         },
         {
@@ -56,7 +56,7 @@ const sellPageJsonLd = {
           "name": "How much does it cost to list my campervan?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "It costs $49 inc. GST to list your campervan on CaravansForSale.com.au. This is a one-time listing fee with no monthly subscription, no hidden charges and no commission when your campervan sells.",
+            "text": "It costs $49 inc. GST to list your campervan on CampervanForSale.com.au. This is a one-time listing fee with no monthly subscription, no hidden charges and no commission when your campervan sells.",
           },
         },
         {
@@ -88,7 +88,7 @@ const sellPageJsonLd = {
           "name": "Do I pay commission when my campervan sells?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No. CaravansForSale.com.au does not charge commission when your campervan sells. You pay the one-time listing fee and keep 100% of the agreed sale price.",
+            "text": "No. CampervanForSale.com.au does not charge commission when your campervan sells. You pay the one-time listing fee and keep 100% of the agreed sale price.",
           },
         },
         {
@@ -96,7 +96,7 @@ const sellPageJsonLd = {
           "name": "How should I price my campervan?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Check similar campervans for sale before setting your price. Compare by make, model, year, condition, length, ATM, tare weight, sleeping capacity, features and location. A realistic asking price can help attract more genuine buyers.",
+            "text": "Check similar campervans for sale before setting your price. Compare by make, model, year, condition, length, GVM, tare weight, sleeping capacity, features and location. A realistic asking price can help attract more genuine buyers.",
           },
         },
         {

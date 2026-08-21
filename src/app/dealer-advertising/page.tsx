@@ -8,7 +8,7 @@ const schemaGraph = [
     "@id": "https://campervans.vercel.app/dealer-advertising/#webpage",
     "url": "https://campervans.vercel.app/dealer-advertising/",
     "name": "Campervan Dealer Advertising | Unlimited Listings $299/Month | CaravansForSale",
-    "description": "Advertise your campervan dealership on CaravansForSale.com.au. Unlimited listings, zero lead fees, $299/month (inc. GST). Cancel anytime.",
+    "description": "Advertise your campervan dealership on CampervanForSale.com.au. Unlimited listings, zero lead fees, $299/month (inc. GST). Cancel anytime.",
     "isPartOf": { "@id": "https://campervans.vercel.app/#website" },
     "breadcrumb": { "@id": "https://campervans.vercel.app/dealer-advertising/#breadcrumb" },
   },
@@ -30,7 +30,7 @@ const schemaGraph = [
       "name": "Campervans For Sale",
       "url": "https://campervans.vercel.app/",
     },
-    "description": "Unlimited campervan listings on CaravansForSale.com.au for $299/month (inc. GST). Zero lead fees, no lock-in contracts, automatic inventory sync.",
+    "description": "Unlimited campervan listings on CampervanForSale.com.au for $299/month (inc. GST). Zero lead fees, no lock-in contracts, automatic inventory sync.",
     "url": "https://campervans.vercel.app/dealer-advertising/",
     "areaServed": { "@type": "Country", "name": "Australia" },
     "offers": {
@@ -54,7 +54,7 @@ const schemaGraph = [
         "name": "How much does the dealer subscription cost, and what's included?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "The dealer subscription is $299 per month (including GST). This flat monthly fee allows your dealership to list unlimited campervans on CaravansForSale.com.au. There are no per-listing charges, and we never charge per lead or take success commissions – no matter how many inquiries or sales you get, $299/month covers it all.",
+          "text": "The dealer subscription is $299 per month (including GST). This flat monthly fee allows your dealership to list unlimited campervans on CampervanForSale.com.au. There are no per-listing charges, and we never charge per lead or take success commissions – no matter how many inquiries or sales you get, $299/month covers it all.",
         },
       },
       {
@@ -70,7 +70,7 @@ const schemaGraph = [
         "name": "What kind of audience will my campervans reach?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "CaravansForSale.com.au is a caravan-only marketplace with a focused, nationwide audience of serious buyers.",
+          "text": "CampervanForSale.com.au is a caravan-only marketplace with a focused, nationwide audience of serious buyers.",
         },
       },
       {

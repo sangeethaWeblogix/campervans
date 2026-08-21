@@ -492,7 +492,7 @@ export default function StateFilterBar({ currentFilters, onFilterChange, onClear
   const handlePriceSearch = () => { updateFiltersAndURL({ from_price: tempPriceFrom ?? undefined, to_price: tempPriceTo ?? undefined }); setOpenModal(null); };
   const handlePriceClear  = () => { setTempPriceFrom(null); setTempPriceTo(null); updateFiltersAndURL({ from_price: undefined, to_price: undefined }); setOpenModal(null); };
 
-  /* ── ATM ── */
+  /* ── GVM ── */
   const handleAtmOpen   = () => { setTempAtmFrom(currentFilters.minKg ? Number(currentFilters.minKg) : null); setTempAtmTo(currentFilters.maxKg ? Number(currentFilters.maxKg) : null); setOpenModal("atm"); };
   const handleAtmSearch = () => { updateFiltersAndURL({ minKg: tempAtmFrom ?? undefined, maxKg: tempAtmTo ?? undefined }); setOpenModal(null); };
   const handleAtmClear  = () => { setTempAtmFrom(null); setTempAtmTo(null); updateFiltersAndURL({ minKg: undefined, maxKg: undefined }); setOpenModal(null); };
@@ -688,10 +688,12 @@ export default function StateFilterBar({ currentFilters, onFilterChange, onClear
             <div className="filter-row" style={{ flex: 1, marginBottom: 0 }}>
               <div className="slider-wrapper">
                 <div className="filter-swiper">
+                  {/* cmd pannirukku, category feature site-la remove pannitom
                   <button className={`tag${currentFilters.category ? " active" : ""}`} onClick={handleTypeOpen}>
                     Campervan Type
                     {currentFilters.category && <span className="active_filter"><i className="bi bi-circle-fill" /></span>}
                   </button>
+                  */}
 
                   <button className={`tag${(currentFilters.state || currentFilters.region || currentFilters.suburb) ? " active" : ""}`} onClick={handleLocationOpen}>
                     Location
@@ -714,7 +716,7 @@ export default function StateFilterBar({ currentFilters, onFilterChange, onClear
                   </button>
 
                   <button className={`tag${(currentFilters.minKg || currentFilters.maxKg) ? " active" : ""}`} onClick={handleAtmOpen}>
-                    ATM
+                    GVM
                     {(currentFilters.minKg || currentFilters.maxKg) && <span className="active_filter"><i className="bi bi-circle-fill" /></span>}
                   </button>
 
@@ -840,7 +842,7 @@ export default function StateFilterBar({ currentFilters, onFilterChange, onClear
             <div className="filter-header"><h3>Filters</h3>{closeBtn}</div>
             <div className="filter-body">
 
-              {/* Campervan Type */}
+              {/* Campervan Type — cmd pannirukku, category feature site-la remove pannitom
               <div className="filter-item pt-0">
                 <h4>Campervan Type</h4>
                 <ul className="loc-state-list">
@@ -859,6 +861,7 @@ export default function StateFilterBar({ currentFilters, onFilterChange, onClear
                   )}
                 </ul>
               </div>
+              */}
 
               {/* Location */}
               <div className="filter-item">
@@ -1061,12 +1064,12 @@ export default function StateFilterBar({ currentFilters, onFilterChange, onClear
                 </div>
               </div>
 
-              {/* ATM */}
+              {/* GVM */}
               <div className="filter-item">
-                <h4>ATM (kg)</h4>
+                <h4>GVM (kg)</h4>
                 <div style={{ display:"flex", gap:12, flexWrap:"wrap" }}>
                   <div style={{ flex:1, minWidth:130 }}>
-                    <label style={{ fontSize:13, color:"#555", display:"block", marginBottom:6 }}>Min ATM</label>
+                    <label style={{ fontSize:13, color:"#555", display:"block", marginBottom:6 }}>Min GVM</label>
                     <select className="cfs-select-input form-select" value={tempAtmFrom ?? ""}
                       onChange={e => setTempAtmFrom(e.target.value ? Number(e.target.value) : null)}>
                       <option value="">Any</option>
@@ -1076,7 +1079,7 @@ export default function StateFilterBar({ currentFilters, onFilterChange, onClear
                     </select>
                   </div>
                   <div style={{ flex:1, minWidth:130 }}>
-                    <label style={{ fontSize:13, color:"#555", display:"block", marginBottom:6 }}>Max ATM</label>
+                    <label style={{ fontSize:13, color:"#555", display:"block", marginBottom:6 }}>Max GVM</label>
                     <select className="cfs-select-input form-select" value={tempAtmTo ?? ""}
                       onChange={e => setTempAtmTo(e.target.value ? Number(e.target.value) : null)}>
                       <option value="">Any</option>
@@ -1227,7 +1230,7 @@ export default function StateFilterBar({ currentFilters, onFilterChange, onClear
         </div>
       )}
 
-      {/* ── Campervan Type Modal ── */}
+      {/* ── Campervan Type Modal ── cmd pannirukku, category feature site-la remove pannitom
       {openModal === "type" && (
         <div className="filter-overlay">
           <div className="filter-modal">
@@ -1257,6 +1260,7 @@ export default function StateFilterBar({ currentFilters, onFilterChange, onClear
           </div>
         </div>
       )}
+      */}
 
       {/* ── Location Modal ── */}
       {openModal === "location" && (
@@ -1563,11 +1567,11 @@ export default function StateFilterBar({ currentFilters, onFilterChange, onClear
         </div>
       )}
 
-      {/* ── ATM Modal ── */}
+      {/* ── GVM Modal ── */}
       {openModal === "atm" && (
         <div className="filter-overlay">
           <div className="filter-modal">
-            <div className="filter-header"><h3>ATM</h3>{closeBtn}</div>
+            <div className="filter-header"><h3>GVM</h3>{closeBtn}</div>
             <div className="filter-body">
               <div className="row">
                 <div className="col-lg-6">

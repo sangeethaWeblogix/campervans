@@ -749,7 +749,9 @@ export default function ExculisiveContent({
                       <input
                         id="enquiry2-phone"
                         className="wpcf7-form-control"
+                        type="tel"
                         inputMode="numeric"
+                        maxLength={10}
                         value={form.phone}
                         onChange={(e) => setField("phone", e.target.value)}
                         onBlur={() => onBlur("phone")}

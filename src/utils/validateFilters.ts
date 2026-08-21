@@ -27,7 +27,7 @@ export function validateFilters(filters: Filters): boolean {
   }
   if (filters.suburb === "" || filters.suburb === undefined) return false;
 
-  // --- ATM validation ---
+  // --- GVM validation ---
   if (
     (filters.minKg && !validATM.includes(Number(filters.minKg))) ||
     (filters.maxKg && !validATM.includes(Number(filters.maxKg)))

@@ -242,7 +242,7 @@ const loading = !data || !blogPosts || blogPosts.length === 0 && data.totalPages
                 </div>
                 <div className="blog-sidebar-cta blog-sidebar-cta--sell">
                   <h3 className="blog-sidebar-cta__heading">Sell Your Campervan Faster with Australia&apos;s Growing Campervan Marketplace</h3>
-                  <a href="/sell-my-caravan/" className="blog-sidebar-cta__btn">
+                  <a href="/sell-my-campervan/" className="blog-sidebar-cta__btn">
                     List Your Campervan Now <i className="bi bi-arrow-right" />
                   </a>
                 </div>

@@ -36,7 +36,7 @@ export default function HomeBuyerGuide() {
               </h2>
               
               <p className="hbg-body">
-                CampervansForSale.com.au helps Australian buyers compare a wide range of campervans for sale in one convenient place. Browse affordable used campervans, premium new models and options designed for every kind of adventure. Compare important features such as layout, ATM, tare weight, sleeping capacity, length, suspension, condition, service history and towing requirements to narrow down your choices before contacting a seller or visiting a dealership. Our easy-to-use platform makes researching and comparing campervans simple.
+                CampervansForSale.com.au helps Australian buyers compare a wide range of campervans for sale in one convenient place. Browse affordable used campervans, premium new models and options designed for every kind of adventure. Compare important features such as layout, GVM, tare weight, sleeping capacity, length, suspension, condition, service history and towing requirements to narrow down your choices before contacting a seller or visiting a dealership. Our easy-to-use platform makes researching and comparing campervans simple.
               </p>
               <p className="hbg-body">
                 Explore a wide range of campervans while comparing trusted campervan brands and reputable dealers across Australia. Check whether dealers offer warranty support, finance options, trade-ins, after-sales service and detailed vehicle information before making your decision. Use our buyers guide and convenient search filters to browse listings by state, location, budget, size, weight and berth, helping you find the right campervan for your lifestyle and travel plans.
@@ -65,7 +65,7 @@ export default function HomeBuyerGuide() {
             <h2 className="hbg-sell-title">Looking to Sell Your Campervan?</h2>
             <p className="hbg-sell-body">
               If you&apos;re upgrading or no longer need your current campervan,{" "}
-              <a href="/sell-my-caravan/" className="hbg-sell-link">sell your campervan</a>{" "}
+              <a href="/sell-my-campervan/" className="hbg-sell-link">sell your campervan</a>{" "}
               by creating a listing on CampervansForSale.com.au and connect with active buyers across Australia. Your advertisement stays online until it&apos;s sold for a one-time fee of $49.
             </p>
 

@@ -4,8 +4,6 @@ import DeatilsPage from "./details";
 import "./details.css";
 import { Card, CardContent, Typography, Button } from "@mui/material";
 import Link from "next/link";
-import TickIcon from "../../../public/images/tick.jpg";
-import Image from "next/image";
 import { redirect } from "next/navigation"; // ✅ Import notFound
 
 type RouteParams = { slug: string };
@@ -123,23 +121,25 @@ export default async function ProductDetailPage({ params }: PageProps) {
                 height: 80,
                 margin: "0 auto 20px",
                 borderRadius: "50%",
-                backgroundColor: "#22c55e",
+                backgroundColor: "#3f3e82",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
               }}
             >
-              <Image
-                src={TickIcon}
-                alt="Success"
-                width={40}
-                height={40}
-                style={{ objectFit: "contain" }}
-              />
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path
+                  d="M5 13l4 4L19 7"
+                  stroke="#fff"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
             </div>
             <Typography variant="h5" fontWeight="bold" gutterBottom>
               Thank you for submitting your information with{" "}
-              <span style={{ color: "#000" }}>caravansforsale.com.au</span>.
+              <span style={{ color: "#000" }}>campervanforsale.com.au</span>.
             </Typography>
 
             <Typography variant="body1" color="text.secondary" gutterBottom>
@@ -151,10 +151,10 @@ export default async function ProductDetailPage({ params }: PageProps) {
                 variant="contained"
                 sx={{
                   mt: 3,
-                  backgroundColor: "orange", // Set background to orange
-                  color: "white", // Make text white
+                  backgroundColor: "#3f3e82",
+                  color: "white",
                   "&:hover": {
-                    backgroundColor: "#3f3e82", // Darker orange on hover
+                    backgroundColor: "#2f2e63",
                   },
                 }}
               >

@@ -265,6 +265,12 @@ export async function middleware(request: NextRequest) {
           }
         }
 
+        // Category filtering was removed from the site — any -category segment
+        // is no longer a supported filter dimension, so 410 it outright.
+        if (filters.category) {
+          return render410(request);
+        }
+
         // State value validation — check the slug part before -state suffix
         const stateSegment = slugParts.find(s => s.endsWith('-state'));
         if (stateSegment) {
@@ -306,7 +312,7 @@ export async function middleware(request: NextRequest) {
     'listings', 'listings-demo', 'product', 'api', '_next', 'blog', 'author', 'caravan-manufacturers',
     '410', '404', '410-new', 'images', 'fonts', 'icons',
     'demo', 'product-detail-demo',
-    'sell-my-caravan',
+    'sell-my-campervan',
   ]);
   const pathSegments = url.pathname.split('/').filter(Boolean);
   if (pathSegments.length >= 2 && !KNOWN_MULTI_SEGMENT.has(pathSegments[0])) {

@@ -69,15 +69,15 @@ export function buildSlugFromFilters(f: Filters): string {
   else if (fromPrice) segments.push(`over-${fromPrice}`);
   else if (toPrice) segments.push(`under-${toPrice}`);
 
-  // 6) ATM (kg)
+  // 6) GVM (kg)
   const minKg = asNum(f.minKg);
   const maxKg = asNum(f.maxKg);
   if (minKg !== undefined && maxKg !== undefined) {
-    segments.push(`between-${minKg}-kg-${maxKg}-kg-atm`);
+    segments.push(`between-${minKg}-kg-${maxKg}-kg-gvm`);
   } else if (minKg !== undefined) {
-    segments.push(`over-${minKg}-kg-atm`);
+    segments.push(`over-${minKg}-kg-gvm`);
   } else if (maxKg !== undefined) {
-    segments.push(`under-${maxKg}-kg-atm`);
+    segments.push(`under-${maxKg}-kg-gvm`);
   }
   // 7) Length (feet)
   const fromLen = asNum(f.from_length);

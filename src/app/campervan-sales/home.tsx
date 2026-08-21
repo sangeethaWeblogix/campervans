@@ -63,7 +63,7 @@ const SEARCH_FILTERS = [
     ],
   },
   {
-    label: "By Weight (ATM)",
+    label: "By Weight (GVM)",
     icon: "⚖",
     links: [
       { text: "Under 1500kg", href: "/listings/?max_atm=1500" },
@@ -117,7 +117,7 @@ export default function OffRoadCaravansPage({ stateBands }: Props) {
             </p>
             <div className="cs-banner__btns">
               <a href="/listings/" className="cs-banner__btn cs-banner__btn--primary">Browse All Campervans for Sale</a>
-              <a href="/sell-my-caravan/" className="cs-banner__btn cs-banner__btn--outline">Sell Your Campervan</a>
+              <a href="/sell-my-campervan/" className="cs-banner__btn cs-banner__btn--outline">Sell Your Campervan</a>
             </div>
           </div>
         </div>
@@ -165,7 +165,7 @@ export default function OffRoadCaravansPage({ stateBands }: Props) {
               <p className="desc">List your van on Australia’s leading campervan sales marketplace and easily connect with thousands of serious buyers</p>
               <div className="btns_two">
                 <a href="/dealer-advertising/" className="btn primary-btn">Dealer Sign Up</a>
-                <a href="/sell-my-caravan/" className="btn secondary-btn">Private Seller - Click Here</a>
+                <a href="/sell-my-campervan/" className="btn secondary-btn">Private Seller - Click Here</a>
               </div>
             </div>
           </div>

@@ -1,6 +1,6 @@
 import {
   PRICE_BANDS,
-  ATM_BANDS,
+  GVM_BANDS,
   LENGTH_BANDS,
   SLEEP_BANDS,
   type CountItem,
@@ -58,7 +58,7 @@ async function fetchBandCountServer(scope: Record<string, string>, query: string
 async function fetchAllBandCountsServer(scope: Record<string, string>) {
   const [price, atm, length, sleep] = await Promise.all([
     Promise.all(PRICE_BANDS.map((b) => fetchBandCountServer(scope, b.query))),
-    Promise.all(ATM_BANDS.map((b) => fetchBandCountServer(scope, b.query))),
+    Promise.all(GVM_BANDS.map((b) => fetchBandCountServer(scope, b.query))),
     Promise.all(LENGTH_BANDS.map((b) => fetchBandCountServer(scope, b.query))),
     Promise.all(SLEEP_BANDS.map((b) => fetchBandCountServer(scope, b.query))),
   ]);
@@ -102,7 +102,7 @@ export async function fetchBrowseSectionData(
       fetchGroupCountsServer("make", scope),
       fetchGroupCountsServer("category", scope),
       Promise.all(PRICE_BANDS.map((b) => fetchBandCountServer(scope, b.query))),
-      Promise.all(ATM_BANDS.map((b) => fetchBandCountServer(scope, b.query))),
+      Promise.all(GVM_BANDS.map((b) => fetchBandCountServer(scope, b.query))),
       Promise.all(SLEEP_BANDS.map((b) => fetchBandCountServer(scope, b.query))),
     ]);
     return { makeCounts, categoryCounts, priceCounts, atmCounts, sleepCounts };

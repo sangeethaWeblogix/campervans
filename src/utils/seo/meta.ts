@@ -4,11 +4,11 @@ import extraIndexedData from "../../../cfs-paths/extra-indexed.json";
 import { INDEXABLE_URLS } from "./indexable-urls";
 import {
   PRICE_BANDS_ORDERED,
-  ATM_BANDS_ORDERED,
+  GVM_BANDS_ORDERED,
   SLEEP_BANDS_ORDERED,
   LENGTH_BANDS_ORDERED,
   ALLOWED_PRICE_BANDS,
-  ALLOWED_ATM_BANDS,
+  ALLOWED_GVM_BANDS,
   ALLOWED_SLEEP_BANDS,
   ALLOWED_LENGTH_BANDS,
 } from "./band-utils";
@@ -25,9 +25,9 @@ function allNumbers(slug: string): number[] {
 // "under-40000"               → 40000
 // "between-20000-30000"       → 30000
 // "over-200000"               → Infinity
-// "under-1500-kg-atm"         → 1500
+// "under-1500-kg-gvm"         → 1500
 // "between-1500-kg-2500-kg"   → 2500
-// "over-4500-kg-atm"          → Infinity
+// "over-4500-kg-gvm"          → Infinity
 // "under-12-length-in-feet"   → 12
 // "between-12-14-length-in-feet" → 14
 // "over-24-length-in-feet"    → Infinity
@@ -120,8 +120,8 @@ function nearestAllowedBand(slug: string, orderedBands: string[]): string {
 function isPriceLike(s: string): boolean {
   return /^(under|over)-\d+$/.test(s) || /^between-\d+-\d+$/.test(s);
 }
-function isAtmLike(s: string): boolean {
-  return s.includes("-kg-atm");
+function isGvmLike(s: string): boolean {
+  return s.includes("-kg-gvm");
 }
 function isSleepLike(s: string): boolean {
   return s.includes("-people-sleeping-capacity");
@@ -140,11 +140,11 @@ function resolveBand(
   BASE_URL: string
 ): BandResult {
   const priceSlug  = slugSegments.find(isPriceLike);
-  const atmSlug    = slugSegments.find(isAtmLike);
+  const gvmSlug    = slugSegments.find(isGvmLike);
   const sleepSlug  = slugSegments.find(isSleepLike);
   const lengthSlug = slugSegments.find(isLengthLike);
 
-  const bandSlug   = priceSlug ?? atmSlug ?? sleepSlug ?? lengthSlug;
+  const bandSlug   = priceSlug ?? gvmSlug ?? sleepSlug ?? lengthSlug;
   if (!bandSlug) return { hasBand: false };
 
   // Determine allowed set + ordered list for this band type
@@ -154,9 +154,9 @@ function resolveBand(
   if (priceSlug) {
     allowed = ALLOWED_PRICE_BANDS.has(priceSlug);
     if (!allowed) resolved = nearestAllowedBand(priceSlug, PRICE_BANDS_ORDERED);
-  } else if (atmSlug) {
-    allowed = ALLOWED_ATM_BANDS.has(atmSlug);
-    if (!allowed) resolved = nearestAllowedBand(atmSlug, ATM_BANDS_ORDERED);
+  } else if (gvmSlug) {
+    allowed = ALLOWED_GVM_BANDS.has(gvmSlug);
+    if (!allowed) resolved = nearestAllowedBand(gvmSlug, GVM_BANDS_ORDERED);
   } else if (sleepSlug) {
     allowed = ALLOWED_SLEEP_BANDS.has(sleepSlug);
     if (!allowed) resolved = nearestAllowedBand(sleepSlug, SLEEP_BANDS_ORDERED);
@@ -262,13 +262,13 @@ function fmtKg(n: string): string {
 }
 
 function getBandText(parsed: ReturnType<typeof parseSlugToFilters>): string {
-  // ATM (weight)
+  // GVM (weight)
   const minKg = parsed.minKg ? String(parsed.minKg) : null;
   const maxKg = parsed.maxKg ? String(parsed.maxKg) : null;
-  let atmPart = "";
-  if (minKg && maxKg) atmPart = `${fmtKg(minKg)} - ${fmtKg(maxKg)} ATM`;
-  else if (maxKg)     atmPart = `Under ${fmtKg(maxKg)} ATM`;
-  else if (minKg)     atmPart = `Over ${fmtKg(minKg)} ATM`;
+  let gvmPart = "";
+  if (minKg && maxKg) gvmPart = `${fmtKg(minKg)} - ${fmtKg(maxKg)} GVM`;
+  else if (maxKg)     gvmPart = `Under ${fmtKg(maxKg)} GVM`;
+  else if (minKg)     gvmPart = `Over ${fmtKg(minKg)} GVM`;
 
   // Price
   const from = parsed.from_price ? String(parsed.from_price) : null;
@@ -294,8 +294,8 @@ function getBandText(parsed: ReturnType<typeof parseSlugToFilters>): string {
   else if (toLen)       lengthPart = `Under ${toLen}ft`;
   else if (fromLen)     lengthPart = `Over ${fromLen}ft`;
 
-  // Combine all parts — ATM before price, matching API seo_v2.h1 format
-  return [atmPart, pricePart, sleepPart, lengthPart].filter(Boolean).join(" ");
+  // Combine all parts — GVM before price, matching API seo_v2.h1 format
+  return [gvmPart, pricePart, sleepPart, lengthPart].filter(Boolean).join(" ");
 }
 
 export function generateTitleFromFilters(

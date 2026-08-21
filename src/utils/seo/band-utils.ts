@@ -39,22 +39,22 @@ export const PRICE_BANDS_ORDERED = [
   "over-200000",
 ];
 
-export const ATM_BANDS_ORDERED = [
-  "under-600-kg-atm",
-  "under-800-kg-atm",
-  "under-1000-kg-atm",
-  "under-1250-kg-atm",
-  "under-1500-kg-atm",
-  "under-1750-kg-atm",
-  "under-2000-kg-atm",
-  "under-2250-kg-atm",
-  "under-2500-kg-atm",
-  "under-2750-kg-atm",
-  "under-3000-kg-atm",
-  "under-3500-kg-atm",
-  "under-4000-kg-atm",
-  "under-4500-kg-atm",
-  "over-3500-kg-atm",
+export const GVM_BANDS_ORDERED = [
+  "under-600-kg-gvm",
+  "under-800-kg-gvm",
+  "under-1000-kg-gvm",
+  "under-1250-kg-gvm",
+  "under-1500-kg-gvm",
+  "under-1750-kg-gvm",
+  "under-2000-kg-gvm",
+  "under-2250-kg-gvm",
+  "under-2500-kg-gvm",
+  "under-2750-kg-gvm",
+  "under-3000-kg-gvm",
+  "under-3500-kg-gvm",
+  "under-4000-kg-gvm",
+  "under-4500-kg-gvm",
+  "over-3500-kg-gvm",
 ];
 
 export const SLEEP_BANDS_ORDERED = [
@@ -100,17 +100,17 @@ export const LENGTH_BANDS_ORDERED = [
 ];
 
 export const ALLOWED_PRICE_BANDS  = new Set(PRICE_BANDS_ORDERED);
-export const ALLOWED_ATM_BANDS    = new Set(ATM_BANDS_ORDERED);
+export const ALLOWED_GVM_BANDS    = new Set(GVM_BANDS_ORDERED);
 export const ALLOWED_SLEEP_BANDS  = new Set(SLEEP_BANDS_ORDERED);
 export const ALLOWED_LENGTH_BANDS = new Set(LENGTH_BANDS_ORDERED);
 
 export function isAllowedSingleBand(slugSegments: string[]): boolean {
   const price  = slugSegments.find(s => /^(under|over)-\d+$/.test(s) || /^between-\d+-\d+$/.test(s));
-  const atm    = slugSegments.find(s => s.includes("-kg-atm"));
+  const gvm    = slugSegments.find(s => s.includes("-kg-gvm"));
   const sleep  = slugSegments.find(s => s.includes("-people-sleeping-capacity"));
   const length = slugSegments.find(s => s.includes("-length-in-feet"));
   if (price)  return ALLOWED_PRICE_BANDS.has(price);
-  if (atm)    return ALLOWED_ATM_BANDS.has(atm);
+  if (gvm)    return ALLOWED_GVM_BANDS.has(gvm);
   if (sleep)  return ALLOWED_SLEEP_BANDS.has(sleep);
   if (length) return ALLOWED_LENGTH_BANDS.has(length);
   return false;

@@ -126,7 +126,7 @@ export default function Navbar() {
                 */}
 
                 <li className="nav-item">
-                  <a className="nav-link" href="/sell-my-caravan/">Sell My Campervan</a>
+                  <a className="nav-link" href="/sell-my-campervan/">Sell My Campervan</a>
                 </li>
                 <li className="nav-item">
                   <a className="nav-link" href="/dealer-advertising/">Dealer Advertising</a>
@@ -146,7 +146,7 @@ export default function Navbar() {
                 {hamOpen && (
                   <div className="ham-dropdown">
                     <a href="/listings/" className="ham-item">Campervan Listings</a>
-                    <a href="/sell-my-caravan/" className="ham-item">Sell My Campervan</a>
+                    <a href="/sell-my-campervan/" className="ham-item">Sell My Campervan</a>
                     <a href="/dealer-advertising/" className="ham-item">Dealer Advertising</a>
                     <a href="/blog/" className="ham-item">Blog</a>
                     <a href="/about-us/" className="ham-item">About</a>
@@ -234,7 +234,7 @@ export default function Navbar() {
                 </ul>
               </div>
               <div className="sidenav-cta">
-                <a href="/sell-my-caravan/" className="sidenav-cta-link" onClick={closeNav}>Sell My Campervan</a>
+                <a href="/sell-my-campervan/" className="sidenav-cta-link" onClick={closeNav}>Sell My Campervan</a>
                 <a href="/dealer-advertising/" className="sidenav-cta-link" onClick={closeNav}>Dealer Advertising</a>
                 <a href="/login/" className="sidenav-cta-login" onClick={closeNav}>
                   <i className="bi bi-person-fill"></i> Login

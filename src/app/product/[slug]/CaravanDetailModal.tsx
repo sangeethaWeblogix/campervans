@@ -180,7 +180,9 @@ export default function CaravanDetailModal({
   // Validation regex
   const NAME_RE = /^[A-Za-z][A-Za-z\s'.-]{1,49}$/;
   const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-  const PHONE_RE = /^\d{7,15}$/;
+  // Standard AU format with leading 0: 10 digits, valid area/mobile code
+  // (02/03/07/08 landline, 04 mobile → 2,3,4,7,8).
+  const PHONE_RE = /^0[23478]\d{8}$/;
   const POST_RE = /^\d{4}$/;
 
   const validate = (f = form) => {
@@ -191,14 +193,16 @@ export default function CaravanDetailModal({
     if (!f.email.trim()) e.email = "Email is required";
     else if (!EMAIL_RE.test(f.email.trim())) e.email = "Enter a valid email";
     if (!f.phone.trim()) e.phone = "Phone is required";
-    else if (!PHONE_RE.test(f.phone.trim())) e.phone = "Digits only (7–15)";
+    else if (!PHONE_RE.test(f.phone.trim()))
+      e.phone = "Enter a valid Australian number (10 digits)";
     if (!f.postcode.trim()) e.postcode = "Postcode is required";
     else if (!POST_RE.test(f.postcode.trim())) e.postcode = "4 digit postcode";
     return e;
   };
 
   const setField = (key: keyof typeof form, value: string) => {
-    if (key === "phone" || key === "postcode") value = value.replace(/\D/g, "");
+    if (key === "phone") value = value.replace(/\D/g, "").slice(0, 10);
+    else if (key === "postcode") value = value.replace(/\D/g, "");
     setForm((p) => ({ ...p, [key]: value }));
     if (touched[key]) setErrors(validate({ ...form, [key]: value }));
   };
@@ -508,6 +512,7 @@ export default function CaravanDetailModal({
                     name="m-phone"
                     type="tel"
                     inputMode="numeric"
+                    maxLength={10}
                     className={`cfs-field cfs-field-phone${errors.phone && touched.phone ? " is-invalid" : ""}`}
                     value={form.phone}
                     onChange={(e) => setField("phone", e.target.value)}

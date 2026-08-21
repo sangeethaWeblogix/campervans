@@ -46,7 +46,7 @@ export function parseSlugToFilters(
 
   const hasReservedSuffix = (s: string) =>
     /-(category|condition|state|region|suburb|keyword)$/.test(s) ||
-    /-(kg-atm|length-in-feet|people-sleeping-capacity)$/.test(s) ||
+    /-(kg-gvm|length-in-feet|people-sleeping-capacity)$/.test(s) ||
     /^over-\d+/.test(s) ||
     /^under-\d+/.test(s) ||
     /^between-/.test(s) ||
@@ -106,26 +106,26 @@ export function parseSlugToFilters(
       filters.pincode = part;
       return;
     }
-    // ATM: support canonical and legacy patterns
-    if (part.includes("-kg-atm")) {
-      const canon = part.match(/^between-(\d+)-kg-(\d+)-kg-atm$/);
+    // GVM: support canonical and legacy patterns
+    if (part.includes("-kg-gvm")) {
+      const canon = part.match(/^between-(\d+)-kg-(\d+)-kg-gvm$/);
       if (canon) {
         filters.minKg = canon[1];
         filters.maxKg = canon[2];
         return;
       }
-      const legacy = part.match(/^between-(\d+)-kg-(\d+)-kg-atm$/);
+      const legacy = part.match(/^between-(\d+)-kg-(\d+)-kg-gvm$/);
       if (legacy) {
         filters.minKg = legacy[1];
         filters.maxKg = legacy[2];
         return;
       }
-      const over = part.match(/^over-(\d+)-kg-atm$/);
+      const over = part.match(/^over-(\d+)-kg-gvm$/);
       if (over) {
         filters.minKg = over[1];
         return;
       }
-      const under = part.match(/^under-(\d+)-kg-atm$/);
+      const under = part.match(/^under-(\d+)-kg-gvm$/);
       if (under) {
         filters.maxKg = under[1];
         return;

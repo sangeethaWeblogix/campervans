@@ -9,14 +9,16 @@ export const metadata = {
 };
 
 export default function NotFoundPage() {
-  const categories = [
-    { name: "Off Road Caravans", slug: "off-road-category" },
-    { name: "Hybrid Caravans", slug: "hybrid-category" },
-    { name: "Pop Top Caravans", slug: "pop-top-category" },
-    { name: "Luxury Caravans", slug: "luxury-category" },
-    { name: "Family Caravans", slug: "family-category" },
-    { name: "Touring Caravans", slug: "touring-category" },
-  ];
+  // "Browse by Type" removed — category filtering was removed site-wide,
+  // and these -category slugs now 410 anyway.
+  // const categories = [
+  //   { name: "Off Road Caravans", slug: "off-road-category" },
+  //   { name: "Hybrid Caravans", slug: "hybrid-category" },
+  //   { name: "Pop Top Caravans", slug: "pop-top-category" },
+  //   { name: "Luxury Caravans", slug: "luxury-category" },
+  //   { name: "Family Caravans", slug: "family-category" },
+  //   { name: "Touring Caravans", slug: "touring-category" },
+  // ];
 
   const states = [
     {
@@ -57,32 +59,17 @@ export default function NotFoundPage() {
           </a>
         </div>
 
-        {/* ✅ Browse by Type & State Side by Side */}
+        {/* Browse by Type removed — category feature removed site-wide */}
         <div className="browse-grid">
-          {/* Left: Category */}
-          <div className="browse-column">
-            <h4>Browse by Type:</h4>
-            <ul>
-              {categories.map((cat) => (
-                <li key={cat.slug}>
-                  <a href={`/listings/${cat.slug}/`}>{cat.name}</a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Right: State */}
-          <div className="browse-column">
+          <div className="browse-column browse-column--state">
             <h4>Browse by State:</h4>
-            <ul>
+            <div className="browse-pills">
               {states.map((state) => (
-                <li key={state.slug}>
-                  <a href={`/listings/${state.slug}/`}>
-                    {state.name}
-                  </a>
-                </li>
+                <a key={state.slug} href={`/listings/${state.slug}/`} className="browse-pill">
+                  {state.name}
+                </a>
               ))}
-            </ul>
+            </div>
           </div>
         </div>
       </div>

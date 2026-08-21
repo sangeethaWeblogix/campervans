@@ -47,7 +47,7 @@ interface Props {
 }
 
 const PROMO_BANNERS = [
-  { src: "/images/sell-my-caravan.jpg?=11", href: "/sell-my-caravan/", alt: "Sell My Campervan" },
+  { src: "/images/sell-my-caravan.jpg?=11", href: "/sell-my-campervan/", alt: "Sell My Campervan" },
   { src: "/images/home.jpg?=3",            href: "https://www.aussiefivestarcaravans.com.au/", alt: "Aussie Five Star Caravans" },
   { src: "/images/dealer-advertising.jpg?=7", href: "/dealer-advertising/", alt: "Dealer Advertising" },
 ];
@@ -223,10 +223,13 @@ function ListingCard({
   const isDealer = item.seller_type !== "private";
 
   // Always 4 slots so grid rows are the same height across all cards
+  // Category slot cmd pannirukku — category feature site-la remove pannitom,
+  // backend-oda categories[0] eppovum "uncategorized" mattum kudukkuthu.
   const specSlots = [
-    { icon: "/images/category.svg", text: type    || "" },
+    // { icon: "/images/category.svg", text: type    || "" },
     { icon: "/images/length.svg",   text: lenFmt  || "" },
     { icon: "/images/weight.svg",   text: item.kg || "" },
+    { icon: "",                     text: "" },
     { icon: "",                     text: "" },
   ];
 
@@ -523,17 +526,21 @@ export default function StateListingGrid({ title, viewAllHref, apiUrl, items: ex
   const loading = externalMode ? (externalLoading ?? false) : fetchLoading;
 
   // Promo banner slots — fill empty last-row cells with priority banners
-  const emptyInLastRow = (!loading && items.length > 0 && cols > 0)
-    ? (cols - (items.length % cols)) % cols
-    : 0;
-  const bannerPositions: number[] = emptyInLastRow === 0
-    ? []
-    : emptyInLastRow <= 3
-      ? Array.from({ length: emptyInLastRow }, (_, i) => i)
-      : [0, 1, 2];
-  const activeBanners = (hideBanners || !!(apiUrl?.includes('make=')))
-    ? PROMO_BANNERS.filter(b => !b.src.includes('home.jpg'))
-    : PROMO_BANNERS;
+  // cmd pannirukku (temporarily disabled) — listing banners venaam nu kekkanga
+  // const emptyInLastRow = (!loading && items.length > 0 && cols > 0)
+  //   ? (cols - (items.length % cols)) % cols
+  //   : 0;
+  // const bannerPositions: number[] = emptyInLastRow === 0
+  //   ? []
+  //   : emptyInLastRow <= 3
+  //     ? Array.from({ length: emptyInLastRow }, (_, i) => i)
+  //     : [0, 1, 2];
+  // const activeBanners = (hideBanners || !!(apiUrl?.includes('make=')))
+  //   ? PROMO_BANNERS.filter(b => !b.src.includes('home.jpg'))
+  //   : PROMO_BANNERS;
+  const emptyInLastRow = 0;
+  const bannerPositions: number[] = [];
+  const activeBanners = PROMO_BANNERS;
 
   // No title/section at all once we know for sure there's nothing to show —
   // an empty heading with a blank grid under it reads as broken, not "no results".

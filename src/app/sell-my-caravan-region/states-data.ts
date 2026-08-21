@@ -67,13 +67,13 @@ export function buildStateMetadata(state: StateData): Metadata {
     description: `Sell your campervan in ${state.label} for just $49. List until sold, pay no commission and connect directly with campervan buyers across ${state.capital} and regional ${state.label}.`,
     robots: "index, follow",
     alternates: {
-      canonical: `${BASE_URL}/sell-my-caravan/${state.slug}/`,
+      canonical: `${BASE_URL}/sell-my-campervan/${state.slug}/`,
     },
   };
 }
 
 export function buildStateJsonLd(state: StateData) {
-  const pageUrl = `${BASE_URL}/sell-my-caravan/${state.slug}/`;
+  const pageUrl = `${BASE_URL}/sell-my-campervan/${state.slug}/`;
 
   return {
     "@context": "https://schema.org",
@@ -83,7 +83,7 @@ export function buildStateJsonLd(state: StateData) {
         "@id": `${pageUrl}#webpage`,
         url: pageUrl,
         name: `Sell My Campervan in ${state.label} | List Until Sold for $49`,
-        description: `Sell your campervan in ${state.label} with CaravansForSale.com.au. List for a one-time $49 fee, keep 100% of the sale price, and stay live until sold.`,
+        description: `Sell your campervan in ${state.label} with CampervanForSale.com.au. List for a one-time $49 fee, keep 100% of the sale price, and stay live until sold.`,
         inLanguage: "en-AU",
         isPartOf: { "@id": `${BASE_URL}/#website` },
       },
@@ -93,7 +93,7 @@ export function buildStateJsonLd(state: StateData) {
         name: "Private Campervan Listing Service",
         url: pageUrl,
         description:
-          "List your campervan for sale on CaravansForSale.com.au for a one-time $49 fee. No commissions, no subscriptions, live until sold.",
+          "List your campervan for sale on CampervanForSale.com.au for a one-time $49 fee. No commissions, no subscriptions, live until sold.",
         provider: {
           "@type": "Organization",
           name: "Campervans For Sale",
@@ -119,7 +119,7 @@ export function buildStateJsonLd(state: StateData) {
             name: `How do I sell my campervan in ${state.label}?`,
             acceptedAnswer: {
               "@type": "Answer",
-              text: `You can sell your campervan in ${state.label} by creating a private seller listing on CaravansForSale.com.au. Add your campervan details, upload clear photos, set your asking price and publish your ad so buyers across ${state.capital} and regional ${state.label} can contact you directly.`,
+              text: `You can sell your campervan in ${state.label} by creating a private seller listing on CampervanForSale.com.au. Add your campervan details, upload clear photos, set your asking price and publish your ad so buyers across ${state.capital} and regional ${state.label} can contact you directly.`,
             },
           },
           {
@@ -127,7 +127,7 @@ export function buildStateJsonLd(state: StateData) {
             name: `How much does it cost to sell my campervan in ${state.label}?`,
             acceptedAnswer: {
               "@type": "Answer",
-              text: "It costs $49 inc. GST to list your campervan on CaravansForSale.com.au. This is a one-time listing fee with no monthly subscription, no hidden charges and no commission when your campervan sells.",
+              text: "It costs $49 inc. GST to list your campervan on CampervanForSale.com.au. This is a one-time listing fee with no monthly subscription, no hidden charges and no commission when your campervan sells.",
             },
           },
           {
@@ -159,7 +159,7 @@ export function buildStateJsonLd(state: StateData) {
             name: "Do I pay commission when my campervan sells?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "No. CaravansForSale.com.au does not charge commission when your campervan sells. You pay the one-time listing fee and keep 100% of the agreed sale price.",
+              text: "No. CampervanForSale.com.au does not charge commission when your campervan sells. You pay the one-time listing fee and keep 100% of the agreed sale price.",
             },
           },
           {
@@ -167,7 +167,7 @@ export function buildStateJsonLd(state: StateData) {
             name: `How should I price my campervan in ${state.label}?`,
             acceptedAnswer: {
               "@type": "Answer",
-              text: `Check similar campervans for sale in ${state.label} before setting your price. Compare by make, model, year, condition, length, ATM, tare weight, sleeping capacity, features and location. A realistic asking price can help attract more genuine buyers.`,
+              text: `Check similar campervans for sale in ${state.label} before setting your price. Compare by make, model, year, condition, length, GVM, tare weight, sleeping capacity, features and location. A realistic asking price can help attract more genuine buyers.`,
             },
           },
           {

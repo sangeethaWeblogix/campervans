@@ -48,7 +48,9 @@ export function useEnquiryForm(product: Product) {
 
   const NAME_RE = /^[A-Za-z][A-Za-z\s'.-]{1,49}$/;
   const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-  const PHONE_RE = /^\d{7,15}$/;
+  // Standard AU format with leading 0: 10 digits, valid area/mobile code
+  // (02/03/07/08 landline, 04 mobile → 2,3,4,7,8).
+  const PHONE_RE = /^0[23478]\d{8}$/;
   const POST_RE = /^\d{4}$/;
 
   const validate = (f = form): FormErrors => {
@@ -64,7 +66,7 @@ export function useEnquiryForm(product: Product) {
 
     if (!f.phone.trim()) e.phone = "Phone is required";
     else if (!PHONE_RE.test(f.phone.trim()))
-      e.phone = "Digits only (7–15)";
+      e.phone = "Enter a valid Australian number (10 digits)";
 
     if (!f.postcode.trim()) e.postcode = "Postcode is required";
     else if (!POST_RE.test(f.postcode.trim()))
@@ -74,7 +76,9 @@ export function useEnquiryForm(product: Product) {
   };
 
   const setField = (key: string, value: string) => {
-    if (key === "phone" || key === "postcode") {
+    if (key === "phone") {
+      value = value.replace(/\D/g, "").slice(0, 10);
+    } else if (key === "postcode") {
       value = value.replace(/\D/g, "");
     }
 
