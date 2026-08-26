@@ -90,7 +90,7 @@
   width: 100%;
   height: 100%;
   background: transparent
-    linear-gradient(98deg, #3f3e82 0, #ffd119 53%, #0dcea6 100%) 0 0 no-repeat
+    linear-gradient(98deg, #3f3e82 0, #6a68b8 53%, #3f3e82 100%) 0 0 no-repeat
     padding-box;
   position: absolute;
   left: 0;
@@ -398,46 +398,78 @@
   margin-bottom: 5px;
 }
 
+.faq-heading {
+  font-size: 26px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 20px;
+}
+
 .accordion .card {
-  margin-bottom: 10px;
-  box-shadow: 5px 5px 3px #62626212;
+  margin-bottom: 16px;
+  border: 1px solid #ececf3;
+  border-radius: 10px;
+  box-shadow: none;
+  overflow: hidden;
 }
 
 .accordion .card-body {
-  border-bottom: 1px solid #00000024;
+  border-bottom: none;
+  padding: 0 24px 20px;
 }
 
 .accordion .card-body p {
-  color: #000000;
+  color: #4a4a4a;
+  line-height: 1.7;
+  margin-bottom: 0;
 }
 
 .accordion .btn-link {
   position: relative;
   padding-right: 45px;
-  color: #000;
+  color: #1a1a1a;
   text-decoration: none !important;
 }
 
 .accordion .btn {
     letter-spacing: 0;
     background-color: #fff;
-    border-bottom: 1px solid #0000001f;
+    border-bottom: none;
+    align-items: center;
     justify-content: space-between;
     width: 100%;
-    padding: 10px;
-    font-size: 17px;
-    font-weight: 500;
+    padding: 20px 45px 20px 24px;
+    font-size: 16px;
+    font-weight: 600;
     display: flex;
-    color: #000 !important;
+    color: #1a1a1a !important;
+    transition: color 0.2s ease;
+}
+
+.accordion .btn:hover,
+.accordion .btn.active {
+  color: #3f3e82 !important;
 }
 
 /* ICON WRAPPER */
 .accordion .accordion-icon {
   position: absolute;
-  right: 15px;
+  right: 18px;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 18px;
+  font-size: 13px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #f0f0f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #8a8a99;
+}
+
+.accordion .btn.active .accordion-icon {
+  color: #3f3e82;
 }
 
 

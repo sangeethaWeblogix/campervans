@@ -264,7 +264,7 @@ const DealerLandingPage = () => {
             </div>
           </div>
           {/* FAQ Section */}
-          <h2 className="mb-3">FAQ</h2>
+          <h2 className="faq-heading">FAQ</h2>
 
           <div className="accordion" id="accordionFaq">
             {/* FAQ 1 */}
@@ -272,7 +272,7 @@ const DealerLandingPage = () => {
               <div className="card-header p-0">
                 <h3 className="mb-0">
                   <button
-                    className="btn btn-link btn-block text-left py-2"
+                    className={`btn btn-link btn-block text-left py-2 ${activeFaq === 1 ? "active" : ""}`}
                     onClick={() => toggleFaq(1)}
                   >
                     How much does the dealer subscription cost, and what’s included?
@@ -302,7 +302,7 @@ const DealerLandingPage = () => {
               <div className="card-header p-0">
                 <h3 className="mb-0">
                   <button
-                    className="btn btn-link btn-block text-left py-2"
+                    className={`btn btn-link btn-block text-left py-2 ${activeFaq === 2 ? "active" : ""}`}
                     onClick={() => toggleFaq(2)}
                   >
                     How are my campervan listings added and kept up-to-date automatically?
@@ -330,7 +330,7 @@ const DealerLandingPage = () => {
               <div className="card-header p-0">
                 <h3 className="mb-0">
                   <button
-                    className="btn btn-link btn-block text-left py-2"
+                    className={`btn btn-link btn-block text-left py-2 ${activeFaq === 3 ? "active" : ""}`}
                     onClick={() => toggleFaq(3)}
                   >
                     What kind of audience will my campervans reach?
@@ -345,7 +345,7 @@ const DealerLandingPage = () => {
               <div className={`collapse ${activeFaq === 3 ? "show" : ""}`}>
                 <div className="card-body">
                   <p>
-                    CampervanForSale.com.au is a caravan-only marketplace with a focused,
+                    CampervanForSale.com.au is a campervan-only marketplace with a focused,
                     nationwide audience of serious buyers.
                   </p>
                 </div>
@@ -357,7 +357,7 @@ const DealerLandingPage = () => {
               <div className="card-header p-0">
                 <h3 className="mb-0">
                   <button
-                    className="btn btn-link btn-block text-left py-2"
+                    className={`btn btn-link btn-block text-left py-2 ${activeFaq === 4 ? "active" : ""}`}
                     onClick={() => toggleFaq(4)}
                   >
                     Do I have to commit to a long-term contract?
@@ -384,7 +384,7 @@ const DealerLandingPage = () => {
               <div className="card-header p-0">
                 <h3 className="mb-0">
                   <button
-                    className="btn btn-link btn-block text-left py-2"
+                    className={`btn btn-link btn-block text-left py-2 ${activeFaq === 5 ? "active" : ""}`}
                     onClick={() => toggleFaq(5)}
                   >
                     How do I get started, and what support can I expect?
