@@ -112,7 +112,7 @@ export default function CaravanManufacturers() {
                   alt="Falcon Caravan"
                   title="Falcon - FULL OFF ROAD"
                   subtitle="FULL OFF ROAD"
-                  link="https://campervans.vercel.app/range/falcon-everest-caravans/"
+                  link="https://www.campervansforsale.au/range/falcon-everest-caravans/"
                 />
               </SwiperSlide>
 
@@ -122,7 +122,7 @@ export default function CaravanManufacturers() {
                   alt="Nitro Extreme Caravan"
                   title="Nitro Extreme - OFF ROAD"
                   subtitle="OFF ROAD"
-                  link="https://campervans.vercel.app/range/nitro-extreme-everest-caravans/"
+                  link="https://www.campervansforsale.au/range/nitro-extreme-everest-caravans/"
                 />
               </SwiperSlide>
               <SwiperSlide>
@@ -132,7 +132,7 @@ export default function CaravanManufacturers() {
                   title="Calibra - FULL OFF ROAD"
                   subtitle="FULL OFF ROAD"
                   shortinfo="Traveling with three kids and need space for adventure? The 20.6F CALIBRA offers all the quality, style, and features of an Everest, with a full ensuite, spacious living area, and off-road capabilities. It's perfect for family getaways, so pack up and experience it—just be warned, the kids might not want to leave!"
-                  link="https://campervans.vercel.app/range/calibra-everest-caravans/"
+                  link="https://www.campervansforsale.au/range/calibra-everest-caravans/"
                 />
               </SwiperSlide>
               <SwiperSlide>
@@ -142,7 +142,7 @@ export default function CaravanManufacturers() {
                   title="Summitt - FULL OFF ROAD"
                   subtitle="FULL OFF ROAD"
                   shortinfo="Traveling with 3 kids? No worries with the SUMMITT! Reach places larger vans can&#8217;t with Everest quality and style, featuring a full ensuite, spacious living area, queen island bed, and off-road, off-grid capabilities. Pack up the family and come see for yourself—but be warned, the kids might not want to leave!"
-                  link="https://campervans.vercel.app/range/summitt-everest-caravans/"
+                  link="https://www.campervansforsale.au/range/summitt-everest-caravans/"
                 />
               </SwiperSlide>
             </Swiper>

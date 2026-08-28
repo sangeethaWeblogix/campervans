@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 import { fetchBlogs } from "@/api/blog/api";
 
 const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://campervans.vercel.app";
+  process.env.NEXT_PUBLIC_SITE_URL || "https://www.campervansforsale.au";
 
 export async function GET() {
   const firstPage = await fetchBlogs(1);

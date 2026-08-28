@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: "Browse off-road campervans for sale across Australia. Compare prices on rugged 4WD, hybrid and semi off-road models built for adventure and remote touring.",
   robots: "noindex, nofollow",
   alternates: {
-    canonical: "https://campervans.vercel.app/off-road-campervans/",
+    canonical: "https://www.campervansforsale.au/off-road-campervans/",
   },
 };
 

@@ -3,7 +3,7 @@ import "./seller-demo.css";
 
 export const dynamic = "force-dynamic";
 
-const BASE_URL = "https://campervans.vercel.app";
+const BASE_URL = "https://www.campervansforsale.au";
 
 const sellPageJsonLd = {
   "@context": "https://schema.org",

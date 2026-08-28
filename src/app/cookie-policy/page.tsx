@@ -17,13 +17,13 @@ export async function generateMetadata(): Promise<Metadata> {
     robots: robots,
 
     alternates: {
-      canonical: "https://campervans.vercel.app/cookie-policy/",
+      canonical: "https://www.campervansforsale.au/cookie-policy/",
     },
 
     openGraph: {
       title: metaTitle,
       description: metaDescription,
-      url: "https://campervans.vercel.app/cookie-policy/",
+      url: "https://www.campervansforsale.au/cookie-policy/",
       type: "article",
     },
 

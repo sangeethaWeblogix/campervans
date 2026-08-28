@@ -14,7 +14,7 @@ import { fetchHomePage } from "@/api/home/api";
 
 const API_BASE = process.env.NEXT_PUBLIC_CFS_API_BASE;
 const API_KEY  = process.env.CFS_API_KEY;
-const APP_URL  = process.env.NEXT_PUBLIC_APP_URL || "https://campervans.vercel.app";
+const APP_URL  = process.env.NEXT_PUBLIC_APP_URL || "https://www.campervansforsale.au";
 
 const wpHeaders = (): Record<string, string> => ({
   Accept: "application/json",
@@ -112,7 +112,7 @@ async function fetchOffRoadModelBlogs(seed: number): Promise<any[]> {
 
 export const revalidate = 0;
 
-const CANONICAL = "https://campervans.vercel.app/off-road-campervans/";
+const CANONICAL = "https://www.campervansforsale.au/off-road-campervans/";
 
 const schemaJsonLd = {
   "@context": "https://schema.org",
@@ -125,13 +125,13 @@ const schemaJsonLd = {
       "description": "Discover Australia's largest collection of off road campervans. Compare full off road, semi off road and hybrid campervans, browse live listings, read expert reviews and explore detailed buying guides.",
       "inLanguage": "en-AU",
       "breadcrumb": { "@id": `${CANONICAL}#breadcrumb` },
-      "isPartOf": { "@type": "WebSite", "url": "https://campervans.vercel.app/" },
+      "isPartOf": { "@type": "WebSite", "url": "https://www.campervansforsale.au/" },
     },
     {
       "@type": "BreadcrumbList",
       "@id": `${CANONICAL}#breadcrumb`,
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home",             "item": "https://campervans.vercel.app/" },
+        { "@type": "ListItem", "position": 1, "name": "Home",             "item": "https://www.campervansforsale.au/" },
         { "@type": "ListItem", "position": 2, "name": "Off Road Campervans", "item": CANONICAL },
       ],
     },

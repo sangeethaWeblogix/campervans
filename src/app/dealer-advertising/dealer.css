@@ -519,3 +519,10 @@
     left: 0;
     top: 5px;
 }
+
+/* Dealer-signup CTA temporarily disabled — tempervery ah signup pause pannirukom */
+.lsd-cta-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}

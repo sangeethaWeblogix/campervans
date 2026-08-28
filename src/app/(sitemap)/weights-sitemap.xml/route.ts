@@ -2,14 +2,14 @@
   
   const SITE_URL =
     process.env.NEXT_PUBLIC_SITE_URL ||
-    "https://campervans.vercel.app/listings/";
+    "https://www.campervansforsale.au/listings/";
       const API_KEY = process.env.CFS_API_KEY; // ✅ Added
 
   
   export async function GET() {
     try {
       const res = await fetch(
-        "https://admin.campervanforsale.com.au/wp-json/cfs/v1/sitemap/atm",
+        "https://admin.campervanforsale.com.au/wp-json/cfs/v1/sitemap/gvm",
          {
         headers: {
           Accept: "application/json",

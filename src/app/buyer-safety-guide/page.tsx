@@ -17,13 +17,13 @@ export async function generateMetadata(): Promise<Metadata> {
     robots: robots,
 
     alternates: {
-      canonical: "https://campervans.vercel.app/buyer-safety-guide/",
+      canonical: "https://www.campervansforsale.au/buyer-safety-guide/",
     },
 
     openGraph: {
       title: metaTitle,
       description: metaDescription,
-      url: "https://campervans.vercel.app/buyer-safety-guide/",
+      url: "https://www.campervansforsale.au/buyer-safety-guide/",
       type: "article",
     },
 

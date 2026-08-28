@@ -2,7 +2,7 @@
   
   const SITE_URL =
     process.env.NEXT_PUBLIC_SITE_URL ||
-    "https://campervans.vercel.app/listings/";
+    "https://www.campervansforsale.au/listings/";
     const API_KEY = process.env.CFS_API_KEY; // ✅ Added
 
   export async function GET() {

@@ -41,7 +41,7 @@ export async function generateMetadata({
     seo.metadescription ||
     post.short_description ||
     "Read more on Campervans for Sale.";
-  const canonical = `https://campervans.vercel.app/${slug}/`;
+  const canonical = `https://www.campervansforsale.au/${slug}/`;
 
   return {
     title,
@@ -103,7 +103,7 @@ export default async function Layout({
   const seo = data?.seo ?? {};
   const faqs: { heading: string; content: string }[] = data?.data?.blog_detail?.faq ?? [];
 
-  const canonical = `https://campervans.vercel.app/${slug}/`;
+  const canonical = `https://www.campervansforsale.au/${slug}/`;
   const title = seo.metatitle || post.title || "Campervans for Sale Blog";
   const description =
     seo.metadescription ||
@@ -113,7 +113,7 @@ export default async function Layout({
   const bannerImage =
     post.banner_image ||
     post.image ||
-    "https://campervans.vercel.app/load.svg";
+    "https://www.campervansforsale.au/load.svg";
 
   const schemas = [
     {
@@ -132,8 +132,8 @@ export default async function Layout({
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: "https://campervans.vercel.app/" },
-        { "@type": "ListItem", position: 2, name: "Blog", item: "https://campervans.vercel.app/blog/" },
+        { "@type": "ListItem", position: 1, name: "Home", item: "https://www.campervansforsale.au/" },
+        { "@type": "ListItem", position: 2, name: "Blog", item: "https://www.campervansforsale.au/blog/" },
         { "@type": "ListItem", position: 3, name: title, item: canonical },
       ],
     },

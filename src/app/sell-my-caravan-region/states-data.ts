@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 
-const BASE_URL = "https://campervans.vercel.app";
+const BASE_URL = "https://www.campervansforsale.au";
 
 export interface StateData {
   slug: string;

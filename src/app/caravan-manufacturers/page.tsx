@@ -12,16 +12,16 @@ export const metadata: Metadata = {
     "Explore caravan manufacturers across Australia. Find trusted builders of off-road, luxury, hybrid, pop top and touring caravans for every budget and lifestyle.",
   robots: "index, follow",
   alternates: {
-    canonical: "https://campervans.vercel.app/caravan-manufacturers/",
+    canonical: "https://www.campervansforsale.au/caravan-manufacturers/",
   },
   openGraph: {
     title: "Caravan Manufacturers in Australia | Brands & Builders",
     description:
       "Explore caravan manufacturers across Australia. Find trusted builders of off-road, luxury, hybrid, pop top and touring caravans for every budget and lifestyle.",
-    url: "https://campervans.vercel.app/caravan-manufacturers/",
+    url: "https://www.campervansforsale.au/caravan-manufacturers/",
     images: [
       {
-        url: "https://campervans.vercel.app/images/camper_logo.png",
+        url: "https://www.campervansforsale.au/images/camper_logo.png",
         width: 800,
         height: 600,
         alt: "Caravan Manufacturers Australia",

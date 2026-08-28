@@ -9,9 +9,9 @@ import Image from "next/image";
 
 const products = [
   {
-    link: "https://campervans.vercel.app/product/2024-everest-alpine-freestyle-18-6-full-off-road-slideouts-with-ensuite/",
+    link: "https://www.campervansforsale.au/product/2024-everest-alpine-freestyle-18-6-full-off-road-slideouts-with-ensuite/",
     image:
-      "https://campervans.vercel.app/wp-content/uploads/2024/07/2024-everest-18-6-alpine-freestyle-new-full-off-road-caravan-straight-lounge-3061-41-maini.png",
+      "https://www.campervansforsale.au/wp-content/uploads/2024/07/2024-everest-18-6-alpine-freestyle-new-full-off-road-caravan-straight-lounge-3061-41-maini.png",
     location: "Western Australia",
     title:
       "2024 Everest Alpine Freestyle 18’6 Full Off Road Slideouts with Ensuite",
@@ -19,9 +19,9 @@ const products = [
     originalPrice: null,
   },
   {
-    link: "https://campervans.vercel.app/product/2024-prime-edge-xplorer-18-6-off-road-slide-out-kitchen-single-axle/",
+    link: "https://www.campervansforsale.au/product/2024-prime-edge-xplorer-18-6-off-road-slide-out-kitchen-single-axle/",
     image:
-      "https://campervans.vercel.app/wp-content/uploads/2024/12/18-6-prime-edge-2024-xplorer-new-off-road-caravan-4555-main-1.jpg",
+      "https://www.campervansforsale.au/wp-content/uploads/2024/12/18-6-prime-edge-2024-xplorer-new-off-road-caravan-4555-main-1.jpg",
     location: "Queensland",
     title:
       "2024 Prime Edge Xplorer 18’6 Off Road Slide Out Kitchen – Single Axle",
@@ -29,9 +29,9 @@ const products = [
     originalPrice: null,
   },
   {
-    link: "https://campervans.vercel.app/product/2024-coronet-rv-ultimate-19-6-semi-off-road-shower-and-toilet-couples/",
+    link: "https://www.campervansforsale.au/product/2024-coronet-rv-ultimate-19-6-semi-off-road-shower-and-toilet-couples/",
     image:
-      "https://campervans.vercel.app/wp-content/uploads/2024/10/coronet-rv-21-6-ultimate-2024-new-family-caravan-2-65-maini.jpg",
+      "https://www.campervansforsale.au/wp-content/uploads/2024/10/coronet-rv-21-6-ultimate-2024-new-family-caravan-2-65-maini.jpg",
     location: "Queensland",
     title:
       "2024 Coronet RV Ultimate 19’6 Semi Off Road Shower and Toilet – Couples",
@@ -39,9 +39,9 @@ const products = [
     originalPrice: "$91,999",
   },
   {
-    link: "https://campervans.vercel.app/product/2024-everest-alpine-freestyle-18-6-full-off-road-slideouts-with-ensuite/",
+    link: "https://www.campervansforsale.au/product/2024-everest-alpine-freestyle-18-6-full-off-road-slideouts-with-ensuite/",
     image:
-      "https://campervans.vercel.app/wp-content/uploads/2024/07/2024-everest-18-6-alpine-freestyle-new-full-off-road-caravan-straight-lounge-3061-41-maini.png",
+      "https://www.campervansforsale.au/wp-content/uploads/2024/07/2024-everest-18-6-alpine-freestyle-new-full-off-road-caravan-straight-lounge-3061-41-maini.png",
     location: "Western Australia",
     title:
       "2024 Everest Alpine Freestyle 18’6 Full Off Road Slideouts with Ensuite",
@@ -49,9 +49,9 @@ const products = [
     originalPrice: null,
   },
   {
-    link: "https://campervans.vercel.app/product/2024-prime-edge-xplorer-18-6-off-road-slide-out-kitchen-single-axle/",
+    link: "https://www.campervansforsale.au/product/2024-prime-edge-xplorer-18-6-off-road-slide-out-kitchen-single-axle/",
     image:
-      "https://campervans.vercel.app/wp-content/uploads/2024/12/18-6-prime-edge-2024-xplorer-new-off-road-caravan-4555-main-1.jpg",
+      "https://www.campervansforsale.au/wp-content/uploads/2024/12/18-6-prime-edge-2024-xplorer-new-off-road-caravan-4555-main-1.jpg",
     location: "Queensland",
     title:
       "2024 Prime Edge Xplorer 18’6 Off Road Slide Out Kitchen – Single Axle",
@@ -59,9 +59,9 @@ const products = [
     originalPrice: null,
   },
   {
-    link: "https://campervans.vercel.app/product/2024-coronet-rv-ultimate-19-6-semi-off-road-shower-and-toilet-couples/",
+    link: "https://www.campervansforsale.au/product/2024-coronet-rv-ultimate-19-6-semi-off-road-shower-and-toilet-couples/",
     image:
-      "https://campervans.vercel.app/wp-content/uploads/2024/10/coronet-rv-21-6-ultimate-2024-new-family-caravan-2-65-maini.jpg",
+      "https://www.campervansforsale.au/wp-content/uploads/2024/10/coronet-rv-21-6-ultimate-2024-new-family-caravan-2-65-maini.jpg",
     location: "Queensland",
     title:
       "2024 Coronet RV Ultimate 19&apos;6 Semi Off Road Shower and Toilet – Couples",

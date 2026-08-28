@@ -80,7 +80,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const title = stripUncategorized(seo.metatitle || seo.meta_title || pd.name || data?.name || slugTitle || "Campervan for Sale");
   const description = stripUncategorized(seo.metadescription || seo.meta_description || pd.short_description || "View campervan details on Campervans For Sale Australia.");
-  const canonicalUrl = `https://campervans.vercel.app/product/${slug}/`;
+  const canonicalUrl = `https://www.campervansforsale.au/product/${slug}/`;
   const rawImages = pd.image_url ?? pd.images ?? [];
   const images: string[] = (Array.isArray(rawImages) ? rawImages : [rawImages]).filter(Boolean);
 
@@ -189,7 +189,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
   const seo = data?.seo ?? data?.product?.seo ?? {};
   const pdName = stripUncategorized(seo.metatitle || seo.meta_title || pd.name || data?.name || "");
   const pdDesc = stripUncategorized(seo.metadescription || seo.meta_description || pd.short_description || data?.short_description || "");
-  const canonicalUrl = `https://campervans.vercel.app/product/${slug}/`;
+  const canonicalUrl = `https://www.campervansforsale.au/product/${slug}/`;
 
   const rawImages = pd.image_url ?? pd.images ?? [];
   const images: string[] = (Array.isArray(rawImages) ? rawImages : [rawImages]).filter(Boolean);

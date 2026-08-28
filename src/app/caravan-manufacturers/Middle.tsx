@@ -138,7 +138,7 @@ export default function CaravanManufacturers() {
                   is for compact off-road adventures without compromising on
                   comfort.Renowned for durability and smart design, Everest
                   Caravans is recognised as a top builder of the{" "}
-                  <Link href="https://campervans.vercel.app/best-caravans-full-off-road-capabilities-australia/">
+                  <Link href="https://www.campervansforsale.au/best-caravans-full-off-road-capabilities-australia/">
                     best off road caravans
                   </Link>{" "}
                   in Australia—trusted by adventurers for performance, comfort,
@@ -166,7 +166,7 @@ export default function CaravanManufacturers() {
 
               <Link
                 className="block border border-gray-300 shadow-md my-4"
-                href="https://campervans.vercel.app/"
+                href="https://www.campervansforsale.au/"
                 target="_blank"
                 rel="noopener noreferrer"
               >

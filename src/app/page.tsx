@@ -22,16 +22,16 @@ export const metadata: Metadata = {
     google: "6tT6MT6AJgGromLaqvdnyyDQouJXq0VHS-7HC194xEo",
   },
   alternates: {
-    canonical: "https://campervans.vercel.app",
+    canonical: "https://www.campervansforsale.au",
   },
   openGraph: {
     title: "Campervans For Sale – New & Used Campervan Marketplace in Australia",
     description: "Browse campervans for sale across Australia. Compare prices on off-road, hybrid, pop top, touring, luxury models with size, weight & sleeping capacity.",
-    url: "https://campervans.vercel.app",
+    url: "https://www.campervansforsale.au",
     siteName: "Campervans for Sale",
     images: [
       {
-        url: "https://campervans.vercel.app/images/camper_logo.png",
+        url: "https://www.campervansforsale.au/images/camper_logo.png",
         width: 800,
         height: 600,
         alt: "Campervans for Sale Australia",
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   },
 };
 
-const BASE_URL = "https://campervans.vercel.app";
+const BASE_URL = "https://www.campervansforsale.au";
 
 const homeJsonLd = {
   "@context": "https://schema.org",
@@ -74,7 +74,7 @@ const homeJsonLd = {
       "url": BASE_URL,
       "logo": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/cfs-logo-black.png`,
+        "url": `${BASE_URL}/images/camper_logo.png`,
       },
       "contactPoint": {
         "@type": "ContactPoint",

@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: "Find the best campervan sales across Australia. Browse thousands of new and used campervans from trusted dealers and private sellers. Compare prices, types, and locations to find your perfect campervan.",
   robots: "noindex, nofollow",
   alternates: {
-    canonical: "https://campervans.vercel.app/campervan-sales/",
+    canonical: "https://www.campervansforsale.au/campervan-sales/",
   },
 };
 

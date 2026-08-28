@@ -16,12 +16,12 @@ import { ReactNode } from "react";
      google: "6tT6MT6AJgGromLaqvdnyyDQouJXq0VHS-7HC194xEo", // ✅ this auto generates <meta name="google-site-verification" />
    },
    alternates: {
-    canonical: "https://campervans.vercel.app/privacy-policy/",
+    canonical: "https://www.campervansforsale.au/privacy-policy/",
 
    },
    
    openGraph: {
-      url: "https://campervans.vercel.app/privacy-policy/",
+      url: "https://www.campervansforsale.au/privacy-policy/",
      title: "Privacy Policy - caravansforsale.com.au - Campervan Marketplace",
        description:
      "Learn about Campervan Marketplace's privacy policy on data collection, usage, security measures, and your rights regarding your information.",

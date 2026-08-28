@@ -38,8 +38,10 @@ const DealerLandingPage = () => {
                 </p>
 
                 <a
-                  href="https://seller.caravansforsale.com.au/dealer-subscription/"
-                  className="btn white_btn"
+                  href="#"
+                  aria-disabled="true"
+                  onClick={(e) => e.preventDefault()}
+                  className="btn white_btn lsd-cta-disabled"
                 >
                   Start Dealer Signup
                 </a>
@@ -254,8 +256,10 @@ const DealerLandingPage = () => {
                   </ul>
 
                   <a
-                    href="https://seller.caravansforsale.com.au/dealer-subscription/"
-                    className="btn white_btn"
+                    href="#"
+                    aria-disabled="true"
+                    onClick={(e) => e.preventDefault()}
+                    className="btn white_btn lsd-cta-disabled"
                   >
                     Start Dealer Signup
                   </a>

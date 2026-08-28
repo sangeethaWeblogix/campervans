@@ -140,7 +140,7 @@ export default function StateSeller({ state }: StateSellerProps) {
             </div>
 
             {/* CTA */}
-            <a href="https://seller.caravansforsale.com.au/seller-signup/" className="demo-hero__cta">
+            <a href="#" aria-disabled="true" onClick={(e) => e.preventDefault()} className="demo-hero__cta lsd-cta-disabled">
               List Your Campervan Now <i className="fa-solid fa-arrow-right" />
             </a>
           </div>{/* end demo-price-wrapper */}
@@ -232,7 +232,7 @@ export default function StateSeller({ state }: StateSellerProps) {
                     </li>
                   ))}
                 </ul>
-                <a href="https://seller.caravansforsale.com.au/seller-signup/" className="demo-reach-card__cta">
+                <a href="#" aria-disabled="true" onClick={(e) => e.preventDefault()} className="demo-reach-card__cta lsd-cta-disabled">
                   List Your Campervan Now <i className="fa-solid fa-arrow-right" />
                 </a>
               </div>
@@ -423,7 +423,7 @@ export default function StateSeller({ state }: StateSellerProps) {
             Start selling your campervan in {stateLabel} today for just{" "}
             <strong>$49 (Inc. GST)</strong> — live until sold.
           </p>
-          <a href="https://seller.caravansforsale.com.au/seller-signup/" className="btn white_btn">
+          <a href="#" aria-disabled="true" onClick={(e) => e.preventDefault()} className="btn white_btn lsd-cta-disabled">
             List Your Campervan Now
           </a>
           <p className="demo-cta-strip__alt-link">

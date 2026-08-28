@@ -3,12 +3,11 @@ import { NextResponse } from "next/server";
 
 export async function GET() {
   const siteUrl =
-    process.env.NEXT_PUBLIC_SITE_URL || "https://campervans.vercel.app";
+    process.env.NEXT_PUBLIC_SITE_URL || "https://www.campervansforsale.au";
 
   const sitemaps = [
     "general-sitemap.xml",
     "listings-sitemap.xml",
-    "categories-sitemap.xml",
     "states-sitemap.xml",
     "regions-sitemap.xml",
     "makes-sitemap.xml",
@@ -17,9 +16,6 @@ export async function GET() {
     "weights-sitemap.xml",
     "prices-sitemap.xml",
     "length-sitemap.xml",
-    "category-state-sitemap.xml",
-    "category-region-sitemap.xml",
-    "attributes-others-sitemap.xml",
     // "sleep-sitemap.xml",
     // "state-make-sitemap.xml",
     // "region-make-sitemap.xml",

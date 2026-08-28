@@ -39,7 +39,7 @@ export async function generateMetadata({
     seo.metadescription ||
     post.short_description ||
     "Read more on Campervans for Sale.";
-  const canonical = `https://campervans.vercel.app/${slug}/`;
+  const canonical = `https://www.campervansforsale.au/${slug}/`;
 
   return {
     title,
@@ -77,7 +77,7 @@ export default async function Layout({
   const post = data?.data?.blog_detail || {};
   const seo = data?.seo || {};
 
-  const canonical = `https://campervans.vercel.app/${slug}/`;
+  const canonical = `https://www.campervansforsale.au/${slug}/`;
   const title = seo.metatitle || post.title || "Campervans for Sale Blog";
   const description =
     seo.metadescription ||
@@ -87,7 +87,7 @@ export default async function Layout({
   const bannerImage =
     post.banner_image ||
     post.image ||
-    "https://campervans.vercel.app/load.svg";
+    "https://www.campervansforsale.au/load.svg";
 
   // ✅ JSON-LD schema (Google Rich Result compatible)
   const jsonLd = {
@@ -108,14 +108,14 @@ export default async function Layout({
     author: {
       "@type": "Person",
       name: "Tom",
-      url: "https://campervans.vercel.app/author/tom/",
+      url: "https://www.campervansforsale.au/author/tom/",
     },
     publisher: {
       "@type": "Organization",
       name: "Campervans for Sale",
       logo: {
         "@type": "ImageObject",
-        url: "https://campervans.vercel.app/images/cfs-logo-black.svg",
+        url: "https://www.campervansforsale.au/images/cfs-logo-black.svg",
         width: 300,
         height: 60,
       },

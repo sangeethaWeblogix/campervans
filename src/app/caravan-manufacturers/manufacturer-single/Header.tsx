@@ -54,7 +54,7 @@ export default function EverestCaravans() {
                 <p>
                   Everest Caravans build{" "}
                   <Link
-                    href="https://campervans.vercel.app/top-family-off-road-caravans-australia/"
+                    href="https://www.campervansforsale.au/top-family-off-road-caravans-australia/"
                     target="_blank"
                     rel="noopener noreferrer"
                   >

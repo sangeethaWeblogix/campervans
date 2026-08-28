@@ -721,21 +721,21 @@
 
 /* ── Full-width Banner ── */
 .pdd-banner {
-  background: linear-gradient(to right, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.88) 38%, rgba(0,0,0,0.25) 58%, rgba(0,0,0,0.05) 100%),
-              url('/images/details_page_banner.jpg') right center/cover no-repeat;
-  border-radius: 10px;
-  padding: 32px 40px;
-  margin: 32px 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  flex-wrap: wrap;
-  min-height: 110px;
+    background: linear-gradient(to right, #fdfdfdeb 0%, #ffffffe0 38%, #00000040 58%, #0000000d 100%), url(/images/details_page_banner.jpg) 100% / cover no-repeat;
+    border-radius: 10px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    min-height: 110px;
+    margin: 32px 0;
+    padding: 32px 40px;
+    display: flex;
+    border: 1px solid #ddd;
 }
 .pdd-banner__sub {
   font-size: 12px;
-  color: #ccc;
+  color: #000;
   letter-spacing: 1.5px;
   text-transform: uppercase;
   margin: 0 0 6px;
@@ -753,7 +753,7 @@
   flex-wrap: wrap;
   gap: 20px;
   font-size: 14px;
-  color: #ddd;
+  color: #000000;
 }
 .pdd-banner__features span {
   display: flex;

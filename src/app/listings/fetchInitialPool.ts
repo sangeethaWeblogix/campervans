@@ -11,7 +11,7 @@ import { Listing, SeoV2, buildFeaturedOrder, dedupeById } from "./listingShared"
 import type { InitialPool } from "./home";
 import type { FilterState } from "./StateFilterBar";
 
-const APP_URL = process.env.NEXT_PUBLIC_APP_URL || "https://campervans.vercel.app";
+const APP_URL = process.env.NEXT_PUBLIC_APP_URL || "https://www.campervansforsale.au";
 
 /** Build the /api/pool-listings/ query string from the full FilterState. */
 function buildApiParams(filters: FilterState): URLSearchParams {

@@ -37,7 +37,7 @@ export const fetchProductMeta = cache(async (slug: string): Promise<ProductMeta>
       s.replace(/\buncategorized\b/gi, "Campervan").replace(/\s{2,}/g, " ").trim();
     const title = stripUncategorized(seo.metatitle || seo.meta_title || pd.name || data?.name || "");
     const description = stripUncategorized(seo.metadescription || seo.meta_description || pd.short_description || "");
-    const canonical = `https://campervans.vercel.app/product/${slug}/`;
+    const canonical = `https://www.campervansforsale.au/product/${slug}/`;
     const imageUrlRaw = pd.image_url;
     const ogImage: string = Array.isArray(imageUrlRaw)
       ? imageUrlRaw.filter(Boolean)[0] ?? ""

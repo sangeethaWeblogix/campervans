@@ -38,7 +38,7 @@ export default function OffRoadCaravanMiddle() {
                 We understand that buying a caravan is a significant investment,
                 and we offer resources to help make the process easier and help
                 you finding some of the
-                <Link href="https://campervans.vercel.app/best-caravans-full-off-road-capabilities-australia/">
+                <Link href="https://www.campervansforsale.au/best-caravans-full-off-road-capabilities-australia/">
                   best off-road caravans in Australia
                 </Link>
                 . We are here to make a difference and to genuinely help both
@@ -174,7 +174,7 @@ export default function OffRoadCaravanMiddle() {
               </div>
               <Link
                 className="banner_ad_now"
-                href="https://campervans.vercel.app/"
+                href="https://www.campervansforsale.au/"
                 style={{
                   border: "1px solid #d3d3d3",
                   boxShadow: "0px 0px 10px rgb(0 0 0 / 8%)",

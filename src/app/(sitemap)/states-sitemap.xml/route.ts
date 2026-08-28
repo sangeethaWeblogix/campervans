@@ -3,7 +3,7 @@ import statesData from "../../../../cfs-paths/states.json";
 
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ||
-  "https://campervans.vercel.app/listings/";
+  "https://www.campervansforsale.au/listings/";
 
 export async function GET() {
   try {

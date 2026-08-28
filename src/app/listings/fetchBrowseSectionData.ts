@@ -9,7 +9,7 @@ import {
 
 const API_BASE = process.env.NEXT_PUBLIC_CFS_API_BASE;
 const API_KEY = process.env.CFS_API_KEY;
-const APP_URL = process.env.NEXT_PUBLIC_APP_URL || "https://campervans.vercel.app";
+const APP_URL = process.env.NEXT_PUBLIC_APP_URL || "https://www.campervansforsale.au";
 
 const wpHeaders = (): Record<string, string> => ({
   Accept: "application/json",

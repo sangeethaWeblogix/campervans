@@ -17,7 +17,7 @@ import { ReactNode } from "react";
      google: "6tT6MT6AJgGromLaqvdnyyDQouJXq0VHS-7HC194xEo", // ✅ this auto generates <meta name="google-site-verification" />
    },
    alternates: {
-    canonical: "https://campervans.vercel.app/contact/",
+    canonical: "https://www.campervansforsale.au/contact/",
    },
    
  

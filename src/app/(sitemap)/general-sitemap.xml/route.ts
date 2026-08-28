@@ -2,18 +2,16 @@
 import { NextResponse } from "next/server";
 
 const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://campervans.vercel.app";
+  process.env.NEXT_PUBLIC_SITE_URL || "https://www.campervansforsale.au";
 
 // Static URLs (you can extend this later with categories, states, regions)
 const staticUrls = [
-  "caravan-manufacturers",
-  "off-road-caravans-manufacturers",
   "listings",
   "blog",
   "about-us",
   "contact",
   "dealer-advertising",
-  "sell-my-caravan",
+  "sell-my-campervan",
 ];
 
 export async function GET() {

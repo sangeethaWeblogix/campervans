@@ -45,7 +45,7 @@ export async function generateMetadata({
         google: "6tT6MT6AJgGromLaqvdnyyDQouJXq0VHS-7HC194xEo", // ✅ Google site verification
       },
       alternates: {
-        canonical: `https://campervans.vercel.app/${slug}/`,
+        canonical: `https://www.campervansforsale.au/${slug}/`,
       },
     };
   }
@@ -65,7 +65,7 @@ export async function generateMetadata({
     data?.short_description ||
     "View campervan details.";
   const robots = "index, follow";
-  const canonicalUrl = `https://campervans.vercel.app/${slug}/`;
+  const canonicalUrl = `https://www.campervansforsale.au/${slug}/`;
 
   return {
     title,

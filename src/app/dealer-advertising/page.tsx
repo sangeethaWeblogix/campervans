@@ -7,20 +7,20 @@ const schemaGraph = [
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": "https://campervans.vercel.app/dealer-advertising/#webpage",
-    "url": "https://campervans.vercel.app/dealer-advertising/",
+    "@id": "https://www.campervansforsale.au/dealer-advertising/#webpage",
+    "url": "https://www.campervansforsale.au/dealer-advertising/",
     "name": "Campervan Dealer Advertising | Unlimited Listings $299/Month | CaravansForSale",
     "description": "Advertise your campervan dealership on CampervanForSale.com.au. Unlimited listings, zero lead fees, $299/month (inc. GST). Cancel anytime.",
-    "isPartOf": { "@id": "https://campervans.vercel.app/#website" },
-    "breadcrumb": { "@id": "https://campervans.vercel.app/dealer-advertising/#breadcrumb" },
+    "isPartOf": { "@id": "https://www.campervansforsale.au/#website" },
+    "breadcrumb": { "@id": "https://www.campervansforsale.au/dealer-advertising/#breadcrumb" },
   },
   {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    "@id": "https://campervans.vercel.app/dealer-advertising/#breadcrumb",
+    "@id": "https://www.campervansforsale.au/dealer-advertising/#breadcrumb",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://campervans.vercel.app/" },
-      { "@type": "ListItem", "position": 2, "name": "Dealer Advertising", "item": "https://campervans.vercel.app/dealer-advertising/" },
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.campervansforsale.au/" },
+      { "@type": "ListItem", "position": 2, "name": "Dealer Advertising", "item": "https://www.campervansforsale.au/dealer-advertising/" },
     ],
   },
   {
@@ -30,10 +30,10 @@ const schemaGraph = [
     "provider": {
       "@type": "Organization",
       "name": "Campervans For Sale",
-      "url": "https://campervans.vercel.app/",
+      "url": "https://www.campervansforsale.au/",
     },
     "description": "Unlimited campervan listings on CampervanForSale.com.au for $299/month (inc. GST). Zero lead fees, no lock-in contracts, automatic inventory sync.",
-    "url": "https://campervans.vercel.app/dealer-advertising/",
+    "url": "https://www.campervansforsale.au/dealer-advertising/",
     "areaServed": { "@type": "Country", "name": "Australia" },
     "offers": {
       "@type": "Offer",

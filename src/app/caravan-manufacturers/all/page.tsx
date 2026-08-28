@@ -11,16 +11,16 @@ export const metadata: Metadata = {
     "Discover a diverse range of top-tier caravan manufacturers specializing in off-road, compact poptops, touring models, luxury editions & innovative hybrids.",
   robots: "index, follow",
   alternates: {
-    canonical: "https://campervans.vercel.app/caravan-manufacturers/all/",
+    canonical: "https://www.campervansforsale.au/caravan-manufacturers/all/",
   },
   openGraph: {
     title: "Full List of Top Quality Caravan Manufacturers in Australia",
     description:
       "Discover a diverse range of top-tier caravan manufacturers specializing in off-road, compact poptops, touring models, luxury editions & innovative hybrids.",
-    url: "https://campervans.vercel.app/caravan-manufacturers/all/",
+    url: "https://www.campervansforsale.au/caravan-manufacturers/all/",
     images: [
       {
-        url: "https://campervans.vercel.app/images/camper_logo.png",
+        url: "https://www.campervansforsale.au/images/camper_logo.png",
         width: 800,
         height: 600,
         alt: "Caravan Manufacturers Australia",

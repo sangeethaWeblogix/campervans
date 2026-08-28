@@ -115,7 +115,7 @@ export function getRegionsByState(stateSlug: string): RegionInfo[] {
   return ALL_REGIONS.filter((r) => r.state.slug === stateSlug);
 }
 
-const BASE_URL = "https://campervans.vercel.app";
+const BASE_URL = "https://www.campervansforsale.au";
 
 export function buildRegionMetadata(region: RegionInfo): Metadata {
   return {
