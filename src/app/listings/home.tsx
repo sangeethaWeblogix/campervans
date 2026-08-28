@@ -460,7 +460,7 @@ export default function StateHome({ initialFilters, browseData, initialPool, ini
                 <p className="lsd-sell-cta__body">
                   If you&apos;re upgrading or no longer need your current campervan,{" "}
                   <a href="/sell-my-campervan/" className="lsd-sell-cta__link">sell your campervan</a>{" "}
-                  by creating a listing on CampervanForSale.com.au and connect with active buyers across Australia. Your advertisement stays online until it&apos;s sold for a one-time fee of $49.
+                  by creating a listing on CampervansForSale.au and connect with active buyers across Australia. Your advertisement stays online until it&apos;s sold for a one-time fee of $49.
                 </p>
               </div>
             </div>
@@ -499,7 +499,7 @@ export default function StateHome({ initialFilters, browseData, initialPool, ini
               <p className="lsd-sell-cta__body">
                 If you&apos;re upgrading or no longer need your current campervan,{" "}
                 <a href="/sell-my-campervan/" className="lsd-sell-cta__link">sell your campervan</a>{" "}
-                by creating a listing on CampervanForSale.com.au and connect with active buyers across Australia. Your advertisement stays online until it&apos;s sold for a one-time fee of $49.
+                by creating a listing on CampervansForSale.au and connect with active buyers across Australia. Your advertisement stays online until it&apos;s sold for a one-time fee of $49.
               </p>
             </div>
           </div>
@@ -606,7 +606,7 @@ export default function StateHome({ initialFilters, browseData, initialPool, ini
               <p className="lsd-sell-cta__body">
                 If you&apos;re upgrading or no longer need your current campervan,{" "}
                 <a href="/sell-my-campervan/" className="lsd-sell-cta__link">sell your campervan</a>{" "}
-                by creating a listing on CampervanForSale.com.au and connect with active buyers across Australia. Your advertisement stays online until it&apos;s sold for a one-time fee of $49.
+                by creating a listing on CampervansForSale.au and connect with active buyers across Australia. Your advertisement stays online until it&apos;s sold for a one-time fee of $49.
               </p>
             </div>
           </div>
@@ -672,7 +672,7 @@ export default function StateHome({ initialFilters, browseData, initialPool, ini
             <p className="lsd-sell-cta__body">
               If you&apos;re upgrading or no longer need your current campervan,{" "}
               <a href="/sell-my-campervan/" className="lsd-sell-cta__link">sell your campervan</a>{" "}
-              by creating a listing on CampervanForSale.com.au and connect with active buyers across Australia. Your advertisement stays online until it&apos;s sold for a one-time fee of $49.
+              by creating a listing on CampervansForSale.au and connect with active buyers across Australia. Your advertisement stays online until it&apos;s sold for a one-time fee of $49.
             </p>
           </div>
         </div>

@@ -9,7 +9,7 @@ import { ReactNode } from "react";
      template: "%s ",
    },
    description:
-     "Advertise your campervan dealership on CampervanForSale.com.au. Unlimited listings, zero lead fees, and reach high-intent campervan buyers across Australia.",
+     "Advertise your campervan dealership on CampervansForSale.au. Unlimited listings, zero lead fees, and reach high-intent campervan buyers across Australia.",
    icons: { icon: "/favicon.ico" },
    robots: "index, follow",
    verification: {

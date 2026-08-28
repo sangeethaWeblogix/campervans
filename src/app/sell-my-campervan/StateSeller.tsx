@@ -40,7 +40,7 @@ export default function StateSeller({ state }: StateSellerProps) {
   const MAIN_FAQS = [
     {
       q: `How do I sell my campervan in ${stateLabel}?`,
-      a: <p>You can sell your campervan online by creating a private seller listing on CampervanForSale.com.au. Simply add your campervan details, upload clear photos, set your asking price, and publish your ad so active buyers across {stateLabel} and all of Australia can contact you directly.</p>,
+      a: <p>You can sell your campervan online by creating a private seller listing on CampervansForSale.au. Simply add your campervan details, upload clear photos, set your asking price, and publish your ad so active buyers across {stateLabel} and all of Australia can contact you directly.</p>,
     },
     {
       q: `How much does it cost to sell my campervan in ${stateLabel}?`,
@@ -72,7 +72,7 @@ export default function StateSeller({ state }: StateSellerProps) {
     },
     {
       q: "Do I pay commission when my campervan sells?",
-      a: <p>No. CampervanForSale.com.au does not charge commission when your campervan sells. You pay the one-time listing fee and keep 100% of the agreed sale price.</p>,
+      a: <p>No. CampervansForSale.au does not charge commission when your campervan sells. You pay the one-time listing fee and keep 100% of the agreed sale price.</p>,
     },
     {
       q: "Can I remove my listing after my campervan is sold?",
@@ -276,7 +276,7 @@ export default function StateSeller({ state }: StateSellerProps) {
             <div className="demo-guide-card">
               <div className="demo-guide-card__header">
                 <span className="demo-guide-card__num">1</span>
-                <h3>Why sell on CampervanForSale.com.au?</h3>
+                <h3>Why sell on CampervansForSale.au?</h3>
               </div>
               <ul className="demo-guide-card__list">
                 <li>Australia's #1 marketplace for buying and selling campervans.</li>
@@ -318,7 +318,7 @@ export default function StateSeller({ state }: StateSellerProps) {
               <ul className="demo-guide-card__list">
                 <li>Private sale: you keep 100% of the sale price.</li>
                 <li>Dealers/consignment: may charge fees or commission.</li>
-                <li>CampervanForSale.com.au: one-time fee, no commission.</li>
+                <li>CampervansForSale.au: one-time fee, no commission.</li>
               </ul>
             </div>
 
@@ -332,7 +332,7 @@ export default function StateSeller({ state }: StateSellerProps) {
           <div className="demo-faq-head">
             <span className="demo-faq-head__tag">FAQ</span>
             <h2>Frequently Asked Questions</h2>
-            <p>Everything you need to know about selling your campervan in {stateLabel} on CampervanForSale.com.au</p>
+            <p>Everything you need to know about selling your campervan in {stateLabel} on CampervansForSale.au</p>
           </div>
           <div className="demo-faq-list">
             {MAIN_FAQS.map((faq, i) => (
@@ -368,7 +368,7 @@ export default function StateSeller({ state }: StateSellerProps) {
             <div className="col-md-6">
               <h2>Why {demonym} Campervan Buyers Visit CaravansForSale Every Month</h2>
               <p>
-                CampervanForSale.com.au helps {demonym} campervan sellers reach buyers searching for
+                CampervansForSale.au helps {demonym} campervan sellers reach buyers searching for
                 used campervans, off road campervans, family campervans, pop tops, hybrids and touring
                 campervans across {capital} and regional {stateLabel}.
               </p>

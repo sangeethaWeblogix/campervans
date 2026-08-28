@@ -293,7 +293,7 @@ const DealerLandingPage = () => {
                   <p>
                     The dealer subscription is $299 per month (including GST). This flat
                     monthly fee allows your dealership to list unlimited campervans on
-                    CampervanForSale.com.au. There are no per-listing charges, and we never
+                    CampervansForSale.au. There are no per-listing charges, and we never
                     charge per lead or take success commissions – no matter how many
                     inquiries or sales you get, $299/month covers it all.
                   </p>
@@ -349,7 +349,7 @@ const DealerLandingPage = () => {
               <div className={`collapse ${activeFaq === 3 ? "show" : ""}`}>
                 <div className="card-body">
                   <p>
-                    CampervanForSale.com.au is a campervan-only marketplace with a focused,
+                    CampervansForSale.au is a campervan-only marketplace with a focused,
                     nationwide audience of serious buyers.
                   </p>
                 </div>

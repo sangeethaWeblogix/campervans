@@ -36,7 +36,7 @@ export default function HomeBuyerGuide() {
               </h2>
               
               <p className="hbg-body">
-                CampervanForSale.com.au helps Australian buyers compare a wide range of campervans for sale in one convenient place. Browse affordable used campervans, premium new models and options designed for touring, family holidays or off-road adventures. Compare important features such as layout, GVM, tare weight, sleeping capacity, length, suspension, condition, service history and towing requirements to narrow down your choices before contacting a seller or visiting a dealership. Our easy-to-use platform makes researching and comparing campervans simple.
+                CampervansForSale.au helps Australian buyers compare a wide range of campervans for sale in one convenient place. Browse affordable used campervans, premium new models and options designed for touring, family holidays or off-road adventures. Compare important features such as layout, GVM, tare weight, sleeping capacity, length, suspension, condition, service history and towing requirements to narrow down your choices before contacting a seller or visiting a dealership. Our easy-to-use platform makes researching and comparing campervans simple.
               </p>
               <p className="hbg-body">
                 Explore popular campervan types including off-road, hybrid, pop top, touring and luxury campervans, while also comparing trusted campervan brands and reputable dealers across Australia. Check whether dealers offer warranty support, finance options, trade-ins, after-sales service and detailed vehicle information before making your decision. Use our buyers guide and convenient search filters to browse listings by state, location, budget, size, weight and berth, helping you find the right campervan for your lifestyle and travel plans.
@@ -52,7 +52,7 @@ export default function HomeBuyerGuide() {
       <section className="hbg-why-section">
         <div className="container">
           <h2 className="hbg-why-title">
-            Why Australians Use <span className="hbg-why-accent">CampervanForSale.com.au</span>
+            Why Australians Use <span className="hbg-why-accent">CampervansForSale.au</span>
           </h2>
           
 

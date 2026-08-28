@@ -139,7 +139,7 @@ export function buildRegionJsonLd(region: RegionInfo) {
         "@id": `${pageUrl}#webpage`,
         url: pageUrl,
         name: `Sell My Campervan in ${region.label} | List Until Sold for $49`,
-        description: `Sell your campervan in ${region.label}, ${region.state.label} with CampervanForSale.com.au. List your campervan for a one-time $49 fee, keep 100% of the sale price, and stay live until sold.`,
+        description: `Sell your campervan in ${region.label}, ${region.state.label} with CampervansForSale.au. List your campervan for a one-time $49 fee, keep 100% of the sale price, and stay live until sold.`,
         inLanguage: "en-AU",
         isPartOf: { "@id": `${BASE_URL}/#website` },
       },
@@ -148,7 +148,7 @@ export function buildRegionJsonLd(region: RegionInfo) {
         "@id": `${pageUrl}#service`,
         name: "Private Campervan Listing Service",
         url: pageUrl,
-        description: `List your campervan for sale on CampervanForSale.com.au for a one-time $49 fee. No commissions, no subscriptions, live until sold.`,
+        description: `List your campervan for sale on CampervansForSale.au for a one-time $49 fee. No commissions, no subscriptions, live until sold.`,
         provider: {
           "@type": "Organization",
           name: "Campervans For Sale",
@@ -174,7 +174,7 @@ export function buildRegionJsonLd(region: RegionInfo) {
             name: `How do I sell my campervan in ${region.label}?`,
             acceptedAnswer: {
               "@type": "Answer",
-              text: `You can sell your campervan in ${region.label} by creating a private seller listing on CampervanForSale.com.au. Add your campervan details, upload clear photos, set your asking price and publish your ad so buyers in ${region.label} and across ${region.state.label} can contact you directly.`,
+              text: `You can sell your campervan in ${region.label} by creating a private seller listing on CampervansForSale.au. Add your campervan details, upload clear photos, set your asking price and publish your ad so buyers in ${region.label} and across ${region.state.label} can contact you directly.`,
             },
           },
           {
@@ -182,7 +182,7 @@ export function buildRegionJsonLd(region: RegionInfo) {
             name: `How much does it cost to sell my campervan in ${region.label}?`,
             acceptedAnswer: {
               "@type": "Answer",
-              text: "It costs $49 inc. GST to list your campervan on CampervanForSale.com.au. This is a one-time listing fee with no monthly subscription, no hidden charges and no commission when your campervan sells.",
+              text: "It costs $49 inc. GST to list your campervan on CampervansForSale.au. This is a one-time listing fee with no monthly subscription, no hidden charges and no commission when your campervan sells.",
             },
           },
           {
@@ -214,7 +214,7 @@ export function buildRegionJsonLd(region: RegionInfo) {
             name: "Do I pay commission when my campervan sells?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "No. CampervanForSale.com.au does not charge commission when your campervan sells. You pay the one-time listing fee and keep 100% of the agreed sale price.",
+              text: "No. CampervansForSale.au does not charge commission when your campervan sells. You pay the one-time listing fee and keep 100% of the agreed sale price.",
             },
           },
           {

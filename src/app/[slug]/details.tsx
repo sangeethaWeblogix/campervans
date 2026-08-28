@@ -687,7 +687,7 @@ export default function BlogDetailsPage({
           <p className="bds-cta-body">
             <strong>Looking to sell?</strong> If you&apos;re upgrading to a newer campervan or no longer need your current one,{" "}
             <a href="/sell-my-campervan/" className="bds-cta-link">sell your campervan</a>{" "}
-            by creating a listing on CampervanForSale.com.au. Your advertisement stays online until it&apos;s sold for a one-time fee of $49.
+            by creating a listing on CampervansForSale.au. Your advertisement stays online until it&apos;s sold for a one-time fee of $49.
           </p>
         </div>
       </section>

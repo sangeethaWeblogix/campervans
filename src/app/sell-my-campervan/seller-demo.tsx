@@ -47,11 +47,11 @@
  const MAIN_FAQS = [
    {
      q: "How do I sell my campervan online in Australia?",
-     a: <p>You can sell your campervan online by creating a private seller listing on CampervanForSale.com.au. Add your campervan details, upload clear photos, set your asking price and publish your ad so buyers across Australia can contact you directly.</p>,
+     a: <p>You can sell your campervan online by creating a private seller listing on CampervansForSale.au. Add your campervan details, upload clear photos, set your asking price and publish your ad so buyers across Australia can contact you directly.</p>,
    },
    {
      q: "How much does it cost to list my campervan?",
-     a: <p>It costs $49 inc. GST to list your campervan on CampervanForSale.com.au. This is a one-time listing fee with no monthly subscription, no hidden charges and no commission when your campervan sells.</p>,
+     a: <p>It costs $49 inc. GST to list your campervan on CampervansForSale.au. This is a one-time listing fee with no monthly subscription, no hidden charges and no commission when your campervan sells.</p>,
    },
    {
      q: "How long does my campervan listing stay live?",
@@ -79,7 +79,7 @@
    },
    {
      q: "Do I pay commission when my campervan sells?",
-     a: <p>No. CampervanForSale.com.au does not charge commission when your campervan sells. You pay the one-time listing fee and keep 100% of the agreed sale price.</p>,
+     a: <p>No. CampervansForSale.au does not charge commission when your campervan sells. You pay the one-time listing fee and keep 100% of the agreed sale price.</p>,
    },
    {
      q: "Can I remove my listing after my campervan is sold?",
@@ -117,7 +117,7 @@
                <h3>Looking to sell your campervan?</h3>
              </div>
                <p className="demo-price-card__desc">
-                 CampervanForSale.com.au helps private sellers advertise directly to genuine campervan buyers for a one-time $49 listing fee, with no commissions, no subscriptions and your ad live until sold.
+                 CampervansForSale.au helps private sellers advertise directly to genuine campervan buyers for a one-time $49 listing fee, with no commissions, no subscriptions and your ad live until sold.
                </p>
                
              </div>
@@ -317,7 +317,7 @@
              <div className="demo-guide-card">
                <div className="demo-guide-card__header">
                  <span className="demo-guide-card__num">1</span>
-                 <h3>Why sell on CampervanForSale.com.au?</h3>
+                 <h3>Why sell on CampervansForSale.au?</h3>
                </div>
                <ul className="demo-guide-card__list">
                  <li>Caravan-only marketplace, not a general classifieds page.</li>
@@ -373,7 +373,7 @@
            <div className="demo-faq-head">
              <span className="demo-faq-head__tag">FAQ</span>
              <h2>Frequently Asked Questions</h2>
-             <p>Everything you need to know about selling your campervan on CampervanForSale.com.au</p>
+             <p>Everything you need to know about selling your campervan on CampervansForSale.au</p>
            </div>
            <div className="demo-faq-list">
              {MAIN_FAQS.map((faq, i) => (
@@ -411,7 +411,7 @@
              <div className="col-md-6">
                <h2>Why Thousands of Campervan Buyers Visit CaravansForSale Every Month</h2>
                <p>
-                 CampervanForSale.com.au is Australia's dedicated campervan marketplace, built exclusively
+                 CampervansForSale.au is Australia's dedicated campervan marketplace, built exclusively
                  for campervan buyers and sellers. We attract thousands of genuine buyers every day who
                  are actively searching for road campervans, family campervans, pop-top campervans, luxury
                  campervans and more.
