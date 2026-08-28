@@ -1,6 +1,8 @@
 import Dealer from "./dealer";
 import "./dealer.css";
 
+export const dynamic = "force-dynamic";
+
 const schemaGraph = [
   {
     "@context": "https://schema.org",

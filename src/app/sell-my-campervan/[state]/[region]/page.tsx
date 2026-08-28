@@ -10,6 +10,7 @@ import {
 } from "../../../sell-my-caravan-region/regions-data";
 
 export const dynamicParams = true;
+export const dynamic = "force-dynamic";
 
 type RouteParams = { state: string; region: string };
 type PageProps = { params: Promise<RouteParams> };

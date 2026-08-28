@@ -14,7 +14,7 @@ const wpHeaders = (): Record<string, string> => ({
 export const fetchMakeDetails = async () => {
   const res = await fetch(`${API_BASE}/make_details`, {
     headers: wpHeaders(),
-    next: { revalidate: 86400 },
+    next: { revalidate: 0 },
   });
   const json = await res.json();
   return json?.data?.make_options || [];
@@ -33,7 +33,7 @@ export const fetchModelCounts = async (
       `${API_BASE}/params_count?group_by=model&make=${encodeURIComponent(make)}`,
       {
         headers: wpHeaders(),
-        next: { revalidate: 3600 },
+        next: { revalidate: 0 },
         signal: controller.signal,
       }
     );
@@ -66,7 +66,7 @@ export const fetchMakeCounts = async (): Promise<
   try {
     const res = await fetch(`${API_BASE}/params_count?group_by=make`, {
       headers: wpHeaders(),
-      next: { revalidate: 3600 },
+      next: { revalidate: 0 },
     });
     if (!res.ok) return [];
     const data = await res.json();
@@ -85,7 +85,7 @@ export const fetchCategoryCounts = async (): Promise<
   try {
     const res = await fetch(`${API_BASE}/params_count?group_by=category`, {
       headers: wpHeaders(),
-      next: { revalidate: 3600 },
+      next: { revalidate: 0 },
     });
     if (!res.ok) return [];
     const data = await res.json();
@@ -107,7 +107,7 @@ export const fetchProductList = async () => {
   try {
     const res = await fetch(`${API_BASE}/params-product-list`, {
       headers: wpHeaders(),
-      next: { revalidate: 3600 },
+      next: { revalidate: 0 },
     });
     if (!res.ok) throw new Error("Failed to fetch product list");
     return await res.json();

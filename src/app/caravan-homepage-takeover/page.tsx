@@ -3,6 +3,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import './home-page-take-over.css'
 
+export const dynamic = "force-dynamic";
+
 /* ── Meta Title & Description ── */
 export const metadata: Metadata = {
   title: 'Home Page Takeover Advertising | #1 Campervan Brand Exposure Australia-Wide',

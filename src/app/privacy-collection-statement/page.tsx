@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import Statement from "./statement";
 import "./statement.css?=123";
 
+export const dynamic = "force-dynamic";
+
 export async function generateMetadata(): Promise<Metadata> {
   const metaTitle = "Privacy Collection Statement - Marketplace Network";
   const metaDescription =

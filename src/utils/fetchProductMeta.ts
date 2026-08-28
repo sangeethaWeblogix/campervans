@@ -15,7 +15,7 @@ export const fetchProductMeta = cache(async (slug: string): Promise<ProductMeta>
     const res = await fetch(
       `${API_BASE}/product-detail-new/?slug=${encodeURIComponent(slug)}`,
       {
-        next: { revalidate: 3600 },
+        next: { revalidate: 0 },
         headers: {
           Accept: "application/json",
           ...(API_KEY && { "X-API-Key": API_KEY }),

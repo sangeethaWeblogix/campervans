@@ -8,6 +8,8 @@ import { parseDemoFilters, buildListingsSlug } from "@/app/listings/urlUtils";
 import { fetchBrowseSectionData } from "@/app/listings/fetchBrowseSectionData";
 import { fetchInitialPool } from "@/app/listings/fetchInitialPool";
 
+export const dynamic = "force-dynamic";
+
 export const metadata = {
   title: "410 - Page Permanently Removed | Caravans For Sale",
   description:

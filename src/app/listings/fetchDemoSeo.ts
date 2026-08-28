@@ -16,7 +16,7 @@ export async function fetchDemoSeo(filters: FilterState): Promise<SeoV2 | null> 
         Accept: "application/json",
         ...(API_KEY && { "X-API-Key": API_KEY }),
       },
-      next: { revalidate: 3600 },
+      next: { revalidate: 0 },
     });
     if (!res.ok) return null;
 

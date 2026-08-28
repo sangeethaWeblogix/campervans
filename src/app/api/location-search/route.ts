@@ -17,7 +17,7 @@ export async function GET(req: NextRequest) {
         Accept: "application/json",
         ...(API_KEY && { "X-API-Key": API_KEY }),
       },
-      next: { revalidate: 86400 }, // location data is static — cache for 24h
+      next: { revalidate: 0 }, // caching disabled site-wide
     }
   );
 
@@ -30,6 +30,6 @@ export async function GET(req: NextRequest) {
   }
 
   const response = NextResponse.json(json, { status: res.status });
-  response.headers.set("Cache-Control", "public, max-age=3600, stale-while-revalidate=86400");
+  response.headers.set("Cache-Control", "no-store, no-cache, must-revalidate");
   return response;
 }

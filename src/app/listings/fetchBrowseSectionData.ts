@@ -30,7 +30,7 @@ async function fetchGroupCountsServer(
     const qs = new URLSearchParams({ group_by: groupBy, ...scope });
     const res = await fetch(`${API_BASE}/params_count?${qs.toString()}`, {
       headers: wpHeaders(),
-      next: { revalidate: 3600 },
+      next: { revalidate: 0 },
     });
     if (!res.ok) return [];
     const json = await res.json();
@@ -89,7 +89,7 @@ async function fetchKnownMakesServer(): Promise<{ slug: string; name: string }[]
   try {
     const res = await fetch(`${API_BASE}/make_details`, {
       headers: wpHeaders(),
-      next: { revalidate: 3600 },
+      next: { revalidate: 0 },
     });
     if (!res.ok) return [];
     const json = await res.json();

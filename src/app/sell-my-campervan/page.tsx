@@ -1,6 +1,8 @@
 import SellerDemo from "./seller-demo";
 import "./seller-demo.css";
 
+export const dynamic = "force-dynamic";
+
 const BASE_URL = "https://campervans.vercel.app";
 
 const sellPageJsonLd = {

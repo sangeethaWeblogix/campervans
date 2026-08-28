@@ -22,7 +22,7 @@ export async function fetchBlogDetail(
         ...(API_KEY && { "X-API-Key": API_KEY }), // ✅ API key added
       },
       // cache strategy: tweak as you like
-      next: { revalidate: 60 },
+      next: { revalidate: 0 },
 
     }
   );

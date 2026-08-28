@@ -4,6 +4,8 @@ import FaqSection from "./components/FaqSection";
 import Footer from "./components/OffRoadCaravanInfoFooter";
 import "./offroad.css?=1";
 
+export const dynamic = "force-dynamic";
+
 export default function Home() {
   return (
     <div>

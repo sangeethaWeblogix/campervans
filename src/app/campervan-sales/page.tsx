@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 import { fetchRequirements } from "@/api/postRquirements/api";
 import { fetchHomePage } from "@/api/home/api";
 
-export const revalidate = 86400;
+export const revalidate = 0;
 
 const CANONICAL = "https://campervans.vercel.app/campervan-sales/";
 

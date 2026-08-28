@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   robots: "noindex, nofollow",
 };
 
-export const revalidate = 3600;
+export const revalidate = 0;
 
 const DEMO_SLUG = "2025-retreat-caravans-daydream-29ft6-off-road";
 
@@ -17,7 +17,7 @@ const fetchProduct = cache(async () => {
     const res = await fetch(
       `${API_BASE}/product-detail-new/?slug=${encodeURIComponent(DEMO_SLUG)}`,
       {
-        next: { revalidate: 3600 },
+        next: { revalidate: 0 },
         headers: {
           Accept: "application/json",
           ...(API_KEY && { "X-API-Key": API_KEY }),

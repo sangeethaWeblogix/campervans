@@ -31,7 +31,11 @@ const readPage = (id: string): number | null => {
 };
 
 // Fixed seed value passed to the pool-listings API — no per-request shuffling.
-const POOL_SEED = 1;
+// seed=1 specifically triggers a backend pool_test bug that silently drops
+// most of the pool (confirmed: total_count stays correct but products[]
+// comes back far short, missing whole slot_bucket groups) — kept fixed at a
+// different value instead of 1 to avoid it. See fetchInitialPool.ts.
+const POOL_SEED = 2;
 
 /** Full pool data fetched server-side in page.tsx and passed as a prop so the
  *  SSR HTML contains real product listings from the first byte. */

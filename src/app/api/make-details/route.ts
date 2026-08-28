@@ -13,7 +13,7 @@ export async function GET() {
       Accept: "application/json",
       ...(API_KEY && { "X-API-Key": API_KEY }),
     },
-    next: { revalidate: 3600 },
+    next: { revalidate: 0 },
   });
 
   const raw = await res.text();

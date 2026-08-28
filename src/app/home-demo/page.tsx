@@ -4,7 +4,7 @@ import "../globals.css";
 import { fetchRequirements } from "@/api/postRquirements/api";
 import { fetchHomePage } from "@/api/home/api";
 
-export const revalidate = 86400;
+export const revalidate = 0;
 
 export default async function HomeDemoPage() {
   const [

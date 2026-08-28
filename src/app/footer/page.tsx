@@ -1,5 +1,4 @@
-// export const dynamic = "force-dynamic"
-;
+export const dynamic = "force-dynamic";
 
 import React, { Suspense } from "react";
 import Footer from "./Footer";

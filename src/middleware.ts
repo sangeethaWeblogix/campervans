@@ -25,8 +25,8 @@ const VALID_MAKE_SLUGS = new Set<string>(
 ────────────────────────────────────────────── */
 const seoCache = new Map<string, { robots: string; isEmpty: boolean; hasExclusiveOnly: boolean; expires: number; staleExpires: number }>();
 const productCache = new Map<string, { exists: boolean; expires: number }>();
-const CACHE_TTL = 10 * 60 * 1000;       // 10 min fresh
-const CACHE_STALE_TTL = 60 * 60 * 1000; // 1 hr stale-while-revalidate window
+const CACHE_TTL = 0;       // caching disabled site-wide — always re-verify live
+const CACHE_STALE_TTL = 0; // caching disabled site-wide — always re-verify live
 
 
 /* Valid Australian state slug parts (the bit before -state in the URL) */
@@ -66,7 +66,7 @@ async function isValidSuburb(suburb: string, pincode: string | undefined, apiKey
           ? u.includes(`${suburbSlug}-${pincode}-suburb`) || u.includes(`/${suburbSlug}-suburb/${pincode}`)
           : u.includes(`${suburbSlug}-suburb`);
       });
-      suburbValidCache.set(cacheKey, { valid, expires: Date.now() + 60 * 60 * 1000 });
+      suburbValidCache.set(cacheKey, { valid, expires: Date.now() }); // caching disabled site-wide
       return valid;
     }
   } catch {}
@@ -154,7 +154,7 @@ async function refreshSeoCache(cacheKey: string, url: URL, request: NextRequest)
       headers: { "User-Agent": SERVER_UA, ...(API_KEY && { "X-API-Key": API_KEY }) },
       signal: controller.signal,
       // @ts-ignore
-      next: { revalidate: 3600 },
+      next: { revalidate: 0 },
     });
     clearTimeout(timeoutId);
     if (apiRes.ok) {
@@ -469,7 +469,7 @@ export async function middleware(request: NextRequest) {
           },
           signal: controller.signal,
           // @ts-ignore - Edge runtime specific
-          next: { revalidate: 3600 },
+          next: { revalidate: 0 },
         });
 
         clearTimeout(timeoutId);

@@ -22,7 +22,7 @@ export async function GET(req: NextRequest) {
               "User-Agent": "caravansforsale.com.au contact@caravansforsale.com.au",
               "Accept-Language": "en",
             },
-            next: { revalidate: false },
+            next: { revalidate: 0 },
           }
         );
         if (!res.ok) { coords[pincode] = null; return; }
@@ -38,6 +38,6 @@ export async function GET(req: NextRequest) {
   );
 
   return NextResponse.json(coords, {
-    headers: { "Cache-Control": "public, max-age=31536000, immutable" },
+    headers: { "Cache-Control": "no-store, no-cache, must-revalidate" },
   });
 }

@@ -92,7 +92,7 @@ import fetchListingsForHead, { buildListingsJsonLd, buildBreadcrumbs } from "@/u
     }
 
     // Listings JSON-LD — fetched here so both schemas render inside <head>
-    // Second call hits Next.js data cache (revalidate: 3600), no extra network round-trip.
+    // Second call hits Next.js data cache (revalidate: 0), no extra network round-trip.
     let listingsCollectionLd: object | null = null;
     let listingsSearchResultsLd: object | null = null;
     if (isMainListings || isListingSlug) {

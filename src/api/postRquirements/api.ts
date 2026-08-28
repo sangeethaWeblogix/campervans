@@ -24,7 +24,7 @@ export async function fetchRequirements(): Promise<Requirement[]> {
   const url = `${API_BASE}/cara_req`;
   try {
     const res = await fetch(url, {
-      next: { revalidate: 86400 },
+      next: { revalidate: 0 },
       headers: {
         Accept: "application/json",
         // Without a browser-like UA, SiteGround's WAF bot-challenge blocks

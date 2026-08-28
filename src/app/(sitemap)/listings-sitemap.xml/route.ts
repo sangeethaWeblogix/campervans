@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 
 export const runtime = "nodejs";
-export const revalidate = 3600;
+export const revalidate = 0;
 
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL || "https://campervans.vercel.app";
@@ -22,7 +22,7 @@ const auth = Buffer.from(
         Authorization: `Basic ${auth}`,
         "User-Agent": "Mozilla/5.0 (CaravansForSale Sitemap Bot)",
       },
-      next: { revalidate: 3600 },
+      next: { revalidate: 0 },
     },
   );
 

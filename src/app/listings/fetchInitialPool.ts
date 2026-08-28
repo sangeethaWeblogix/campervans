@@ -15,7 +15,12 @@ const APP_URL = process.env.NEXT_PUBLIC_APP_URL || "https://campervans.vercel.ap
 
 /** Build the /api/pool-listings/ query string from the full FilterState. */
 function buildApiParams(filters: FilterState): URLSearchParams {
-  const params = new URLSearchParams({ orderby: "default", per_page: "21", page: "1", seed: "1" });
+  // seed=1 specifically triggers a backend pool_test bug: it silently drops
+  // most of the pool (e.g. total_count=20 but only 11 products actually
+  // returned, missing the whole "used" bucket) — confirmed by testing
+  // seed=2 and no-seed at all, both of which return the full, correct set.
+  // Kept fixed (not random) to avoid per-request shuffling, just off 1.
+  const params = new URLSearchParams({ orderby: "default", per_page: "21", page: "1", seed: "2" });
   if (filters.state)              params.set("state",             String(filters.state));
   if (filters.region)             params.set("region",            String(filters.region));
   if (filters.category)           params.set("category",          String(filters.category));

@@ -3,6 +3,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import './category-take-over.css'
 
+export const dynamic = "force-dynamic";
+
 /* ── Meta Title & Description ── */
 export const metadata: Metadata = {
   title: 'Touring Campervan Category Sponsorship | Australia-Wide Exposure',

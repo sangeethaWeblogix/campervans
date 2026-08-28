@@ -9,7 +9,7 @@ async function fetchPincodeCoords(pincode: string): Promise<[number, number] | n
           "User-Agent": "caravansforsale.com.au contact@caravansforsale.com.au",
           "Accept-Language": "en",
         },
-        next: { revalidate: false }, // Permanently cached by Next.js data cache
+        next: { revalidate: 0 }, // Permanently cached by Next.js data cache
       }
     );
     if (!res.ok) return null;

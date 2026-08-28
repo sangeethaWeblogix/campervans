@@ -8,7 +8,7 @@ import { fetchBrowseSectionData } from "../fetchBrowseSectionData";
 import { fetchInitialPool } from "../fetchInitialPool";
 import "../../globals.css";
 
-export const revalidate = 86400;
+export const revalidate = 0;
 
 // Cache the indexed-URL set for the lifetime of this server instance
 // (same approach as /api/indexed-url/route.ts — read once, never re-read).

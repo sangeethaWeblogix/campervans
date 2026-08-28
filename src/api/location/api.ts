@@ -12,7 +12,7 @@ export const fetchLinksData = async (filters: Record<string, any>) => {
       }
     });
   const res = await fetch(`${API_BASE}/links?${params.toString()}`, {
-      next: { revalidate: 300 },
+      next: { revalidate: 0 },
       headers: {
         Accept: "application/json",
         ...(API_KEY && { "X-API-Key": API_KEY }), // ✅ Added
