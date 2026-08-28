@@ -60,6 +60,14 @@ export const dynamicParams = true;
 type RouteParams = { slug: string };
 type PageProps = { params: Promise<RouteParams> };
 
+// Backend seo.meta_title/meta_description (and product name) template in the
+// product's category, but every product on this site currently has no real
+// category assigned (backend value is literally "uncategorized") — swap
+// that word for "Campervan" so public-facing SEO tags/JSON-LD stay
+// keyword-relevant instead of showing the raw placeholder.
+const stripUncategorized = (s: string) =>
+  s.replace(/\buncategorized\b/gi, "Campervan").replace(/\s{2,}/g, " ").trim();
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const data = await Promise.race([
@@ -70,8 +78,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const seo = data?.seo ?? data?.product?.seo ?? {};
   const slugTitle = slug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
 
-  const title = seo.metatitle || seo.meta_title || pd.name || data?.name || slugTitle || "Campervan for Sale";
-  const description = seo.metadescription || seo.meta_description || pd.short_description || "View campervan details on Campervans For Sale Australia.";
+  const title = stripUncategorized(seo.metatitle || seo.meta_title || pd.name || data?.name || slugTitle || "Campervan for Sale");
+  const description = stripUncategorized(seo.metadescription || seo.meta_description || pd.short_description || "View campervan details on Campervans For Sale Australia.");
   const canonicalUrl = `https://campervans.vercel.app/product/${slug}/`;
   const rawImages = pd.image_url ?? pd.images ?? [];
   const images: string[] = (Array.isArray(rawImages) ? rawImages : [rawImages]).filter(Boolean);
@@ -179,8 +187,8 @@ export default async function ProductDetailPage({ params }: PageProps) {
 
   const pd = data?.data?.product_details ?? {};
   const seo = data?.seo ?? data?.product?.seo ?? {};
-  const pdName = seo.metatitle || seo.meta_title || pd.name || data?.name || "";
-  const pdDesc = seo.metadescription || seo.meta_description || pd.short_description || data?.short_description || "";
+  const pdName = stripUncategorized(seo.metatitle || seo.meta_title || pd.name || data?.name || "");
+  const pdDesc = stripUncategorized(seo.metadescription || seo.meta_description || pd.short_description || data?.short_description || "");
   const canonicalUrl = `https://campervans.vercel.app/product/${slug}/`;
 
   const rawImages = pd.image_url ?? pd.images ?? [];

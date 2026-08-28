@@ -28,8 +28,15 @@ export const fetchProductMeta = cache(async (slug: string): Promise<ProductMeta>
     const data = JSON.parse(idx >= 0 ? raw.substring(idx) : raw);
     const seo = data?.seo ?? data?.product?.seo ?? {};
     const pd = data?.data?.product_details ?? {};
-    const title = seo.metatitle || seo.meta_title || pd.name || data?.name || "";
-    const description = seo.metadescription || seo.meta_description || pd.short_description || "";
+    // Backend seo.meta_title/meta_description template in the product's
+    // category, but every product on this site currently has no real
+    // category assigned (backend value is literally "uncategorized") —
+    // swap that word for "Campervan" so it stays keyword-relevant instead
+    // of showing the raw placeholder.
+    const stripUncategorized = (s: string) =>
+      s.replace(/\buncategorized\b/gi, "Campervan").replace(/\s{2,}/g, " ").trim();
+    const title = stripUncategorized(seo.metatitle || seo.meta_title || pd.name || data?.name || "");
+    const description = stripUncategorized(seo.metadescription || seo.meta_description || pd.short_description || "");
     const canonical = `https://campervans.vercel.app/product/${slug}/`;
     const imageUrlRaw = pd.image_url;
     const ogImage: string = Array.isArray(imageUrlRaw)
