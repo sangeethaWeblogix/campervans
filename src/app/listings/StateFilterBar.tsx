@@ -71,8 +71,8 @@ const buildMakeCountParams = (filters: FilterState): URLSearchParams => {
   if (filters.pincode)           params.set("pincode", filters.pincode);
   if (filters.from_price)        params.set("from_price", String(filters.from_price));
   if (filters.to_price)          params.set("to_price", String(filters.to_price));
-  if (filters.minKg)             params.set("from_atm", String(filters.minKg));
-  if (filters.maxKg)             params.set("to_atm", String(filters.maxKg));
+  if (filters.minKg)             params.set("from_gvm", String(filters.minKg));
+  if (filters.maxKg)             params.set("to_gvm", String(filters.maxKg));
   if (filters.acustom_fromyears) params.set("acustom_fromyears", String(filters.acustom_fromyears));
   if (filters.acustom_toyears)   params.set("acustom_toyears", String(filters.acustom_toyears));
   if (filters.from_length)       params.set("from_length", String(filters.from_length));
@@ -127,8 +127,8 @@ export default function StateFilterBar({ currentFilters, onFilterChange, onClear
     if (currentFilters.pincode)            params.set("pincode", currentFilters.pincode);
     if (currentFilters.from_price)         params.set("from_price", String(currentFilters.from_price));
     if (currentFilters.to_price)           params.set("to_price", String(currentFilters.to_price));
-    if (currentFilters.minKg)              params.set("from_atm", String(currentFilters.minKg));
-    if (currentFilters.maxKg)              params.set("to_atm", String(currentFilters.maxKg));
+    if (currentFilters.minKg)              params.set("from_gvm", String(currentFilters.minKg));
+    if (currentFilters.maxKg)              params.set("to_gvm", String(currentFilters.maxKg));
     if (currentFilters.acustom_fromyears)  params.set("acustom_fromyears", String(currentFilters.acustom_fromyears));
     if (currentFilters.acustom_toyears)    params.set("acustom_toyears", String(currentFilters.acustom_toyears));
     if (currentFilters.from_length)        params.set("from_length", String(currentFilters.from_length));
@@ -225,8 +225,8 @@ export default function StateFilterBar({ currentFilters, onFilterChange, onClear
     if (currentFilters.condition)         params.set("condition", currentFilters.condition);
     if (currentFilters.from_price)        params.set("from_price", String(currentFilters.from_price));
     if (currentFilters.to_price)          params.set("to_price", String(currentFilters.to_price));
-    if (currentFilters.minKg)             params.set("from_atm", String(currentFilters.minKg));
-    if (currentFilters.maxKg)             params.set("to_atm", String(currentFilters.maxKg));
+    if (currentFilters.minKg)             params.set("from_gvm", String(currentFilters.minKg));
+    if (currentFilters.maxKg)             params.set("to_gvm", String(currentFilters.maxKg));
     if (currentFilters.acustom_fromyears) params.set("acustom_fromyears", String(currentFilters.acustom_fromyears));
     if (currentFilters.acustom_toyears)   params.set("acustom_toyears", String(currentFilters.acustom_toyears));
     if (currentFilters.from_length)       params.set("from_length", String(currentFilters.from_length));
@@ -268,8 +268,8 @@ export default function StateFilterBar({ currentFilters, onFilterChange, onClear
       if (currentFilters.condition)         params.set("condition", currentFilters.condition);
       if (currentFilters.from_price)        params.set("from_price", String(currentFilters.from_price));
       if (currentFilters.to_price)          params.set("to_price", String(currentFilters.to_price));
-      if (currentFilters.minKg)             params.set("from_atm", String(currentFilters.minKg));
-      if (currentFilters.maxKg)             params.set("to_atm", String(currentFilters.maxKg));
+      if (currentFilters.minKg)             params.set("from_gvm", String(currentFilters.minKg));
+      if (currentFilters.maxKg)             params.set("to_gvm", String(currentFilters.maxKg));
       if (currentFilters.acustom_fromyears) params.set("acustom_fromyears", String(currentFilters.acustom_fromyears));
       if (currentFilters.acustom_toyears)   params.set("acustom_toyears", String(currentFilters.acustom_toyears));
       if (currentFilters.from_length)       params.set("from_length", String(currentFilters.from_length));

@@ -29,26 +29,24 @@ const FILTERS = [
     icon: <Image src="/images/Budget.png" alt="Budget" width={24} height={24} unoptimized />,
     label: "By Price",
     items: [
-      { text: "Under $30,000",       href: "/listings/under-30000/" },
-      { text: "$30,000 – $40,000",   href: "/listings/between-30000-40000/" },
-      { text: "$40,000 – $50,000",   href: "/listings/between-40000-50000/" },
+      { text: "Under $50,000",       href: "/listings/under-50000/" },
       { text: "$50,000 – $70,000",   href: "/listings/between-50000-70000/" },
       { text: "$70,000 – $80,000",   href: "/listings/between-70000-80000/" },
       { text: "$80,000 – $100,000",  href: "/listings/between-80000-100000/" },
-      { text: "Over $100,000",       href: "/listings/over-100000/" }, 
+      { text: "$100,000 – $150,000", href: "/listings/between-100000-150000/" },
+      { text: "$150,000 – $200,000", href: "/listings/between-150000-200000/" },
+      { text: "$200,000 – $250,000", href: "/listings/between-200000-250000/" },
+      { text: "Over $250,000",       href: "/listings/over-250000/" },
     ],
   },
   {
     icon: <Image src="/images/GVM.png" alt="Weight GVM" width={24} height={24} unoptimized />,
     label: "By Weight (GVM)",
     items: [
-      { text: "Under 1500kg", href: "/listings/under-1500-kg-gvm/" },
-      { text: "Under 2000kg", href: "/listings/under-2000-kg-gvm/" },
-      { text: "Under 2500kg", href: "/listings/under-2500-kg-gvm/" },
       { text: "Under 3000kg", href: "/listings/under-3000-kg-gvm/" },
-       
-      { text: "Over 3000kg",  href: "/listings/over-3000-kg-gvm/" },
-       
+      { text: "Under 3500kg", href: "/listings/under-3500-kg-gvm/" },
+      { text: "Under 4000kg", href: "/listings/under-4000-kg-gvm/" },
+      { text: "Over 4000kg",  href: "/listings/over-4000-kg-gvm/" },
     ],
   },
   {
@@ -113,6 +111,7 @@ export default function HomeLocationSection() {
           ))}
         </div>
 
+        {/* Minor cities pill row — cmd pannirukku, tempervery ah disable pannirukkom
         <div className="hloc-minor-wrap">
           {MINOR_CITIES.map((city, idx) => (
             <a
@@ -124,6 +123,7 @@ export default function HomeLocationSection() {
             </a>
           ))}
         </div>
+        */}
 <div className="hloc-header">
   <h2 className="hloc-title">
            Search Campervans for Sale <span className="hloc-title-accent">Your Way</span>

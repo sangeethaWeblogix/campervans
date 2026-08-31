@@ -11,7 +11,7 @@ import { dedupeById } from "./listingShared";
 import StateBrowseSection from "./StateBrowseSection";
 import type { BrowseSectionData } from "./browseSectionShared";
 import StateContent from "./StateContent";
-import { buildApiUrl, buildListingsSlug, buildFilterBreadcrumbs } from "./urlUtils";
+import { buildApiUrl, buildListingsSlug, buildFilterBreadcrumbs, parseDemoFilters } from "./urlUtils";
 // import { useBanners } from "@/components/BannerHandler";
 // import { useBannerTracking } from "@/hooks/useBannerTracking";
 import "./main.css?=7";
@@ -167,8 +167,20 @@ export default function StateHome({ initialFilters, browseData, initialPool, ini
   }, []);
 
   useEffect(() => {
+    // Filter changes push the URL via history.pushState (not next/navigation's
+    // router), so Next's own router never "sees" those navigations. If the
+    // user then follows a real Link (e.g. into a product page) and hits
+    // Back, the browser correctly restores the URL, but without this handler
+    // the component's `filters` state would stay whatever it was at that
+    // point rather than being re-derived from the restored URL — showing
+    // the wrong (often unfiltered) listing set under the right-looking URL.
     const handlePopState = () => {
-      const cid = new URLSearchParams(window.location.search).get("clickid");
+      const url = new URL(window.location.href);
+      const slugParts = url.pathname.replace(/^\/listings\/?/, "").split("/").filter(Boolean);
+      const query = Object.fromEntries(url.searchParams);
+      setFilters(parseDemoFilters(slugParts, query));
+
+      const cid = url.searchParams.get("clickid");
       if (cid) {
         const saved = readPage(cid);
         setClickid(cid);

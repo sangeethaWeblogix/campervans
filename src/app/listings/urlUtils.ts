@@ -21,8 +21,8 @@ export function buildApiUrl(base: string, filters: FilterState, seed: number, lo
   if (filters.radius_kms)         params.set("radius_kms",         String(filters.radius_kms));
   if (filters.from_price)         params.set("from_price",         String(filters.from_price));
   if (filters.to_price)           params.set("to_price",           String(filters.to_price));
-  if (filters.minKg)              params.set("from_atm",           String(filters.minKg));
-  if (filters.maxKg)              params.set("to_atm",             String(filters.maxKg));
+  if (filters.minKg)              params.set("from_gvm",           String(filters.minKg));
+  if (filters.maxKg)              params.set("to_gvm",             String(filters.maxKg));
   if (filters.from_sleep)         params.set("from_sleep",         String(filters.from_sleep));
   if (filters.to_sleep)           params.set("to_sleep",           String(filters.to_sleep));
   if (filters.acustom_fromyears)  params.set("acustom_fromyears",  String(filters.acustom_fromyears));

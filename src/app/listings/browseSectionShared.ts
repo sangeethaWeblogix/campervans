@@ -43,23 +43,23 @@ export const FILTERS_NO_STATE = [
   {
     icon: "/images/Budget.png", title: "By Price",
     links: [
-      { text: "Under $30,000",      href: "/listings/under-30000/" },
-      { text: "$30,000 – $40,000",  href: "/listings/between-30000-40000/" },
-      { text: "$40,000 – $50,000",  href: "/listings/between-40000-50000/" },
-      { text: "$50,000 – $70,000",  href: "/listings/between-50000-70000/" },
-      { text: "$70,000 – $80,000",  href: "/listings/between-70000-80000/" },
-      { text: "$80,000 – $100,000", href: "/listings/between-80000-100000/" },
-      { text: "Over $100,000",      href: "/listings/over-100000/" },
+      { text: "Under $50,000",       href: "/listings/under-50000/" },
+      { text: "$50,000 – $70,000",   href: "/listings/between-50000-70000/" },
+      { text: "$70,000 – $80,000",   href: "/listings/between-70000-80000/" },
+      { text: "$80,000 – $100,000",  href: "/listings/between-80000-100000/" },
+      { text: "$100,000 – $150,000", href: "/listings/between-100000-150000/" },
+      { text: "$150,000 – $200,000", href: "/listings/between-150000-200000/" },
+      { text: "$200,000 – $250,000", href: "/listings/between-200000-250000/" },
+      { text: "Over $250,000",       href: "/listings/over-250000/" },
     ],
   },
   {
     icon: "/images/GVM.png", title: "By Weight (GVM)",
     links: [
-      { text: "Under 1500kg", href: "/listings/under-1500-kg-gvm/" },
-      { text: "Under 2000kg", href: "/listings/under-2000-kg-gvm/" },
-      { text: "Under 2500kg", href: "/listings/under-2500-kg-gvm/" },
       { text: "Under 3000kg", href: "/listings/under-3000-kg-gvm/" },
-      { text: "Over 3000kg",  href: "/listings/over-3000-kg-gvm/" },
+      { text: "Under 3500kg", href: "/listings/under-3500-kg-gvm/" },
+      { text: "Under 4000kg", href: "/listings/under-4000-kg-gvm/" },
+      { text: "Over 4000kg",  href: "/listings/over-4000-kg-gvm/" },
     ],
   },
   {
@@ -111,21 +111,21 @@ export const POPULAR_REGION_PATHS = [
 // backend for numeric fields, so counts come from pool-listings'
 // total_products for each band individually).
 export const PRICE_BANDS = [
-  { text: "Under $30,000",      href: "/listings/under-30000/",          query: "to_price=30000" },
-  { text: "$30,000 – $40,000",  href: "/listings/between-30000-40000/",  query: "from_price=30000&to_price=40000" },
-  { text: "$40,000 – $50,000",  href: "/listings/between-40000-50000/",  query: "from_price=40000&to_price=50000" },
-  { text: "$50,000 – $70,000",  href: "/listings/between-50000-70000/",  query: "from_price=50000&to_price=70000" },
-  { text: "$70,000 – $80,000",  href: "/listings/between-70000-80000/",  query: "from_price=70000&to_price=80000" },
-  { text: "$80,000 – $100,000", href: "/listings/between-80000-100000/", query: "from_price=80000&to_price=100000" },
-  { text: "Over $100,000",      href: "/listings/over-100000/",          query: "from_price=100000" },
+  { text: "Under $50,000",       href: "/listings/under-50000/",           query: "to_price=50000" },
+  { text: "$50,000 – $70,000",   href: "/listings/between-50000-70000/",   query: "from_price=50000&to_price=70000" },
+  { text: "$70,000 – $80,000",   href: "/listings/between-70000-80000/",   query: "from_price=70000&to_price=80000" },
+  { text: "$80,000 – $100,000",  href: "/listings/between-80000-100000/",  query: "from_price=80000&to_price=100000" },
+  { text: "$100,000 – $150,000", href: "/listings/between-100000-150000/", query: "from_price=100000&to_price=150000" },
+  { text: "$150,000 – $200,000", href: "/listings/between-150000-200000/", query: "from_price=150000&to_price=200000" },
+  { text: "$200,000 – $250,000", href: "/listings/between-200000-250000/", query: "from_price=200000&to_price=250000" },
+  { text: "Over $250,000",       href: "/listings/over-250000/",           query: "from_price=250000" },
 ];
 
 export const GVM_BANDS = [
-  { text: "Under 1500kg", href: "/listings/under-1500-kg-gvm/", query: "to_atm=1500" },
-  { text: "Under 2000kg", href: "/listings/under-2000-kg-gvm/", query: "to_atm=2000" },
-  { text: "Under 2500kg", href: "/listings/under-2500-kg-gvm/", query: "to_atm=2500" },
-  { text: "Under 3000kg", href: "/listings/under-3000-kg-gvm/", query: "to_atm=3000" },
-  { text: "Over 3000kg",  href: "/listings/over-3000-kg-gvm/",  query: "from_atm=3000" },
+  { text: "Under 3000kg", href: "/listings/under-3000-kg-gvm/", query: "to_gvm=3000" },
+  { text: "Under 3500kg", href: "/listings/under-3500-kg-gvm/", query: "to_gvm=3500" },
+  { text: "Under 4000kg", href: "/listings/under-4000-kg-gvm/", query: "to_gvm=4000" },
+  { text: "Over 4000kg",  href: "/listings/over-4000-kg-gvm/",  query: "from_gvm=4000" },
 ];
 
 export const LENGTH_BANDS = [

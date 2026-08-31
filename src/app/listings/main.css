@@ -78,8 +78,8 @@
 .lsd-breadcrumb a:hover { text-decoration: underline; }
 .lsd-breadcrumb > span { display: inline-flex; align-items: center; gap: 6px; }
 .lsd-breadcrumb > span a { color: #000000; }
-.lsd-breadcrumb__current { color: #181818; font-weight: 600; }
-.lsd-paged-breadcrumb .lsd-breadcrumb__current { color: #444; font-weight: 600; }
+.lsd-breadcrumb__current { color: #181818;  }
+.lsd-paged-breadcrumb .lsd-breadcrumb__current { color: #444;  }
 
 /* Standalone breadcrumb bar — non-indexed pages (no hero banner) */
 .lsd-standalone-breadcrumb-wrap { padding: 16px 0 0; }

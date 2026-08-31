@@ -127,8 +127,8 @@ function buildApiParams(filters: Filters): URLSearchParams {
   if (filters.pincode) p.set('pincode', filters.pincode);
   if (filters.from_price) p.set('from_price', `${filters.from_price}`);
   if (filters.to_price) p.set('to_price', `${filters.to_price}`);
-  if (filters.minKg) p.set('from_atm', `${filters.minKg}`);
-  if (filters.maxKg) p.set('to_atm', `${filters.maxKg}`);
+  if (filters.minKg) p.set('from_gvm', `${filters.minKg}`);
+  if (filters.maxKg) p.set('to_gvm', `${filters.maxKg}`);
   if (filters.from_length) p.set('from_length', `${filters.from_length}`);
   if (filters.to_length) p.set('to_length', `${filters.to_length}`);
   if (filters.condition) p.set('condition', filters.condition.toLowerCase().replace(/\s+/g, '-'));
@@ -453,7 +453,7 @@ export async function middleware(request: NextRequest) {
         );
 
         // Build API params using the same mapping as fetchListings (api/listings/api.ts).
-        // Raw filter keys (minKg, maxKg, sleeps) must be converted to API names (from_atm, to_atm, sleep).
+        // Raw filter keys (minKg, maxKg, sleeps) must be converted to API names (from_gvm, to_gvm, sleep).
         const apiParams = buildApiParams(filters);
         // Cache-buster: defeat the WP origin's reverse-proxy caching of
         // non-2xx responses (see fetchPoolTest comment in /api/pool-listings/route.ts).
